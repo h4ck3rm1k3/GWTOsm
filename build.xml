@@ -27,6 +27,52 @@
         source="1.5" target="1.5" nowarn="true"
         debug="true" debuglevel="lines,vars,source">
       <classpath refid="project.class.path"/>
+                <exclude name="org/openstreetmap/josm/actions/search/"/>
+                <exclude name="org/openstreetmap/josm/actions/audio/"/>
+                <exclude name="org/openstreetmap/josm/actions/"/>
+                <exclude name="org/openstreetmap/josm/gui/conflict/tags/"/>
+                <exclude name="org/openstreetmap/josm/gui/dialogs/"/>
+                <exclude name="org/openstreetmap/josm/gui/dialogs/changeset/"/>
+                <exclude name="org/openstreetmap/josm/gui/dialogs/changeset/query/"/>
+                <exclude name="org/openstreetmap/josm/gui/dialogs/properties/"/>
+                <exclude name="org/openstreetmap/josm/gui/dialogs/relation/"/>
+                <exclude name="org/openstreetmap/josm/gui/download/"/>
+                <exclude name="org/openstreetmap/josm/gui/help/"/>
+                <exclude name="org/openstreetmap/josm/gui/history/"/>
+                <exclude name="org/openstreetmap/josm/gui/io/"/>
+                <exclude name="org/openstreetmap/josm/gui/layer/"/>
+                <exclude name="org/openstreetmap/josm/gui/layer/geoimage/"/>
+                <exclude name="org/openstreetmap/josm/gui/layer/markerlayer/"/>
+                <exclude name="org/openstreetmap/josm/gui/actionsupport/"/>
+                <exclude name="org/openstreetmap/josm/gui/conflict/"/>
+                <exclude name="org/openstreetmap/josm/gui/conflict/pair/"/>
+                <exclude name="org/openstreetmap/josm/gui/conflict/pair/nodes/"/>
+                <exclude name="org/openstreetmap/josm/gui/conflict/pair/properties/"/>
+                <exclude name="org/openstreetmap/josm/gui/conflict/pair/relation/"/>
+                <exclude name="org/openstreetmap/josm/gui/conflict/pair/tags/"/>
+                <exclude name="org/openstreetmap/josm/gui/preferences/"/>
+                <exclude name="org/openstreetmap/josm/gui/preferences/plugin/"/>
+                <exclude name="org/openstreetmap/josm/gui/preferences/server/"/>
+                <exclude name="org/openstreetmap/josm/command/"/>
+                <exclude name="org/openstreetmap/josm/data/gpx/"/>
+                <exclude name="org/openstreetmap/josm/gui/"/>
+                <exclude name="org/openstreetmap/josm/gui/tagging/"/>
+                <exclude name="org/openstreetmap/josm/gui/tagging/ac/"/>
+                <exclude name="org/openstreetmap/josm/plugins/"/>
+                <exclude name="org/openstreetmap/josm/corrector/"/>
+                <exclude name="org/openstreetmap/josm/data/UndoRedoHandler.java"/>
+                <exclude name="org/openstreetmap/josm/data/osm/Filter.java"/>
+                <exclude name="org/openstreetmap/josm/data/osm/Filters.java"/>
+                <exclude name="org/openstreetmap/josm/io/GpxExporter.java"/>
+                <exclude name="org/openstreetmap/josm/io/GpxImporter.java"/>
+                <exclude name="org/openstreetmap/josm/io/NMEAImporter.java"/>
+                <exclude name="org/openstreetmap/josm/io/NmeaReader.java"/>
+                <exclude name="org/openstreetmap/josm/io/auth/JosmPreferencesCredentialManager.java"/>
+                <exclude name="org/openstreetmap/josm/tools/AudioUtil.java"/>
+                <exclude name="org/openstreetmap/josm/tools/PlatformHookOsx.java"/>
+                <exclude name="org/openstreetmap/josm/io/GpxReader.java"/>
+                <exclude name="org/openstreetmap/josm/io/GpxWriter.java"/>
+      
     </javac>
     <copy todir="war/WEB-INF/classes">
       <fileset dir="src" excludes="**/*.java"/>
