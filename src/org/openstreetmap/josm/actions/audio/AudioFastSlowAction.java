@@ -1,0 +1,33 @@
+// License: GPL. Copyright 2007 by Immanuel Scholz and others
+package org.openstreetmap.josm.actions.audio;
+
+import java.awt.event.ActionEvent;
+
+import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.actions.JosmAction;
+import org.openstreetmap.josm.tools.AudioPlayer;
+import org.openstreetmap.josm.tools.Shortcut;
+
+abstract public class AudioFastSlowAction extends JosmAction {
+
+    private double multiplier;
+
+    public AudioFastSlowAction(String name, String iconName, String tooltip, Shortcut shortcut, boolean fast) {
+//        super(name, iconName, tooltip, shortcut, true);
+//        multiplier = Main.pref.getDouble("audio.fastfwdmultiplier","1.3");
+//        if (! fast)
+//            multiplier = 1.0 / multiplier;
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        double speed = AudioPlayer.speed();
+        if (speed * multiplier <= 0.1)
+            return;
+        try {
+            if (AudioPlayer.playing() || AudioPlayer.paused())
+                AudioPlayer.play(AudioPlayer.url(), AudioPlayer.position(), speed * multiplier);
+        } catch (Exception ex) {
+            AudioPlayer.audioMalfunction(ex);
+        }
+    }
+}

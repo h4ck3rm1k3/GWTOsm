@@ -1,0 +1,7 @@
+package org.openstreetmap.josm.gui;
+
+public class TestMainApplication extends Main {
+    public static void main(final String[] argArray) {
+	System.out.println(tr("Java OpenStreetMap Editor")+"\n");
+    }
+}
