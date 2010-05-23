@@ -1,13 +1,10 @@
 package org.openstreetmap.josm.data.osm;
 
-//import org.openstreetmap.josm.data.osm.QuadBuckets.QBLevel;
+import org.openstreetmap.josm.data.osm.QuadBuckets.QBLevel;
 
+//import org.openstreetmap.josm.data.osm.QuadBuckets.QBLevel;
+// we dont use the reflection interface
 public class Array {
 
-//	public static QBLevel[] newInstance(Class<? extends QBLevel> class1,
-//			int tILESPERLEVEL) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
+	
 }

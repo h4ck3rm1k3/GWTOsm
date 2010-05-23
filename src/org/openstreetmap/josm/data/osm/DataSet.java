@@ -109,7 +109,7 @@ public class DataSet implements Cloneable {
      * All nodes goes here, even when included in other data (ways etc). This enables the instant
      * conversion of the whole DataSet by iterating over this data structure.
      */
-    private QuadBuckets<Node> nodes = new QuadBuckets<Node>();
+    private QuadBuckets nodes = new QuadBuckets();
 
     private <T extends OsmPrimitive> Collection<T> getPrimitives(Predicate<OsmPrimitive> predicate) {
         return new DatasetCollection<T>(allPrimitives, predicate);
@@ -133,7 +133,7 @@ public class DataSet implements Cloneable {
      *
      * The way nodes are stored only in the way list.
      */
-    private QuadBuckets<Way> ways = new QuadBuckets<Way>();
+    private QuadBuckets ways = new QuadBuckets();
 
     /**
      * Replies an unmodifiable collection of ways in this dataset
@@ -553,16 +553,16 @@ public class DataSet implements Cloneable {
  public DataSet clone() {
         DataSet ds = new DataSet();
         HashMap<OsmPrimitive, OsmPrimitive> primitivesMap = new HashMap<OsmPrimitive, OsmPrimitive>();
-        for (Node n : nodes) {
-            Node newNode = new Node(n);
-            primitivesMap.put(n, newNode);
+        for (Object n : nodes) {
+            Node newNode = new Node((Node)n);
+            primitivesMap.put((OsmPrimitive) n, newNode);
             ds.addPrimitive(newNode);
         }
-        for (Way w : ways) {
-            Way newWay = new Way(w);
-            primitivesMap.put(w, newWay);
+        for (Object w : ways) {
+            Way newWay = new Way((Way)w);
+            primitivesMap.put((OsmPrimitive) w, newWay);
             List<Node> newNodes = new ArrayList<Node>();
-            for (Node n: w.getNodes()) {
+            for (OsmPrimitive n: ((Way)w).getNodes()) {
                 newNodes.add((Node)primitivesMap.get(n));
             }
             newWay.setNodes(newNodes);
@@ -665,13 +665,13 @@ public class DataSet implements Cloneable {
      * @param node the node
      */
     public void unlinkNodeFromWays(Node node) {
-        for (Way way: ways) {
-            List<Node> nodes = way.getNodes();
+        for (Object way: ways) {
+            List<Node> nodes = (List<Node>) ((DataSet) way).getNodes();
             if (nodes.remove(node)) {
                 if (nodes.size() < 2) {
-                    deleteWay(way);
+                    deleteWay((Way) way);
                 } else {
-                    way.setNodes(nodes);
+                    ((Way) way).setNodes(nodes);
                 }
             }
         }
@@ -725,14 +725,14 @@ public class DataSet implements Cloneable {
      * {@see OsmPrimitive#isModified()} == <code>true</code>.
      */
     public boolean isModified() {
-        for (Node n: nodes) {
-            if (n.isModified()) return true;
+        for (Object n: nodes) {
+            if (((Node)n).isModified()) return true;
         }
-        for (Way w: ways) {
-            if (w.isModified()) return true;
+        for (Object w: ways) {
+            if (((Way)w).isModified()) return true;
         }
-        for (Relation r: relations) {
-            if (r.isModified()) return true;
+        for (Object r: relations) {
+            if (((Relation)r).isModified()) return true;
         }
         return false;
     }
