@@ -3,25 +3,25 @@ package org.openstreetmap.josm.gui.io;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+//import java.awt.Dimension;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.Insets;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ItemEvent;
+//import java.awt.event.ItemListener;
 import java.util.Collections;
 
-import javax.swing.AbstractAction;
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
+//import javax.swing.AbstractAction;
+//import javax.swing.BorderFactory;
+//import javax.swing.ButtonGroup;
+//import javax.swing.JButton;
+//import javax.swing.JCheckBox;
+//import javax.swing.JComboBox;
+//import javax.swing.JPanel;
+//import javax.swing.JRadioButton;
+//import javax.swing.event.ListDataEvent;
+//import javax.swing.event.ListDataListener;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.Changeset;

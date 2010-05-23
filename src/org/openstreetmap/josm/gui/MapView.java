@@ -4,18 +4,18 @@ package org.openstreetmap.josm.gui;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.awt.geom.Area;
-import java.awt.geom.GeneralPath;
-import java.awt.image.BufferedImage;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Graphics;
+//import java.awt.Graphics2D;
+//import java.awt.Point;
+//import java.awt.Rectangle;
+//import java.awt.event.ComponentAdapter;
+//import java.awt.event.ComponentEvent;
+//import java.awt.event.MouseEvent;
+//import java.awt.event.MouseMotionListener;
+//import java.awt.geom.Area;
+//import java.awt.geom.GeneralPath;
+//import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
@@ -27,9 +27,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.AbstractButton;
-import javax.swing.JComponent;
-import javax.swing.JOptionPane;
+//import javax.swing.AbstractButton;
+//import javax.swing.JComponent;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.AutoScaleAction;

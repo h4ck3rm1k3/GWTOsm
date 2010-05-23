@@ -4,7 +4,7 @@ package org.openstreetmap.josm.gui.io;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.JTable;
+//import javax.swing.JTable;
 
 import org.openstreetmap.josm.gui.io.SaveLayersModel.Mode;
 

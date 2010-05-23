@@ -3,29 +3,29 @@ package org.openstreetmap.josm.gui.dialogs.changeset.query;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+//import java.awt.BorderLayout;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.Insets;
+//import java.awt.event.ItemEvent;
+//import java.awt.event.ItemListener;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.text.JTextComponent;
+//import javax.swing.BorderFactory;
+//import javax.swing.ButtonGroup;
+//import javax.swing.JCheckBox;
+//import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
+//import javax.swing.JRadioButton;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTextField;
+//import javax.swing.text.JTextComponent;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.gui.HelpAwareOptionPane;

@@ -3,8 +3,8 @@ package org.openstreetmap.josm.gui.conflict.pair.relation;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import javax.swing.table.DefaultTableColumnModel;
-import javax.swing.table.TableColumn;
+//import javax.swing.table.DefaultTableColumnModel;
+//import javax.swing.table.TableColumn;
 
 public class RelationMemberListColumnModel extends DefaultTableColumnModel{
 

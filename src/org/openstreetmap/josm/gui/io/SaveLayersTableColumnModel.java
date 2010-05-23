@@ -3,10 +3,10 @@ package org.openstreetmap.josm.gui.io;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import javax.swing.table.DefaultTableColumnModel;
-import javax.swing.table.TableCellEditor;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumn;
+//import javax.swing.table.DefaultTableColumnModel;
+//import javax.swing.table.TableCellEditor;
+//import javax.swing.table.TableCellRenderer;
+//import javax.swing.table.TableColumn;
 
 class SaveLayersTableColumnModel extends DefaultTableColumnModel {
     protected void build() {

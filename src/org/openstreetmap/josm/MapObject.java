@@ -1,6 +1,8 @@
 package org.openstreetmap.josm;
 
-import java.awt.Cursor;
+import org.openstreetmap.josm.tools.Cursor;
+
+//import java.awt.Cursor;
 
 
 public class MapObject {

@@ -1,9 +1,9 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
 
-import java.awt.Component;
-import java.awt.Point;
-import java.awt.Rectangle;
+////import java.awt.Component;
+////import java.awt.Point;
+////import java.awt.Rectangle;
 import java.util.Collection;
 import java.util.List;
 
@@ -16,6 +16,8 @@ import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.Way;
 import org.openstreetmap.josm.data.osm.WaySegment;
 import org.openstreetmap.josm.data.projection.Projection;
+import org.openstreetmap.josm.tools.Component;
+import org.openstreetmap.josm.tools.Point;
 import org.openstreetmap.josm.tools.Predicate;
 
 public interface INavigatableComponent {
@@ -225,5 +227,8 @@ public interface INavigatableComponent {
 	public abstract int getWidth();
 
 	public abstract Component getComp();
+
+	Collection<OsmPrimitive> getAllNearest(java.awt.Point p,
+			Predicate<OsmPrimitive> predicate);
 
 }

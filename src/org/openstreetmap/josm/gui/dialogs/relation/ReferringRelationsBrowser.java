@@ -3,22 +3,22 @@ package org.openstreetmap.josm.gui.dialogs.relation;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+//import java.awt.BorderLayout;
+//import java.awt.FlowLayout;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.JCheckBox;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListDataEvent;
-import javax.swing.event.ListDataListener;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+//import javax.swing.AbstractAction;
+//import javax.swing.JCheckBox;
+//import javax.swing.JList;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.ListSelectionModel;
+//import javax.swing.event.ListDataEvent;
+//import javax.swing.event.ListDataListener;
+//import javax.swing.event.ListSelectionEvent;
+//import javax.swing.event.ListSelectionListener;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.Relation;

@@ -3,15 +3,15 @@ package org.openstreetmap.josm.actions.mapmode;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.AWTEvent;
-import java.awt.Cursor;
-import java.awt.EventQueue;
-import java.awt.Toolkit;
-import java.awt.event.AWTEventListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
+//import java.awt.AWTEvent;
+//import java.awt.Cursor;
+//import java.awt.EventQueue;
+//import java.awt.Toolkit;
+//import java.awt.event.AWTEventListener;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.InputEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.MouseEvent;
 import java.util.Collections;
 
 import org.openstreetmap.josm.Main;

@@ -1,13 +1,13 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.dialogs.changeset;
 
-import java.awt.BorderLayout;
+//import java.awt.BorderLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+//import javax.swing.BorderFactory;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
 
 import org.openstreetmap.josm.data.osm.Changeset;
 import org.openstreetmap.josm.gui.tagging.TagEditorModel;

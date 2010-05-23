@@ -3,14 +3,14 @@ package org.openstreetmap.josm.gui;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.GridBagLayout;
-import java.awt.HeadlessException;
+//import java.awt.Component;
+//import java.awt.GridBagLayout;
+//import java.awt.HeadlessException;
 
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+//import javax.swing.JCheckBox;
+//import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.Main;
 

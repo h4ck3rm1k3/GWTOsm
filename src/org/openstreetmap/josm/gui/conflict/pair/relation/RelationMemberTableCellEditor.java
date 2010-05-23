@@ -1,14 +1,14 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.conflict.pair.relation;
 
-import java.awt.Component;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+//import java.awt.Component;
+//import java.awt.event.FocusAdapter;
+//import java.awt.event.FocusEvent;
 
-import javax.swing.AbstractCellEditor;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.TableCellEditor;
+//import javax.swing.AbstractCellEditor;
+//import javax.swing.JTable;
+//import javax.swing.JTextField;
+//import javax.swing.table.TableCellEditor;
 
 import org.openstreetmap.josm.data.osm.RelationMember;
 

@@ -2,10 +2,10 @@ package org.openstreetmap.josm.gui.preferences;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import javax.swing.Box;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+//import javax.swing.Box;
+//import javax.swing.JCheckBox;
+//import javax.swing.JLabel;
+//import javax.swing.JTextField;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.tools.GBC;

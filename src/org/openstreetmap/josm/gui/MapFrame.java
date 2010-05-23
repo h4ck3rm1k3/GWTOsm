@@ -2,25 +2,25 @@
 
 package org.openstreetmap.josm.gui;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
+//import java.awt.BorderLayout;
+//import java.awt.Container;
+//import java.awt.Dimension;
+//import java.awt.event.MouseWheelEvent;
+//import java.awt.event.MouseWheelListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.AbstractButton;
-import javax.swing.Action;
-import javax.swing.BoxLayout;
-import javax.swing.ButtonGroup;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
-import javax.swing.JToolBar;
-import javax.swing.border.Border;
-import javax.swing.plaf.basic.BasicSplitPaneDivider;
-import javax.swing.plaf.basic.BasicSplitPaneUI;
+//import javax.swing.AbstractButton;
+//import javax.swing.Action;
+//import javax.swing.BoxLayout;
+//import javax.swing.ButtonGroup;
+//import javax.swing.JPanel;
+//import javax.swing.JSplitPane;
+//import javax.swing.JToolBar;
+//import javax.swing.border.Border;
+//import javax.swing.plaf.basic.BasicSplitPaneDivider;
+//import javax.swing.plaf.basic.BasicSplitPaneUI;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.mapmode.DeleteAction;

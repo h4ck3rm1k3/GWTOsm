@@ -3,12 +3,12 @@ package org.openstreetmap.josm.gui.dialogs.changeset;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
+//import java.awt.Component;
 
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.UIManager;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.JLabel;
+//import javax.swing.JTable;
+//import javax.swing.UIManager;
+//import javax.swing.table.TableCellRenderer;
 
 import org.openstreetmap.josm.data.osm.ChangesetDataSet.ChangesetModificationType;
 import org.openstreetmap.josm.data.osm.history.HistoryOsmPrimitive;

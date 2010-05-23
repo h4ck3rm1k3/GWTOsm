@@ -1,8 +1,8 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.conflict.pair.relation;
 
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTable;
 
 import org.openstreetmap.josm.data.conflict.Conflict;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;

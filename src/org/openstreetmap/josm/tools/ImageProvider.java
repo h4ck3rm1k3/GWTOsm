@@ -3,18 +3,18 @@ package org.openstreetmap.josm.tools;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GraphicsConfiguration;
-import java.awt.GraphicsEnvironment;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.RenderingHints;
-import java.awt.Toolkit;
-import java.awt.Transparency;
-import java.awt.image.BufferedImage;
+////import java.awt.Component;
+////import java.awt.Cursor;
+////import java.awt.Graphics;
+////import java.awt.Graphics2D;
+////import java.awt.GraphicsConfiguration;
+////import java.awt.GraphicsEnvironment;
+////import java.awt.Image;
+////import java.awt.Point;
+////import java.awt.RenderingHints;
+////import java.awt.Toolkit;
+////import java.awt.Transparency;
+////import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,12 +29,15 @@ import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+////import javax.swing.Icon;
+////import javax.swing.ImageIcon;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.OsmPrimitiveType;
+import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.ImageIcon;
 import org.openstreetmap.josm.io.MirroredInputStream;
+import org.vaadin.gwtgraphics.client.Image;
 
 /**
  * Helperclass to support the application with images.
@@ -256,7 +259,13 @@ public class ImageProvider {
         return c;
     }
 
-    /**
+    private static ImageIcon overlay(ImageIcon img, String overlayImage,
+			OverlayPosition southeast) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/**
      * @return an icon that represent the overlay of the two given icons. The second icon is layed
      * on the first relative to the given position.
      */
@@ -269,7 +278,7 @@ public class ImageProvider {
         int wo = overlay.getIconWidth();
         int ho = overlay.getIconHeight();
         BufferedImage img = conf.createCompatibleImage(w, h, Transparency.TRANSLUCENT);
-        Graphics g = img.createGraphics();
+        GWTGraphics2D g = img.createGraphics();
         ground.paintIcon(null, g, 0, 0);
         int x = 0, y = 0;
         switch (pos) {
@@ -348,8 +357,8 @@ public class ImageProvider {
             h = (int) (ih * Math.sin(radian) + iw * Math.sin(DEGREE_90 - radian));
         }
         BufferedImage image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-        Graphics g = image.getGraphics();
-        Graphics2D g2d = (Graphics2D) g.create();
+        GWTGraphics2D g = image.getGraphics();
+        GWTGraphics2D g2d =  g.create();
 
         // calculate the center of the icon.
         int cx = iw / 2;
@@ -361,7 +370,7 @@ public class ImageProvider {
         // rotate the graphics about the center point of the icon
         g2d.rotate(Math.toRadians(originalAngle));
 
-        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
+//        g2d.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BICUBIC);
         icon.paintIcon(c, g2d, -cx, -cy);
 
         g2d.dispose();
@@ -377,4 +386,10 @@ public class ImageProvider {
         CheckParameterUtil.ensureParameterNotNull(type, "type");
         return get("data", type.getAPIName());
     }
+
+	public static ImageIcon createRotatedImage(Object c, ImageIcon icon,
+			double iconAngle) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

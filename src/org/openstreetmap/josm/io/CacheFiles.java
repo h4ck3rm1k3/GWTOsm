@@ -1,7 +1,7 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.io;
 
-import java.awt.image.BufferedImage;
+//import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.RandomAccessFile;
 import java.math.BigInteger;
@@ -11,11 +11,12 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
 
-import javax.imageio.ImageIO;
+//import javax.imageio.ImageIO;
 
 
 
 import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.tools.BufferedImage;
 
 /**
  * Use this class if you want to cache a lot of files that shouldn't be kept in memory. You can
@@ -136,7 +137,7 @@ public class CacheFiles {
         writes++;
         checkCleanUp();
     }
-
+    BufferedImage x;
     /**
      * Loads the data for the given ident as an image. If no image is found, null is returned
      * @param ident Identifier

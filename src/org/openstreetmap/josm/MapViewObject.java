@@ -1,14 +1,16 @@
 package org.openstreetmap.josm;
 
-import java.awt.Cursor;
-import java.awt.Point;
-import java.awt.event.MouseAdapter;
+//import java.awt.Cursor;
+//import java.awt.Point;
+//import java.awt.event.MouseAdapter;
 import java.util.Collection;
 
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
+import org.openstreetmap.josm.tools.Cursor;
+import org.openstreetmap.josm.tools.Point;
 import org.openstreetmap.josm.tools.Predicate;
 
 public class MapViewObject {
@@ -41,10 +43,10 @@ public class MapViewObject {
 		
 	}
 
-	public void addMouseListener(MouseAdapter mouseAdapter) {
-		// TODO Auto-generated method stub
-		
-	}
+//	public void addMouseListener(MouseAdapter mouseAdapter) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 	public void addMouseListener(DeleteAction deleteAction) {
 		// TODO Auto-generated method stub

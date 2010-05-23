@@ -2,7 +2,7 @@ package org.openstreetmap.gui.jmapviewer;
 
 //License: GPL. Copyright 2009 by Stefan Zeller
 
-import java.awt.geom.Point2D;
+//import java.awt.geom.Point2D;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

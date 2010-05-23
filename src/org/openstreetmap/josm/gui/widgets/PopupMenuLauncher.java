@@ -1,10 +1,10 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.widgets;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
 
-import javax.swing.JPopupMenu;
+//import javax.swing.JPopupMenu;
 
 public class PopupMenuLauncher extends MouseAdapter {
     private JPopupMenu menu;

@@ -5,7 +5,9 @@ import static java.awt.geom.Rectangle2D.OUT_LEFT;
 import static java.awt.geom.Rectangle2D.OUT_RIGHT;
 import static java.awt.geom.Rectangle2D.OUT_TOP;
 import static java.awt.geom.Rectangle2D.OUT_BOTTOM;
-import java.awt.Point;
+////import java.awt.Point;
+
+import org.openstreetmap.josm.tools.Point;
 
 /**
  * Computes the part of a line that is visible in a given rectangle.

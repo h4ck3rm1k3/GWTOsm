@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.gui.layer.markerlayer;
 
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
 import java.net.URL;
 
 import org.openstreetmap.josm.Main;

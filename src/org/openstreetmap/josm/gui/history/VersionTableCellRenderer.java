@@ -3,16 +3,16 @@ package org.openstreetmap.josm.gui.history;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
-import java.awt.Component;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Component;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.logging.Logger;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.ImageIcon;
+//import javax.swing.JLabel;
+//import javax.swing.JTable;
+//import javax.swing.table.TableCellRenderer;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;

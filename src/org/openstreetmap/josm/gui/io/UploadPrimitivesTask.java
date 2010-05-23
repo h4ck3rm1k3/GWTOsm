@@ -11,8 +11,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.logging.Logger;
 
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
+//import javax.swing.JOptionPane;
+//import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.APIDataSet;

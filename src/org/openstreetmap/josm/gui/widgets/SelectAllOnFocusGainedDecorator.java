@@ -1,11 +1,11 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.widgets;
 
-import java.awt.Component;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+//import java.awt.Component;
+//import java.awt.event.FocusAdapter;
+//import java.awt.event.FocusEvent;
 
-import javax.swing.text.JTextComponent;
+//import javax.swing.text.JTextComponent;
 
 public class SelectAllOnFocusGainedDecorator extends FocusAdapter{
 

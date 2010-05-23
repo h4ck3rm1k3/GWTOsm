@@ -5,8 +5,8 @@ import static org.openstreetmap.josm.tools.I18n.marktr;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trn;
 
-import java.awt.GridBagLayout;
-import java.awt.geom.Area;
+//import java.awt.GridBagLayout;
+//import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -19,11 +19,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
+//import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
+//import javax.swing.tree.DefaultMutableTreeNode;
+//import javax.swing.tree.MutableTreeNode;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.SplitWayAction;

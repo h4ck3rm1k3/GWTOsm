@@ -1,12 +1,12 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.conflict.pair;
 
-import java.awt.Color;
-import java.awt.Component;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Component;
 
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.ListCellRenderer;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
+//import javax.swing.ListCellRenderer;
 
 public class ComparePairListCellRenderer extends JLabel implements ListCellRenderer {
     public final static Color BGCOLOR_SELECTED = new Color(143,170,255);

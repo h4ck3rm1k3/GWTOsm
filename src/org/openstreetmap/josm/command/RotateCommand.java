@@ -7,9 +7,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import javax.swing.JLabel;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
+//import javax.swing.JLabel;
+//import javax.swing.tree.DefaultMutableTreeNode;
+//import javax.swing.tree.MutableTreeNode;
 
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.coor.LatLon;

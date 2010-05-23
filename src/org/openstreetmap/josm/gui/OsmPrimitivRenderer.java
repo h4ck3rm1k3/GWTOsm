@@ -1,15 +1,15 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.gui;
 
-import java.awt.Component;
+//import java.awt.Component;
 
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JTable;
-import javax.swing.ListCellRenderer;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.DefaultListCellRenderer;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
+//import javax.swing.JTable;
+//import javax.swing.ListCellRenderer;
+//import javax.swing.table.DefaultTableCellRenderer;
+//import javax.swing.table.TableCellRenderer;
 
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.history.HistoryOsmPrimitive;

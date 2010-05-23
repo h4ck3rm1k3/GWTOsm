@@ -1,21 +1,21 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.widgets;
 
-import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+//import java.awt.event.FocusEvent;
+//import java.awt.event.FocusListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.JTextField;
-import javax.swing.UIManager;
-import javax.swing.border.Border;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.JTextComponent;
+//import javax.swing.BorderFactory;
+//import javax.swing.JTextField;
+//import javax.swing.UIManager;
+//import javax.swing.border.Border;
+//import javax.swing.event.DocumentEvent;
+//import javax.swing.event.DocumentListener;
+//import javax.swing.text.JTextComponent;
 
 import org.openstreetmap.josm.tools.CheckParameterUtil;
 

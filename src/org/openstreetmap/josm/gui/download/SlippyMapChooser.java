@@ -7,7 +7,7 @@ import static org.openstreetmap.josm.tools.I18n.tr;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.JPanel;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.gui.bbox.BBoxChooser;

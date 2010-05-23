@@ -3,20 +3,20 @@ package org.openstreetmap.josm.gui.history;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.Insets;
+//import java.awt.Point;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
+//import javax.swing.AbstractAction;
+//import javax.swing.JPanel;
+//import javax.swing.JPopupMenu;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTable;
+//import javax.swing.ListSelectionModel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.AutoScaleAction;

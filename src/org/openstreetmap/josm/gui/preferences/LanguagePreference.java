@@ -3,20 +3,20 @@ package org.openstreetmap.josm.gui.preferences;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
+//import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-import javax.swing.Box;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.ListCellRenderer;
+//import javax.swing.Box;
+//import javax.swing.DefaultComboBoxModel;
+//import javax.swing.DefaultListCellRenderer;
+//import javax.swing.JComboBox;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
+//import javax.swing.JPanel;
+//import javax.swing.ListCellRenderer;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.tools.GBC;

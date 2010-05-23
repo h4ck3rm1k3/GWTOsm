@@ -1,7 +1,7 @@
 package org.openstreetmap.josm.gui.mappaint;
 
-import javax.swing.GrayFilter;
-import javax.swing.ImageIcon;
+//import javax.swing.GrayFilter;
+//import javax.swing.ImageIcon;
 
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;

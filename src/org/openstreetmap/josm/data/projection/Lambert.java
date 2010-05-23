@@ -3,15 +3,15 @@ package org.openstreetmap.josm.data.projection;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.GridBagLayout;
+//import java.awt.GridBagLayout;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collection;
 import java.util.Collections;
 
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+//import javax.swing.JComboBox;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Bounds;
@@ -252,41 +252,41 @@ public class Lambert implements Projection, ProjectionSubPrefs {
         tr("{0} (Corsica)", 4)
     };
 
-    public void setupPreferencePanel(JPanel p) {
-        JComboBox prefcb = new JComboBox(lambert4zones);
-
-        prefcb.setSelectedIndex(layoutZone);
-        p.setLayout(new GridBagLayout());
-        p.add(new JLabel(tr("Lambert CC Zone")), GBC.std().insets(5,5,0,5));
-        p.add(GBC.glue(1, 0), GBC.std().fill(GBC.HORIZONTAL));
-        /* Note: we use component position 2 below to find this again */
-        p.add(prefcb, GBC.eop().fill(GBC.HORIZONTAL));
-        p.add(GBC.glue(1, 1), GBC.eol().fill(GBC.BOTH));
-    }
-
-    public Collection<String> getPreferences(JPanel p) {
-        Object prefcb = p.getComponent(2);
-        if(!(prefcb instanceof JComboBox))
-            return null;
-        layoutZone = ((JComboBox)prefcb).getSelectedIndex();
-        return Collections.singleton(Integer.toString(layoutZone+1));
-    }
-
-    public void setPreferences(Collection<String> args) {
-        layoutZone = DEFAULT_ZONE;
-        if (args != null) {
-            try {
-                for(String s : args)
-                {
-                    layoutZone = Integer.parseInt(s)-1;
-                    if(layoutZone < 0 || layoutZone > 3) {
-                        layoutZone = DEFAULT_ZONE;
-                    }
-                    break;
-                }
-            } catch(NumberFormatException e) {}
-        }
-    }
+//    public void setupPreferencePanel(JPanel p) {
+//        JComboBox prefcb = new JComboBox(lambert4zones);
+//
+//        prefcb.setSelectedIndex(layoutZone);
+//        p.setLayout(new GridBagLayout());
+//        p.add(new JLabel(tr("Lambert CC Zone")), GBC.std().insets(5,5,0,5));
+//        p.add(GBC.glue(1, 0), GBC.std().fill(GBC.HORIZONTAL));
+//        /* Note: we use component position 2 below to find this again */
+//        p.add(prefcb, GBC.eop().fill(GBC.HORIZONTAL));
+//        p.add(GBC.glue(1, 1), GBC.eol().fill(GBC.BOTH));
+//    }
+//
+//    public Collection<String> getPreferences(JPanel p) {
+//        Object prefcb = p.getComponent(2);
+//        if(!(prefcb instanceof JComboBox))
+//            return null;
+//        layoutZone = ((JComboBox)prefcb).getSelectedIndex();
+//        return Collections.singleton(Integer.toString(layoutZone+1));
+//    }
+//
+//    public void setPreferences(Collection<String> args) {
+//        layoutZone = DEFAULT_ZONE;
+//        if (args != null) {
+//            try {
+//                for(String s : args)
+//                {
+//                    layoutZone = Integer.parseInt(s)-1;
+//                    if(layoutZone < 0 || layoutZone > 3) {
+//                        layoutZone = DEFAULT_ZONE;
+//                    }
+//                    break;
+//                }
+//            } catch(NumberFormatException e) {}
+//        }
+//    }
 
     public Collection<String> getPreferencesFromCode(String code) {
         if (code.startsWith("EPSG:2756") && code.length() == 9) {
@@ -299,5 +299,11 @@ public class Lambert implements Projection, ProjectionSubPrefs {
         }
         return null;
     }
+
+	@Override
+	public void setPreferences(Collection<String> args) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

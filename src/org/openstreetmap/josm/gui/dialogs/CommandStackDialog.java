@@ -3,17 +3,17 @@ package org.openstreetmap.josm.gui.dialogs;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.event.KeyEvent;
+//import java.awt.BorderLayout;
+//import java.awt.Component;
+//import java.awt.event.KeyEvent;
 import java.util.Collection;
 
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.JTree;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeCellRenderer;
-import javax.swing.tree.DefaultTreeModel;
+//import javax.swing.JLabel;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTree;
+//import javax.swing.tree.DefaultMutableTreeNode;
+//import javax.swing.tree.DefaultTreeCellRenderer;
+//import javax.swing.tree.DefaultTreeModel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.command.Command;

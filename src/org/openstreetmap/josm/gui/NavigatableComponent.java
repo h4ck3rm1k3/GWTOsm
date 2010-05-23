@@ -2,8 +2,8 @@
 
 package org.openstreetmap.josm.gui;
 
-import java.awt.Point;
-import java.awt.Rectangle;
+//import java.awt.Point;
+//import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -15,7 +15,7 @@ import java.util.Stack;
 import java.util.TreeMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.JComponent;
+//import javax.swing.JComponent;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Bounds;

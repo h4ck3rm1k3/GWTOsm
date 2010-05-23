@@ -3,20 +3,20 @@ package org.openstreetmap.josm.gui.preferences.plugin;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+//import java.awt.FlowLayout;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.Insets;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.ButtonGroup;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JTextField;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+//import javax.swing.ButtonGroup;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//import javax.swing.JRadioButton;
+//import javax.swing.JTextField;
+//import javax.swing.event.ChangeEvent;
+//import javax.swing.event.ChangeListener;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.gui.JMultilineLabel;

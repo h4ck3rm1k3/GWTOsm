@@ -1,11 +1,11 @@
 // License: GPL. See LICENSE file for details.
 package org.openstreetmap.josm.actions.mapmode;
 
-import java.awt.Cursor;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+//import java.awt.Cursor;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.MouseEvent;
+//import java.awt.event.MouseListener;
+//import java.awt.event.MouseMotionListener;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.JosmAction;

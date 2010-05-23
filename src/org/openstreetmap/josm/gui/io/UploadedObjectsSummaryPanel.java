@@ -4,16 +4,16 @@ package org.openstreetmap.josm.gui.io;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trn;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.AbstractListModel;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
+//import javax.swing.AbstractListModel;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
 
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.gui.OsmPrimitivRenderer;

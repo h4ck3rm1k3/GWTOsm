@@ -1,9 +1,9 @@
 package org.openstreetmap.josm.gui.bbox;
 
-import java.awt.Graphics;
-import java.awt.Point;
+//import java.awt.Graphics;
+//import java.awt.Point;
 
-import javax.swing.ImageIcon;
+//import javax.swing.ImageIcon;
 
 import org.openstreetmap.josm.tools.ImageProvider;
 

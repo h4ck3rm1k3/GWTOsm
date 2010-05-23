@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.tools;
 
-import java.awt.Color;
+//import com.google.gwt.widgetideas.graphics.client.MyColor;
 
 /**
  * Helper to convert from color to html string and back

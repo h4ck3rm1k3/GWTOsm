@@ -3,15 +3,16 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 
 /* To enable debugging or profiling remove the double / signs */
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.awt.Stroke;
-import java.awt.geom.GeneralPath;
+//import java.awt.BasicStroke;
+import org.openstreetmap.josm.tools.Color;
+import org.openstreetmap.josm.tools.Point;
+//import java.awt.Graphics2D;
+//import java.awt.Point;
+//import java.awt.Polygon;
+//import java.awt.Rectangle;
+//import java.awt.RenderingHints;
+//import java.awt.Stroke;
+//import java.awt.geom.GeneralPath;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -38,7 +39,7 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
     /**
      * The environment to paint to.
      */
-    protected Graphics2D g;
+    protected GWTGraphics2D g;
     /**
      * MapView to get screen coordinates.
      */
@@ -127,9 +128,9 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
         segmentNumberSpace = Main.pref.getInteger("mappaint.segmentnumber.space", 40);
         getColors();
 
-        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                Main.pref.getBoolean("mappaint.use-antialiasing", false) ?
-                        RenderingHints.VALUE_ANTIALIAS_ON : RenderingHints.VALUE_ANTIALIAS_OFF);
+//        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+//                Main.pref.getBoolean("mappaint.use-antialiasing", false) ?
+//                        RenderingHints.VALUE_ANTIALIAS_ON : RenderingHints.VALUE_ANTIALIAS_OFF);
     }
 
     DataSet ds;
@@ -282,10 +283,10 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
 
     public static boolean isLargeSegment(Point p1, Point p2, int space)
     {
-        int xd = p1.x-p2.x; if(xd < 0) {
+        int xd = (int) (p1.x-p2.x); if(xd < 0) {
             xd = -xd;
         }
-        int yd = p1.y-p2.y; if(yd < 0) {
+        int yd = (int) (p1.y-p2.y); if(yd < 0) {
             yd = -yd;
         }
         return (xd+yd > space);
@@ -314,8 +315,8 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
                 Point p = nc.getPoint(it.next());
                 if(isSegmentVisible(lastP, p) && isLargeSegment(lastP, p, virtualNodeSpace))
                 {
-                    int x = (p.x+lastP.x)/2;
-                    int y = (p.y+lastP.y)/2;
+                    int x = (int) ((p.x+lastP.x)/2);
+                    int y = (int) ((p.y+lastP.y)/2);
                     path.moveTo(x-virtualNodeSize, y);
                     path.lineTo(x+virtualNodeSize, y);
                     path.moveTo(x, y-virtualNodeSize);
@@ -429,12 +430,12 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
         if (isSegmentVisible(p1, p2) && isLargeSegment(p1, p2, segmentNumberSpace)) {
             String on = Integer.toString(orderNumber);
             int strlen = on.length();
-            int x = (p1.x+p2.x)/2 - 4*strlen;
-            int y = (p1.y+p2.y)/2 + 4;
+            int x = (int) ((p1.x+p2.x)/2 - 4*strlen);
+            int y = (int) ((p1.y+p2.y)/2 + 4);
 
             if(virtualNodeSize != 0 && isLargeSegment(p1, p2, virtualNodeSpace))
             {
-                y = (p1.y+p2.y)/2 - virtualNodeSize - 3;
+                y = (int) ((p1.y+p2.y)/2 - virtualNodeSize - 3);
             }
 
             displaySegments(); /* draw nodes on top! */
@@ -511,9 +512,9 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
         return true;
     }
 
-    public void setGraphics(Graphics2D g) {
-        this.g = g;
-    }
+//    public void setGraphics(Graphics2D g) {
+//        this.g = g;
+//    }
 
     public void setNavigatableComponent(NavigatableComponent nc) {
         this.nc = nc;
@@ -534,4 +535,10 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
     public void setInactive(boolean inactive) {
         this.inactive = inactive;
     }
+
+	@Override
+	public void setGraphics(GWTGraphics2D g) {
+		// TODO Auto-generated method stub
+		
+	}
 }

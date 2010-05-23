@@ -7,7 +7,7 @@ package org.openstreetmap.josm.gui.layer.geoimage;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-//import javax.swing.JFileChooser;
+////import javax.swing.JFileChooser;
 import java.io.File;
 
 class JpegFileFilter extends javax.swing.filechooser.FileFilter

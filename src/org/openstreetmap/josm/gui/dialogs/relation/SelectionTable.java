@@ -1,13 +1,13 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.dialogs.relation;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
 import java.util.Collections;
 
-import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
-import javax.swing.SwingUtilities;
+//import javax.swing.JTable;
+//import javax.swing.ListSelectionModel;
+//import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 

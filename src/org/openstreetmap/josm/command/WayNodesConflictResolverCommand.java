@@ -7,9 +7,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.swing.JLabel;
-import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.MutableTreeNode;
+//import javax.swing.JLabel;
+//import javax.swing.tree.DefaultMutableTreeNode;
+//import javax.swing.tree.MutableTreeNode;
 
 import org.openstreetmap.josm.data.conflict.Conflict;
 import org.openstreetmap.josm.data.osm.Node;

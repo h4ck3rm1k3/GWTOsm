@@ -3,12 +3,12 @@ package org.openstreetmap.josm.gui.preferences.server;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
 
-import javax.swing.BorderFactory;
-import javax.swing.JCheckBox;
-import javax.swing.JPanel;
+//import javax.swing.BorderFactory;
+//import javax.swing.JCheckBox;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.gui.help.HelpUtil;

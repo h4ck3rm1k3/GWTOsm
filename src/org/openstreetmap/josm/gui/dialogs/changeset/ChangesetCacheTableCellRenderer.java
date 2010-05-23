@@ -4,15 +4,15 @@ package org.openstreetmap.josm.gui.dialogs.changeset;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trc;
 
-import java.awt.Component;
-import java.awt.Font;
+//import java.awt.Component;
+//import java.awt.Font;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.UIManager;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.JLabel;
+//import javax.swing.JTable;
+//import javax.swing.UIManager;
+//import javax.swing.table.TableCellRenderer;
 
 import org.openstreetmap.josm.data.osm.Changeset;
 import org.openstreetmap.josm.data.osm.User;

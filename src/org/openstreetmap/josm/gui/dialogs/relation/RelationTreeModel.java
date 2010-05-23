@@ -4,10 +4,10 @@ package org.openstreetmap.josm.gui.dialogs.relation;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.event.TreeModelEvent;
-import javax.swing.event.TreeModelListener;
-import javax.swing.tree.TreeModel;
-import javax.swing.tree.TreePath;
+//import javax.swing.event.TreeModelEvent;
+//import javax.swing.event.TreeModelListener;
+//import javax.swing.tree.TreeModel;
+//import javax.swing.tree.TreePath;
 
 import org.openstreetmap.josm.data.osm.Relation;
 import org.openstreetmap.josm.data.osm.RelationMember;

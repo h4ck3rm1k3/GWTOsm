@@ -1,10 +1,10 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.help;
 
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
 import static org.openstreetmap.josm.gui.help.HelpUtil.ht;
 
-import javax.swing.AbstractAction;
+//import javax.swing.AbstractAction;
 import static org.openstreetmap.josm.tools.I18n.tr;
 
 import org.openstreetmap.josm.tools.ImageProvider;

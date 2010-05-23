@@ -7,13 +7,13 @@ package org.openstreetmap.josm.data.projection;
  */
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.GridBagLayout;
+//import java.awt.GridBagLayout;
 import java.util.Collection;
 import java.util.Collections;
 
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+//import javax.swing.JComboBox;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.EastNorth;
@@ -414,25 +414,25 @@ public class UTM_France_DOM implements Projection, ProjectionSubPrefs {
         return currentGeodesic;
     }
 
-    public void setupPreferencePanel(JPanel p) {
-        JComboBox prefcb = new JComboBox(utmGeodesicsNames);
+//    public void setupPreferencePanel(JPanel p) {
+////        JComboBox prefcb = new JComboBox(utmGeodesicsNames);
+////
+////        prefcb.setSelectedIndex(currentGeodesic);
+////        p.setLayout(new GridBagLayout());
+////        p.add(new JLabel(tr("UTM20 North Geodesic system")), GBC.std().insets(5,5,0,5));
+////        p.add(GBC.glue(1, 0), GBC.std().fill(GBC.HORIZONTAL));
+////        p.add(prefcb, GBC.eop().fill(GBC.HORIZONTAL));
+////        p.add(GBC.glue(1, 1), GBC.eol().fill(GBC.BOTH));
+//    }
 
-        prefcb.setSelectedIndex(currentGeodesic);
-        p.setLayout(new GridBagLayout());
-        p.add(new JLabel(tr("UTM20 North Geodesic system")), GBC.std().insets(5,5,0,5));
-        p.add(GBC.glue(1, 0), GBC.std().fill(GBC.HORIZONTAL));
-        p.add(prefcb, GBC.eop().fill(GBC.HORIZONTAL));
-        p.add(GBC.glue(1, 1), GBC.eol().fill(GBC.BOTH));
-    }
-
-    public Collection<String> getPreferences(JPanel p) {
-        Object prefcb = p.getComponent(2);
-        if(!(prefcb instanceof JComboBox))
-            return null;
-        currentGeodesic = ((JComboBox)prefcb).getSelectedIndex();
-        refresh7ParametersTranslation();
-        return Collections.singleton(Integer.toString(currentGeodesic+1));
-    }
+//    public Collection<String> getPreferences(JPanel p) {
+//        Object prefcb = p.getComponent(2);
+//        if(!(prefcb instanceof JComboBox))
+//            return null;
+//        currentGeodesic = ((JComboBox)prefcb).getSelectedIndex();
+//        refresh7ParametersTranslation();
+//        return Collections.singleton(Integer.toString(currentGeodesic+1));
+//    }
 
     public Collection<String> getPreferencesFromCode(String code) {
         for (int i=0; i < utmEPSGs.length; i++ )
@@ -441,21 +441,27 @@ public class UTM_France_DOM implements Projection, ProjectionSubPrefs {
         return null;
     }
 
-    public void setPreferences(Collection<String> args) {
-        currentGeodesic = DEFAULT_GEODESIC;
-        if (args != null) {
-            try {
-                for(String s : args)
-                {
-                    currentGeodesic = Integer.parseInt(s)-1;
-                    if(currentGeodesic < 0 || currentGeodesic > 3) {
-                        currentGeodesic = DEFAULT_GEODESIC;
-                    }
-                    break;
-                }
-            } catch(NumberFormatException e) {}
-        }
-        refresh7ParametersTranslation();
-    }
+	@Override
+	public void setPreferences(Collection<String> args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+//    public void setPreferences(Collection<String> args) {
+//        currentGeodesic = DEFAULT_GEODESIC;
+//        if (args != null) {
+//            try {
+//                for(String s : args)
+//                {
+//                    currentGeodesic = Integer.parseInt(s)-1;
+//                    if(currentGeodesic < 0 || currentGeodesic > 3) {
+//                        currentGeodesic = DEFAULT_GEODESIC;
+//                    }
+//                    break;
+//                }
+//            } catch(NumberFormatException e) {}
+//        }
+//        refresh7ParametersTranslation();
+//    }
 
 }

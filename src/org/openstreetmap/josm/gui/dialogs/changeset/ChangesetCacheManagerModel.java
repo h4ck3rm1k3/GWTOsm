@@ -11,8 +11,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.swing.DefaultListSelectionModel;
-import javax.swing.table.AbstractTableModel;
+//import javax.swing.DefaultListSelectionModel;
+//import javax.swing.table.AbstractTableModel;
 
 import org.openstreetmap.josm.data.osm.Changeset;
 import org.openstreetmap.josm.data.osm.ChangesetCache;

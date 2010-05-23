@@ -5,12 +5,12 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.RenderingHints;
-import java.awt.geom.Point2D;
+////import java.awt.Graphics2D;
+////import java.awt.Point;
+////import java.awt.Polygon;
+////import java.awt.Rectangle;
+////import java.awt.RenderingHints;
+////import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -43,6 +43,7 @@ import org.openstreetmap.josm.data.osm.visitor.paint.relations.Multipolygon.Poly
 //import org.openstreetmap.josm.gui.mappaint.LineElemStyle;
 //import org.openstreetmap.josm.gui.mappaint.MapPaintStyles;
 //import org.openstreetmap.josm.gui.mappaint.SimpleNodeElemStyle;
+import org.openstreetmap.josm.tools.Point;
 
 public class MapPaintVisitor  {
 
@@ -63,7 +64,7 @@ public class MapPaintVisitor  {
     private EastNorth maxEN;
     private MapPainter painter;
     private MapPaintSettings paintSettings;
-
+    //Point x;
     private boolean inactive;
 
     protected boolean isZoomOk(ElemStyle e) {
@@ -628,7 +629,7 @@ public class MapPaintVisitor  {
             cx += (p.xpoints[i] + p.xpoints[j]) * (p.xpoints[i] * p.ypoints[j] - p.ypoints[i] * p.xpoints[j]);
             cy += (p.ypoints[i] + p.ypoints[j]) * (p.xpoints[i] * p.ypoints[j] - p.ypoints[i] * p.xpoints[j]);
         }
-        return new Point2D.Double(cx / (3.0*a), cy / (3.0*a));
+        return new Point2DDouble(cx / (3.0*a), cy / (3.0*a));
     }
 
     protected double getArea(Polygon p)
@@ -687,9 +688,9 @@ public class MapPaintVisitor  {
         minEN = nc.getEastNorth(0, nc.getHeight() - 1);
         maxEN = nc.getEastNorth(nc.getWidth() - 1, 0);
 
-        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-                Main.pref.getBoolean("mappaint.use-antialiasing", false) ?
-                        RenderingHints.VALUE_ANTIALIAS_ON : RenderingHints.VALUE_ANTIALIAS_OFF);
+//        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+//                Main.pref.getBoolean("mappaint.use-antialiasing", false) ?
+//                        RenderingHints.VALUE_ANTIALIAS_ON : RenderingHints.VALUE_ANTIALIAS_OFF);
 
         this.paintSettings = MapPaintSettings.INSTANCE;
         this.painter = new MapPainter(paintSettings, g, inactive, nc, virtual, dist, circum);

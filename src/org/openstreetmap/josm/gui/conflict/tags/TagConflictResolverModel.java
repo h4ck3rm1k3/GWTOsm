@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.swing.table.DefaultTableModel;
+//import javax.swing.table.DefaultTableModel;
 
 import org.openstreetmap.josm.data.osm.TagCollection;
 import org.openstreetmap.josm.tools.CheckParameterUtil;

@@ -1,11 +1,11 @@
 package org.openstreetmap.josm.gui.bbox;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Dimension;
+//import java.awt.Graphics;
+//import java.awt.Point;
+//import java.awt.Rectangle;
+//import java.awt.Toolkit;
 import java.util.Vector;
 
 import org.openstreetmap.gui.jmapviewer.Coordinate;

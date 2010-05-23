@@ -6,13 +6,13 @@ import static org.openstreetmap.josm.gui.help.HelpUtil.ht;
 import static org.openstreetmap.josm.tools.I18n.marktr;
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.event.KeyEvent;
+//import java.awt.event.KeyEvent;
 
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.KeyStroke;
+//import javax.swing.JCheckBoxMenuItem;
+//import javax.swing.JMenu;
+//import javax.swing.JMenuBar;
+//import javax.swing.JMenuItem;
+//import javax.swing.KeyStroke;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.AboutAction;

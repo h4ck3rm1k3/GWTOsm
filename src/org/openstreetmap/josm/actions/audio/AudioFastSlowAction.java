@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.actions.audio;
 
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.JosmAction;

@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 //import org.openstreetmap.josm.actions.ExtensionFileFilter;
@@ -52,32 +52,32 @@ public abstract class FileImporter implements Comparable<FileImporter> {
      * Wrapper to give meaningful output if things go wrong.
      */
     public void importDataHandleExceptions(File f, ProgressMonitor progressMonitor) {
-        try {
-            System.out.println("Open file: " + f.getAbsolutePath() + " (" + f.length() + " bytes)");
-            importData(f, progressMonitor);
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(
-                    Main.parent,
-                    tr("<html>Could not read file ''{0}''.<br>Error is:<br>{1}</html>", f.getName(), e.getMessage()),
-                    tr("Error"),
-                    JOptionPane.ERROR_MESSAGE
-            );
-        }
+//        try {
+//            System.out.println("Open file: " + f.getAbsolutePath() + " (" + f.length() + " bytes)");
+//            importData(f, progressMonitor);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(
+//                    Main.parent,
+//                    tr("<html>Could not read file ''{0}''.<br>Error is:<br>{1}</html>", f.getName(), e.getMessage()),
+//                    tr("Error"),
+//                    JOptionPane.ERROR_MESSAGE
+//            );
+//        }
     }
     public void importDataHandleExceptions(List<File> files, ProgressMonitor progressMonitor) {
-        try {
-            System.out.println("Open "+files.size()+" files");
-            importData(files, progressMonitor);
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(
-                    Main.parent,
-                    tr("<html>Could not read files.<br>Error is:<br>{0}</html>", e.getMessage()),
-                    tr("Error"),
-                    JOptionPane.ERROR_MESSAGE
-            );
-        }
+//        try {
+//            System.out.println("Open "+files.size()+" files");
+//            importData(files, progressMonitor);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(
+//                    Main.parent,
+//                    tr("<html>Could not read files.<br>Error is:<br>{0}</html>", e.getMessage()),
+//                    tr("Error"),
+//                    JOptionPane.ERROR_MESSAGE
+//            );
+//        }
     }
 
     /**

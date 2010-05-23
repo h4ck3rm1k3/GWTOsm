@@ -3,15 +3,15 @@ package org.openstreetmap.josm.gui.history;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Component;
+//import java.awt.Font;
 import java.util.logging.Logger;
 
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.UIManager;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.JLabel;
+//import javax.swing.JTable;
+//import javax.swing.UIManager;
+//import javax.swing.table.TableCellRenderer;
 
 /**
  * The {@see TableCellRenderer} for a list of tagsin {@see HistoryBrower}

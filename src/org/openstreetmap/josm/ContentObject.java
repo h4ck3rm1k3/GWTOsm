@@ -1,6 +1,6 @@
 package org.openstreetmap.josm;
 
-import javax.swing.InputMap;
+//import javax.swing.InputMap;
 
 public class ContentObject {
 

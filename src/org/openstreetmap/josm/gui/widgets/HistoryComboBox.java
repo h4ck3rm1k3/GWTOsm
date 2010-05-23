@@ -3,7 +3,7 @@ package org.openstreetmap.josm.gui.widgets;
 
 import java.util.List;
 
-import javax.swing.text.JTextComponent;
+//import javax.swing.text.JTextComponent;
 
 import org.openstreetmap.josm.gui.tagging.ac.AutoCompletingComboBox;
 

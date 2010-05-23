@@ -3,19 +3,19 @@ package org.openstreetmap.josm.gui;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Cursor;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
+//import java.awt.Cursor;
+//import java.awt.Point;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
+//import java.awt.event.MouseMotionListener;
+//import java.awt.event.MouseWheelEvent;
+//import java.awt.event.MouseWheelListener;
 
-import javax.swing.AbstractAction;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
+//import javax.swing.AbstractAction;
+//import javax.swing.JComponent;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.coor.EastNorth;

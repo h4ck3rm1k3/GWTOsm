@@ -3,19 +3,19 @@ package org.openstreetmap.josm.gui.dialogs.changeset;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.event.ActionEvent;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.FlowLayout;
+//import java.awt.event.ActionEvent;
 import java.util.Collections;
 
-import javax.swing.AbstractAction;
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.JTextComponent;
+//import javax.swing.AbstractAction;
+//import javax.swing.BorderFactory;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//import javax.swing.JTextField;
+//import javax.swing.event.DocumentEvent;
+//import javax.swing.event.DocumentListener;
+//import javax.swing.text.JTextComponent;
 
 import org.openstreetmap.josm.gui.SideButton;
 import org.openstreetmap.josm.gui.widgets.AbstractTextComponentValidator;

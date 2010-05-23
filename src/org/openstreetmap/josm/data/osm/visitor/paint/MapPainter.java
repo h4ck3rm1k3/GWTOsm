@@ -1,22 +1,25 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.FontMetrics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.Polygon;
-import java.awt.Rectangle;
-import java.awt.geom.GeneralPath;
-import java.awt.geom.Rectangle2D;
+////import java.awt.BasicStroke;
+//import org.openstreetmap.josm.tools.Color;
+////import java.awt.Font;
+////import java.awt.FontMetrics;
+////import java.awt.Graphics2D;
+////import java.awt.Image;
+////import java.awt.Point;
+////import java.awt.Polygon;
+////import java.awt.Rectangle;
+////import java.awt.geom.GeneralPath;
+////import java.awt.geom.Rectangle2D;
+////import java.awt.geom.GeneralPath;
+////import java.awt.Polygon;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 
-import javax.swing.ImageIcon;
+
+
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.Node;
@@ -24,6 +27,9 @@ import org.openstreetmap.josm.data.osm.Way;
 //import org.openstreetmap.josm.gui.NavigatableComponent;
 import org.openstreetmap.josm.tools.ImageProvider;
 import org.openstreetmap.josm.tools.LanguageInfo;
+import org.openstreetmap.josm.tools.Point;
+
+import org.openstreetmap.josm.tools.Color;
 
 public class MapPainter {
     private final GWTGraphics2D g;
@@ -193,7 +199,7 @@ public class MapPainter {
         if ((p.x < 0) || (p.y < 0) || (p.x > nc.getWidth()) || (p.y > nc.getHeight())) return;
 
         int w = icon.getIconWidth(), h=icon.getIconHeight();
-        icon.paintIcon ( nc.getComp(), g.g(), p.x-w/2, p.y-h/2 );
+        icon.paintIcon ( nc.getComp(), g, p.x-w/2, p.y-h/2 );
         if(name != null) {
             if (inactive || n.isDisabled()) {
                 g.setColor(inactiveColor);
@@ -289,7 +295,7 @@ public class MapPainter {
                 g.setFont (orderFont);
                 g.drawString (name,
                         (int)(centeredNBounds.getMinX() - nb.getMinX()),
-                        (int)(centeredNBounds.getMinY() - nb.getMinY()));
+                        (int)(centeredNBounds.getY() - nb.getY()));
                 g.setFont(defaultFont);
             }
         }
@@ -333,8 +339,8 @@ public class MapPainter {
                 Point p = nc.getPoint(it.next());
                 if(isSegmentVisible(lastP, p) && isLargeSegment(lastP, p, virtualNodeSpace))
                 {
-                    int x = (p.x+lastP.x)/2;
-                    int y = (p.y+lastP.y)/2;
+                    int x = (int)(p.x+lastP.x)/2;
+                    int y = (int)(p.y+lastP.y)/2;
                     path.moveTo(x-virtualNodeSize, y);
                     path.lineTo(x+virtualNodeSize, y);
                     path.moveTo(x, y-virtualNodeSize);
@@ -346,10 +352,10 @@ public class MapPainter {
     }
 
     private static boolean isLargeSegment(Point p1, Point p2, int space)  {
-        int xd = p1.x-p2.x; if(xd < 0) {
+        int xd = (int) (p1.x-p2.x); if(xd < 0) {
             xd = -xd;
         }
-        int yd = p1.y-p2.y; if(yd < 0) {
+        int yd = (int) (p1.y-p2.y); if(yd < 0) {
             yd = -yd;
         }
         return (xd+yd > space);
@@ -373,12 +379,12 @@ public class MapPainter {
         if (isSegmentVisible(p1, p2) && isLargeSegment(p1, p2, segmentNumberSpace)) {
             String on = Integer.toString(orderNumber);
             int strlen = on.length();
-            int x = (p1.x+p2.x)/2 - 4*strlen;
-            int y = (p1.y+p2.y)/2 + 4;
+            int x = (int) ((p1.x+p2.x)/2 - 4*strlen);
+            int y = (int) ((p1.y+p2.y)/2 + 4);
 
             if(virtualNodeSize != 0 && isLargeSegment(p1, p2, virtualNodeSpace))
             {
-                y = (p1.y+p2.y)/2 - virtualNodeSize - 3;
+                y = (int) ((p1.y+p2.y)/2 - virtualNodeSize - 3);
             }
 
             Color c = g.getColor();
@@ -432,5 +438,19 @@ public class MapPainter {
     public boolean isShowIcons() {
         return showIcons;
     }
+
+	public void drawArea(Polygon p, Color color, Object name) {
+		// TODO Auto-generated method stub
+		
+	}
+
+//	public void drawNodeIcon(Node n, ImageIcon imageIcon, boolean annotate,
+//			boolean selected, String name) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+
+	
+	
 
 }

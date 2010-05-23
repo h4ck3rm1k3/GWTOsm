@@ -3,7 +3,7 @@ package org.openstreetmap.josm.gui.dialogs.changeset;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
+//import java.awt.Component;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.ArrayList;

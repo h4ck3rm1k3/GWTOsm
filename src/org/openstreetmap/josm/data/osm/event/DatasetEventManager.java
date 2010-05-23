@@ -8,7 +8,7 @@ import java.util.Queue;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
 
-import javax.swing.SwingUtilities;
+//import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.event.DataSetListenerAdapter.Listener;
@@ -124,7 +124,7 @@ public class DatasetEventManager
     public void processDatasetEvent(AbstractDatasetChangedEvent event) {
         fireEvents(normalListeners, event);
         eventsInEDT.add(event);
-        SwingUtilities.invokeLater(edtRunnable);
+//        SwingUtilities.invokeLater(edtRunnable);
     }
 
     private final Runnable edtRunnable = new Runnable() {

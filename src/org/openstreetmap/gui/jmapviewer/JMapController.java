@@ -2,9 +2,9 @@ package org.openstreetmap.gui.jmapviewer;
 
 //License: GPL. Copyright 2008 by Jan Peter Stotz
 
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelListener;
+//import java.awt.event.MouseListener;
+//import java.awt.event.MouseMotionListener;
+//import java.awt.event.MouseWheelListener;
 
 /**
  * Abstract base class for all mouse controller implementations. For

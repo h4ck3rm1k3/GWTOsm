@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.logging.Logger;
 
-import javax.swing.SwingUtilities;
+//import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.DataSetMerger;

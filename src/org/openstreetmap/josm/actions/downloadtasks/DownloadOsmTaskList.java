@@ -4,9 +4,9 @@ package org.openstreetmap.josm.actions.downloadtasks;
 import static org.openstreetmap.josm.gui.help.HelpUtil.ht;
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.EventQueue;
-import java.awt.geom.Area;
-import java.awt.geom.Rectangle2D;
+//import java.awt.EventQueue;
+//import java.awt.geom.Area;
+//import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Future;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.UpdateSelectionAction;

@@ -2,12 +2,12 @@
 
 package org.openstreetmap.josm.gui.layer.geoimage;
 
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.MediaTracker;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
+//import java.awt.Graphics2D;
+//import java.awt.Image;
+//import java.awt.MediaTracker;
+//import java.awt.Rectangle;
+//import java.awt.Toolkit;
+//import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 

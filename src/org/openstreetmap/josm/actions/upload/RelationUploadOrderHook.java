@@ -1,16 +1,16 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.actions.upload;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+//import java.awt.BorderLayout;
+//import java.awt.Dimension;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTable;
+//import javax.swing.table.DefaultTableModel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.APIDataSet;

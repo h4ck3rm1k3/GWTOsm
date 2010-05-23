@@ -8,8 +8,8 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.JFileChooser;
-import javax.swing.filechooser.FileFilter;
+//import javax.swing.JFileChooser;
+//import javax.swing.filechooser.FileFilter;
 
 import org.openstreetmap.josm.io.AllFormatsImporter;
 import org.openstreetmap.josm.io.FileExporter;

@@ -3,23 +3,23 @@ package org.openstreetmap.josm.gui.conflict.pair.properties;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.Insets;
+//import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+//import javax.swing.AbstractAction;
+//import javax.swing.Action;
+//import javax.swing.BorderFactory;
+//import javax.swing.JButton;
+//import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.data.conflict.Conflict;
 import org.openstreetmap.josm.data.coor.LatLon;

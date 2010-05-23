@@ -3,14 +3,14 @@ package org.openstreetmap.josm.gui.io;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
+//import java.awt.Component;
 import java.text.SimpleDateFormat;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.ListCellRenderer;
-import javax.swing.UIManager;
+//import javax.swing.ImageIcon;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
+//import javax.swing.ListCellRenderer;
+//import javax.swing.UIManager;
 
 import org.openstreetmap.josm.data.osm.Changeset;
 import org.openstreetmap.josm.tools.ImageProvider;

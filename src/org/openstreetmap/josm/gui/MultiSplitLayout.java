@@ -22,12 +22,12 @@
 //package org.jdesktop.swingx;
 package org.openstreetmap.josm.gui;
 
-import java.awt.Component;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Insets;
-import java.awt.LayoutManager;
-import java.awt.Rectangle;
+//import java.awt.Component;
+//import java.awt.Container;
+//import java.awt.Dimension;
+//import java.awt.Insets;
+//import java.awt.LayoutManager;
+//import java.awt.Rectangle;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.IOException;
@@ -42,7 +42,7 @@ import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
 
-import javax.swing.UIManager;
+//import javax.swing.UIManager;
 
 /**
  * The MultiSplitLayout layout manager recursively arranges its

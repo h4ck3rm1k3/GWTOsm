@@ -3,17 +3,17 @@ package org.openstreetmap.josm.gui.conflict.tags;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+//import java.awt.BorderLayout;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
 
-import javax.swing.BorderFactory;
-import javax.swing.JCheckBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+//import javax.swing.BorderFactory;
+//import javax.swing.JCheckBox;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.event.ChangeEvent;
+//import javax.swing.event.ChangeListener;
 
 import org.openstreetmap.josm.Main;
 

@@ -3,24 +3,24 @@ package org.openstreetmap.josm.gui;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
+//import java.awt.Component;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.event.ActionListener;
+//import java.awt.event.ComponentEvent;
+//import java.awt.event.ComponentListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoundedRangeModel;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JProgressBar;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.UIManager;
+//import javax.swing.BorderFactory;
+//import javax.swing.BoundedRangeModel;
+//import javax.swing.JButton;
+//import javax.swing.JDialog;
+//import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
+//import javax.swing.JProgressBar;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTextArea;
+//import javax.swing.UIManager;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.tools.GBC;

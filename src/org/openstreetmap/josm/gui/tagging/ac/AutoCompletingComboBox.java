@@ -1,17 +1,17 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.gui.tagging.ac;
 
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+//import java.awt.event.FocusEvent;
+//import java.awt.event.FocusListener;
 import java.util.Collection;
 
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.JTextComponent;
-import javax.swing.text.PlainDocument;
+//import javax.swing.ComboBoxModel;
+//import javax.swing.DefaultComboBoxModel;
+//import javax.swing.JComboBox;
+//import javax.swing.text.AttributeSet;
+//import javax.swing.text.BadLocationException;
+//import javax.swing.text.JTextComponent;
+//import javax.swing.text.PlainDocument;
 
 /**
  * @author guilhem.bonnefille@gmail.com

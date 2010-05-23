@@ -18,11 +18,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.DefaultListSelectionModel;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.AbstractTableModel;
+//import javax.swing.DefaultListSelectionModel;
+//import javax.swing.ListSelectionModel;
+//import javax.swing.event.TableModelEvent;
+//import javax.swing.event.TableModelListener;
+//import javax.swing.table.AbstractTableModel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.SelectionChangedListener;

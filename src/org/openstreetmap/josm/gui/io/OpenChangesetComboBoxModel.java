@@ -4,7 +4,7 @@ package org.openstreetmap.josm.gui.io;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.DefaultComboBoxModel;
+//import javax.swing.DefaultComboBoxModel;
 
 import org.openstreetmap.josm.data.osm.Changeset;
 import org.openstreetmap.josm.data.osm.ChangesetCache;

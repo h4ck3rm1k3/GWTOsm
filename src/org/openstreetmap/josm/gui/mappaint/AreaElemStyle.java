@@ -1,5 +1,5 @@
 package org.openstreetmap.josm.gui.mappaint;
-import java.awt.Color;
+import org.openstreetmap.josm.tools.Color;
 
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintSettings;

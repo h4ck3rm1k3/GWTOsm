@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.logging.Logger;
 
-import javax.swing.SwingUtilities;
+//import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Preferences.PreferenceChangeEvent;
@@ -76,11 +76,11 @@ public class ChangesetCache implements PreferenceChangedListener{
                 }
             }
         };
-        if (SwingUtilities.isEventDispatchThread()) {
-            r.run();
-        } else {
-            SwingUtilities.invokeLater(r);
-        }
+//        if (SwingUtilities.isEventDispatchThread()) {
+//            r.run();
+//        } else {
+//            SwingUtilities.invokeLater(r);
+//        }
     }
 
     protected void update(Changeset cs, DefaultChangesetCacheEvent e) {

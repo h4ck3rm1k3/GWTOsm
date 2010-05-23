@@ -3,17 +3,17 @@ package org.openstreetmap.josm.gui.history;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Adjustable;
-import java.awt.event.AdjustmentEvent;
-import java.awt.event.AdjustmentListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+//import java.awt.Adjustable;
+//import java.awt.event.AdjustmentEvent;
+//import java.awt.event.AdjustmentListener;
+//import java.awt.event.ItemEvent;
+//import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JCheckBox;
+//import javax.swing.JCheckBox;
 
 import org.openstreetmap.josm.tools.CheckParameterUtil;
 

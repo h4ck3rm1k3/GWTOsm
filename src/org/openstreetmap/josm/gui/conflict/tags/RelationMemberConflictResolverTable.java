@@ -1,15 +1,15 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.conflict.tags;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JTable;
-import javax.swing.KeyStroke;
-import javax.swing.ListSelectionModel;
+//import javax.swing.AbstractAction;
+//import javax.swing.JComboBox;
+//import javax.swing.JComponent;
+//import javax.swing.JTable;
+//import javax.swing.KeyStroke;
+//import javax.swing.ListSelectionModel;
 
 public class RelationMemberConflictResolverTable extends JTable implements MultiValueCellEditor.NavigationListener {
 

@@ -1,18 +1,18 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.conflict.pair.nodes;
 
-import java.awt.Color;
-import java.awt.Component;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Component;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.border.Border;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.BorderFactory;
+//import javax.swing.ImageIcon;
+//import javax.swing.JLabel;
+//import javax.swing.JTable;
+//import javax.swing.border.Border;
+//import javax.swing.table.TableCellRenderer;
 
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;

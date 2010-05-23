@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.gui.layer;
 
-import java.awt.Graphics2D;
+//import java.awt.Graphics2D;
 
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.gui.MapView;

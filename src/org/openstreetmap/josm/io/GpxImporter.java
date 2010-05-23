@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.zip.GZIPInputStream;
 
-import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
+//import javax.swing.JOptionPane;
+//import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.ExtensionFileFilter;

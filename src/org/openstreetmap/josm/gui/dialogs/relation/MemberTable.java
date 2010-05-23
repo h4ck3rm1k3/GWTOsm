@@ -3,23 +3,23 @@ package org.openstreetmap.josm.gui.dialogs.relation;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+//import java.awt.Container;
+//import java.awt.Dimension;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.JComponent;
-import javax.swing.JPopupMenu;
-import javax.swing.JTable;
-import javax.swing.JViewport;
-import javax.swing.KeyStroke;
-import javax.swing.ListSelectionModel;
-import javax.swing.SwingUtilities;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+//import javax.swing.AbstractAction;
+//import javax.swing.JComponent;
+//import javax.swing.JPopupMenu;
+//import javax.swing.JTable;
+//import javax.swing.JViewport;
+//import javax.swing.KeyStroke;
+//import javax.swing.ListSelectionModel;
+//import javax.swing.SwingUtilities;
+//import javax.swing.event.ListSelectionEvent;
+//import javax.swing.event.ListSelectionListener;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.AutoScaleAction;

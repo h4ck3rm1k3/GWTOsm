@@ -1,13 +1,13 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.tools;
 
-import java.awt.event.KeyEvent;
+//import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
-import javax.swing.UIManager;
+//import javax.swing.UIManager;
 
 import org.openstreetmap.josm.Main;
 

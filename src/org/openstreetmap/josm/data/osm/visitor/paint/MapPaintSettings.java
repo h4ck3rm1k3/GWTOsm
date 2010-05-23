@@ -1,11 +1,13 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-import java.awt.Color;
+//import org.openstreetmap.josm.tools.Color;
 
 import org.openstreetmap.josm.Main;
 //import org.openstreetmap.josm.data.Preferences.PreferenceChangeEvent;
 //import org.openstreetmap.josm.data.Preferences.PreferenceChangedListener;
+
+import org.openstreetmap.josm.tools.Color;
 
 public class MapPaintSettings  {
 

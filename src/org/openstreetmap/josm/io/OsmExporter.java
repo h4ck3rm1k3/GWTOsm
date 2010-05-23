@@ -14,7 +14,7 @@ import java.io.PrintWriter;
 import java.io.Writer;
 import java.text.MessageFormat;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Layer;
 import org.openstreetmap.josm.Main;
@@ -81,12 +81,12 @@ public class OsmExporter extends FileExporter {
             layer.onPostSaveToFile();
         } catch (IOException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(
-                    Main.parent,
-                    tr("<html>An error occurred while saving.<br>Error is:<br>{0}</html>", e.getMessage()),
-                    tr("Error"),
-                    JOptionPane.ERROR_MESSAGE
-            );
+//            JOptionPane.showMessageDialog(
+//                    Main.parent,
+//                    tr("<html>An error occurred while saving.<br>Error is:<br>{0}</html>", e.getMessage()),
+//                    tr("Error"),
+//                    JOptionPane.ERROR_MESSAGE
+//            );
 
             try {
                 // if the file save failed, then the tempfile will not
@@ -96,26 +96,26 @@ public class OsmExporter extends FileExporter {
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();
-                JOptionPane.showMessageDialog(
-                        Main.parent,
-                        tr("<html>An error occurred while restoring backup file.<br>Error is:<br>{0}</html>", e2.getMessage()),
-                        tr("Error"),
-                        JOptionPane.ERROR_MESSAGE
-                );
+//                JOptionPane.showMessageDialog(
+//                        Main.parent,
+//                        tr("<html>An error occurred while restoring backup file.<br>Error is:<br>{0}</html>", e2.getMessage()),
+//                        tr("Error"),
+//                        JOptionPane.ERROR_MESSAGE
+//                );
             }
         }
     }
 
     private void copy(File src, File dst) throws IOException {
-        FileInputStream srcStream;
-        FileOutputStream dstStream;
+        FileInputStream srcStream = null;
+        FileOutputStream dstStream = null;
         try {
             srcStream = new FileInputStream(src);
             dstStream = new FileOutputStream(dst);
         } catch (FileNotFoundException e) {
-            JOptionPane.showMessageDialog(Main.parent, tr("Could not back up file. Exception is: {0}", e
-                    .getMessage()), tr("Error"), JOptionPane.ERROR_MESSAGE);
-            return;
+//            JOptionPane.showMessageDialog(Main.parent, tr("Could not back up file. Exception is: {0}", e
+//                    .getMessage()), tr("Error"), JOptionPane.ERROR_MESSAGE);
+//            return;
         }
         byte buf[] = new byte[1 << 16];
         int len;

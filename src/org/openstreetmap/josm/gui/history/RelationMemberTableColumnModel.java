@@ -3,8 +3,8 @@ package org.openstreetmap.josm.gui.history;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import javax.swing.table.DefaultTableColumnModel;
-import javax.swing.table.TableColumn;
+//import javax.swing.table.DefaultTableColumnModel;
+//import javax.swing.table.TableColumn;
 
 /**
  * The {@see TableColumnModel} for the table with the list of relation members.

@@ -3,7 +3,7 @@
 
 package org.openstreetmap.josm.data.gpx;
 
-import java.awt.Color;
+import org.openstreetmap.josm.tools.Color;
 import java.util.Date;
 
 import org.openstreetmap.josm.data.coor.CachedLatLon;

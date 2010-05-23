@@ -1,8 +1,8 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
 
-import javax.swing.GrayFilter;
-import javax.swing.ImageIcon;
+//import javax.swing.GrayFilter;
+//import javax.swing.ImageIcon;
 
 import org.openstreetmap.josm.data.osm.ElemStyle;
 import org.openstreetmap.josm.data.osm.Node;

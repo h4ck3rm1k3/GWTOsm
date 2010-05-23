@@ -4,15 +4,15 @@ package org.openstreetmap.josm.gui.layer;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
+//import java.awt.Component;
+//import java.awt.Graphics2D;
+//import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.File;
 
-import javax.swing.AbstractAction;
-import javax.swing.Icon;
+//import javax.swing.AbstractAction;
+//import javax.swing.Icon;
 
 import org.openstreetmap.josm.actions.GpxExportAction;
 import org.openstreetmap.josm.actions.SaveAction;

@@ -4,9 +4,9 @@ package org.openstreetmap.josm.gui;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.JSlider;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+//import javax.swing.JSlider;
+//import javax.swing.event.ChangeEvent;
+//import javax.swing.event.ChangeListener;
 
 import org.openstreetmap.josm.data.ProjectionBounds;
 import org.openstreetmap.josm.gui.help.Helpful;

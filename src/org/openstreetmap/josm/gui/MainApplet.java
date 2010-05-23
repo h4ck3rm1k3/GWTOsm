@@ -5,9 +5,9 @@ import static org.openstreetmap.josm.tools.I18n.tr;
 
 import java.applet.AppletContext;
 import java.applet.AppletStub;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+//import java.awt.GridBagLayout;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
 import java.io.File;
 import java.net.URL;
 import java.util.Arrays;
@@ -16,13 +16,13 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
-import javax.swing.JApplet;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
+//import javax.swing.JApplet;
+//import javax.swing.JFrame;
+//import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
+//import javax.swing.JPasswordField;
+//import javax.swing.JTextField;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.JosmAction;

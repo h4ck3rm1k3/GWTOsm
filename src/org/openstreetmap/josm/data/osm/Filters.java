@@ -3,19 +3,19 @@ package org.openstreetmap.josm.data.osm;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trc;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Font;
+//import java.awt.Graphics;
+//import java.awt.Graphics2D;
 
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.table.AbstractTableModel;
+//import javax.swing.BorderFactory;
+//import javax.swing.JLabel;
+//import javax.swing.table.AbstractTableModel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.search.SearchAction;

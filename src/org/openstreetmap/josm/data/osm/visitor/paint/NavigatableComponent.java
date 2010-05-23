@@ -1,8 +1,8 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-import java.awt.Component;
-import java.awt.Point;
-import java.awt.Rectangle;
+//import java.awt.Component;
+//import java.awt.Point;
+//import java.awt.Rectangle;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,6 +15,8 @@ import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.Way;
 import org.openstreetmap.josm.data.osm.WaySegment;
 import org.openstreetmap.josm.data.projection.Projection;
+import org.openstreetmap.josm.tools.Component;
+import org.openstreetmap.josm.tools.Point;
 import org.openstreetmap.josm.tools.Predicate;
 
 public class NavigatableComponent implements INavigatableComponent {
@@ -265,6 +267,109 @@ public class NavigatableComponent implements INavigatableComponent {
 	}
 
 	public Component getComp() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+//	@Override
+//	public Collection<OsmPrimitive> getAllNearest(
+//			org.openstreetmap.josm.tools.Point p,
+//			Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Bounds getLatLonBounds(
+//			org.openstreetmap.josm.data.osm.visitor.paint.Rectangle r) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public OsmPrimitive getNearest(org.openstreetmap.josm.tools.Point p,
+//			Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Collection<OsmPrimitive> getNearestCollection(
+//			org.openstreetmap.josm.tools.Point p,
+//			Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Node getNearestNode(org.openstreetmap.josm.tools.Point p) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Node getNearestNode(org.openstreetmap.josm.tools.Point p,
+//			Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Collection<Node> getNearestNodes(
+//			org.openstreetmap.josm.tools.Point p,
+//			Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Collection<Node> getNearestNodes(
+//			org.openstreetmap.josm.tools.Point p, Collection<Node> ignore,
+//			Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Way getNearestWay(org.openstreetmap.josm.tools.Point p) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Way getNearestWay(org.openstreetmap.josm.tools.Point p,
+//			Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public WaySegment getNearestWaySegment(
+//			org.openstreetmap.josm.tools.Point p,
+//			Collection<WaySegment> ignore, Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public WaySegment getNearestWaySegment(
+//			org.openstreetmap.josm.tools.Point p,
+//			Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public List<WaySegment> getNearestWaySegments(
+//			org.openstreetmap.josm.tools.Point p,
+//			Predicate<OsmPrimitive> predicate) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	@Override
+	public Collection<OsmPrimitive> getAllNearest(java.awt.Point p,
+			Predicate<OsmPrimitive> predicate) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -3,18 +3,18 @@ package org.openstreetmap.josm.gui.preferences.server;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.Insets;
 import java.net.PasswordAuthentication;
 //import java.net.Authenticator.RequestorType;
 
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextField;
-import javax.swing.text.html.HTMLEditorKit;
+//import javax.swing.BorderFactory;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//import javax.swing.JPasswordField;
+//import javax.swing.JTextField;
+//import javax.swing.text.html.HTMLEditorKit;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.gui.widgets.HtmlPanel;

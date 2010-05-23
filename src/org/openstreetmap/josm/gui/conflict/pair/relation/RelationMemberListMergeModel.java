@@ -5,7 +5,7 @@ import static org.openstreetmap.josm.tools.I18n.tr;
 
 import java.util.List;
 
-import javax.swing.table.DefaultTableModel;
+//import javax.swing.table.DefaultTableModel;
 
 import org.openstreetmap.josm.command.RelationMemberConflictResolverCommand;
 import org.openstreetmap.josm.data.osm.DataSet;

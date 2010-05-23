@@ -3,20 +3,20 @@ package org.openstreetmap.josm.actions.mapmode;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.geom.AffineTransform;
-import java.awt.geom.GeneralPath;
-import java.awt.geom.Line2D;
-import java.awt.geom.NoninvertibleTransformException;
-import java.awt.geom.Point2D;
+//import java.awt.BasicStroke;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Cursor;
+//import java.awt.Graphics2D;
+//import java.awt.Point;
+//import java.awt.Rectangle;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.MouseEvent;
+//import java.awt.geom.AffineTransform;
+//import java.awt.geom.GeneralPath;
+//import java.awt.geom.Line2D;
+//import java.awt.geom.NoninvertibleTransformException;
+//import java.awt.geom.Point2D;
 import java.util.Collection;
 import java.util.LinkedList;
 

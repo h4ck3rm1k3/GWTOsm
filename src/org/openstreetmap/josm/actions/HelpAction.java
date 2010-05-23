@@ -3,12 +3,12 @@ package org.openstreetmap.josm.actions;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
+//import java.awt.Component;
+//import java.awt.Point;
+//import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
-import javax.swing.SwingUtilities;
+//import javax.swing.AbstractAction;
+//import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.gui.help.HelpBrowser;

@@ -1,17 +1,17 @@
 // License: GPL. Copyright 2008 by Immanuel Scholz and others
 package org.openstreetmap.josm.gui.layer.markerlayer;
 
-import java.awt.Graphics;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+//import java.awt.Graphics;
+//import java.awt.Point;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import javax.swing.Icon;
+//import javax.swing.Icon;
 
 import org.openstreetmap.josm.data.coor.CachedLatLon;
 import org.openstreetmap.josm.data.coor.EastNorth;

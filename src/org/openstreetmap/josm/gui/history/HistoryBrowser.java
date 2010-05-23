@@ -3,14 +3,14 @@ package org.openstreetmap.josm.gui.history;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
+//import java.awt.BorderLayout;
+//import java.awt.Dimension;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
-import javax.swing.JTabbedPane;
-import javax.swing.JTable;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.JSplitPane;
+//import javax.swing.JTabbedPane;
+//import javax.swing.JTable;
 
 import org.openstreetmap.josm.data.osm.OsmPrimitiveType;
 import org.openstreetmap.josm.data.osm.history.History;

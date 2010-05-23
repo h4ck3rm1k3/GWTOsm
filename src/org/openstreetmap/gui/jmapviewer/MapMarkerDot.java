@@ -2,9 +2,9 @@ package org.openstreetmap.gui.jmapviewer;
 
 //License: GPL. Copyright 2008 by Jan Peter Stotz
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Point;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Graphics;
+//import java.awt.Point;
 
 import org.openstreetmap.gui.jmapviewer.interfaces.MapMarker;
 
@@ -41,7 +41,7 @@ public class MapMarkerDot implements MapMarker {
         return lon;
     }
 
-    public void paint(Graphics g, Point position) {
+    public void paint(GWTGraphics2D g, Point position) {
         int size_h = 5;
         int size = size_h * 2;
         g.setColor(color);

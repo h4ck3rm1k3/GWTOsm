@@ -3,10 +3,10 @@ package org.openstreetmap.josm.gui.history;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
+//import java.awt.BorderLayout;
+//import java.awt.FlowLayout;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -14,8 +14,8 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Logger;
 
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.AbstractInfoAction;

@@ -3,17 +3,17 @@ package org.openstreetmap.josm.actions;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.ButtonModel;
+//import javax.swing.ButtonModel;
 
 /* For enabling fullscreen */
-import java.awt.Frame;
-import java.awt.GraphicsDevice;
-import java.awt.GraphicsEnvironment;
+//import java.awt.Frame;
+//import java.awt.GraphicsDevice;
+//import java.awt.GraphicsEnvironment;
 import org.openstreetmap.josm.tools.PlatformHookUnixoid;
 
 import org.openstreetmap.josm.Main;

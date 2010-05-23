@@ -3,17 +3,17 @@ package org.openstreetmap.josm.gui.conflict.tags;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Component;
+//import java.awt.Font;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.UIManager;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.DefaultComboBoxModel;
+//import javax.swing.ImageIcon;
+//import javax.swing.JComboBox;
+//import javax.swing.JLabel;
+//import javax.swing.JTable;
+//import javax.swing.UIManager;
+//import javax.swing.table.TableCellRenderer;
 
 import org.openstreetmap.josm.tools.ImageProvider;
 

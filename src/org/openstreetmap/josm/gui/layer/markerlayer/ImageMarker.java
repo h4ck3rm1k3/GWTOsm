@@ -1,22 +1,22 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.gui.layer.markerlayer;
 
-import java.awt.BorderLayout;
-import java.awt.Cursor;
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+//import java.awt.BorderLayout;
+//import java.awt.Cursor;
+//import java.awt.Image;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 import java.net.URL;
 
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JToggleButton;
-import javax.swing.JViewport;
+//import javax.swing.Icon;
+//import javax.swing.ImageIcon;
+//import javax.swing.JDialog;
+//import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.JToggleButton;
+//import javax.swing.JViewport;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.coor.LatLon;

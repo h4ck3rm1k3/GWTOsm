@@ -3,24 +3,24 @@ package org.openstreetmap.josm.gui.io;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
+//import java.awt.Component;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.FocusAdapter;
+//import java.awt.event.FocusEvent;
 import java.io.File;
 import java.util.EventObject;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.AbstractAction;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.CellEditorListener;
-import javax.swing.event.ChangeEvent;
-import javax.swing.table.TableCellEditor;
+//import javax.swing.AbstractAction;
+//import javax.swing.JButton;
+//import javax.swing.JPanel;
+//import javax.swing.JTable;
+//import javax.swing.JTextField;
+//import javax.swing.event.CellEditorListener;
+//import javax.swing.event.ChangeEvent;
+//import javax.swing.table.TableCellEditor;
 
 import org.openstreetmap.josm.actions.SaveActionBase;
 

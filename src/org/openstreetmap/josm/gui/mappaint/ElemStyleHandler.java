@@ -1,10 +1,10 @@
 package org.openstreetmap.josm.gui.mappaint;
 
-import java.awt.Color;
+import org.openstreetmap.josm.tools.Color;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import javax.swing.ImageIcon;
+//import javax.swing.ImageIcon;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.tools.ColorHelper;

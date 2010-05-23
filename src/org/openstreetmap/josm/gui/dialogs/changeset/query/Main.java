@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.gui.dialogs.changeset.query;
 
-import java.awt.Component;
+//import java.awt.Component;
 
 public class Main {
 

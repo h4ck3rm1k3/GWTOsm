@@ -1,23 +1,23 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.tagging.ac;
 
-import java.awt.Component;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+//import java.awt.Component;
+//import java.awt.event.FocusAdapter;
+//import java.awt.event.FocusEvent;
+//import java.awt.event.KeyAdapter;
+//import java.awt.event.KeyEvent;
 import java.util.EventObject;
 import java.util.logging.Logger;
 
-import javax.swing.ComboBoxEditor;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.event.CellEditorListener;
-import javax.swing.table.TableCellEditor;
-import javax.swing.text.AttributeSet;
-import javax.swing.text.BadLocationException;
-import javax.swing.text.Document;
-import javax.swing.text.PlainDocument;
+//import javax.swing.ComboBoxEditor;
+//import javax.swing.JTable;
+//import javax.swing.JTextField;
+//import javax.swing.event.CellEditorListener;
+//import javax.swing.table.TableCellEditor;
+//import javax.swing.text.AttributeSet;
+//import javax.swing.text.BadLocationException;
+//import javax.swing.text.Document;
+//import javax.swing.text.PlainDocument;
 
 import org.openstreetmap.josm.gui.tagging.ac.AutoCompletionList;
 import org.openstreetmap.josm.gui.util.TableCellEditorSupport;

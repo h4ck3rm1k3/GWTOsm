@@ -5,12 +5,12 @@ import static org.openstreetmap.josm.gui.help.HelpUtil.ht;
 import static org.openstreetmap.josm.tools.CheckParameterUtil.ensureParameterNotNull;
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
 import java.util.Collection;
 import java.util.Collections;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.DataSet;

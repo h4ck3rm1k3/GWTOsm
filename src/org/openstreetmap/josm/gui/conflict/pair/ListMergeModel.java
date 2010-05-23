@@ -16,12 +16,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 
-import javax.swing.AbstractListModel;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultListSelectionModel;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
+//import javax.swing.AbstractListModel;
+//import javax.swing.ComboBoxModel;
+//import javax.swing.DefaultListSelectionModel;
+//import javax.swing.JOptionPane;
+//import javax.swing.table.DefaultTableModel;
+//import javax.swing.table.TableModel;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;

@@ -2,23 +2,23 @@
 // License: GPL. Copyright 2007 by Tim Haussmann
 package org.openstreetmap.josm.gui.bbox;
 
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
+//import java.awt.Point;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.InputEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
+//import java.awt.event.MouseListener;
+//import java.awt.event.MouseMotionListener;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import javax.swing.AbstractAction;
-import javax.swing.ActionMap;
-import javax.swing.InputMap;
-import javax.swing.JComponent;
-import javax.swing.JPanel;
-import javax.swing.KeyStroke;
+//import javax.swing.AbstractAction;
+//import javax.swing.ActionMap;
+//import javax.swing.InputMap;
+//import javax.swing.JComponent;
+//import javax.swing.JPanel;
+//import javax.swing.KeyStroke;
 
 
 /**

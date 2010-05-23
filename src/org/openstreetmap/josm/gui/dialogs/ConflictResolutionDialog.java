@@ -3,24 +3,24 @@ package org.openstreetmap.josm.gui.dialogs;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
+//import java.awt.BorderLayout;
+//import java.awt.Component;
+//import java.awt.Dimension;
+//import java.awt.FlowLayout;
+//import java.awt.Point;
+//import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.logging.Logger;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.WindowConstants;
+//import javax.swing.AbstractAction;
+//import javax.swing.Action;
+//import javax.swing.BorderFactory;
+//import javax.swing.JButton;
+//import javax.swing.JDialog;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
+//import javax.swing.WindowConstants;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.command.Command;

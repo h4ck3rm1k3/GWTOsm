@@ -1,12 +1,13 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.tools;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
+//import java.awt.Component;
+//import java.awt.Dimension;
+//import java.awt.GridBagConstraints;
+//import java.awt.Insets;
 
-import javax.swing.Box;
+//import javax.swing.Box;
+import org.openstreetmap.josm.tools.Box;
 
 /**
  * A wrapper for GridBagConstraints which has sane default static creators and
@@ -16,7 +17,19 @@ import javax.swing.Box;
  */
 public class GBC extends GridBagConstraints {
 
-    /**
+    private static final Object WEST = null;
+	private static final Object REMAINDER = null;
+	private static final int BOTH = 0;
+	private static final int HORIZONTAL = 0;
+	private static final int VERTICAL = 0;
+	private Object anchor;
+	private Object gridwidth;
+	private int fill;
+	private double weightx;
+	private double weighty;
+	private Insets insets;
+
+	/**
      * Use public static creator functions to create an GBC.
      */
     private GBC() {}
@@ -117,6 +130,7 @@ public class GBC extends GridBagConstraints {
     public static Component glue(int x, int y) {
         short maxx = x > 0 ? Short.MAX_VALUE : 0;
         short maxy = y > 0 ? Short.MAX_VALUE : 0;
-        return new Box.Filler(new Dimension(x,y), new Dimension(x,y), new Dimension(maxx,maxy));
+        return new BoxFiller(
+        			new Dimension(x,y), new Dimension(x,y), new Dimension(maxx,maxy));
     }
 }

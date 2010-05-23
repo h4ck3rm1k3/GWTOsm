@@ -4,7 +4,7 @@ package org.openstreetmap.josm.gui.dialogs.relation;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.AbstractListModel;
+//import javax.swing.AbstractListModel;
 
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.Relation;

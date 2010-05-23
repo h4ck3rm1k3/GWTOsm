@@ -3,19 +3,19 @@ package org.openstreetmap.josm.data.projection;
 
 import java.util.Collection;
 
-import javax.swing.JPanel;
+//import javax.swing.JPanel;
 
 public interface ProjectionSubPrefs {
     /**
      * Generates the GUI for the given preference and packs them in a JPanel
      * so they may be displayed if the projection is selected.
      */
-    public void setupPreferencePanel(JPanel p);
-
-    /**
-     * Will be called if the preference dialog is dismissed.
-     */
-    public Collection<String> getPreferences(JPanel p);
+//    public void setupPreferencePanel(JPanel p);
+//
+//    /**
+//     * Will be called if the preference dialog is dismissed.
+//     */
+//    public Collection<String> getPreferences(JPanel p);
 
     /**
      * Return null when code is not part of this projection.

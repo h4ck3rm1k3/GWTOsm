@@ -3,8 +3,8 @@ package org.openstreetmap.josm.actions.mapmode;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
+//import java.awt.Rectangle;
+//import java.awt.event.KeyEvent;
 
 import org.openstreetmap.josm.gui.MapFrame;
 import org.openstreetmap.josm.gui.MapView;

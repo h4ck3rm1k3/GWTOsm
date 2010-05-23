@@ -4,22 +4,22 @@ package org.openstreetmap.josm.gui.io;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trn;
 
-import java.awt.BorderLayout;
-import java.awt.Font;
+//import java.awt.BorderLayout;
+//import java.awt.Font;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.MessageFormat;
 import java.util.logging.Logger;
 
-import javax.swing.BorderFactory;
-import javax.swing.JEditorPane;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.event.HyperlinkEvent;
-import javax.swing.event.HyperlinkListener;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+//import javax.swing.BorderFactory;
+//import javax.swing.JEditorPane;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//import javax.swing.UIManager;
+//import javax.swing.event.HyperlinkEvent;
+//import javax.swing.event.HyperlinkListener;
+//import javax.swing.text.html.HTMLEditorKit;
+//import javax.swing.text.html.StyleSheet;
 
 import org.openstreetmap.josm.data.osm.Changeset;
 import org.openstreetmap.josm.io.OsmApi;

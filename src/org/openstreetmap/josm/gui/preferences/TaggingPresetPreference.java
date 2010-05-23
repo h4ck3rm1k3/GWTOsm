@@ -3,18 +3,18 @@ package org.openstreetmap.josm.gui.preferences;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.GridBagLayout;
+//import java.awt.GridBagLayout;
 import java.util.Collection;
 import java.util.HashMap;
 
-import javax.swing.BorderFactory;
-import javax.swing.JCheckBox;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JSeparator;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+//import javax.swing.BorderFactory;
+//import javax.swing.JCheckBox;
+//import javax.swing.JMenu;
+//import javax.swing.JMenuItem;
+//import javax.swing.JPanel;
+//import javax.swing.JSeparator;
+//import javax.swing.event.ChangeEvent;
+//import javax.swing.event.ChangeListener;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.gui.tagging.TaggingPreset;

@@ -3,10 +3,10 @@ package org.openstreetmap.josm.actions.mapmode;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Cursor;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseEvent;
+//import java.awt.Cursor;
+//import java.awt.Point;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.MouseEvent;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.coor.EastNorth;

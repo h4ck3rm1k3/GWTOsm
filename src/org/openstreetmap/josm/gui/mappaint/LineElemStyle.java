@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.gui.mappaint;
 
-import java.awt.Color;
+import org.openstreetmap.josm.tools.Color;
 import java.util.Collection;
 
 import org.openstreetmap.josm.data.osm.Node;

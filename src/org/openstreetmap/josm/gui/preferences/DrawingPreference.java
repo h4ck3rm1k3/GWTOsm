@@ -3,23 +3,23 @@ package org.openstreetmap.josm.gui.preferences;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Dimension;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+//import java.awt.Dimension;
+//import java.awt.GridBagLayout;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
-import javax.swing.JTextField;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+//import javax.swing.BorderFactory;
+//import javax.swing.Box;
+//import javax.swing.ButtonGroup;
+//import javax.swing.JCheckBox;
+//import javax.swing.JComboBox;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
+//import javax.swing.JRadioButton;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTextField;
+//import javax.swing.event.ChangeEvent;
+//import javax.swing.event.ChangeListener;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.tools.GBC;

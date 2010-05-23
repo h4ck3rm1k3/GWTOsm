@@ -2,12 +2,12 @@
 
 package org.openstreetmap.josm.gui;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
+//import java.awt.Dimension;
+//import java.awt.Rectangle;
 
-import javax.swing.JLabel;
-import javax.swing.plaf.basic.BasicHTML;
-import javax.swing.text.View;
+//import javax.swing.JLabel;
+//import javax.swing.plaf.basic.BasicHTML;
+//import javax.swing.text.View;
 
 /**
  * Creates a normal label that will wrap its contents if there less width than

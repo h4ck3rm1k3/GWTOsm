@@ -1,7 +1,7 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.widgets;
 
-import javax.swing.JComboBox;
+//import javax.swing.JComboBox;
 
 import org.openstreetmap.josm.data.osm.OsmPrimitiveType;
 

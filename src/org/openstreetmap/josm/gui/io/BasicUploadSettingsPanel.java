@@ -3,24 +3,24 @@ package org.openstreetmap.josm.gui.io;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.GridBagLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+//import java.awt.BorderLayout;
+//import java.awt.GridBagLayout;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+//import java.awt.event.FocusAdapter;
+//import java.awt.event.FocusEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.KeyListener;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.Action;
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+//import javax.swing.Action;
+//import javax.swing.BorderFactory;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.Main;
 

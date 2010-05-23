@@ -3,17 +3,21 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 
 import static org.openstreetmap.josm.tools.I18n.marktr;
 
-import java.awt.Color;
+//import org.openstreetmap.josm.tools.Color;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Preferences.ColorKey;
+import org.openstreetmap.josm.tools.Color;
+
+//import org.openstreetmap.josm.tools.Color;
+//import com.google.gwt.gwtwidgets.client.style.Color;
 
 public enum PaintColors implements ColorKey {
 
-    INACTIVE(marktr("inactive"), Color.darkGray),
-    SELECTED(marktr("selected"), Color.red),
-    NODE(marktr("Node: standard"), Color.yellow),
-    CONNECTION(marktr("Node: connection"), Color.yellow),
+    INACTIVE(marktr("inactive"), new Color(169, 169, 169)), //DARKGREY),
+    SELECTED(marktr("selected"), Color.RED),
+    NODE(marktr("Node: standard"), Color.YELLOW),
+    CONNECTION(marktr("Node: connection"), Color.YELLOW),
     TAGGED(marktr("Node: tagged"), new Color(204, 255, 255)), // light cyan
     DEFAULT_WAY(marktr("way"),  new Color(0,0,128)), // dark blue
     RELATION(marktr("relation"), new Color(0,128,128)), // teal
@@ -22,9 +26,9 @@ public enum PaintColors implements ColorKey {
     BACKGROUND(marktr("background"), Color.BLACK),
     HIGHLIGHT(marktr("highlight"), new Color(0, 255, 186)), // lighteal
 
-    UNTAGGED(marktr("untagged"),Color.GRAY),
+    UNTAGGED(marktr("untagged"),Color.GREY),
     TEXT(marktr("text"), Color.WHITE),
-    AREA_TEXT(marktr("areatext"), Color.LIGHT_GRAY);
+    AREA_TEXT(marktr("areatext"), Color.LIGHTGREY);
 
     private final String name;
     private final Color defaultColor;
@@ -38,21 +42,33 @@ public enum PaintColors implements ColorKey {
         return name;
     }
 
-    public Color getDefault() {
-        return defaultColor;
-    }
+//    public Color getDefault() {
+//        return defaultColor;
+//    }
 
     public String getSpecialName() {
         return null;
     }
 
-    public Color get() {
-        return Main.pref.getColor(this);
-    }
+//    public Color get() {
+//		return defaultColor;
+//       // return Main.pref.getColor(this);
+//    }
 
     public static void getColors() {
         for (PaintColors c:values()) {
             c.get();
         }
     }
+
+	public Color get() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Color getDefault() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

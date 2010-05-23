@@ -21,7 +21,7 @@ import java.util.StringTokenizer;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.io.OsmConnection;
@@ -89,20 +89,20 @@ public class ServerSidePreferences extends Preferences {
                 out.close();
                 con.getInputStream().close();
                 con.disconnect();
-                JOptionPane.showMessageDialog(
-                        Main.parent,
-                        tr("Preferences stored on {0}", u.getHost()),
-                        tr("Information"),
-                        JOptionPane.INFORMATION_MESSAGE
-                );
+//                JOptionPane.showMessageDialog(
+//                        Main.parent,
+//                        tr("Preferences stored on {0}", u.getHost()),
+//                        tr("Information"),
+//                        JOptionPane.INFORMATION_MESSAGE
+//                );
             } catch (Exception e) {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(
-                        Main.parent,
-                        tr("Could not upload preferences. Reason: {0}", e.getMessage()),
-                        tr("Error"),
-                        JOptionPane.ERROR_MESSAGE
-                );
+//                JOptionPane.showMessageDialog(
+//                        Main.parent,
+//                        tr("Could not upload preferences. Reason: {0}", e.getMessage()),
+//                        tr("Error"),
+//                        JOptionPane.ERROR_MESSAGE
+//                );
             }
         }
     }
@@ -113,12 +113,12 @@ public class ServerSidePreferences extends Preferences {
             connection = new Connection(new URL(serverUrl+"user/preferences"));
         } catch (MalformedURLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(
-                    Main.parent,
-                    tr("Could not load preferences from server."),
-                    tr("Error"),
-                    JOptionPane.ERROR_MESSAGE
-            );
+//            JOptionPane.showMessageDialog(
+//                    Main.parent,
+//                    tr("Could not load preferences from server."),
+//                    tr("Error"),
+//                    JOptionPane.ERROR_MESSAGE
+//            );
         }
         this.connection = connection;
     }

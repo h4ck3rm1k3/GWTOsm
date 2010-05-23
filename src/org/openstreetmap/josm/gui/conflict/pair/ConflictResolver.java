@@ -4,15 +4,15 @@ package org.openstreetmap.josm.gui.conflict.pair;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trn;
 
-import java.awt.BorderLayout;
+//import java.awt.BorderLayout;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
+//import javax.swing.ImageIcon;
+//import javax.swing.JPanel;
+//import javax.swing.JTabbedPane;
 
 import org.openstreetmap.josm.command.Command;
 import org.openstreetmap.josm.command.ModifiedConflictResolveCommand;

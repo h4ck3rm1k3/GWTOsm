@@ -1,17 +1,17 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.conflict.tags;
 
-import java.awt.Component;
-import java.awt.Font;
+//import java.awt.Component;
+//import java.awt.Font;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JTable;
-import javax.swing.ListCellRenderer;
-import javax.swing.UIManager;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.DefaultComboBoxModel;
+//import javax.swing.JComboBox;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
+//import javax.swing.JTable;
+//import javax.swing.ListCellRenderer;
+//import javax.swing.UIManager;
+//import javax.swing.table.TableCellRenderer;
 
 public class RelationMemberConflictDecisionRenderer extends JLabel implements TableCellRenderer, ListCellRenderer{
 

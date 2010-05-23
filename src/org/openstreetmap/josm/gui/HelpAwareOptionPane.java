@@ -3,23 +3,23 @@ package org.openstreetmap.josm.gui;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+//import java.awt.Component;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.WindowAdapter;
+//import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
-import javax.swing.Icon;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.KeyStroke;
+//import javax.swing.AbstractAction;
+//import javax.swing.Action;
+//import javax.swing.Icon;
+//import javax.swing.JButton;
+//import javax.swing.JComponent;
+//import javax.swing.JDialog;
+//import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
+//import javax.swing.KeyStroke;
 
 import org.openstreetmap.josm.gui.help.HelpBrowser;
 import org.openstreetmap.josm.gui.help.HelpUtil;

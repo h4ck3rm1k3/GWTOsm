@@ -1,7 +1,7 @@
 package org.openstreetmap.josm.gui.conflict.pair.nodes;
 
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTable;
 
 import org.openstreetmap.josm.data.conflict.Conflict;
 import org.openstreetmap.josm.data.osm.Node;

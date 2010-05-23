@@ -3,8 +3,8 @@ package org.openstreetmap.josm.gui.conflict.tags;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import javax.swing.table.DefaultTableColumnModel;
-import javax.swing.table.TableColumn;
+//import javax.swing.table.DefaultTableColumnModel;
+//import javax.swing.table.TableColumn;
 
 public class TagConflictResolverColumnModel extends DefaultTableColumnModel{
 

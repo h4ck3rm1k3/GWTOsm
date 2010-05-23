@@ -2,7 +2,7 @@
   (public domain) with only very small additions */
 package org.openstreetmap.josm.gui;
 
-import java.awt.datatransfer.DataFlavor;
+//import java.awt.datatransfer.DataFlavor;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.io.Reader;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.swing.BorderFactory;
+//import javax.swing.BorderFactory;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.OpenFileAction;

@@ -3,15 +3,15 @@ package org.openstreetmap.josm.gui.tagging;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.Font;
+//import java.awt.Component;
+//import java.awt.Font;
 import java.util.logging.Logger;
 
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.UIManager;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.JLabel;
+//import javax.swing.JTable;
+//import javax.swing.UIManager;
+//import javax.swing.border.EmptyBorder;
+//import javax.swing.table.TableCellRenderer;
 
 /**
  * This is the table cell renderer for cells for the table of tags

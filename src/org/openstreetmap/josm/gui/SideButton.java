@@ -2,14 +2,14 @@ package org.openstreetmap.josm.gui;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Image;
-import java.awt.Insets;
-import java.awt.event.ActionListener;
+//import java.awt.Image;
+//import java.awt.Insets;
+//import java.awt.event.ActionListener;
 
-import javax.swing.Action;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
+//import javax.swing.Action;
+//import javax.swing.Icon;
+//import javax.swing.ImageIcon;
+//import javax.swing.JButton;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.tools.ImageProvider;

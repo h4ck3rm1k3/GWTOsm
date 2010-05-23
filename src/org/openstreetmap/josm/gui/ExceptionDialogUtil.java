@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.io.ChangesetClosedException;

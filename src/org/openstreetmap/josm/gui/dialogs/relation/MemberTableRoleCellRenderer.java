@@ -1,9 +1,9 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.dialogs.relation;
 
-import java.awt.Component;
+//import java.awt.Component;
 
-import javax.swing.JTable;
+//import javax.swing.JTable;
 
 public class MemberTableRoleCellRenderer extends MemberTableCellRenderer {
     @Override

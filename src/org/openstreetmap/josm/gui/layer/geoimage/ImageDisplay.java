@@ -5,24 +5,24 @@ package org.openstreetmap.josm.gui.layer.geoimage;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.MediaTracker;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.Toolkit;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.event.MouseWheelEvent;
-import java.awt.event.MouseWheelListener;
-import java.awt.geom.Rectangle2D;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Dimension;
+//import java.awt.FontMetrics;
+//import java.awt.Graphics;
+//import java.awt.Image;
+//import java.awt.MediaTracker;
+//import java.awt.Point;
+//import java.awt.Rectangle;
+//import java.awt.Toolkit;
+//import java.awt.event.MouseEvent;
+//import java.awt.event.MouseListener;
+//import java.awt.event.MouseMotionListener;
+//import java.awt.event.MouseWheelEvent;
+//import java.awt.event.MouseWheelListener;
+//import java.awt.geom.Rectangle2D;
 import java.io.File;
 
-import javax.swing.JComponent;
+//import javax.swing.JComponent;
 
 import org.openstreetmap.josm.Main;
 

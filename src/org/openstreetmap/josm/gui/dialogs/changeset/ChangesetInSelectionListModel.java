@@ -3,7 +3,7 @@ package org.openstreetmap.josm.gui.dialogs.changeset;
 
 import java.util.Collection;
 
-import javax.swing.DefaultListSelectionModel;
+//import javax.swing.DefaultListSelectionModel;
 
 import org.openstreetmap.josm.data.SelectionChangedListener;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;

@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.command.Command;

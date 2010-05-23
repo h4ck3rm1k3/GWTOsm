@@ -2,13 +2,13 @@
 
 package org.openstreetmap.josm.gui.dialogs;
 
-import java.awt.Dimension;
+//import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.BoxLayout;
-import javax.swing.JPanel;
-import javax.swing.JSplitPane;
+//import javax.swing.BoxLayout;
+//import javax.swing.JPanel;
+//import javax.swing.JSplitPane;
 
 import org.openstreetmap.josm.gui.MultiSplitPane;
 import org.openstreetmap.josm.gui.MultiSplitLayout.Divider;

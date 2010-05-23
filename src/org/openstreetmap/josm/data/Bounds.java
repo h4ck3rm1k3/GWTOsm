@@ -3,11 +3,12 @@ package org.openstreetmap.josm.data;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.geom.Rectangle2D;
+//import java.awt.geom.Rectangle2D;
 import java.text.DecimalFormat;
 import java.text.MessageFormat;
 
 import org.openstreetmap.josm.data.coor.LatLon;
+import org.openstreetmap.josm.data.osm.visitor.paint.Rectangle2D;
 import org.openstreetmap.josm.tools.CheckParameterUtil;
 
 /**
@@ -188,8 +189,8 @@ public class Bounds {
      * Converts the lat/lon bounding box to an object of type Rectangle2D.Double
      * @return the bounding box to Rectangle2D.Double
      */
-    public Rectangle2D.Double asRect() {
-        return new Rectangle2D.Double(minLon, minLat, maxLon-minLon, maxLat-minLat);
+    public Rectangle2DDouble asRect() {
+        return new Rectangle2DDouble(minLon, minLat, maxLon-minLon, maxLat-minLat);
     }
 
     public double getArea() {

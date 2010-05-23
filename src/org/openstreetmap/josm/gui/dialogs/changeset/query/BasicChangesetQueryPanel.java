@@ -3,20 +3,20 @@ package org.openstreetmap.josm.gui.dialogs.changeset.query;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+//import java.awt.BorderLayout;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.Insets;
+//import java.awt.event.ItemEvent;
+//import java.awt.event.ItemListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.BorderFactory;
-import javax.swing.ButtonGroup;
-import javax.swing.JCheckBox;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
+//import javax.swing.BorderFactory;
+//import javax.swing.ButtonGroup;
+//import javax.swing.JCheckBox;
+//import javax.swing.JPanel;
+//import javax.swing.JRadioButton;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.MapObject;

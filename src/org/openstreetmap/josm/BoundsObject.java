@@ -1,6 +1,8 @@
 package org.openstreetmap.josm;
 
-import java.awt.Point;
+import org.openstreetmap.josm.tools.Point;
+
+//import java.awt.Point;
 
 public class BoundsObject {
 

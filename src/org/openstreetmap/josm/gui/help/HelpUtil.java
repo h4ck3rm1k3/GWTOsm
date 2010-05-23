@@ -1,14 +1,14 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.help;
 
-import java.awt.Component;
+//import java.awt.Component;
 import java.util.Locale;
 
-import javax.swing.AbstractButton;
-import javax.swing.Action;
-import javax.swing.JComponent;
-import javax.swing.JMenu;
-import javax.swing.KeyStroke;
+//import javax.swing.AbstractButton;
+//import javax.swing.Action;
+//import javax.swing.JComponent;
+//import javax.swing.JMenu;
+//import javax.swing.KeyStroke;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.HelpAction;

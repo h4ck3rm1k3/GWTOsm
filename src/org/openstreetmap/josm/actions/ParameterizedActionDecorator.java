@@ -1,12 +1,12 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.actions;
 
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
 import java.beans.PropertyChangeListener;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.swing.Action;
+//import javax.swing.Action;
 
 public class ParameterizedActionDecorator implements Action {
 

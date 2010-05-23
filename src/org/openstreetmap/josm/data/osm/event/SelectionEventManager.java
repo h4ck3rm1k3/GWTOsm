@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.SwingUtilities;
+//import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.data.SelectionChangedListener;
 import org.openstreetmap.josm.data.osm.DataSet;
@@ -70,7 +70,7 @@ public class SelectionEventManager implements SelectionChangedListener {
     public void selectionChanged(Collection<? extends OsmPrimitive> newSelection) {
         fireEvents(normalListeners, newSelection);
         selection = newSelection;
-        SwingUtilities.invokeLater(edtRunnable);
+//        SwingUtilities.invokeLater(edtRunnable);
     }
 
     private void fireEvents(List<ListenerInfo> listeners, Collection<? extends OsmPrimitive> newSelection) {

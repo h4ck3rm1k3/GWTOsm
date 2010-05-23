@@ -2,8 +2,8 @@ package org.openstreetmap.gui.jmapviewer.interfaces;
 
 //License: GPL. Copyright 2009 by Stefan Zeller
 
-import java.awt.Graphics;
-import java.awt.Point;
+//import java.awt.Graphics;
+//import java.awt.Point;
 
 import org.openstreetmap.gui.jmapviewer.Coordinate;
 import org.openstreetmap.gui.jmapviewer.JMapViewer;

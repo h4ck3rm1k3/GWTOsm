@@ -1,13 +1,13 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.gui;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+//import java.awt.event.MouseAdapter;
+//import java.awt.event.MouseEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-import javax.swing.Action;
-import javax.swing.JToggleButton;
+//import javax.swing.Action;
+//import javax.swing.JToggleButton;
 
 import org.openstreetmap.josm.tools.Destroyable;
 

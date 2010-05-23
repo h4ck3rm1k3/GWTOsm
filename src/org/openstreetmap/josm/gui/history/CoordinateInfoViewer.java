@@ -2,16 +2,16 @@
 package org.openstreetmap.josm.gui.history;
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.GridBagConstraints;
+//import java.awt.GridBagLayout;
+//import java.awt.Insets;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+//import javax.swing.BorderFactory;
+//import javax.swing.JLabel;
+//import javax.swing.JPanel;
 
 import org.openstreetmap.josm.data.coor.CoordinateFormat;
 import org.openstreetmap.josm.data.osm.history.HistoryNode;

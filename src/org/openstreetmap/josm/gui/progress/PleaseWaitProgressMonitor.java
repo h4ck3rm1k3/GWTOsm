@@ -1,18 +1,18 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.progress;
 
-import java.awt.Component;
-import java.awt.Dialog;
-import java.awt.EventQueue;
-import java.awt.Frame;
-import java.awt.Window;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+//import java.awt.Component;
+//import java.awt.Dialog;
+//import java.awt.EventQueue;
+//import java.awt.Frame;
+//import java.awt.Window;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+//import java.awt.event.WindowAdapter;
+//import java.awt.event.WindowEvent;
+//import java.awt.event.WindowListener;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.gui.PleaseWaitDialog;

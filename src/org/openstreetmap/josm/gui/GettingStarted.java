@@ -4,20 +4,20 @@ package org.openstreetmap.josm.gui;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.event.InputEvent;
-import java.awt.event.KeyEvent;
+//import java.awt.BorderLayout;
+//import java.awt.EventQueue;
+//import java.awt.event.InputEvent;
+//import java.awt.event.KeyEvent;
 import java.io.UnsupportedEncodingException;
 
-import javax.swing.JComponent;
-import javax.swing.JEditorPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.KeyStroke;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.HyperlinkEvent;
-import javax.swing.event.HyperlinkListener;
+//import javax.swing.JComponent;
+//import javax.swing.JEditorPane;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.KeyStroke;
+//import javax.swing.border.EmptyBorder;
+//import javax.swing.event.HyperlinkEvent;
+//import javax.swing.event.HyperlinkListener;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Version;

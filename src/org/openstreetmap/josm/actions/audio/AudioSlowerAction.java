@@ -4,7 +4,7 @@ package org.openstreetmap.josm.actions.audio;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trc;
 
-import java.awt.event.KeyEvent;
+//import java.awt.event.KeyEvent;
 
 import org.openstreetmap.josm.tools.Shortcut;
 

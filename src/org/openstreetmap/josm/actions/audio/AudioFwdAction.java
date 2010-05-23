@@ -4,8 +4,8 @@ package org.openstreetmap.josm.actions.audio;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.tools.I18n.trc;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.actions.JosmAction;

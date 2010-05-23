@@ -3,16 +3,16 @@ package org.openstreetmap.josm.gui.tagging;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.event.ActionEvent;
+//import java.awt.Component;
+//import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import javax.swing.Action;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JPopupMenu;
-import javax.swing.JSeparator;
+//import javax.swing.Action;
+//import javax.swing.JMenu;
+//import javax.swing.JMenuItem;
+//import javax.swing.JPopupMenu;
+//import javax.swing.JSeparator;
 
 import org.openstreetmap.josm.tools.PresetTextComparator;
 

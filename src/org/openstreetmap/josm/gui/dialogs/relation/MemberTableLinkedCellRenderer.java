@@ -1,12 +1,12 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.dialogs.relation;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.Image;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Component;
+//import java.awt.Graphics;
+//import java.awt.Image;
 
-import javax.swing.JTable;
+//import javax.swing.JTable;
 
 import org.openstreetmap.josm.gui.dialogs.relation.WayConnectionType.Direction;
 import org.openstreetmap.josm.tools.ImageProvider;

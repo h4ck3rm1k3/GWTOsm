@@ -3,7 +3,7 @@ package org.openstreetmap.josm.data.osm;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.geom.Area;
+//import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.openstreetmap.josm.data.Area;
 import org.openstreetmap.josm.data.SelectionChangedListener;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.event.AbstractDatasetChangedEvent;

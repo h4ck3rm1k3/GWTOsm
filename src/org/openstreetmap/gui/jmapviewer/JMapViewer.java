@@ -2,23 +2,23 @@ package org.openstreetmap.gui.jmapviewer;
 
 //License: GPL. Copyright 2008 by Jan Peter Stotz
 
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Insets;
-import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
+//import java.awt.Dimension;
+//import java.awt.Font;
+//import java.awt.Graphics;
+//import java.awt.Insets;
+//import java.awt.Point;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+//import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+////import javax.swing.ImageIcon;
+////import javax.swing.JButton;
+////import javax.swing.JPanel;
+////import javax.swing.JSlider;
+////import javax.swing.event.ChangeEvent;
+////import javax.swing.event.ChangeListener;
 
 import org.openstreetmap.gui.jmapviewer.interfaces.MapMarker;
 import org.openstreetmap.gui.jmapviewer.interfaces.MapRectangle;
@@ -404,7 +404,7 @@ public class JMapViewer extends JPanel implements TileLoaderListener {
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    protected void paintComponent(GWTGraphics2D g) {
         super.paintComponent(g);
 
         int iMove = 0;

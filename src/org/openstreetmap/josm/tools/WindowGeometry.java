@@ -3,11 +3,11 @@ package org.openstreetmap.josm.tools;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Point;
-import java.awt.Toolkit;
-import java.awt.Window;
+//import java.awt.Component;
+//import java.awt.Dimension;
+//import java.awt.Point;
+//import java.awt.Toolkit;
+//import java.awt.Window;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -43,22 +43,22 @@ public class WindowGeometry {
      * @param extent the size
      * @return the geometry object
      */
-    static public WindowGeometry centerInWindow(Component reference, Dimension extent) {
-        Window parentWindow = null;
-        while(reference != null && ! (reference instanceof Window) ) {
-            reference = reference.getParent();
-        }
-        if (reference == null)
-            return new WindowGeometry(new Point(0,0), extent);
-        parentWindow = (Window)reference;
-        Point topLeft = new Point(
-                Math.max(0, (parentWindow.getSize().width - extent.width) /2),
-                Math.max(0, (parentWindow.getSize().height - extent.height) /2)
-        );
-        topLeft.x += parentWindow.getLocation().x;
-        topLeft.y += parentWindow.getLocation().y;
-        return new WindowGeometry(topLeft, extent);
-    }
+//    static public WindowGeometry centerInWindow(Component reference, Dimension extent) {
+//        Window parentWindow = null;
+////        while(reference != null && ! (reference instanceof Window) ) {
+////            reference = reference.getParent();
+////        }
+////        if (reference == null)
+////            return new WindowGeometry(new Point(0,0), extent);
+////        parentWindow = (Window)reference;
+////        Point topLeft = new Point(
+////                Math.max(0, (parentWindow.getSize().width - extent.width) /2),
+////                Math.max(0, (parentWindow.getSize().height - extent.height) /2)
+////        );
+////        topLeft.x += parentWindow.getLocation().x;
+////        topLeft.y += parentWindow.getLocation().y;
+////        return new WindowGeometry(topLeft, extent);
+//    }
 
     /**
      * Exception thrown by the WindowGeometry class if something goes wrong
@@ -163,7 +163,11 @@ public class WindowGeometry {
         }
     }
 
-    /**
+    public WindowGeometry(Point locationOnScreen, Object size) {
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * Remembers a window geometry under a specific preference key
      *
      * @param preferenceKey the preference key

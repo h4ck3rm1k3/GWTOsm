@@ -3,7 +3,7 @@ package org.openstreetmap.josm.data;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
+//import org.openstreetmap.josm.tools.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,11 +28,13 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.tools.ColorHelper;
 
+import org.openstreetmap.josm.tools.Color;
+//import org.openstreetmap.josm.tools.Color;
 /**
  * This class holds all preferences for JOSM.
  *

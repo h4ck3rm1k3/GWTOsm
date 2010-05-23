@@ -3,18 +3,18 @@ package org.openstreetmap.josm.gui;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
+//import java.awt.Component;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import javax.swing.DefaultListModel;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.ListCellRenderer;
-import javax.swing.UIManager;
+//import javax.swing.DefaultListModel;
+//import javax.swing.ImageIcon;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
+//import javax.swing.JOptionPane;
+//import javax.swing.ListCellRenderer;
+//import javax.swing.UIManager;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Bounds;

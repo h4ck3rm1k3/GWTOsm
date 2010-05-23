@@ -5,8 +5,8 @@ import static org.openstreetmap.josm.tools.I18n.tr;
 
 import java.util.Collection;
 
-import javax.swing.JPanel;
-import javax.swing.table.AbstractTableModel;
+//import javax.swing.JPanel;
+//import javax.swing.table.AbstractTableModel;
 
 import org.openstreetmap.josm.tools.GBC;
 import org.openstreetmap.josm.tools.Shortcut;

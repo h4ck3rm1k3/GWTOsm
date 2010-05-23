@@ -5,7 +5,7 @@
 
 package org.openstreetmap.josm.gui.layer.geoimage;
 
-import java.awt.Image;
+//import java.awt.Image;
 import java.io.File;
 import java.util.Date;
 

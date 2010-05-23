@@ -4,16 +4,16 @@ package org.openstreetmap.josm.actions;
 import static org.openstreetmap.josm.tools.I18n.tr;
 import static org.openstreetmap.josm.gui.help.HelpUtil.ht;
 
-import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
+//import java.awt.Component;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.KeyEvent;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
+//import javax.swing.JOptionPane;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.command.Command;

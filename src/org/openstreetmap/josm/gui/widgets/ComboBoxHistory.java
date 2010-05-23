@@ -32,7 +32,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.swing.DefaultComboBoxModel;
+//import javax.swing.DefaultComboBoxModel;
 
 public class ComboBoxHistory extends DefaultComboBoxModel implements Iterable<String> {
 

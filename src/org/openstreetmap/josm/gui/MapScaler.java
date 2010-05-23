@@ -4,11 +4,11 @@ package org.openstreetmap.josm.gui;
 
 import static org.openstreetmap.josm.tools.I18n.marktr;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.geom.Rectangle2D;
+import org.openstreetmap.josm.tools.Color;
+//import java.awt.Graphics;
+//import java.awt.geom.Rectangle2D;
 
-import javax.swing.JComponent;
+//import javax.swing.JComponent;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.gui.help.Helpful;

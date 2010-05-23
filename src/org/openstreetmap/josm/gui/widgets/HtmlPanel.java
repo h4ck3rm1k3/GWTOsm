@@ -1,15 +1,15 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.widgets;
 
-import java.awt.BorderLayout;
-import java.awt.Font;
+//import java.awt.BorderLayout;
+//import java.awt.Font;
 import java.text.MessageFormat;
 
-import javax.swing.JEditorPane;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
-import javax.swing.text.html.HTMLEditorKit;
-import javax.swing.text.html.StyleSheet;
+//import javax.swing.JEditorPane;
+//import javax.swing.JPanel;
+//import javax.swing.UIManager;
+//import javax.swing.text.html.HTMLEditorKit;
+//import javax.swing.text.html.StyleSheet;
 
 /**
  * This panel can be used to display larger larger sections of formatted text in

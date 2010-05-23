@@ -1,13 +1,13 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.gui.widgets;
 
-import java.awt.Dimension;
-import java.awt.LayoutManager;
-import java.awt.Rectangle;
+//import java.awt.Dimension;
+//import java.awt.LayoutManager;
+//import java.awt.Rectangle;
 
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.Scrollable;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.Scrollable;
 
 public class VerticallyScrollablePanel extends JPanel implements Scrollable {
 

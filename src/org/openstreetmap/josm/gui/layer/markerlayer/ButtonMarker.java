@@ -1,14 +1,14 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.gui.layer.markerlayer;
 
-import java.awt.Graphics;
-import java.awt.Insets;
-import java.awt.Point;
-import java.awt.Rectangle;
+//import java.awt.Graphics;
+//import java.awt.Insets;
+//import java.awt.Point;
+//import java.awt.Rectangle;
 
-import javax.swing.BorderFactory;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
+//import javax.swing.BorderFactory;
+//import javax.swing.border.BevelBorder;
+//import javax.swing.border.Border;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.coor.LatLon;

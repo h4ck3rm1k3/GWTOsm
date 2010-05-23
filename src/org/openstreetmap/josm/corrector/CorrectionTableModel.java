@@ -6,7 +6,7 @@ import static org.openstreetmap.josm.tools.I18n.tr;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.swing.table.AbstractTableModel;
+//import javax.swing.table.AbstractTableModel;
 
 public abstract class CorrectionTableModel<C extends Correction> extends
         AbstractTableModel {

@@ -3,7 +3,7 @@ package org.openstreetmap.josm.gui.conflict.pair.tags;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Color;
+import org.openstreetmap.josm.tools.Color;
 
 import org.openstreetmap.josm.gui.conflict.pair.MergeDecisionType;
 

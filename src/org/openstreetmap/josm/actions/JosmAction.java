@@ -5,8 +5,8 @@ import static org.openstreetmap.josm.tools.I18n.tr;
 
 import java.util.Collection;
 
-import javax.swing.AbstractAction;
-import javax.swing.JComponent;
+//import javax.swing.AbstractAction;
+//import javax.swing.JComponent;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.SelectionChangedListener;

@@ -1,13 +1,13 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.corrector;
 
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
+//import java.awt.Component;
+//import java.awt.Dimension;
+//import java.awt.Font;
 
-import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.table.TableCellRenderer;
+//import javax.swing.JLabel;
+//import javax.swing.JTable;
+//import javax.swing.table.TableCellRenderer;
 
 public abstract class CorrectionTable<TM extends CorrectionTableModel<?>>
         extends JTable {

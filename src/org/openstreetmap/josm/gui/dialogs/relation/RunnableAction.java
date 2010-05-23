@@ -1,8 +1,8 @@
 package org.openstreetmap.josm.gui.dialogs.relation;
 
-import java.awt.event.ActionEvent;
+//import java.awt.event.ActionEvent;
 
-import javax.swing.AbstractAction;
+//import javax.swing.AbstractAction;
 
 public abstract class RunnableAction extends AbstractAction implements Runnable {
 

@@ -3,8 +3,8 @@ package org.openstreetmap.josm.gui.widgets;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import javax.swing.JTextField;
-import javax.swing.text.JTextComponent;
+//import javax.swing.JTextField;
+//import javax.swing.text.JTextComponent;
 
 /**
  * @author Matthias Julius

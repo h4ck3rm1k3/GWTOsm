@@ -3,7 +3,7 @@ package org.openstreetmap.josm.gui.preferences.server;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import javax.swing.text.JTextComponent;
+//import javax.swing.text.JTextComponent;
 
 import org.openstreetmap.josm.gui.widgets.AbstractTextComponentValidator;
 

@@ -3,22 +3,22 @@ package org.openstreetmap.josm.tools;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.GridBagLayout;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.ClipboardOwner;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.Transferable;
+//import java.awt.Component;
+//import java.awt.GridBagLayout;
+//import java.awt.Toolkit;
+//import java.awt.datatransfer.Clipboard;
+//import java.awt.datatransfer.ClipboardOwner;
+//import java.awt.datatransfer.StringSelection;
+//import java.awt.datatransfer.Transferable;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.URL;
 
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+//import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.JTextArea;
 
 import org.openstreetmap.josm.Main;
 //import org.openstreetmap.josm.actions.ShowStatusReportAction;
@@ -47,13 +47,13 @@ public final class BugReportExceptionHandler implements Thread.UncaughtException
         if (Main.parent != null) {
             if (e instanceof OutOfMemoryError) {
                 // do not translate the string, as translation may raise an exception
-                JOptionPane.showMessageDialog(Main.parent, "JOSM is out of memory. " +
-                        "Strange things may happen.\nPlease restart JOSM with the -Xmx###M option,\n" +
-                        "where ### is the number of MB assigned to JOSM (e.g. 256).\n" +
-                        "Currently, " + Runtime.getRuntime().maxMemory()/1024/1024 + " MB are available to JOSM.",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE
-                );
+//                JOptionPane.showMessageDialog(Main.parent, "JOSM is out of memory. " +
+//                        "Strange things may happen.\nPlease restart JOSM with the -Xmx###M option,\n" +
+//                        "where ### is the number of MB assigned to JOSM (e.g. 256).\n" +
+//                        "Currently, " + Runtime.getRuntime().maxMemory()/1024/1024 + " MB are available to JOSM.",
+//                        "Error",
+//                        JOptionPane.ERROR_MESSAGE
+//                );
                 return;
             }
 
@@ -65,21 +65,21 @@ public final class BugReportExceptionHandler implements Thread.UncaughtException
             // Then ask for submitting a bug report, for exceptions thrown from a plugin too
             //
             Object[] options = new String[]{tr("Do nothing"), tr("Report Bug")};
-            int answer = JOptionPane.showOptionDialog(
-                    Main.parent,
-                    "<html>"
-                    + tr("An unexpected exception occurred.<br>" +
-                            "This is always a coding error. If you are running the latest<br>" +
-                            "version of JOSM, please consider being kind and file a bug report."
-                    )
-                    + "</html>",
-                    tr("Unexpected Exception"),
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.ERROR_MESSAGE,
-                    null,
-                    options, options[0]
-            );
-            if (answer != 1)  return;
+//            int answer = JOptionPane.showOptionDialog(
+//                    Main.parent,
+//                    "<html>"
+//                    + tr("An unexpected exception occurred.<br>" +
+//                            "This is always a coding error. If you are running the latest<br>" +
+//                            "version of JOSM, please consider being kind and file a bug report."
+//                    )
+//                    + "</html>",
+//                    tr("Unexpected Exception"),
+//                    JOptionPane.YES_NO_OPTION,
+//                    JOptionPane.ERROR_MESSAGE,
+//                    null,
+//                    options, options[0]
+//            );
+//            if (answer != 1)  return;
 
             try {
                 final int maxlen = 7000;

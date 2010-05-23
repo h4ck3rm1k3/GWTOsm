@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-import java.awt.Color;
+import org.openstreetmap.josm.tools.Color;
 
 import org.openstreetmap.josm.data.osm.ElemStyle;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;

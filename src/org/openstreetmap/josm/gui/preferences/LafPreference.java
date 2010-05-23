@@ -3,21 +3,21 @@ package org.openstreetmap.josm.gui.preferences;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.GridBagLayout;
+//import java.awt.Component;
+//import java.awt.GridBagLayout;
 
-import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.DefaultListCellRenderer;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListCellRenderer;
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
+//import javax.swing.BorderFactory;
+//import javax.swing.Box;
+//import javax.swing.DefaultListCellRenderer;
+//import javax.swing.JCheckBox;
+//import javax.swing.JComboBox;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
+//import javax.swing.JPanel;
+//import javax.swing.JScrollPane;
+//import javax.swing.ListCellRenderer;
+//import javax.swing.UIManager;
+//import javax.swing.UIManager.LookAndFeelInfo;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.tools.GBC;

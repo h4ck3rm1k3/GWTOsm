@@ -3,22 +3,22 @@ package org.openstreetmap.josm.gui.conflict.tags;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
-import java.awt.event.KeyEvent;
+//import java.awt.Component;
+//import java.awt.Font;
+//import java.awt.event.FocusAdapter;
+//import java.awt.event.FocusEvent;
+//import java.awt.event.KeyEvent;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.AbstractCellEditor;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JTable;
-import javax.swing.ListCellRenderer;
-import javax.swing.UIManager;
-import javax.swing.table.TableCellEditor;
+//import javax.swing.AbstractCellEditor;
+//import javax.swing.DefaultComboBoxModel;
+//import javax.swing.JComboBox;
+//import javax.swing.JLabel;
+//import javax.swing.JList;
+//import javax.swing.JTable;
+//import javax.swing.ListCellRenderer;
+//import javax.swing.UIManager;
+//import javax.swing.table.TableCellEditor;
 
 /**
  * This is a table cell editor for selecting a possible tag value from a list of

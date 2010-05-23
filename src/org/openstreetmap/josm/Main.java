@@ -1,9 +1,10 @@
 package org.openstreetmap.josm;
 
-import java.awt.Component;
+//import java.awt.Component;
 
 import org.openstreetmap.josm.data.ServerSidePreferences;
 import org.openstreetmap.josm.data.projection.Projection;
+import org.openstreetmap.josm.tools.Component;
 import org.openstreetmap.josm.tools.PlatformHookUnixoid;
 
 public class Main {

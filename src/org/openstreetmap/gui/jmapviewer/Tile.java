@@ -2,10 +2,10 @@ package org.openstreetmap.gui.jmapviewer;
 
 //License: GPL. Copyright 2008 by Jan Peter Stotz
 
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.geom.AffineTransform;
-import java.awt.image.BufferedImage;
+//import java.awt.Graphics;
+//import java.awt.Graphics2D;
+//import java.awt.geom.AffineTransform;
+//import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 

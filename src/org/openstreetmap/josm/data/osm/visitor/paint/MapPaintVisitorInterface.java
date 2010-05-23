@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-import java.awt.Graphics2D;
+//import java.awt.Graphics2D;
 
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.osm.DataSet;
@@ -36,7 +36,7 @@ public interface MapPaintVisitorInterface {
 
 	public abstract void putError(OsmPrimitive p, String text, boolean isError);
 
-	public abstract void setGraphics(Graphics2D g);
+	public abstract void setGraphics(GWTGraphics2D g);
 
 	public abstract void setInactive(boolean inactive);
 

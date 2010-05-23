@@ -1,8 +1,10 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.data.coor;
 
-import java.awt.geom.Point2D;
+//import java.awt.geom.Point2D;
 import java.io.Serializable;
+
+import org.openstreetmap.josm.data.osm.visitor.paint.Point2D;
 
 /**
  * Base class of points of both coordinate systems.

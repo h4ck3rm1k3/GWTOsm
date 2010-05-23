@@ -1,9 +1,9 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm.visitor.paint.relations;
 
-import java.awt.Point;
-import java.awt.Polygon;
-import java.awt.Rectangle;
+//import java.awt.Point;
+//import java.awt.Polygon;
+//import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -13,8 +13,11 @@ import org.openstreetmap.josm.data.osm.Relation;
 import org.openstreetmap.josm.data.osm.RelationMember;
 import org.openstreetmap.josm.data.osm.Way;
 import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
+import org.openstreetmap.josm.data.osm.visitor.paint.Polygon;
+import org.openstreetmap.josm.data.osm.visitor.paint.Rectangle;
 import org.openstreetmap.josm.data.osm.visitor.paint.relations.Multipolygon.PolyData.Intersection;
 //import org.openstreetmap.josm.gui.NavigatableComponent;
+import org.openstreetmap.josm.tools.Point;
 
 public class Multipolygon {
 

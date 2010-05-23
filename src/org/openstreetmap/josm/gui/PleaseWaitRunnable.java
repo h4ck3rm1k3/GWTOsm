@@ -1,12 +1,12 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.gui;
 
-import java.awt.Component;
-import java.awt.EventQueue;
+//import java.awt.Component;
+//import java.awt.EventQueue;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import javax.swing.SwingUtilities;
+//import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.gui.progress.PleaseWaitProgressMonitor;
 import org.openstreetmap.josm.gui.progress.ProgressMonitor;

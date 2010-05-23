@@ -3,17 +3,17 @@ package org.openstreetmap.josm.gui.dialogs.relation;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import java.awt.Component;
-import java.awt.Dialog;
+//import java.awt.Component;
+//import java.awt.Dialog;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import javax.swing.JTree;
-import javax.swing.SwingUtilities;
-import javax.swing.event.TreeExpansionEvent;
-import javax.swing.event.TreeWillExpandListener;
-import javax.swing.tree.ExpandVetoException;
-import javax.swing.tree.TreePath;
+//import javax.swing.JTree;
+//import javax.swing.SwingUtilities;
+//import javax.swing.event.TreeExpansionEvent;
+//import javax.swing.event.TreeWillExpandListener;
+//import javax.swing.tree.ExpandVetoException;
+//import javax.swing.tree.TreePath;
 
 import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.DataSet;

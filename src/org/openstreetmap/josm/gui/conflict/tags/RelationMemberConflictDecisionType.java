@@ -3,7 +3,7 @@ package org.openstreetmap.josm.gui.conflict.tags;
 
 import static org.openstreetmap.josm.tools.I18n.tr;
 
-import javax.swing.JLabel;
+//import javax.swing.JLabel;
 
 public enum RelationMemberConflictDecisionType {
     /**

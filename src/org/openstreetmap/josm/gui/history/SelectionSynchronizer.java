@@ -3,10 +3,10 @@ package org.openstreetmap.josm.gui.history;
 
 import java.util.ArrayList;
 
-import javax.swing.DefaultListSelectionModel;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+//import javax.swing.DefaultListSelectionModel;
+//import javax.swing.ListSelectionModel;
+//import javax.swing.event.ListSelectionEvent;
+//import javax.swing.event.ListSelectionListener;
 
 public class SelectionSynchronizer implements ListSelectionListener {
 
