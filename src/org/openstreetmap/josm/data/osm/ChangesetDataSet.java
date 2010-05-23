@@ -9,7 +9,6 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import org.openstreetmap.josm.data.osm.history.HistoryOsmPrimitive;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
 
 /**
  * A ChangesetDataSet holds the content of a changeset.

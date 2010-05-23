@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.io;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;

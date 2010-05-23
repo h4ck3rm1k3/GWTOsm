@@ -1,9 +1,9 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.data.osm;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
-import java.text.MessageFormat;
+//import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -17,13 +17,12 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
-import java.util.concurrent.atomic.AtomicLong;
+//import java.util.concurrent.atomic.AtomicLong;
 
 //import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.data.MessageFormat;
 import org.openstreetmap.josm.data.osm.visitor.Visitor;
 //import org.openstreetmap.josm.data.osm.visitor.paint.SimpleNodeElemStyle;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
-import org.openstreetmap.josm.tools.Predicate;
 
 /**
  * An OSM primitive can be associated with a key/value pair. It can be created, deleted
@@ -124,16 +123,16 @@ abstract public class OsmPrimitive implements Comparable<OsmPrimitive>, Tagged, 
      * @param type the type to filter for
      * @return the sub-list of OSM primitives of type <code>type</code>
      */
-    static public <T extends OsmPrimitive>  List<T> getFilteredList(Collection<OsmPrimitive> list, Class<T> type) {
-        if (list == null) return Collections.emptyList();
-        List<T> ret = new LinkedList<T>();
-        for(OsmPrimitive p: list) {
-            if (type.isInstance(p)) {
-                ret.add(type.cast(p));
-            }
-        }
-        return ret;
-    }
+//    static public <T extends OsmPrimitive>  List<T> getFilteredList(Collection<OsmPrimitive> list, Class<T> type) {
+//        if (list == null) return Collections.emptyList();
+//        List<T> ret = new LinkedList<T>();
+//        for(OsmPrimitive p: list) {
+//            if (type.isInstance(p)) {
+//                ret.add(type.cast(p));
+//            }
+//        }
+//        return ret;
+//    }
 
     /**
      * Replies the sub-collection of {@see OsmPrimitive}s of type <code>type</code> present in
@@ -146,17 +145,17 @@ abstract public class OsmPrimitive implements Comparable<OsmPrimitive>, Tagged, 
      * @param type the type to filter for
      * @return the sub-set of OSM primitives of type <code>type</code>
      */
-    static public <T extends OsmPrimitive>  LinkedHashSet<T> getFilteredSet(Collection<OsmPrimitive> set, Class<T> type) {
-        LinkedHashSet<T> ret = new LinkedHashSet<T>();
-        if (set != null) {
-            for(OsmPrimitive p: set) {
-                if (type.isInstance(p)) {
-                    ret.add(type.cast(p));
-                }
-            }
-        }
-        return ret;
-    }
+//    static public <T extends OsmPrimitive>  LinkedHashSet<T> getFilteredSet(Collection<OsmPrimitive> set, Class<T> type) {
+//        LinkedHashSet<T> ret = new LinkedHashSet<T>();
+//        if (set != null) {
+//            for(OsmPrimitive p: set) {
+//                if (type.isInstance(p)) {
+//                    ret.add(type.cast(p));
+//                }
+//            }
+//        }
+//        return ret;
+//    }
 
     /**
      * Replies the collection of referring primitives for the primitives in <code>primitives</code>.
@@ -1277,15 +1276,15 @@ abstract public class OsmPrimitive implements Comparable<OsmPrimitive>, Tagged, 
      * @return the name of this primitive
      */
     public String getLocalName() {
-        String key = "name:" + Locale.getDefault().toString();
-        if (get(key) != null)
-            return get(key);
-        key = "name:" + Locale.getDefault().getLanguage() + "_" + Locale.getDefault().getCountry();
-        if (get(key) != null)
-            return get(key);
-        key = "name:" + Locale.getDefault().getLanguage();
-        if (get(key) != null)
-            return get(key);
+//        String key = "name:" + Locale.getDefault().toString();
+//        if (get(key) != null)
+//            return get(key);
+//        key = "name:" + Locale.getDefault().getLanguage() + "_" + Locale.getDefault().getCountry();
+//        if (get(key) != null)
+//            return get(key);
+//        key = "name:" + Locale.getDefault().getLanguage();
+//        if (get(key) != null)
+//            return get(key);
         return getName();
     }
 

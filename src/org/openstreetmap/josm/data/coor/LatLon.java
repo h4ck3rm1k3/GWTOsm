@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.data.coor;
 
-import static org.openstreetmap.josm.tools.I18n.trc;
+import static org.openstreetmap.josm.data.osm.I18n.trc;
 
 import static java.lang.Math.PI;
 import static java.lang.Math.asin;
@@ -10,12 +10,13 @@ import static java.lang.Math.sin;
 import static java.lang.Math.sqrt;
 import static java.lang.Math.toRadians;
 
-import java.text.DecimalFormat;
-import java.text.NumberFormat;
-import java.util.Locale;
+//import java.text.DecimalFormat;
+//import java.text.NumberFormat;
+//import java.util.Locale;
 
-import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Bounds;
+import org.openstreetmap.josm.data.DecimalFormat;
+import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.osm.Node;
 
 /**
@@ -236,9 +237,9 @@ public class LatLon extends Coordinate {
         final int prime = 31;
         int result = super.hashCode();
         long temp;
-        temp = java.lang.Double.doubleToLongBits(x);
+        temp = MyDouble.doubleToLongBits(x);
         result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = java.lang.Double.doubleToLongBits(y);
+        temp = MyDouble.doubleToLongBits(y);
         result = prime * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
@@ -252,9 +253,9 @@ public class LatLon extends Coordinate {
         if (getClass() != obj.getClass())
             return false;
         Coordinate other = (Coordinate) obj;
-        if (java.lang.Double.doubleToLongBits(x) != java.lang.Double.doubleToLongBits(other.x))
+        if (MyDouble.doubleToLongBits(x) != MyDouble.doubleToLongBits(other.x))
             return false;
-        if (java.lang.Double.doubleToLongBits(y) != java.lang.Double.doubleToLongBits(other.y))
+        if (MyDouble.doubleToLongBits(y) != MyDouble.doubleToLongBits(other.y))
             return false;
         return true;
     }

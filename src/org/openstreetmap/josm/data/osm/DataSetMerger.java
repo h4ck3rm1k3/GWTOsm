@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.data.osm;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,11 +10,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 import org.openstreetmap.josm.data.conflict.Conflict;
 import org.openstreetmap.josm.data.conflict.ConflictCollection;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
 
 /**
  * A dataset merger which takes a target and a source dataset and merges the source data set

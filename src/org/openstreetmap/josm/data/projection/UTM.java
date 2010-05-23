@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.data.projection;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import java.awt.GridBagLayout;
 import java.util.Collection;
@@ -14,7 +14,7 @@ import java.util.Collections;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.coor.LatLon;
-import org.openstreetmap.josm.tools.GBC;
+//import org.openstreetmap.josm.tools.GBC;
 
 /**
  * Directly use latitude / longitude values as x/y.

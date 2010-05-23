@@ -1,15 +1,16 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.data;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import java.awt.geom.Rectangle2D;
-import java.text.DecimalFormat;
-import java.text.MessageFormat;
+//import java.text.DecimalFormat;
+//import java.text.MessageFormat;
 
 import org.openstreetmap.josm.data.coor.LatLon;
+import org.openstreetmap.josm.data.coor.MyDouble;
+import org.openstreetmap.josm.data.osm.CheckParameterUtil;
 import org.openstreetmap.josm.data.osm.visitor.paint.Rectangle2D;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
 
 /**
  * This is a simple data class for "rectangular" areas of the world, given in
@@ -120,7 +121,11 @@ public class Bounds {
         this.maxLon = roundToOsmPrecision(center.lon() + lonExtent / 2);
     }
 
-    @Override public String toString() {
+    public Bounds() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override public String toString() {
         return "Bounds["+minLat+","+minLon+","+maxLat+","+maxLon+"]";
     }
 
@@ -210,13 +215,13 @@ public class Bounds {
         final int prime = 31;
         int result = 1;
         long temp;
-        temp = Double.doubleToLongBits(maxLat);
+        temp = MyDouble.doubleToLongBits(maxLat);
         result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(maxLon);
+        temp = MyDouble.doubleToLongBits(maxLon);
         result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(minLat);
+        temp = MyDouble.doubleToLongBits(minLat);
         result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(minLon);
+        temp = MyDouble.doubleToLongBits(minLon);
         result = prime * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
@@ -230,13 +235,13 @@ public class Bounds {
         if (getClass() != obj.getClass())
             return false;
         Bounds other = (Bounds) obj;
-        if (Double.doubleToLongBits(maxLat) != Double.doubleToLongBits(other.maxLat))
+        if (MyDouble.doubleToLongBits(maxLat) != MyDouble.doubleToLongBits(other.maxLat))
             return false;
-        if (Double.doubleToLongBits(maxLon) != Double.doubleToLongBits(other.maxLon))
+        if (MyDouble.doubleToLongBits(maxLon) != MyDouble.doubleToLongBits(other.maxLon))
             return false;
-        if (Double.doubleToLongBits(minLat) != Double.doubleToLongBits(other.minLat))
+        if (MyDouble.doubleToLongBits(minLat) != MyDouble.doubleToLongBits(other.minLat))
             return false;
-        if (Double.doubleToLongBits(minLon) != Double.doubleToLongBits(other.minLon))
+        if (MyDouble.doubleToLongBits(minLon) != MyDouble.doubleToLongBits(other.minLon))
             return false;
         return true;
     }

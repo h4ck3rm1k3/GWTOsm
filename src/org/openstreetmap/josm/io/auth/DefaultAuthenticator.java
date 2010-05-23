@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.data.osm.Main;
 
 /**
  * This is the default authenticator used in JOSM. It delegates lookup of credentials

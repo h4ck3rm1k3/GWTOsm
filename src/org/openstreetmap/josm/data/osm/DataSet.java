@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.data.osm;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import java.awt.geom.Area;
 import java.util.ArrayList;
@@ -28,7 +28,6 @@ import org.openstreetmap.josm.data.osm.event.PrimitivesRemovedEvent;
 import org.openstreetmap.josm.data.osm.event.RelationMembersChangedEvent;
 import org.openstreetmap.josm.data.osm.event.TagsChangedEvent;
 import org.openstreetmap.josm.data.osm.event.WayNodesChangedEvent;
-import org.openstreetmap.josm.tools.Predicate;
 
 /**
  * DataSet is the data behind the application. It can consists of only a few points up to the whole
@@ -280,8 +279,8 @@ public class DataSet implements Cloneable {
      * themselves for any dataset selection changes that occur, regardless of the current active
      * dataset. (However, the selection does only change in the active layer)
      */
-    public static final Collection<SelectionChangedListener> selListeners =
-        Collections.synchronizedList(new LinkedList<SelectionChangedListener>());
+    //    public static final Collection<SelectionChangedListener> selListeners =
+	//        Collections.synchronizedList(new LinkedList<SelectionChangedListener>());
 
     /**
      * Notifies all registered {@see SelectionChangedListener} about the current selection in
@@ -289,12 +288,12 @@ public class DataSet implements Cloneable {
      *
      */
     public void fireSelectionChanged(){
-        synchronized (selListeners) {
-            List<? extends OsmPrimitive> currentSelection = Collections.unmodifiableList(new ArrayList<OsmPrimitive>(selectedPrimitives));
-            for (SelectionChangedListener l : selListeners) {
-                l.selectionChanged(currentSelection);
-            }
-        }
+        // synchronized (selListeners) {
+        //     List<? extends OsmPrimitive> currentSelection = Collections.unmodifiableList(new ArrayList<OsmPrimitive>(selectedPrimitives));
+        //     for (SelectionChangedListener l : selListeners) {
+        //         l.selectionChanged(currentSelection);
+        //     }
+        // }
     }
 
     LinkedHashSet<OsmPrimitive> selectedPrimitives = new LinkedHashSet<OsmPrimitive>();
@@ -551,7 +550,7 @@ public class DataSet implements Cloneable {
         }
     }
 
-    @Override public DataSet clone() {
+ public DataSet clone() {
         DataSet ds = new DataSet();
         HashMap<OsmPrimitive, OsmPrimitive> primitivesMap = new HashMap<OsmPrimitive, OsmPrimitive>();
         for (Node n : nodes) {

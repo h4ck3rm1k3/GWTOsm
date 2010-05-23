@@ -6,6 +6,8 @@ import java.text.ParseException;
 import java.util.Date;
 import java.util.Iterator;
 
+import org.openstreetmap.josm.data.osm.Directory;
+import org.openstreetmap.josm.data.osm.Metadata;
 import org.openstreetmap.josm.data.osm.Tag;
 
 // import com.drew.imaging.jpeg.JpegMetadataReader;

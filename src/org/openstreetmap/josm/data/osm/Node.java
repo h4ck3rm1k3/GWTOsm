@@ -1,7 +1,6 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.data.osm;
 
-import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.coor.CachedLatLon;
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.coor.LatLon;
@@ -195,7 +194,8 @@ public final class Node extends OsmPrimitive {
     }
 
     public boolean isConnectionNode() {
-        return (OsmPrimitive.getFilteredList(getReferrers(), Way.class)).size() > 1;
+        //return (OsmPrimitive.getFilteredList(getReferrers(), Way.class)).size() > 1;
+    	return false;
     }
 
 	public double lon() {

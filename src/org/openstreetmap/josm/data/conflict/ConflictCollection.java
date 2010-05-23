@@ -1,7 +1,7 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.conflict;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,10 +9,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.CopyOnWriteArrayList;
+//import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.openstreetmap.josm.data.osm.CheckParameterUtil;
+import org.openstreetmap.josm.data.osm.CopyOnWriteArrayList;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
 
 /**
  * This is a collection of {@see Conflict}s. This collection is {@see Iterable}, i.e.
@@ -42,19 +43,19 @@ public class ConflictCollection implements Iterable<Conflict<? extends OsmPrimit
     }
 
     public void addConflictListener(IConflictListener listener) {
-        if (listener != null) {
-            listeners.addIfAbsent(listener);
-        }
+//        if (listener != null) {
+//            listeners.addIfAbsent(listener);
+//        }
     }
 
     public void removeConflictListener(IConflictListener listener) {
-        listeners.remove(listener);
+//        listeners.remove(listener);
     }
 
     protected void fireConflictAdded() {
-        for (IConflictListener listener : listeners) {
-            listener.onConflictsAdded(this);
-        }
+//        for (IConflictListener listener : listeners) {
+//            listener.onConflictsAdded(this);
+//        }
     }
 
     protected void fireConflictRemoved() {

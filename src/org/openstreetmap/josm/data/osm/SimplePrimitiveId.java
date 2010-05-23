@@ -1,7 +1,9 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm;
 
-import java.io.Serializable;
+import org.openstreetmap.josm.data.coor.Serializable;
+
+//import java.io.Serializable;
 
 public class SimplePrimitiveId implements PrimitiveId, Serializable {
     private final long id;

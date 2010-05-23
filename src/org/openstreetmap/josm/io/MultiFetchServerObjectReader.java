@@ -1,8 +1,8 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.io;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
-import static org.openstreetmap.josm.tools.I18n.trn;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.trn;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -13,6 +13,8 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import org.openstreetmap.josm.data.OsmApi;
+import org.openstreetmap.josm.data.osm.CheckParameterUtil;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.DataSetMerger;
 import org.openstreetmap.josm.data.osm.Node;
@@ -24,7 +26,6 @@ import org.openstreetmap.josm.data.osm.RelationMember;
 import org.openstreetmap.josm.data.osm.Way;
 //import org.openstreetmap.josm.gui.progress.NullProgressMonitor;
 //import org.openstreetmap.josm.gui.progress.ProgressMonitor;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
 
 /**
  * Retrieves a set of {@see OsmPrimitive}s from an OSM server using the so called

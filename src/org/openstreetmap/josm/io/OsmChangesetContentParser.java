@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.io;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,6 +15,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.ChangesetDataSet;
+import org.openstreetmap.josm.data.osm.CheckParameterUtil;
 import org.openstreetmap.josm.data.osm.OsmPrimitiveType;
 import org.openstreetmap.josm.data.osm.ChangesetDataSet.ChangesetModificationType;
 import org.openstreetmap.josm.data.osm.history.HistoryNode;
@@ -23,7 +24,6 @@ import org.openstreetmap.josm.data.osm.history.HistoryRelation;
 import org.openstreetmap.josm.data.osm.history.HistoryWay;
 //import org.openstreetmap.josm.gui.progress.NullProgressMonitor;
 //import org.openstreetmap.josm.gui.progress.ProgressMonitor;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
 import org.openstreetmap.josm.tools.DateUtils;
 import org.xml.sax.Attributes;
 import org.xml.sax.InputSource;

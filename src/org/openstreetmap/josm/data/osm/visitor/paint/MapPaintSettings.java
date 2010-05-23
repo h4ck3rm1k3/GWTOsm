@@ -3,11 +3,11 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 
 //import org.openstreetmap.josm.tools.Color;
 
-import org.openstreetmap.josm.Main;
 //import org.openstreetmap.josm.data.Preferences.PreferenceChangeEvent;
 //import org.openstreetmap.josm.data.Preferences.PreferenceChangedListener;
 
-import org.openstreetmap.josm.tools.Color;
+import org.openstreetmap.josm.data.osm.Color;
+import org.openstreetmap.josm.data.osm.Main;
 
 public class MapPaintSettings  {
 

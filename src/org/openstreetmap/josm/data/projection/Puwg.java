@@ -2,10 +2,10 @@
 //                         2009 by Łukasz Stelmach
 package org.openstreetmap.josm.data.projection;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import java.awt.GridBagLayout;
-import java.text.DecimalFormat;
+//import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -14,9 +14,10 @@ import java.util.Collections;
 //import javax.swing.JPanel;
 
 import org.openstreetmap.josm.data.Bounds;
+import org.openstreetmap.josm.data.DecimalFormat;
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.coor.LatLon;
-import org.openstreetmap.josm.tools.GBC;
+//import org.openstreetmap.josm.tools.GBC;
 
 /**
  * PUWG 1992 and 2000 are the official cordinate systems in Poland.

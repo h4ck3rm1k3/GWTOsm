@@ -2,7 +2,7 @@ package org.openstreetmap.josm.io;
 
 import java.io.File;
 
-import org.openstreetmap.josm.tools.BufferedImage;
+import org.openstreetmap.josm.data.osm.BufferedImage;
 
 public class ImageIO {
 

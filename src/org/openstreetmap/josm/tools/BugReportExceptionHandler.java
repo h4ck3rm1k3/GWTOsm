@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.tools;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import java.awt.Component;
 //import java.awt.GridBagLayout;
@@ -20,11 +20,7 @@ import java.net.URL;
 //import javax.swing.JScrollPane;
 //import javax.swing.JTextArea;
 
-import org.openstreetmap.josm.Main;
-//import org.openstreetmap.josm.actions.ShowStatusReportAction;
-//import org.openstreetmap.josm.gui.JMultilineLabel;
-//
-//import org.openstreetmap.josm.plugins.PluginHandler;
+import org.openstreetmap.josm.data.osm.Main;
 
 /**
  * An exception handler that asks the user to send a bug report.

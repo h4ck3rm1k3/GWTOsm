@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.io;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.openstreetmap.josm.LayerObject;
+import org.openstreetmap.josm.data.LayerObject;
 import org.openstreetmap.josm.data.coor.CoordinateFormat;
 import org.openstreetmap.josm.data.osm.Changeset;
 import org.openstreetmap.josm.data.osm.DataSet;

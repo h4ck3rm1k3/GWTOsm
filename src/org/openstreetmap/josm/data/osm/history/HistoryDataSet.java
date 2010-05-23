@@ -1,19 +1,21 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm.history;
 
-import java.text.MessageFormat;
+//import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
+//import java.util.concurrent.CopyOnWriteArrayList;
 
-import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.data.MessageFormat;
+import org.openstreetmap.josm.data.osm.CheckParameterUtil;
+import org.openstreetmap.josm.data.osm.CopyOnWriteArrayList;
+import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.osm.OsmPrimitiveType;
 import org.openstreetmap.josm.data.osm.PrimitiveId;
 import org.openstreetmap.josm.data.osm.SimplePrimitiveId;
 //import org.openstreetmap.josm.gui.MapView;
 //import org.openstreetmap.josm.gui.MapView.LayerChangeListener;
 //import org.openstreetmap.josm.gui.layer.Layer;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
 
 /**
  * A data set holding histories of OSM primitives.
@@ -50,31 +52,31 @@ public class HistoryDataSet //implements LayerChangeListener
     }
 
     public void addHistoryDataSetListener(HistoryDataSetListener listener) {
-        if (listener != null) {
-            listeners.addIfAbsent(listener);
-        }
+//        if (listener != null) {
+//            listeners.addIfAbsent(listener);
+//        }
     }
 
     public void removeHistoryDataSetListener(HistoryDataSetListener listener) {
-	if (listeners.size() > 0)
-	    {
-		if (listeners.contains(listener))
-		    {
-			listeners.remove(listener);
-		    }
-	    }
+//	if (listeners.size() > 0)
+//	    {
+//		if (listeners.contains(listener))
+//		    {
+//			listeners.remove(listener);
+//		    }
+//	    }
     }
 
     protected void fireHistoryUpdated(PrimitiveId id) {
-        for (HistoryDataSetListener l : listeners) {
-            l.historyUpdated(this, id);
-        }
+//        for (HistoryDataSetListener l : listeners) {
+//            l.historyUpdated(this, id);
+//        }
     }
 
     protected void fireCacheCleared() {
-        for (HistoryDataSetListener l : listeners) {
-            l.historyDataSetCleared(this);
-        }
+//        for (HistoryDataSetListener l : listeners) {
+//            l.historyDataSetCleared(this);
+//        }
     }
 
     /**

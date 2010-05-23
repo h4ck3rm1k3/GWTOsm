@@ -1,18 +1,18 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.data;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import org.openstreetmap.josm.tools.Color;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.nio.channels.FileChannel;
+//import java.io.BufferedReader;
+//import java.io.File;
+//import java.io.FileInputStream;
+//import java.io.FileOutputStream;
+//import java.io.IOException;
+//import java.io.InputStreamReader;
+//import java.io.OutputStreamWriter;
+//import java.io.PrintWriter;
+//import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -24,16 +24,17 @@ import java.util.Properties;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.Map.Entry;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+//import java.util.concurrent.CopyOnWriteArrayList;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
 
 //import javax.swing.JOptionPane;
 
-import org.openstreetmap.josm.Main;
-import org.openstreetmap.josm.tools.ColorHelper;
+import org.openstreetmap.josm.data.osm.Color;
+import org.openstreetmap.josm.data.osm.ColorHelper;
+import org.openstreetmap.josm.data.osm.CopyOnWriteArrayList;
+import org.openstreetmap.josm.data.osm.Main;
 
-import org.openstreetmap.josm.tools.Color;
 //import org.openstreetmap.josm.tools.Color;
 /**
  * This class holds all preferences for JOSM.
@@ -146,10 +147,10 @@ public class Preferences {
     }
 
     protected void firePrefrenceChanged(String key, String oldValue, String newValue) {
-        PreferenceChangeEvent evt = new DefaultPreferenceChangeEvent(key, oldValue, newValue);
-        for (PreferenceChangedListener l : listeners) {
-            l.preferenceChanged(evt);
-        }
+//        PreferenceChangeEvent evt = new DefaultPreferenceChangeEvent(key, oldValue, newValue);
+//        for (PreferenceChangedListener l : listeners) {
+//            l.preferenceChanged(evt);
+//        }
     }
 
     /**
@@ -182,20 +183,20 @@ public class Preferences {
     }
 
     public File getPreferencesDirFile() {
-        if (preferencesDirFile != null)
-            return preferencesDirFile;
-        String path;
-        path = System.getProperty("josm.home");
-        if (path != null) {
-            preferencesDirFile = new File(path);
-        } else {
-            path = System.getenv("APPDATA");
-            if (path != null) {
-                preferencesDirFile = new File(path, "JOSM");
-            } else {
-                preferencesDirFile = new File(System.getProperty("user.home"), ".josm");
-            }
-        }
+//        if (preferencesDirFile != null)
+//            return preferencesDirFile;
+//        String path;
+//        path = System.getProperty("josm.home");
+//        if (path != null) {
+//            preferencesDirFile = new File(path);
+//        } else {
+////            path = System.getenv("APPDATA");
+////            if (path != null) {
+////                preferencesDirFile = new File(path, "JOSM");
+////            } else {
+////                preferencesDirFile = new File(System.getProperty("user.home"), ".josm");
+////            }
+//        }
         return preferencesDirFile;
     }
 
@@ -371,30 +372,30 @@ public class Preferences {
      */
     public void save() throws IOException {
         /* currently unused, but may help to fix configuration issues in future */
-        putInteger("josm.version", Version.getInstance().getVersion());
-
-        updateSystemProperties();
-        File prefFile = new File(getPreferencesDirFile(), "preferences");
-
-        // Backup old preferences if there are old preferences
-        if(prefFile.exists()) {
-            copyFile(prefFile, new File(prefFile + "_backup"));
-        }
-
-        final PrintWriter out = new PrintWriter(new OutputStreamWriter(
-                new FileOutputStream(prefFile + "_tmp"), "utf-8"), false);
-        for (final Entry<String, String> e : properties.entrySet()) {
-            String s = defaults.get(e.getKey());
-            /* don't save default values */
-            if(s == null || !s.equals(e.getValue())) {
-                out.println(e.getKey() + "=" + e.getValue());
-            }
-        }
-        out.close();
-
-        File tmpFile = new File(prefFile + "_tmp");
-        copyFile(tmpFile, prefFile);
-        tmpFile.delete();
+//        putInteger("josm.version", Version.getInstance().getVersion());
+//
+//        updateSystemProperties();
+//        File prefFile = new File(getPreferencesDirFile(), "preferences");
+//
+//        // Backup old preferences if there are old preferences
+//        if(prefFile.exists()) {
+//            copyFile(prefFile, new File(prefFile + "_backup"));
+//        }
+//
+//        final PrintWriter out = new PrintWriter(new OutputStreamWriter(
+//                new FileOutputStream(prefFile + "_tmp"), "utf-8"), false);
+//        for (final Entry<String, String> e : properties.entrySet()) {
+//            String s = defaults.get(e.getKey());
+//            /* don't save default values */
+//            if(s == null || !s.equals(e.getValue())) {
+//                out.println(e.getKey() + "=" + e.getValue());
+//            }
+//        }
+//        out.close();
+//
+//        File tmpFile = new File(prefFile + "_tmp");
+//        copyFile(tmpFile, prefFile);
+//        tmpFile.delete();
     }
 
     /**
@@ -405,42 +406,42 @@ public class Preferences {
      * @throws IOException
      */
     public static void copyFile(File in, File out) throws IOException  {
-        FileChannel inChannel = new FileInputStream(in).getChannel();
-        FileChannel outChannel = new FileOutputStream(out).getChannel();
-        try {
-            inChannel.transferTo(0, inChannel.size(),
-                    outChannel);
-        }
-        catch (IOException e) {
-            throw e;
-        }
-        finally {
-            if (inChannel != null) {
-                inChannel.close();
-            }
-            if (outChannel != null) {
-                outChannel.close();
-            }
-        }
+//        FileChannel inChannel = new FileInputStream(in).getChannel();
+//        FileChannel outChannel = new FileOutputStream(out).getChannel();
+//        try {
+//            inChannel.transferTo(0, inChannel.size(),
+//                    outChannel);
+//        }
+//        catch (IOException e) {
+//            throw e;
+//        }
+//        finally {
+//            if (inChannel != null) {
+//                inChannel.close();
+//            }
+//            if (outChannel != null) {
+//                outChannel.close();
+//            }
+//        }
     }
 
     public void load() throws IOException {
-        properties.clear();
-        final BufferedReader in = new BufferedReader(new InputStreamReader(
-                new FileInputStream(getPreferencesDir()+"preferences"), "utf-8"));
-        int lineNumber = 0;
-        ArrayList<Integer> errLines = new ArrayList<Integer>();
-        for (String line = in.readLine(); line != null; line = in.readLine(), lineNumber++) {
-            final int i = line.indexOf('=');
-            if (i == -1 || i == 0) {
-                errLines.add(lineNumber);
-                continue;
-            }
-            properties.put(line.substring(0,i), line.substring(i+1));
-        }
-        if (!errLines.isEmpty())
-            throw new IOException(tr("Malformed config file at lines {0}", errLines));
-        updateSystemProperties();
+//        properties.clear();
+//        final BufferedReader in = new BufferedReader(new InputStreamReader(
+//                new FileInputStream(getPreferencesDir()+"preferences"), "utf-8"));
+//        int lineNumber = 0;
+//        ArrayList<Integer> errLines = new ArrayList<Integer>();
+//        for (String line = in.readLine(); line != null; line = in.readLine(), lineNumber++) {
+//            final int i = line.indexOf('=');
+//            if (i == -1 || i == 0) {
+//                errLines.add(lineNumber);
+//                continue;
+//            }
+//            properties.put(line.substring(0,i), line.substring(i+1));
+//        }
+//        if (!errLines.isEmpty())
+//            throw new IOException(tr("Malformed config file at lines {0}", errLines));
+//        updateSystemProperties();
     }
 
     public void init(boolean reset){
@@ -522,38 +523,39 @@ public class Preferences {
     }
 
     public Collection<Bookmark> loadBookmarks() throws IOException {
-        File bookmarkFile = getBookmarksFile();
-        if (!bookmarkFile.exists()) {
-            bookmarkFile.createNewFile();
-        }
-        BufferedReader in = new BufferedReader(new InputStreamReader(
-                new FileInputStream(bookmarkFile), "utf-8"));
-
-        LinkedList<Bookmark> bookmarks = new LinkedList<Bookmark>();
-        for (String line = in.readLine(); line != null; line = in.readLine()) {
-            // FIXME: legacy code using ',' sign, should be \u001e only
-            Matcher m = Pattern.compile("^(.+)[,\u001e](-?\\d+.\\d+)[,\u001e](-?\\d+.\\d+)[,\u001e](-?\\d+.\\d+)[,\u001e](-?\\d+.\\d+)$").matcher(line);
-            if (!m.matches() || m.groupCount() != 5) {
-                System.err.println(tr("Error: Unexpected line ''{0}'' in bookmark file ''{1}''",line, bookmarkFile.toString()));
-                continue;
-            }
-            Bookmark b = new Bookmark();
-            b.setName(m.group(1));
-            double[] values= new double[4];
-            for (int i = 0; i < 4; ++i) {
-                try {
-                    values[i] = Double.parseDouble(m.group(i+2));
-                } catch(NumberFormatException e) {
-                    System.err.println(tr("Error: Illegal double value ''{0}'' on line ''{1}'' in bookmark file ''{2}''",m.group(i+2),line, bookmarkFile.toString()));
-                    continue;
-                }
-            }
-            b.setArea(new Bounds(values));
-            bookmarks.add(b);
-        }
-        in.close();
-        Collections.sort(bookmarks);
-        return bookmarks;
+		return null;
+//        File bookmarkFile = getBookmarksFile();
+//        if (!bookmarkFile.exists()) {
+//            bookmarkFile.createNewFile();
+//        }
+//        BufferedReader in = new BufferedReader(new InputStreamReader(
+//                new FileInputStream(bookmarkFile), "utf-8"));
+//
+//        LinkedList<Bookmark> bookmarks = new LinkedList<Bookmark>();
+//        for (String line = in.readLine(); line != null; line = in.readLine()) {
+//            // FIXME: legacy code using ',' sign, should be \u001e only
+//            Matcher m = Pattern.compile("^(.+)[,\u001e](-?\\d+.\\d+)[,\u001e](-?\\d+.\\d+)[,\u001e](-?\\d+.\\d+)[,\u001e](-?\\d+.\\d+)$").matcher(line);
+//            if (!m.matches() || m.groupCount() != 5) {
+//                System.err.println(tr("Error: Unexpected line ''{0}'' in bookmark file ''{1}''",line, bookmarkFile.toString()));
+//                continue;
+//            }
+//            Bookmark b = new Bookmark();
+//            b.setName(m.group(1));
+//            double[] values= new double[4];
+//            for (int i = 0; i < 4; ++i) {
+//                try {
+//                    values[i] = Double.parseDouble(m.group(i+2));
+//                } catch(NumberFormatException e) {
+//                    System.err.println(tr("Error: Illegal double value ''{0}'' on line ''{1}'' in bookmark file ''{2}''",m.group(i+2),line, bookmarkFile.toString()));
+//                    continue;
+//                }
+//            }
+//            b.setArea(new Bounds(values));
+//            bookmarks.add(b);
+//        }
+//        in.close();
+//        Collections.sort(bookmarks);
+//        return bookmarks;
     }
 
     public void saveBookmarks(Collection<Bookmark> bookmarks) throws IOException {
@@ -745,9 +747,9 @@ public class Preferences {
      *
      */
     public void updateSystemProperties() {
-        Properties sysProp = System.getProperties();
-        sysProp.put("http.agent", Version.getInstance().getAgentString());
-        System.setProperties(sysProp);
+//        Properties sysProp = System.getProperties();
+//        sysProp.put("http.agent", Version.getInstance().getAgentString());
+//        System.setProperties(sysProp);
     }
 
     /**

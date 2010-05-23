@@ -22,7 +22,7 @@ package org.openstreetmap.josm.data.osm;
 
 import java.util.AbstractSet;
 import java.util.Collection;
-import java.util.ConcurrentModificationException;
+//import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -461,8 +461,8 @@ public class Storage<T> extends AbstractSet<T> {
         }
 
         private void align() {
-            if (mods != modCount)
-                throw new ConcurrentModificationException();
+//            if (mods != modCount)
+//                throw new ConcurrentModificationException();
             while (slot < data.length && data[slot] == null) {
                 slot++;
             }

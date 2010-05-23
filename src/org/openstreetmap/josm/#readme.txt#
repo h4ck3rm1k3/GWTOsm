@@ -1,0 +1,75 @@
+     [java] Compiling module org.openstreetmap.gwt.GWTOSM
+     [java]    Validating newly compiled units
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/OsmDataLayer.java'
+     [java]          [ERROR] Line 15: No source code is available for type java.io.File; did you forget to inherit a required module?
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/BlockingQueue.java'
+     [java]          [ERROR] Line 5: No source code is available for type java.lang.InterruptedException; did you forget to inherit a required module?
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/PrimitiveData.java'
+     [java]          [ERROR] Line 176: The method isInstance(PrimitiveData) is undefined for the type Class<capture#1-of ? extends PrimitiveData>
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/LanguageInfo.java'
+     [java]          [ERROR] Line 18: No source code is available for type java.util.Locale; did you forget to inherit a required module?
+     [java]       [WARN] Warnings in 'jar:file:/media/sdc1/homemdupont/workspace/GWTOSM/war/WEB-INF/lib/gwt-incubator.jar!/com/google/gwt/widgetideas/table/client/TableBulkRenderer.java'
+     [java]          [WARN] Line 404: Referencing deprecated class 'com.google.gwt.widgetideas.table.client.overrides.HTMLTable'
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/ImageProvider.java'
+     [java]          [ERROR] Line 68: No source code is available for type java.lang.ClassLoader; did you forget to inherit a required module?
+     [java]          [ERROR] Line 313: No source code is available for type java.lang.SecurityException; did you forget to inherit a required module?
+     [java]          [ERROR] Line 314: The method getClassLoader() is undefined for the type Class<ImageProvider>
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/CopyList.java'
+     [java]          [ERROR] Line 121: modCount cannot be resolved
+     [java]          [ERROR] Line 149: Cannot invoke clone() on the array type E[]
+     [java]          [ERROR] Line 156: modCount cannot be resolved
+     [java]       [WARN] Warnings in 'jar:file:/media/sdc1/homemdupont/workspace/GWTOSM/war/WEB-INF/lib/gwt-incubator.jar!/com/google/gwt/widgetideas/client/impl/GlassPanelImpl.java'
+     [java]          [WARN] Line 30: Referencing deprecated class 'com.google.gwt.user.client.impl.DocumentRootImpl'
+     [java]          [WARN] Line 38: Referencing deprecated class 'com.google.gwt.user.client.impl.DocumentRootImpl'
+     [java]       [WARN] Warnings in 'jar:file:/media/sdc1/homemdupont/workspace/GWTOSM/war/WEB-INF/lib/gwt-incubator.jar!/com/google/gwt/widgetideas/table/client/GridBulkRenderer.java'
+     [java]          [WARN] Line 102: Referencing deprecated class 'com.google.gwt.widgetideas.table.client.overrides.HTMLTable'
+     [java]          [WARN] Line 103: Referencing deprecated class 'com.google.gwt.widgetideas.table.client.overrides.Grid'
+     [java]          [WARN] Line 104: Referencing deprecated class 'com.google.gwt.widgetideas.table.client.overrides.Grid'
+     [java]          [WARN] Line 104: Referencing deprecated class 'com.google.gwt.widgetideas.table.client.overrides.HTMLTable'
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/OsmPrimitive.java'
+     [java]          [ERROR] Line 130: The method isInstance(OsmPrimitive) is undefined for the type Class<T>
+     [java]          [ERROR] Line 131: The method cast(OsmPrimitive) is undefined for the type Class<T>
+     [java]          [ERROR] Line 152: The method isInstance(OsmPrimitive) is undefined for the type Class<T>
+     [java]          [ERROR] Line 153: The method cast(OsmPrimitive) is undefined for the type Class<T>
+     [java]          [ERROR] Line 1279: No source code is available for type java.util.Locale; did you forget to inherit a required module?
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/Bounds.java'
+     [java]          [ERROR] Line 238: The method doubleToLongBits(double) is undefined for the type Double
+     [java]          [ERROR] Line 240: The method doubleToLongBits(double) is undefined for the type Double
+     [java]          [ERROR] Line 242: The method doubleToLongBits(double) is undefined for the type Double
+     [java]          [ERROR] Line 244: The method doubleToLongBits(double) is undefined for the type Double
+     [java]       [WARN] Warnings in 'jar:file:/media/sdc1/homemdupont/workspace/GWTOSM/war/WEB-INF/lib/gwt-incubator.jar!/com/google/gwt/widgetideas/table/client/FixedWidthGridBulkRenderer.java'
+     [java]          [WARN] Line 122: Referencing deprecated class 'com.google.gwt.widgetideas.table.client.overrides.HTMLTable'
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/Toolkit.java'
+     [java]          [ERROR] Line 17: No source code is available for type java.net.URL; did you forget to inherit a required module?
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/OsmUtils.java'
+     [java]          [ERROR] Line 23: The method toLowerCase() in the type String is not applicable for the arguments (Locale)
+     [java]          [ERROR] Line 23: No source code is available for type java.util.Locale; did you forget to inherit a required module?
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/DatasetConsistencyTest.java'
+     [java]          [ERROR] Line 40: The method format(String, Object[]) is undefined for the type String
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/Preferences.java'
+     [java]          [ERROR] Line 189: The method getProperty(String) is undefined for the type System
+     [java]          [ERROR] Line 193: The method getenv(String) is undefined for the type System
+     [java]          [ERROR] Line 197: The method getProperty(String) is undefined for the type System
+     [java]          [ERROR] Line 750: No source code is available for type java.util.Properties; did you forget to inherit a required module?
+     [java]          [ERROR] Line 750: The method getProperties() is undefined for the type System
+     [java]          [ERROR] Line 752: The method setProperties(Properties) is undefined for the type System
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/OsmConnection.java'
+     [java]          [ERROR] Line 10: The import java.nio.charset cannot be resolved
+     [java]          [ERROR] Line 11: The import java.nio.charset cannot be resolved
+     [java]          [ERROR] Line 12: The import java.nio.charset cannot be resolved
+     [java]          [ERROR] Line 13: The import java.util.logging cannot be resolved
+     [java]          [ERROR] Line 35: Logger cannot be resolved to a type
+     [java]          [ERROR] Line 35: Logger cannot be resolved
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/I18n.java'
+     [java]          [ERROR] Line 121: No source code is available for type java.util.Locale; did you forget to inherit a required module?
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/Relation.java'
+     [java]          [ERROR] Line 388: The method format(String, PrimitiveId, PrimitiveId) is undefined for the type String
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/osm/DataSet.java'
+     [java]          [ERROR] Line 283: The method synchronizedList(LinkedList<SelectionChangedListener>) is undefined for the type Collections
+     [java]          [ERROR] Line 553: The method clone() of type DataSet must override or implement a supertype method
+     [java]       [ERROR] Errors in 'file:/media/sdc1/homemdupont/workspace/GWTOSM/src/org/openstreetmap/josm/data/ServerSidePreferences.java'
+     [java]          [ERROR] Line 46: No source code is available for type java.net.URL; did you forget to inherit a required module?
+     [java]    Finding entry point classes
+     [java]       [ERROR] Unable to find type 'org.openstreetmap.gwt.client.GWTOSM'
+     [java]          [ERROR] Hint: Previous compiler errors may have made this type unavailable
+     [java]          [ERROR] Hint: Check the inheritance chain from your module; it may not be inheriting a required module or a module may not be adding its source path entries properly

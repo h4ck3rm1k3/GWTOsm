@@ -5,7 +5,6 @@ import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.openstreetmap.josm.tools.Predicate;
 
 public class DatasetCollection<T extends OsmPrimitive> extends AbstractCollection<T> {
 

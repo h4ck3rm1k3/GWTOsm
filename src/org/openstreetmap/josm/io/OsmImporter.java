@@ -1,7 +1,7 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.io;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,13 +11,13 @@ import java.io.InputStream;
 
 //import javax.swing.SwingUtilities;
 
-import org.openstreetmap.josm.Main;
-import org.openstreetmap.josm.OsmDataLayer;
 //import org.openstreetmap.josm.actions.ExtensionFileFilter;
+import org.openstreetmap.josm.data.OsmDataLayer;
 import org.openstreetmap.josm.data.osm.DataSet;
 //import org.openstreetmap.josm.gui.layer.OsmDataLayer;
 //import org.openstreetmap.josm.gui.progress.NullProgressMonitor;
 //import org.openstreetmap.josm.gui.progress.ProgressMonitor;
+import org.openstreetmap.josm.data.osm.Main;
 
 public class OsmImporter extends FileImporter {
 

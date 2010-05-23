@@ -1,12 +1,13 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.tools;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.data.osm.Main;
+import org.openstreetmap.josm.data.osm.Shortcut;
 
 /**
   * see PlatformHook.java

@@ -1,8 +1,8 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.io;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
-import static org.openstreetmap.josm.tools.I18n.trn;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.trn;
 
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -15,10 +15,10 @@ import java.util.List;
 
 import org.openstreetmap.josm.data.osm.Changeset;
 import org.openstreetmap.josm.data.osm.ChangesetDataSet;
+import org.openstreetmap.josm.data.osm.CheckParameterUtil;
 import org.openstreetmap.josm.data.osm.DataSet;
 //import org.openstreetmap.josm.gui.progress.NullProgressMonitor;
 //import org.openstreetmap.josm.gui.progress.ProgressMonitor;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
 
 /**
  * Reads the history of an {@see OsmPrimitive} from the OSM API server.

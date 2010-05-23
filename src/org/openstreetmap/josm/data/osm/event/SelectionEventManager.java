@@ -3,11 +3,12 @@ package org.openstreetmap.josm.data.osm.event;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+//import java.util.concurrent.CopyOnWriteArrayList;
 
 //import javax.swing.SwingUtilities;
 
 import org.openstreetmap.josm.data.SelectionChangedListener;
+import org.openstreetmap.josm.data.osm.CopyOnWriteArrayList;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.event.DatasetEventManager.FireMode;
@@ -43,48 +44,48 @@ public class SelectionEventManager implements SelectionChangedListener {
         }
     }
 
-    private Collection<? extends OsmPrimitive> selection;
-    private final CopyOnWriteArrayList<ListenerInfo> inEDTListeners = new CopyOnWriteArrayList<ListenerInfo>();
-    private final CopyOnWriteArrayList<ListenerInfo> normalListeners = new CopyOnWriteArrayList<ListenerInfo>();
+//    private Collection<? extends OsmPrimitive> selection;
+//    private final CopyOnWriteArrayList<ListenerInfo> inEDTListeners = new CopyOnWriteArrayList<ListenerInfo>();
+//    private final CopyOnWriteArrayList<ListenerInfo> normalListeners = new CopyOnWriteArrayList<ListenerInfo>();
 
     public SelectionEventManager() {
-        DataSet.selListeners.add(this);
+      //ate  DataSet.selListeners.add(this);
     }
 
     public void addSelectionListener(SelectionChangedListener listener, FireMode fireMode) {
-        if (fireMode == FireMode.IN_EDT)
-            throw new UnsupportedOperationException("IN_EDT mode not supported, you probably want to use IN_EDT_CONSOLIDATED.");
-        if (fireMode == FireMode.IN_EDT || fireMode == FireMode.IN_EDT_CONSOLIDATED) {
-            inEDTListeners.addIfAbsent(new ListenerInfo(listener, fireMode == FireMode.IN_EDT_CONSOLIDATED));
-        } else {
-            normalListeners.addIfAbsent(new ListenerInfo(listener, false));
-        }
+//        if (fireMode == FireMode.IN_EDT)
+//            throw new UnsupportedOperationException("IN_EDT mode not supported, you probably want to use IN_EDT_CONSOLIDATED.");
+//        if (fireMode == FireMode.IN_EDT || fireMode == FireMode.IN_EDT_CONSOLIDATED) {
+//            inEDTListeners.addIfAbsent(new ListenerInfo(listener, fireMode == FireMode.IN_EDT_CONSOLIDATED));
+//        } else {
+//            normalListeners.addIfAbsent(new ListenerInfo(listener, false));
+//        }
     }
 
     public void removeSelectionListener(SelectionChangedListener listener) {
-        ListenerInfo searchListener = new ListenerInfo(listener, false);
-        inEDTListeners.remove(searchListener);
-        normalListeners.remove(searchListener);
+//        ListenerInfo searchListener = new ListenerInfo(listener, false);
+//        inEDTListeners.remove(searchListener);
+//        normalListeners.remove(searchListener);
     }
 
     public void selectionChanged(Collection<? extends OsmPrimitive> newSelection) {
-        fireEvents(normalListeners, newSelection);
-        selection = newSelection;
+//        fireEvents(normalListeners, newSelection);
+//        selection = newSelection;
 //        SwingUtilities.invokeLater(edtRunnable);
     }
 
-    private void fireEvents(List<ListenerInfo> listeners, Collection<? extends OsmPrimitive> newSelection) {
-        for (ListenerInfo listener: listeners) {
-            listener.listener.selectionChanged(newSelection);
-        }
-    }
-
-    private final Runnable edtRunnable = new Runnable() {
-        public void run() {
-            if (selection != null) {
-                fireEvents(inEDTListeners, selection);
-            }
-        }
-    };
+//    private void fireEvents(List<ListenerInfo> listeners, Collection<? extends OsmPrimitive> newSelection) {
+//        for (ListenerInfo listener: listeners) {
+//            listener.listener.selectionChanged(newSelection);
+//        }
+//    }
+//
+//    private final Runnable edtRunnable = new Runnable() {
+//        public void run() {
+////            if (selection != null) {
+////                fireEvents(inEDTListeners, selection);
+////            }
+//        }
+//    };
 
 }

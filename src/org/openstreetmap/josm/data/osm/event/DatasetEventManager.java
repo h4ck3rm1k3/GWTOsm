@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.concurrent.LinkedBlockingQueue;
+//import java.util.concurrent.CopyOnWriteArrayList;
+//import java.util.concurrent.LinkedBlockingQueue;
 
 //import javax.swing.SwingUtilities;
 
+import org.openstreetmap.josm.data.osm.CopyOnWriteArrayList;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.event.DataSetListenerAdapter.Listener;
 //import org.openstreetmap.josm.gui.MapView;
@@ -79,17 +80,17 @@ public class DatasetEventManager
      * instead of thread that caused the dataset change
      */
     public void addDatasetListener(DataSetListener listener, FireMode fireMode) {
-        if (fireMode == FireMode.IN_EDT || fireMode == FireMode.IN_EDT_CONSOLIDATED) {
-            inEDTListeners.addIfAbsent(new ListenerInfo(listener, fireMode == FireMode.IN_EDT_CONSOLIDATED));
-        } else {
-            normalListeners.addIfAbsent(new ListenerInfo(listener, false));
-        }
+//        if (fireMode == FireMode.IN_EDT || fireMode == FireMode.IN_EDT_CONSOLIDATED) {
+//            inEDTListeners.addIfAbsent(new ListenerInfo(listener, fireMode == FireMode.IN_EDT_CONSOLIDATED));
+//        } else {
+//            normalListeners.addIfAbsent(new ListenerInfo(listener, false));
+//        }
     }
 
     public void removeDatasetListener(DataSetListener listener) {
         ListenerInfo searchListener = new ListenerInfo(listener, false);
-        inEDTListeners.remove(searchListener);
-        normalListeners.remove(searchListener);
+//        inEDTListeners.remove(searchListener);
+//        normalListeners.remove(searchListener);
     }
 
 //    public void editLayerChanged(OsmDataLayer oldLayer, OsmDataLayer newLayer) {
@@ -122,72 +123,72 @@ public class DatasetEventManager
     }
 
     public void processDatasetEvent(AbstractDatasetChangedEvent event) {
-        fireEvents(normalListeners, event);
+//        fireEvents(normalListeners, event);
         eventsInEDT.add(event);
 //        SwingUtilities.invokeLater(edtRunnable);
     }
 
     private final Runnable edtRunnable = new Runnable() {
         public void run() {
-            while (!eventsInEDT.isEmpty()) {
-                List<AbstractDatasetChangedEvent> events = new ArrayList<AbstractDatasetChangedEvent>();
-                events.addAll(eventsInEDT);
-
-                DataSet dataSet = null;
-                AbstractDatasetChangedEvent consolidatedEvent = null;
-                AbstractDatasetChangedEvent event = null;
-
-                while ((event = eventsInEDT.poll()) != null) {
-                    fireEvents(inEDTListeners, event);
-
-                    // DataSet changed - fire consolidated event early
-                    if (consolidatedEvent != null && dataSet != event.getDataset()) {
-                        fireConsolidatedEvents(inEDTListeners, consolidatedEvent);
-                        consolidatedEvent = null;
-                    }
-
-                    dataSet = event.getDataset();
-
-                    // Build consolidated event
-                    if (event instanceof DataChangedEvent) {
-                        // DataChangeEvent can contains other events, so it gets special handling
-                        DataChangedEvent dataEvent = (DataChangedEvent) event;
-                        if (dataEvent.getEvents() == null) {
-                            consolidatedEvent = dataEvent; // Dataset was completely changed, we can ignore older events
-                        } else {
-                            if (consolidatedEvent == null) {
-                                consolidatedEvent = new DataChangedEvent(dataSet, dataEvent.getEvents());
-                            } else if (consolidatedEvent instanceof DataChangedEvent) {
-                                List<AbstractDatasetChangedEvent> evts = ((DataChangedEvent) consolidatedEvent).getEvents();
-                                if (evts != null) {
-                                    evts.addAll(dataEvent.getEvents());
-                                }
-                            } else {
-                                AbstractDatasetChangedEvent oldConsolidateEvent = consolidatedEvent;
-                                consolidatedEvent = new DataChangedEvent(dataSet, dataEvent.getEvents());
-                                ((DataChangedEvent) consolidatedEvent).getEvents().add(oldConsolidateEvent);
-                            }
-                        }
-                    } else {
-                        // Normal events
-                        if (consolidatedEvent == null) {
-                            consolidatedEvent = event;
-                        } else if (consolidatedEvent instanceof DataChangedEvent) {
-                            List<AbstractDatasetChangedEvent> evs = ((DataChangedEvent) consolidatedEvent).getEvents();
-                            if (evs != null) {
-                                evs.add(event);
-                            }
-                        } else {
-                            consolidatedEvent = new DataChangedEvent(dataSet,
-                                    new ArrayList<AbstractDatasetChangedEvent>(Arrays.asList(consolidatedEvent)));
-                        }
-
-                    }
-                }
-
-                // Fire consolidated event
-                fireConsolidatedEvents(inEDTListeners, consolidatedEvent);
-            }
+//            while (!eventsInEDT.isEmpty()) {
+//                List<AbstractDatasetChangedEvent> events = new ArrayList<AbstractDatasetChangedEvent>();
+//                events.addAll(eventsInEDT);
+//
+//                DataSet dataSet = null;
+//                AbstractDatasetChangedEvent consolidatedEvent = null;
+//                AbstractDatasetChangedEvent event = null;
+//
+//                while ((event = eventsInEDT.poll()) != null) {
+//                    fireEvents(inEDTListeners, event);
+//
+//                    // DataSet changed - fire consolidated event early
+//                    if (consolidatedEvent != null && dataSet != event.getDataset()) {
+//                        fireConsolidatedEvents(inEDTListeners, consolidatedEvent);
+//                        consolidatedEvent = null;
+//                    }
+//
+//                    dataSet = event.getDataset();
+//
+//                    // Build consolidated event
+//                    if (event instanceof DataChangedEvent) {
+//                        // DataChangeEvent can contains other events, so it gets special handling
+//                        DataChangedEvent dataEvent = (DataChangedEvent) event;
+//                        if (dataEvent.getEvents() == null) {
+//                            consolidatedEvent = dataEvent; // Dataset was completely changed, we can ignore older events
+//                        } else {
+//                            if (consolidatedEvent == null) {
+//                                consolidatedEvent = new DataChangedEvent(dataSet, dataEvent.getEvents());
+//                            } else if (consolidatedEvent instanceof DataChangedEvent) {
+//                                List<AbstractDatasetChangedEvent> evts = ((DataChangedEvent) consolidatedEvent).getEvents();
+//                                if (evts != null) {
+//                                    evts.addAll(dataEvent.getEvents());
+//                                }
+//                            } else {
+//                                AbstractDatasetChangedEvent oldConsolidateEvent = consolidatedEvent;
+//                                consolidatedEvent = new DataChangedEvent(dataSet, dataEvent.getEvents());
+//                                ((DataChangedEvent) consolidatedEvent).getEvents().add(oldConsolidateEvent);
+//                            }
+//                        }
+//                    } else {
+//                        // Normal events
+//                        if (consolidatedEvent == null) {
+//                            consolidatedEvent = event;
+//                        } else if (consolidatedEvent instanceof DataChangedEvent) {
+//                            List<AbstractDatasetChangedEvent> evs = ((DataChangedEvent) consolidatedEvent).getEvents();
+//                            if (evs != null) {
+//                                evs.add(event);
+//                            }
+//                        } else {
+//                            consolidatedEvent = new DataChangedEvent(dataSet,
+//                                    new ArrayList<AbstractDatasetChangedEvent>(Arrays.asList(consolidatedEvent)));
+//                        }
+//
+//                    }
+//                }
+//
+//                // Fire consolidated event
+//                fireConsolidatedEvents(inEDTListeners, consolidatedEvent);
+//            }
         }
     };
 }

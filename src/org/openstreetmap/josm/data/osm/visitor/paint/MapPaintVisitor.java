@@ -3,7 +3,7 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 
 /* To enable debugging or profiling remove the double / signs */
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 ////import java.awt.Graphics2D;
 ////import java.awt.Point;
@@ -17,7 +17,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 
-import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.coor.LatLon;
@@ -25,9 +24,11 @@ import org.openstreetmap.josm.data.osm.BBox;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.ElemStyle;
 
+import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.OsmUtils;
+import org.openstreetmap.josm.data.osm.Point;
 import org.openstreetmap.josm.data.osm.Relation;
 import org.openstreetmap.josm.data.osm.RelationMember;
 import org.openstreetmap.josm.data.osm.Way;
@@ -43,7 +44,6 @@ import org.openstreetmap.josm.data.osm.visitor.paint.relations.Multipolygon.Poly
 //import org.openstreetmap.josm.gui.mappaint.LineElemStyle;
 //import org.openstreetmap.josm.gui.mappaint.MapPaintStyles;
 //import org.openstreetmap.josm.gui.mappaint.SimpleNodeElemStyle;
-import org.openstreetmap.josm.tools.Point;
 
 public class MapPaintVisitor  {
 
@@ -787,7 +787,7 @@ public class MapPaintVisitor  {
     }
 
     /* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.GWT2d#setGraphics(java.awt.Graphics2D)
+	 * @see org.openstreetmap.josm.data.osm.visitor.paint.GWT2d#setGraphics(GWTGraphics2D)
 	 */
     public void setGraphics(GWTGraphics2D g) {
         this.g = g;

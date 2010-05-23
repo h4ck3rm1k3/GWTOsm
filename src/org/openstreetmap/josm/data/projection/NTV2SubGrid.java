@@ -19,9 +19,11 @@
  */
 package org.openstreetmap.josm.data.projection;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Serializable;
+import org.openstreetmap.josm.data.coor.Serializable;
+
+//import java.io.IOException;
+//import java.io.InputStream;
+//import java.io.Serializable;
 
 /**
  * Models the NTv2 Sub Grid within a Grid Shift File
@@ -66,82 +68,82 @@ public class NTV2SubGrid implements Cloneable, Serializable {
      * @throws Exception
      */
     public NTV2SubGrid(InputStream in, boolean bigEndian, boolean loadAccuracy) throws IOException {
-        byte[] b8 = new byte[8];
-        byte[] b4 = new byte[4];
-        byte[] b1 = new byte[1];
-        in.read(b8);
-        in.read(b8);
-        subGridName = new String(b8).trim();
-        in.read(b8);
-        in.read(b8);
-        parentSubGridName = new String(b8).trim();
-        in.read(b8);
-        in.read(b8);
-        created = new String(b8);
-        in.read(b8);
-        in.read(b8);
-        updated = new String(b8);
-        in.read(b8);
-        in.read(b8);
-        minLat = NTV2Util.getDouble(b8, bigEndian);
-        in.read(b8);
-        in.read(b8);
-        maxLat = NTV2Util.getDouble(b8, bigEndian);
-        in.read(b8);
-        in.read(b8);
-        minLon = NTV2Util.getDouble(b8, bigEndian);
-        in.read(b8);
-        in.read(b8);
-        maxLon = NTV2Util.getDouble(b8, bigEndian);
-        in.read(b8);
-        in.read(b8);
-        latInterval = NTV2Util.getDouble(b8, bigEndian);
-        in.read(b8);
-        in.read(b8);
-        lonInterval = NTV2Util.getDouble(b8, bigEndian);
-        lonColumnCount = 1 + (int)((maxLon - minLon) / lonInterval);
-        latRowCount = 1 + (int)((maxLat - minLat) / latInterval);
-        in.read(b8);
-        in.read(b8);
-        nodeCount = NTV2Util.getInt(b8, bigEndian);
-        if (nodeCount != lonColumnCount * latRowCount)
-            throw new IllegalStateException("SubGrid " + subGridName + " has inconsistent grid dimesions");
-        latShift = new float[nodeCount];
-        lonShift = new float[nodeCount];
-        if (loadAccuracy) {
-            latAccuracy = new float[nodeCount];
-            lonAccuracy = new float[nodeCount];
-        }
-
-        for (int i = 0; i < nodeCount; i++) {
-            // Read the grid file byte after byte. This is a workaround about a bug in
-            // certain VM which are not able to read byte blocks when the resource file is
-            // in a .jar file (Pieren)
-            in.read(b1); b4[0] = b1[0];
-            in.read(b1); b4[1] = b1[0];
-            in.read(b1); b4[2] = b1[0];
-            in.read(b1); b4[3] = b1[0];
-            latShift[i] = NTV2Util.getFloat(b4, bigEndian);
-            in.read(b1); b4[0] = b1[0];
-            in.read(b1); b4[1] = b1[0];
-            in.read(b1); b4[2] = b1[0];
-            in.read(b1); b4[3] = b1[0];
-            lonShift[i] = NTV2Util.getFloat(b4, bigEndian);
-            in.read(b1); b4[0] = b1[0];
-            in.read(b1); b4[1] = b1[0];
-            in.read(b1); b4[2] = b1[0];
-            in.read(b1); b4[3] = b1[0];
-            if (loadAccuracy) {
-                latAccuracy[i] = NTV2Util.getFloat(b4, bigEndian);
-            }
-            in.read(b1); b4[0] = b1[0];
-            in.read(b1); b4[1] = b1[0];
-            in.read(b1); b4[2] = b1[0];
-            in.read(b1); b4[3] = b1[0];
-            if (loadAccuracy) {
-                lonAccuracy[i] = NTV2Util.getFloat(b4, bigEndian);
-            }
-        }
+//        byte[] b8 = new byte[8];
+//        byte[] b4 = new byte[4];
+//        byte[] b1 = new byte[1];
+//        in.read(b8);
+//        in.read(b8);
+//        subGridName = new String(b8).trim();
+//        in.read(b8);
+//        in.read(b8);
+//        parentSubGridName = new String(b8).trim();
+//        in.read(b8);
+//        in.read(b8);
+//        created = new String(b8);
+//        in.read(b8);
+//        in.read(b8);
+//        updated = new String(b8);
+//        in.read(b8);
+//        in.read(b8);
+//        minLat = NTV2Util.getDouble(b8, bigEndian);
+//        in.read(b8);
+//        in.read(b8);
+//        maxLat = NTV2Util.getDouble(b8, bigEndian);
+//        in.read(b8);
+//        in.read(b8);
+//        minLon = NTV2Util.getDouble(b8, bigEndian);
+//        in.read(b8);
+//        in.read(b8);
+//        maxLon = NTV2Util.getDouble(b8, bigEndian);
+//        in.read(b8);
+//        in.read(b8);
+//        latInterval = NTV2Util.getDouble(b8, bigEndian);
+//        in.read(b8);
+//        in.read(b8);
+//        lonInterval = NTV2Util.getDouble(b8, bigEndian);
+//        lonColumnCount = 1 + (int)((maxLon - minLon) / lonInterval);
+//        latRowCount = 1 + (int)((maxLat - minLat) / latInterval);
+//        in.read(b8);
+//        in.read(b8);
+//        nodeCount = NTV2Util.getInt(b8, bigEndian);
+//        if (nodeCount != lonColumnCount * latRowCount)
+//            throw new IllegalStateException("SubGrid " + subGridName + " has inconsistent grid dimesions");
+//        latShift = new float[nodeCount];
+//        lonShift = new float[nodeCount];
+//        if (loadAccuracy) {
+//            latAccuracy = new float[nodeCount];
+//            lonAccuracy = new float[nodeCount];
+//        }
+//
+//        for (int i = 0; i < nodeCount; i++) {
+//            // Read the grid file byte after byte. This is a workaround about a bug in
+//            // certain VM which are not able to read byte blocks when the resource file is
+//            // in a .jar file (Pieren)
+//            in.read(b1); b4[0] = b1[0];
+//            in.read(b1); b4[1] = b1[0];
+//            in.read(b1); b4[2] = b1[0];
+//            in.read(b1); b4[3] = b1[0];
+//            latShift[i] = NTV2Util.getFloat(b4, bigEndian);
+//            in.read(b1); b4[0] = b1[0];
+//            in.read(b1); b4[1] = b1[0];
+//            in.read(b1); b4[2] = b1[0];
+//            in.read(b1); b4[3] = b1[0];
+//            lonShift[i] = NTV2Util.getFloat(b4, bigEndian);
+//            in.read(b1); b4[0] = b1[0];
+//            in.read(b1); b4[1] = b1[0];
+//            in.read(b1); b4[2] = b1[0];
+//            in.read(b1); b4[3] = b1[0];
+//            if (loadAccuracy) {
+//                latAccuracy[i] = NTV2Util.getFloat(b4, bigEndian);
+//            }
+//            in.read(b1); b4[0] = b1[0];
+//            in.read(b1); b4[1] = b1[0];
+//            in.read(b1); b4[2] = b1[0];
+//            in.read(b1); b4[3] = b1[0];
+//            if (loadAccuracy) {
+//                lonAccuracy[i] = NTV2Util.getFloat(b4, bigEndian);
+//            }
+//        }
     }
 
     /**
@@ -158,17 +160,17 @@ public class NTV2SubGrid implements Cloneable, Serializable {
      * @return the Sub Grid containing the Coordinate or null
      */
     public NTV2SubGrid getSubGridForCoord(double lon, double lat) {
-        if (isCoordWithin(lon, lat)) {
-            if (subGrid == null)
-                return this;
-            else {
-                for (int i = 0; i < subGrid.length; i++) {
-                    if (subGrid[i].isCoordWithin(lon, lat))
-                        return subGrid[i].getSubGridForCoord(lon, lat);
-                }
-                return this;
-            }
-        } else
+//        if (isCoordWithin(lon, lat)) {
+//            if (subGrid == null)
+//                return this;
+//            else {
+//                for (int i = 0; i < subGrid.length; i++) {
+//                    if (subGrid[i].isCoordWithin(lon, lat))
+//                        return subGrid[i].getSubGridForCoord(lon, lat);
+//                }
+//                return this;
+//            }
+//        } else
             return null;
     }
 
@@ -182,9 +184,9 @@ public class NTV2SubGrid implements Cloneable, Serializable {
      * @return true or false
      */
     private boolean isCoordWithin(double lon, double lat) {
-        if ((lon >= minLon) && (lon < maxLon) && (lat >= minLat) && (lat < maxLat))
-            return true;
-        else
+//        if ((lon >= minLon) && (lon < maxLon) && (lat >= minLat) && (lat < maxLat))
+//            return true;
+//        else
             return false;
     }
 
@@ -317,22 +319,22 @@ public class NTV2SubGrid implements Cloneable, Serializable {
     /**
      * Make a deep clone of this Sub Grid
      */
-    @Override
-    public Object clone() {
-        NTV2SubGrid clone = null;
-        try {
-            clone = (NTV2SubGrid)super.clone();
-        } catch (CloneNotSupportedException cnse) {
-        }
-        // Do a deep clone of the sub grids
-        if (subGrid != null) {
-            clone.subGrid = new NTV2SubGrid[subGrid.length];
-            for (int i = 0; i < subGrid.length; i++) {
-                clone.subGrid[i] = (NTV2SubGrid)subGrid[i].clone();
-            }
-        }
-        return clone;
-    }
+//    @Override
+//    public Object clone() {
+//        NTV2SubGrid clone = null;
+//        try {
+//            clone = (NTV2SubGrid)super.clone();
+//        } catch (CloneNotSupportedException cnse) {
+//        }
+//        // Do a deep clone of the sub grids
+//        if (subGrid != null) {
+//            clone.subGrid = new NTV2SubGrid[subGrid.length];
+//            for (int i = 0; i < subGrid.length; i++) {
+//                clone.subGrid[i] = (NTV2SubGrid)subGrid[i].clone();
+//            }
+//        }
+//        return clone;
+//    }
     /**
      * @return
      */

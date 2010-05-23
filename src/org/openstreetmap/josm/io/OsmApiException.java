@@ -1,6 +1,6 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.io;
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 public class OsmApiException extends OsmTransferException {
 

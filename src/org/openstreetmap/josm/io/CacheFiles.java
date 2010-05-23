@@ -15,8 +15,8 @@ import java.util.TreeMap;
 
 
 
-import org.openstreetmap.josm.Main;
-import org.openstreetmap.josm.tools.BufferedImage;
+import org.openstreetmap.josm.data.osm.BufferedImage;
+import org.openstreetmap.josm.data.osm.Main;
 
 /**
  * Use this class if you want to cache a lot of files that shouldn't be kept in memory. You can

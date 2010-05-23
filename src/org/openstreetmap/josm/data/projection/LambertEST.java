@@ -4,7 +4,7 @@
 //from which some code and constants have been reused here.
 package org.openstreetmap.josm.data.projection;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.EastNorth;

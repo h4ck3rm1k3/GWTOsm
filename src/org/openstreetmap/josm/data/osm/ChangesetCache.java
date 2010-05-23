@@ -8,12 +8,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.logging.Logger;
+//import java.util.concurrent.CopyOnWriteArrayList;
+//import java.util.logging.Logger;
 
 //import javax.swing.SwingUtilities;
 
-import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Preferences.PreferenceChangeEvent;
 import org.openstreetmap.josm.data.Preferences.PreferenceChangedListener;
 
@@ -61,21 +60,21 @@ public class ChangesetCache implements PreferenceChangedListener{
     }
 
     public void addChangesetCacheListener(ChangesetCacheListener listener) {
-        listeners.addIfAbsent(listener);
+//        listeners.addIfAbsent(listener);
     }
 
     public void removeChangesetCacheListener(ChangesetCacheListener listener) {
-        listeners.remove(listener);
+//        listeners.remove(listener);
     }
 
     protected void fireChangesetCacheEvent(final ChangesetCacheEvent e) {
-        Runnable r = new Runnable() {
-            public void run() {
-                for(ChangesetCacheListener l: listeners) {
-                    l.changesetCacheUpdated(e);
-                }
-            }
-        };
+//        Runnable r = new Runnable() {
+//            public void run() {
+//                for(ChangesetCacheListener l: listeners) {
+//                    l.changesetCacheUpdated(e);
+//                }
+//            }
+//        };
 //        if (SwingUtilities.isEventDispatchThread()) {
 //            r.run();
 //        } else {

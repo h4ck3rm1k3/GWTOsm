@@ -20,7 +20,7 @@ public class OsmUtils {
 
     public static Boolean getOsmBoolean(String value) {
         if(value == null) return null;
-        String lowerValue = value.toLowerCase(Locale.ENGLISH);
+        String lowerValue = value.toLowerCase(); //Locale.ENGLISH
         if (TRUE_VALUES.contains(lowerValue)) return Boolean.TRUE;
         if (FALSE_VALUES.contains(lowerValue)) return Boolean.FALSE;
         return null;

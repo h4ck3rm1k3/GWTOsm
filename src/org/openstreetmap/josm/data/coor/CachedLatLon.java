@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.data.coor;
 
-import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.projection.Projection;
 
 

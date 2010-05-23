@@ -1,13 +1,13 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-import static org.openstreetmap.josm.tools.I18n.marktr;
+import static org.openstreetmap.josm.data.osm.I18n.marktr;
 
 //import org.openstreetmap.josm.tools.Color;
 
-import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Preferences.ColorKey;
-import org.openstreetmap.josm.tools.Color;
+import org.openstreetmap.josm.data.osm.Color;
+import org.openstreetmap.josm.data.osm.Main;
 
 //import org.openstreetmap.josm.tools.Color;
 //import com.google.gwt.gwtwidgets.client.style.Color;

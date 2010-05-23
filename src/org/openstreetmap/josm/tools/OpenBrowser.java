@@ -1,7 +1,7 @@
 // License: GPL. Copyright 2007 by Immanuel Scholz and others
 package org.openstreetmap.josm.tools;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -9,7 +9,7 @@ import java.net.URL;
 
 //import javax.swing.JApplet;
 
-import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.data.osm.Main;
 
 /**
  * Helper to open platform web browser on different platforms

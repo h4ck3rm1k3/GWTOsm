@@ -1,7 +1,7 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.io;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.text.DateFormat;
 import java.text.MessageFormat;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.LatLon;
-import org.openstreetmap.josm.tools.CheckParameterUtil;
+import org.openstreetmap.josm.data.osm.CheckParameterUtil;
 
 public class ChangesetQuery {
 

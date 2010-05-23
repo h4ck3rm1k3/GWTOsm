@@ -11,14 +11,14 @@ import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.ProjectionBounds;
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.coor.LatLon;
+import org.openstreetmap.josm.data.osm.Component;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
+import org.openstreetmap.josm.data.osm.Point;
+import org.openstreetmap.josm.data.osm.Predicate;
 import org.openstreetmap.josm.data.osm.Way;
 import org.openstreetmap.josm.data.osm.WaySegment;
 import org.openstreetmap.josm.data.projection.Projection;
-import org.openstreetmap.josm.tools.Component;
-import org.openstreetmap.josm.tools.Point;
-import org.openstreetmap.josm.tools.Predicate;
 
 public interface INavigatableComponent {
 
@@ -184,8 +184,8 @@ public interface INavigatableComponent {
 	 *      if no item under or near the point. The returned
 	 *      list is never empty.
 	 */
-	public abstract Collection<OsmPrimitive> getAllNearest(Point p,
-			Predicate<OsmPrimitive> predicate);
+//	public abstract Collection<OsmPrimitive> getAllNearest(Point p,
+//			Predicate<OsmPrimitive> predicate);
 
 	/**
 	 * @return A list of all nodes that are nearest to
@@ -228,7 +228,7 @@ public interface INavigatableComponent {
 
 	public abstract Component getComp();
 
-	Collection<OsmPrimitive> getAllNearest(java.awt.Point p,
+	Collection<OsmPrimitive> getAllNearest(Point p,
 			Predicate<OsmPrimitive> predicate);
 
 }

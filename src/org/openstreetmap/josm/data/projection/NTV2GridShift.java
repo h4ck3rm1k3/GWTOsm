@@ -18,10 +18,11 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 package org.openstreetmap.josm.data.projection;
-
-import java.io.Serializable;
+//
+//import java.io.Serializable;
 
 import org.openstreetmap.josm.data.coor.LatLon;
+import org.openstreetmap.josm.data.coor.Serializable;
 
 /**
  * A value object for storing Longitude and Latitude of a point, the

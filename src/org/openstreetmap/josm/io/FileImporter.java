@@ -1,7 +1,7 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.io;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,9 +9,7 @@ import java.util.List;
 
 //import javax.swing.JOptionPane;
 
-import org.openstreetmap.josm.Main;
-//import org.openstreetmap.josm.actions.ExtensionFileFilter;
-//import org.openstreetmap.josm.gui.progress.ProgressMonitor;
+import org.openstreetmap.josm.data.osm.Main;
 
 public abstract class FileImporter implements Comparable<FileImporter> {
 

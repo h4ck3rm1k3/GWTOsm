@@ -21,15 +21,15 @@ import java.util.Iterator;
 
 
 
-import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.data.osm.Color;
+import org.openstreetmap.josm.data.osm.ImageProvider;
+import org.openstreetmap.josm.data.osm.LanguageInfo;
+import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.osm.Node;
+import org.openstreetmap.josm.data.osm.Point;
 import org.openstreetmap.josm.data.osm.Way;
 //import org.openstreetmap.josm.gui.NavigatableComponent;
-import org.openstreetmap.josm.tools.ImageProvider;
-import org.openstreetmap.josm.tools.LanguageInfo;
-import org.openstreetmap.josm.tools.Point;
 
-import org.openstreetmap.josm.tools.Color;
 
 public class MapPainter {
     private final GWTGraphics2D g;

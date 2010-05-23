@@ -6,9 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.osm.visitor.Visitor;
-import org.openstreetmap.josm.tools.CopyList;
 
 /**
  * An relation, having a set of tags and any number (0...n) of members.
@@ -386,8 +384,8 @@ public final class Relation extends OsmPrimitive {
         DataSet dataSet = getDataSet();
         if (dataSet != null) {
             for (RelationMember rm: members) {
-                if (rm.getMember().getDataSet() != dataSet)
-                    throw new DataIntegrityProblemException(String.format("Relation member must be part of the same dataset as relation(%s, %s)", getPrimitiveId(), rm.getMember().getPrimitiveId()));
+//                if (rm.getMember().getDataSet() != dataSet)
+//                    throw new DataIntegrityProblemException(String.format("Relation member must be part of the same dataset as relation(%s, %s)", getPrimitiveId(), rm.getMember().getPrimitiveId()));
             }
             if (Main.pref.getBoolean("debug.checkDeleteReferenced", true)) {
                 for (RelationMember rm: members) {

@@ -3,6 +3,8 @@ package org.openstreetmap.josm.tools;
 
 import java.io.IOException;
 
+import org.openstreetmap.josm.data.osm.Shortcut;
+
 /**
  * This interface allows platfrom (operating system) dependent code
  * to be bundled into self-contained classes.

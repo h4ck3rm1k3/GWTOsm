@@ -2,8 +2,8 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 
 ////import java.awt.Graphics;
 
-import org.openstreetmap.josm.tools.BufferedImage;
-import org.openstreetmap.josm.tools.Component;
+import org.openstreetmap.josm.data.osm.BufferedImage;
+import org.openstreetmap.josm.data.osm.Component;
 import org.vaadin.gwtgraphics.client.Image;
 
 public class ImageIcon {

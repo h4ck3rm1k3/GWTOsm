@@ -7,7 +7,12 @@ package org.openstreetmap.josm.tools;
 //import java.awt.Insets;
 
 //import javax.swing.Box;
-import org.openstreetmap.josm.tools.Box;
+import org.openstreetmap.josm.data.Dimension;
+import org.openstreetmap.josm.data.osm.Box;
+import org.openstreetmap.josm.data.osm.BoxFiller;
+import org.openstreetmap.josm.data.osm.Component;
+import org.openstreetmap.josm.data.osm.GridBagConstraints;
+import org.openstreetmap.josm.data.osm.Insets;
 
 /**
  * A wrapper for GridBagConstraints which has sane default static creators and

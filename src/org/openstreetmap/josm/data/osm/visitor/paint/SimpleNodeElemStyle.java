@@ -1,8 +1,8 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
 
-import org.openstreetmap.josm.tools.Color;
 
+import org.openstreetmap.josm.data.osm.Color;
 import org.openstreetmap.josm.data.osm.ElemStyle;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;

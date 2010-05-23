@@ -9,7 +9,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Date;
-import org.openstreetmap.josm.Main;
+
+import org.openstreetmap.josm.data.osm.Main;
 
 
 /**

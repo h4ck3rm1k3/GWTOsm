@@ -1,19 +1,22 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
+//import java.io.BufferedReader;
+//import java.io.IOException;
+//import java.io.InputStreamReader;
+//import java.io.IOException;
+//import java.net.URL;
 import java.util.HashMap;
 import java.util.Map.Entry;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+//import java.util.regex.Matcher;
+//import java.util.regex.Pattern;
 
-import org.openstreetmap.josm.Main;
-import org.openstreetmap.josm.tools.LanguageInfo;
+import org.openstreetmap.josm.data.osm.LanguageInfo;
+import org.openstreetmap.josm.data.osm.Main;
+
+import com.google.gwt.http.client.URL;
 
 /**
  * Provides basic information about the currently used JOSM build.
@@ -34,19 +37,19 @@ public class Version {
      */
     static public String loadResourceFile(URL resource) {
         if (resource == null) return null;
-        BufferedReader in;
+        BufferedReader in = null;
         String s = null;
-        try {
-            in = new BufferedReader(new InputStreamReader(resource.openStream()));
-            StringBuffer sb = new StringBuffer();
-            for (String line = in.readLine(); line != null; line = in.readLine()) {
-                sb.append(line).append("\n");
-            }
-            s = sb.toString();
-        } catch (IOException e) {
-            System.err.println(tr("Failed to load resource ''{0}'', error is {1}.", resource.toString(), e.toString()));
-            e.printStackTrace();
-        }
+//        try {
+//			in = new BufferedReader(new InputStreamReader(resource.openStream()));
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		StringBuffer sb = new StringBuffer();
+		for (String line = in.readLine(); line != null; line = in.readLine()) {
+		    sb.append(line).append("\n");
+		}
+		s = sb.toString();
         return s;
     }
 
@@ -71,20 +74,20 @@ public class Version {
 
     protected HashMap<String, String> parseManifestStyleFormattedString(String content) {
         HashMap<String, String> properties = new HashMap<String, String>();
-        if (content == null) return properties;
-        Pattern p = Pattern.compile("^([^:]+):(.*)$");
-        for (String line: content.split("\n")) {
-            if (line == null || line.trim().equals("")) {
-                continue;
-            }
-            if (line.matches("^\\s*#.*$")) {
-                continue;
-            }
-            Matcher m = p.matcher(line);
-            if (m.matches()) {
-                properties.put(m.group(1), m.group(2));
-            }
-        }
+//        if (content == null) return properties;
+//        Pattern p = Pattern.compile("^([^:]+):(.*)$");
+//        for (String line: content.split("\n")) {
+//            if (line == null || line.trim().equals("")) {
+//                continue;
+//            }
+//            if (line.matches("^\\s*#.*$")) {
+//                continue;
+//            }
+//            Matcher m = p.matcher(line);
+//            if (m.matches()) {
+//                properties.put(m.group(1), m.group(2));
+//            }
+//        }
         return properties;
     }
 
@@ -140,14 +143,14 @@ public class Version {
     }
 
     public void init() {
-        URL u = Main.class.getResource("/REVISION");
-        if (u == null) {
-            System.err.println(tr("Warning: the revision file ''/REVISION'' is missing."));
-            version = 0;
-            revision = "";
-            return;
-        }
-        initFromRevisionInfo(loadResourceFile(u));
+//        URL u = Main.class.getResource("/REVISION");
+//        if (u == null) {
+//            System.err.println(tr("Warning: the revision file ''/REVISION'' is missing."));
+//            version = 0;
+//            revision = "";
+//            return;
+//        }
+//        initFromRevisionInfo(loadResourceFile(u));
         System.out.println(revision);
     }
 

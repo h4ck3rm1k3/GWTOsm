@@ -4,8 +4,6 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 /* To enable debugging or profiling remove the double / signs */
 
 //import java.awt.BasicStroke;
-import org.openstreetmap.josm.tools.Color;
-import org.openstreetmap.josm.tools.Point;
 //import java.awt.Graphics2D;
 //import java.awt.Point;
 //import java.awt.Polygon;
@@ -16,12 +14,14 @@ import org.openstreetmap.josm.tools.Point;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.osm.BBox;
+import org.openstreetmap.josm.data.osm.Color;
 import org.openstreetmap.josm.data.osm.DataSet;
+import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
+import org.openstreetmap.josm.data.osm.Point;
 import org.openstreetmap.josm.data.osm.Relation;
 import org.openstreetmap.josm.data.osm.RelationMember;
 import org.openstreetmap.josm.data.osm.Way;

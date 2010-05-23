@@ -1,9 +1,11 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm;
-import static org.openstreetmap.josm.tools.I18n.marktr;
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.marktr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
-import java.text.MessageFormat;
+import org.openstreetmap.josm.data.MessageFormat;
+
+//import java.text.MessageFormat;
 
 public enum OsmPrimitiveType {
 

@@ -12,11 +12,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.Stack;
-import java.util.logging.Logger;
+//import java.util.logging.Logger;
 
 import org.openstreetmap.josm.data.conflict.Conflict;
 import org.openstreetmap.josm.data.conflict.ConflictCollection;
 import org.openstreetmap.josm.data.osm.DataSet;
+import org.openstreetmap.josm.data.osm.Logger;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.PrimitiveId;
@@ -289,16 +290,16 @@ public class APIDataSet {
      */
     public void adjustRelationUploadOrder() throws CyclicUploadDependencyException{
         LinkedList<OsmPrimitive> newToAdd = new LinkedList<OsmPrimitive>();
-        newToAdd.addAll(OsmPrimitive.getFilteredList(toAdd, Node.class));
-        newToAdd.addAll(OsmPrimitive.getFilteredList(toAdd, Way.class));
+//        newToAdd.addAll(OsmPrimitive.getFilteredList(toAdd, Node.class));
+//        newToAdd.addAll(OsmPrimitive.getFilteredList(toAdd, Way.class));
+//
+//        List<Relation> relationsToAdd = OsmPrimitive.getFilteredList(toAdd, Relation.class);
+//        List<Relation> noProblemRelations = filterRelationsNotReferringToNewRelations(relationsToAdd);
+//        newToAdd.addAll(noProblemRelations);
+//        relationsToAdd.removeAll(noProblemRelations);
 
-        List<Relation> relationsToAdd = OsmPrimitive.getFilteredList(toAdd, Relation.class);
-        List<Relation> noProblemRelations = filterRelationsNotReferringToNewRelations(relationsToAdd);
-        newToAdd.addAll(noProblemRelations);
-        relationsToAdd.removeAll(noProblemRelations);
-
-        RelationUploadDependencyGraph graph = new RelationUploadDependencyGraph(relationsToAdd);
-        newToAdd.addAll(graph.computeUploadOrder());
+//        RelationUploadDependencyGraph graph = new RelationUploadDependencyGraph(relationsToAdd);
+//        newToAdd.addAll(graph.computeUploadOrder());
         toAdd = newToAdd;
     }
 

@@ -31,7 +31,7 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 ////import java.awt.RenderingHints.Key;
 ////import java.awt.geom.GeneralPath;
 //import java.awt.Graphics;
-import java.text.AttributedCharacterIterator;
+//import java.text.AttributedCharacterIterator;
 import java.util.Map;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -50,7 +50,8 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import org.openstreetmap.josm.tools.Color;
+
+import org.openstreetmap.josm.data.osm.Color;
 //import com.google.gwt.widgetideas.graphics.client.GWTCanvas;
 import org.vaadin.gwtgraphics.client.DrawingArea;
 import org.vaadin.gwtgraphics.client.Image;
@@ -90,10 +91,10 @@ public class GWTGraphics2D //extends Graphics2D
 	}
 
 	
-	public void draw(Shape arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+//	public void draw(Shape arg0) {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 	
 //	public void drawGlyphVector(GlyphVector arg0, float arg1, float arg2) {
@@ -142,18 +143,18 @@ public class GWTGraphics2D //extends Graphics2D
 	}
 
 	
-	public void drawString(AttributedCharacterIterator t, int x, int y) {
-		// TODO Auto-generated method stub
-	    Text o = new Text(x, y,t.toString());    
-	    canvas.add(o);
-	}
-
-	
-	public void drawString(AttributedCharacterIterator t, float x,float y) {
-		// TODO Auto-generated method stub
-	    Text o = new Text((int)x, (int)y,t.toString());    
-	    canvas.add(o);		
-	}
+//	public void drawString(AttributedCharacterIterator t, int x, int y) {
+//		// TODO Auto-generated method stub
+//	    Text o = new Text(x, y,t.toString());    
+//	    canvas.add(o);
+//	}
+//
+//	
+//	public void drawString(AttributedCharacterIterator t, float x,float y) {
+//		// TODO Auto-generated method stub
+//	    Text o = new Text((int)x, (int)y,t.toString());    
+//	    canvas.add(o);		
+//	}
 	
 	public void fill(Shape arg0) {
 		// TODO Auto-generated method stub
@@ -546,7 +547,7 @@ public class GWTGraphics2D //extends Graphics2D
 //	}
 
 
-	public void draw(java.awt.Shape createStrokedShape) {
+	public void draw(Shape createStrokedShape) {
 		// TODO Auto-generated method stub
 		
 	}

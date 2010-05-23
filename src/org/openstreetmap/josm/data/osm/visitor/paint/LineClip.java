@@ -1,13 +1,13 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-import static java.awt.geom.Rectangle2D.OUT_LEFT;
-import static java.awt.geom.Rectangle2D.OUT_RIGHT;
-import static java.awt.geom.Rectangle2D.OUT_TOP;
-import static java.awt.geom.Rectangle2D.OUT_BOTTOM;
+//import static java.awt.geom.Rectangle2D.OUT_LEFT;
+//import static java.awt.geom.Rectangle2D.OUT_RIGHT;
+//import static java.awt.geom.Rectangle2D.OUT_TOP;
+//import static java.awt.geom.Rectangle2D.OUT_BOTTOM;
 ////import java.awt.Point;
 
-import org.openstreetmap.josm.tools.Point;
+import org.openstreetmap.josm.data.osm.Point;
 
 /**
  * Computes the part of a line that is visible in a given rectangle.
@@ -15,7 +15,11 @@ import org.openstreetmap.josm.tools.Point;
  * http://en.wikipedia.org/wiki/Cohen-Sutherland
  */
 public class LineClip {
-    private Point p1, p2;
+    private static final int OUT_TOP = 0;
+	private static final int OUT_BOTTOM = 0;
+	private static final int OUT_RIGHT = 0;
+	private static final int OUT_LEFT = 0;
+	private Point p1, p2;
 
     /**
      * The outcode of the point.

@@ -1,7 +1,7 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.io;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -14,9 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
-import org.openstreetmap.josm.Main;
-//import org.openstreetmap.josm.gui.preferences.server.ProxyPreferencesPanel;
-//import org.openstreetmap.josm.gui.preferences.server.ProxyPreferencesPanel.ProxyPolicy;
+import org.openstreetmap.josm.data.osm.Main;
 
 /**
  * This is the default proxy selector used in JOSM.

@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-import org.openstreetmap.josm.tools.BufferedImage;
+import org.openstreetmap.josm.data.osm.BufferedImage;
 
 public class GrayFilter {
 

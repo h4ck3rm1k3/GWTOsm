@@ -1,11 +1,11 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.projection;
 
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import java.awt.GridBagLayout;
-import java.io.IOException;
-import java.io.InputStream;
+//import java.io.IOException;
+//import java.io.InputStream;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -13,11 +13,11 @@ import java.util.Collections;
 //import javax.swing.JLabel;
 //import javax.swing.JPanel;
 
-import org.openstreetmap.josm.Main;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.coor.LatLon;
-import org.openstreetmap.josm.tools.GBC;
+import org.openstreetmap.josm.data.osm.Main;
+//import org.openstreetmap.josm.tools.GBC;
 
 /**
  * This class provides the two methods <code>latlon2eastNorth</code> and <code>eastNorth2latlon</code>
@@ -92,21 +92,21 @@ public class Lambert implements Projection, ProjectionSubPrefs {
     }
 
     public Lambert() {
-        if (ntf_rgf93Grid == null) {
-            try {
-                String gridFileName = "ntf_r93_b.gsb";
-                InputStream is = Main.class.getResourceAsStream("/data/"+gridFileName);
-                if (is == null) {
-                    System.err.println(tr("Warning: failed to open input stream for resource ''/data/{0}''. Cannot load NTF<->RGF93 grid", gridFileName));
-                    return;
-                }
-                ntf_rgf93Grid = new NTV2GridShiftFile();
-                ntf_rgf93Grid.loadGridShiftFile(is, false);
-                //System.out.println("NTF<->RGF93 grid loaded.");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+//        if (ntf_rgf93Grid == null) {
+//            try {
+//                String gridFileName = "ntf_r93_b.gsb";
+//                InputStream is = Main.class.getResourceAsStream("/data/"+gridFileName);
+//                if (is == null) {
+//                    System.err.println(tr("Warning: failed to open input stream for resource ''/data/{0}''. Cannot load NTF<->RGF93 grid", gridFileName));
+//                    return;
+//                }
+//                ntf_rgf93Grid = new NTV2GridShiftFile();
+//                ntf_rgf93Grid.loadGridShiftFile(is, false);
+//                //System.out.println("NTF<->RGF93 grid loaded.");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 
     /**

@@ -1,9 +1,9 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
+//import java.io.PrintWriter;
+//import java.io.StringWriter;
+//import java.io.Writer;
 
 import org.openstreetmap.josm.data.coor.LatLon;
 
@@ -25,10 +25,19 @@ public class DatasetConsistencyTest {
         this.writer = new PrintWriter(writer);
     }
 
-    private void printError(String type, String message, Object... args) {
+   
+
+	public DatasetConsistencyTest(DataSet dataSet2, StringWriter writer2) {
+		  this.dataSet = dataSet2;
+	      this.writer = new PrintWriter(writer2);
+	}
+
+
+
+	private void printError(String type, String message, Object... args) {
         errorCount++;
         if (errorCount <= MAX_ERRORS) {
-            writer.println("[" + type + "] " + String.format(message, args));
+	    //            writer.println("[" + type + "] " + String.format(message, args));
         }
     }
 
@@ -132,7 +141,7 @@ public class DatasetConsistencyTest {
     }
 
     public void runTest() {
-        try {
+//        try {
             checkReferrers();
             checkCompleteWaysWithIncompleteNodes();
             checkCompleteNodesWithoutCoordinates();
@@ -143,10 +152,11 @@ public class DatasetConsistencyTest {
             if (errorCount > MAX_ERRORS) {
                 writer.println((errorCount - MAX_ERRORS) + " more...");
             }
-        } catch (Exception e) {
-            writer.println("Exception during dataset integrity test:");
-            e.printStackTrace(writer);
-        }
+//        } 
+        //catch (OSMException e) {
+//            writer.println("Exception during dataset integrity test:");
+//            e.printStackTrace(writer);
+//        }
     }
 
     public static String runTests(DataSet dataSet) {

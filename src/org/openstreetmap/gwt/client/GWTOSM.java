@@ -25,6 +25,12 @@ import org.vaadin.gwtgraphics.client.shape.Text;
 import org.vaadin.gwtgraphics.client.shape.Rectangle;
 import org.vaadin.gwtgraphics.client.shape.path.LineTo;
 import org.openstreetmap.gwt.client.GWT2dAdaptor;
+import org.openstreetmap.josm.data.Bounds;
+import org.openstreetmap.josm.data.coor.LatLon;
+import org.openstreetmap.josm.data.osm.DataSet;
+import org.openstreetmap.josm.data.osm.Node;
+import org.openstreetmap.josm.data.osm.OsmPrimitive;
+import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -34,7 +40,7 @@ public class GWTOSM implements EntryPoint {
     // the canvas!
     //    private GWTCanvas canvas;
     private GWT2dAdaptor canvas;
-
+    MapPaintVisitor painter;
   /**
    * The message displayed to the user when the server cannot be reached or
    * returns an error.
@@ -47,6 +53,7 @@ public class GWTOSM implements EntryPoint {
    * Create a remote service proxy to talk to the server-side Greeting service.
    */
   private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
+private DataSet data;
 
   /**
    * This is the entry point method.
@@ -59,6 +66,10 @@ public class GWTOSM implements EntryPoint {
        int x = (400)/2 - 4*strlen;
        int y = (400)/2 + 4;
        canvas.drawString(on, x, y);
+       
+       Bounds bounds= new Bounds();
+	boolean virtual=false;
+	painter.visitAll(data, virtual, bounds);
   }
 
   public void onModuleLoad() {
@@ -67,8 +78,10 @@ public class GWTOSM implements EntryPoint {
     nameField.setText("GWT User");
     final Label errorLabel = new Label();
 
-
-
+    LatLon pos = new LatLon(1, 2);
+    OsmPrimitive primitive = new Node(pos );
+	data.addPrimitive(primitive);
+    
     // We can add style names to widgets
     sendButton.addStyleName("sendButton");
 

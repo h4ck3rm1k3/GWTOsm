@@ -5,7 +5,7 @@ package org.openstreetmap.josm.data.projection;
  * This class implements all projections for French departements in the Caribbean Sea and
  * Indian Ocean using the UTM transvers Mercator projection and specific geodesic settings (7 parameters transformation algorithm).
  */
-import static org.openstreetmap.josm.tools.I18n.tr;
+import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import java.awt.GridBagLayout;
 import java.util.Collection;
@@ -18,7 +18,7 @@ import java.util.Collections;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.coor.LatLon;
-import org.openstreetmap.josm.tools.GBC;
+//import org.openstreetmap.josm.tools.GBC;
 
 public class UTM_France_DOM implements Projection, ProjectionSubPrefs {
 

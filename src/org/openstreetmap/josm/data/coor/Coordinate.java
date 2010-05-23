@@ -2,7 +2,7 @@
 package org.openstreetmap.josm.data.coor;
 
 //import java.awt.geom.Point2D;
-import java.io.Serializable;
+//import java.io.Serializable;
 
 import org.openstreetmap.josm.data.osm.visitor.paint.Point2D;
 
@@ -51,9 +51,9 @@ abstract class Coordinate extends Point2D implements Serializable {
         final int prime = 31;
         int result = super.hashCode();
         long temp;
-        temp = java.lang.Double.doubleToLongBits(x);
+        temp = MyDouble.doubleToLongBits(x);
         result = prime * result + (int) (temp ^ (temp >>> 32));
-        temp = java.lang.Double.doubleToLongBits(y);
+        temp = MyDouble.doubleToLongBits(y);
         result = prime * result + (int) (temp ^ (temp >>> 32));
         return result;
     }
@@ -67,9 +67,9 @@ abstract class Coordinate extends Point2D implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         Coordinate other = (Coordinate) obj;
-        if (java.lang.Double.doubleToLongBits(x) != java.lang.Double.doubleToLongBits(other.x))
+        if (MyDouble.doubleToLongBits(x) != MyDouble.doubleToLongBits(other.x))
             return false;
-        if (java.lang.Double.doubleToLongBits(y) != java.lang.Double.doubleToLongBits(other.y))
+        if (MyDouble.doubleToLongBits(y) != MyDouble.doubleToLongBits(other.y))
             return false;
         return true;
     }

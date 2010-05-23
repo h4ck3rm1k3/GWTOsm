@@ -67,7 +67,7 @@ public class Tag {
         return value;
     }
 
-    @Override
+
     public Tag clone() {
         return new Tag(this);
     }

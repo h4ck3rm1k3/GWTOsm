@@ -4,7 +4,7 @@ package org.openstreetmap.josm.tools;
 //import java.awt.event.KeyEvent;
 import java.io.IOException;
 
-import org.openstreetmap.josm.Main;
+import org.openstreetmap.josm.data.osm.Main;
 
 /**
  * see PlatformHook.java

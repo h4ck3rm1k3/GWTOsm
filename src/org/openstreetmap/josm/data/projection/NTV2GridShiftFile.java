@@ -19,11 +19,13 @@
  */
 package org.openstreetmap.josm.data.projection;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Serializable;
+//import java.io.IOException;
+//import java.io.InputStream;
+//import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import org.openstreetmap.josm.data.coor.Serializable;
 
 /**
  * Models the NTv2 format Grid Shift File and exposes methods to shift
@@ -92,65 +94,65 @@ public class NTV2GridShiftFile implements Serializable {
      * @throws Exception
      */
     public void loadGridShiftFile(InputStream in, boolean loadAccuracy ) throws IOException {
-        byte[] b8 = new byte[8];
-        boolean bigEndian = true;
-        fromEllipsoid = "";
-        toEllipsoid = "";
-        topLevelSubGrid = null;
-        in.read(b8);
-        overviewHeaderCountId = new String(b8);
-        if (!"NUM_OREC".equals(overviewHeaderCountId))
-            throw new IllegalArgumentException("Input file is not an NTv2 grid shift file");
-        in.read(b8);
-        overviewHeaderCount = NTV2Util.getIntBE(b8, 0);
-        if (overviewHeaderCount == 11) {
-            bigEndian = true;
-        } else {
-            overviewHeaderCount = NTV2Util.getIntLE(b8, 0);
-            if (overviewHeaderCount == 11) {
-                bigEndian = false;
-            } else
-                throw new IllegalArgumentException("Input file is not an NTv2 grid shift file");
-        }
-        in.read(b8);
-        in.read(b8);
-        subGridHeaderCount = NTV2Util.getInt(b8, bigEndian);
-        in.read(b8);
-        in.read(b8);
-        subGridCount = NTV2Util.getInt(b8, bigEndian);
-        NTV2SubGrid[] subGrid = new NTV2SubGrid[subGridCount];
-        in.read(b8);
-        in.read(b8);
-        shiftType = new String(b8);
-        in.read(b8);
-        in.read(b8);
-        version = new String(b8);
-        in.read(b8);
-        in.read(b8);
-        fromEllipsoid = new String(b8);
-        in.read(b8);
-        in.read(b8);
-        toEllipsoid = new String(b8);
-        in.read(b8);
-        in.read(b8);
-        fromSemiMajorAxis = NTV2Util.getDouble(b8, bigEndian);
-        in.read(b8);
-        in.read(b8);
-        fromSemiMinorAxis = NTV2Util.getDouble(b8, bigEndian);
-        in.read(b8);
-        in.read(b8);
-        toSemiMajorAxis = NTV2Util.getDouble(b8, bigEndian);
-        in.read(b8);
-        in.read(b8);
-        toSemiMinorAxis = NTV2Util.getDouble(b8, bigEndian);
-
-        for (int i = 0; i < subGridCount; i++) {
-            subGrid[i] = new NTV2SubGrid(in, bigEndian, loadAccuracy);
-        }
-        topLevelSubGrid = createSubGridTree(subGrid);
-        lastSubGrid = topLevelSubGrid[0];
-
-        in.close();
+//        byte[] b8 = new byte[8];
+//        boolean bigEndian = true;
+//        fromEllipsoid = "";
+//        toEllipsoid = "";
+//        topLevelSubGrid = null;
+//        in.read(b8);
+//        overviewHeaderCountId = new String(b8);
+//        if (!"NUM_OREC".equals(overviewHeaderCountId))
+//            throw new IllegalArgumentException("Input file is not an NTv2 grid shift file");
+//        in.read(b8);
+//        overviewHeaderCount = NTV2Util.getIntBE(b8, 0);
+//        if (overviewHeaderCount == 11) {
+//            bigEndian = true;
+//        } else {
+//            overviewHeaderCount = NTV2Util.getIntLE(b8, 0);
+//            if (overviewHeaderCount == 11) {
+//                bigEndian = false;
+//            } else
+//                throw new IllegalArgumentException("Input file is not an NTv2 grid shift file");
+//        }
+//        in.read(b8);
+//        in.read(b8);
+//        subGridHeaderCount = NTV2Util.getInt(b8, bigEndian);
+//        in.read(b8);
+//        in.read(b8);
+//        subGridCount = NTV2Util.getInt(b8, bigEndian);
+//        NTV2SubGrid[] subGrid = new NTV2SubGrid[subGridCount];
+//        in.read(b8);
+//        in.read(b8);
+//        shiftType = new String(b8);
+//        in.read(b8);
+//        in.read(b8);
+//        version = new String(b8);
+//        in.read(b8);
+//        in.read(b8);
+//        fromEllipsoid = new String(b8);
+//        in.read(b8);
+//        in.read(b8);
+//        toEllipsoid = new String(b8);
+//        in.read(b8);
+//        in.read(b8);
+//        fromSemiMajorAxis = NTV2Util.getDouble(b8, bigEndian);
+//        in.read(b8);
+//        in.read(b8);
+//        fromSemiMinorAxis = NTV2Util.getDouble(b8, bigEndian);
+//        in.read(b8);
+//        in.read(b8);
+//        toSemiMajorAxis = NTV2Util.getDouble(b8, bigEndian);
+//        in.read(b8);
+//        in.read(b8);
+//        toSemiMinorAxis = NTV2Util.getDouble(b8, bigEndian);
+//
+//        for (int i = 0; i < subGridCount; i++) {
+//            subGrid[i] = new NTV2SubGrid(in, bigEndian, loadAccuracy);
+//        }
+//        topLevelSubGrid = createSubGridTree(subGrid);
+//        lastSubGrid = topLevelSubGrid[0];
+//
+//        in.close();
     }
 
     /**
@@ -303,13 +305,13 @@ public class NTV2GridShiftFile implements Serializable {
      *
      * @return a deep clone of the current SubGrid tree
      */
-    public NTV2SubGrid[] getSubGridTree() {
-        NTV2SubGrid[] clone = new NTV2SubGrid[topLevelSubGrid.length];
-        for (int i = 0; i < topLevelSubGrid.length; i++) {
-            clone[i] = (NTV2SubGrid)topLevelSubGrid[i].clone();
-        }
-        return clone;
-    }
+//    public NTV2SubGrid[] getSubGridTree() {
+//        NTV2SubGrid[] clone = new NTV2SubGrid[topLevelSubGrid.length];
+//        for (int i = 0; i < topLevelSubGrid.length; i++) {
+//            clone[i] = (NTV2SubGrid)topLevelSubGrid[i].clone();
+//        }
+//        return clone;
+//    }
 
     public String getFromEllipsoid() {
         return fromEllipsoid;
