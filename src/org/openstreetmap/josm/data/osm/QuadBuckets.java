@@ -30,7 +30,7 @@ public class QuadBuckets implements Collection
     {
         throw new AssertionError(s);
     }
-    static void out(String s)
+    public static void out(String s)
     {
         System.out.println(s);
     }

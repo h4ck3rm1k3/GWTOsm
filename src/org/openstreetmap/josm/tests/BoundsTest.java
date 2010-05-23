@@ -1,4 +1,4 @@
-package org.openstreetmap.josm.data;
+package org.openstreetmap.josm.tests;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.LatLon;
 
 public class BoundsTest {

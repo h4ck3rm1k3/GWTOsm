@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.openstreetmap.josm.data.osm;
+package org.openstreetmap.josm.tests;
 
 import static org.junit.Assert.*;
 
@@ -10,6 +10,9 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openstreetmap.josm.data.osm.BBox;
+import org.openstreetmap.josm.data.osm.OsmPrimitive;
+import org.openstreetmap.josm.data.osm.QuadBuckets;
 
 /**
  * @author mdupont
@@ -55,35 +58,8 @@ public class QuadBucketsTest {
 
 	}
 
-	/**
-	 * Test method for {@link org.openstreetmap.josm.data.osm.QuadBuckets#out(java.lang.String)}.
-	 */
-	@Test
-	public void testOut() {
-	//	fail("Not yet implemented"); // TODO
-		QuadBuckets.out("who needs this?");
-	}
+	
 
-	/**
-	 * Test method for {@link org.openstreetmap.josm.data.osm.QuadBuckets#pout(java.lang.String)}.
-	 */
-	@Test
-	public void testPoutString() {
-	//	fail("Not yet implemented"); // TODO
-		QuadBuckets q=new QuadBuckets() ;
-		q.pout("who needs this?");
-		//delete p;
-	}
-
-	/**
-	 * Test method for {@link org.openstreetmap.josm.data.osm.QuadBuckets#pout(java.lang.String, int, int)}.
-	 */
-	@Test
-	public void testPoutStringIntInt() {
-		//fail("Not yet implemented"); // TODO
-		QuadBuckets q=new QuadBuckets() ;
-		q.pout("who needs this?",1,10);
-	}
 
 	/**
 	 * Test method for {@link org.openstreetmap.josm.data.osm.QuadBuckets#QuadBuckets()}.

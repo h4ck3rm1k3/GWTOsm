@@ -1,8 +1,10 @@
-package org.openstreetmap.josm.data.coor;
+package org.openstreetmap.josm.tests;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.openstreetmap.josm.data.coor.CoordinateFormat;
+import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 

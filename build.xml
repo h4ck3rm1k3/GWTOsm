@@ -27,9 +27,9 @@
         source="1.5" target="1.5" nowarn="true"
         debug="true" debuglevel="lines,vars,source">
       <classpath refid="project.class.path"/>
-                <exclude name="org/openstreetmap/josm/actions/search/"/>
                 <exclude name="org/openstreetmap/josm/actions/audio/"/>
                 <exclude name="org/openstreetmap/josm/actions/"/>
+                <exclude name="org/openstreetmap/josm/tests/"/>
                 <exclude name="org/openstreetmap/josm/gui/conflict/tags/"/>
                 <exclude name="org/openstreetmap/gui/jmapviewer/"/>
                 <exclude name="org/openstreetmap/josm/gui/dialogs/"/>
@@ -74,7 +74,7 @@
                 <exclude name="org/openstreetmap/josm/tools/PlatformHookOsx.java"/>
                 <exclude name="org/openstreetmap/josm/io/GpxReader.java"/>
                 <exclude name="org/openstreetmap/josm/io/GpxWriter.java"/>
-      
+
     </javac>
     <copy todir="war/WEB-INF/classes">
       <fileset dir="src" excludes="**/*.java"/>

@@ -12,7 +12,7 @@ public class DecimalFormat {
 	}
 
 	public void applyPattern(String string) {
-		assert(false);
+		//assert(false);
 		
 	}
 
