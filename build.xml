@@ -31,6 +31,7 @@
                 <exclude name="org/openstreetmap/josm/actions/audio/"/>
                 <exclude name="org/openstreetmap/josm/actions/"/>
                 <exclude name="org/openstreetmap/josm/gui/conflict/tags/"/>
+                <exclude name="org/openstreetmap/gui/jmapviewer/"/>
                 <exclude name="org/openstreetmap/josm/gui/dialogs/"/>
                 <exclude name="org/openstreetmap/josm/gui/dialogs/changeset/"/>
                 <exclude name="org/openstreetmap/josm/gui/dialogs/changeset/query/"/>
@@ -63,6 +64,7 @@
                 <exclude name="org/openstreetmap/josm/data/UndoRedoHandler.java"/>
                 <exclude name="org/openstreetmap/josm/data/osm/Filter.java"/>
                 <exclude name="org/openstreetmap/josm/data/osm/Filters.java"/>
+                <exclude name="org/openstreetmap/josm/io/"/>
                 <exclude name="org/openstreetmap/josm/io/GpxExporter.java"/>
                 <exclude name="org/openstreetmap/josm/io/GpxImporter.java"/>
                 <exclude name="org/openstreetmap/josm/io/NMEAImporter.java"/>

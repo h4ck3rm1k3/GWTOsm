@@ -9,6 +9,14 @@
 <!-- get the graphics -->
 	<inherits name='org.vaadin.gwtgraphics.GWTGraphics'/>
 
+ <inherits name='org.openstreetmap.josm.JosmCore'/> -->
+<!-- <inherits name='org.openstreetmap.josm.data.JosmCoreData'/> -->
+<!-- <inherits name='org.openstreetmap.josm.data.osm.DataSet'/> -->
+<!-- <inherits name='org.openstreetmap.josm.data.Bounds'/> -->
+<!-- <inherits name='org.openstreetmap.josm.data.coor.LatLon'/> -->
+<!-- <inherits name='org.openstreetmap.josm.data.osm.OsmPrimitive'/> -->
+<!-- <inherits name='org.openstreetmap.josm.data.osm.Node'/> -->
+
   <!-- Inherit the default GWT style sheet.  You can change       -->
   <!-- the theme of your GWT application by uncommenting          -->
   <!-- any one of the following lines.                            -->
@@ -23,6 +31,8 @@
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
+
   <source path='shared'/>
+
 
 </module>

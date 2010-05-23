@@ -1,13 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="org/openstreetmap/josm/actions/search/|org/openstreetmap/josm/actions/audio/|org/openstreetmap/josm/actions/|org/openstreetmap/josm/gui/conflict/tags/|org/openstreetmap/josm/gui/dialogs/|org/openstreetmap/josm/gui/dialogs/changeset/|org/openstreetmap/josm/gui/dialogs/changeset/query/|org/openstreetmap/josm/gui/dialogs/properties/|org/openstreetmap/josm/gui/dialogs/relation/|org/openstreetmap/josm/gui/download/|org/openstreetmap/josm/gui/help/|org/openstreetmap/josm/gui/history/|org/openstreetmap/josm/gui/io/|org/openstreetmap/josm/gui/layer/|org/openstreetmap/josm/gui/layer/geoimage/|org/openstreetmap/josm/gui/layer/markerlayer/|org/openstreetmap/josm/gui/actionsupport/|org/openstreetmap/josm/gui/conflict/|org/openstreetmap/josm/gui/conflict/pair/|org/openstreetmap/josm/gui/conflict/pair/nodes/|org/openstreetmap/josm/gui/conflict/pair/properties/|org/openstreetmap/josm/gui/conflict/pair/relation/|org/openstreetmap/josm/gui/conflict/pair/tags/|org/openstreetmap/josm/gui/preferences/|org/openstreetmap/josm/gui/preferences/plugin/|org/openstreetmap/josm/gui/preferences/server/|org/openstreetmap/josm/command/|org/openstreetmap/josm/data/gpx/|org/openstreetmap/josm/gui/|org/openstreetmap/josm/gui/tagging/|org/openstreetmap/josm/gui/tagging/ac/|org/openstreetmap/josm/plugins/|org/openstreetmap/josm/corrector/|org/openstreetmap/josm/data/UndoRedoHandler.java|org/openstreetmap/josm/data/osm/Filter.java|org/openstreetmap/josm/data/osm/Filters.java|org/openstreetmap/josm/io/GpxExporter.java|org/openstreetmap/josm/io/GpxImporter.java|org/openstreetmap/josm/io/NMEAImporter.java|org/openstreetmap/josm/io/NmeaReader.java|org/openstreetmap/josm/io/auth/JosmPreferencesCredentialManager.java|org/openstreetmap/josm/tools/AudioUtil.java|org/openstreetmap/josm/tools/PlatformHookOsx.java|org/openstreetmap/josm/io/GpxReader.java|org/openstreetmap/josm/io/GpxWriter.java" kind="src" output="classes" path="src"/>
-	<classpathentry kind="var" path="JRE_LIB" sourcepath="JRE_SRC"/>
+	<classpathentry excluding="org/openstreetmap/josm/actions/search/|org/openstreetmap/josm/actions/audio/|org/openstreetmap/josm/actions/|org/openstreetmap/josm/gui/conflict/tags/|org/openstreetmap/josm/gui/dialogs/|org/openstreetmap/josm/gui/dialogs/changeset/|org/openstreetmap/josm/gui/dialogs/changeset/query/|org/openstreetmap/josm/gui/dialogs/properties/|org/openstreetmap/josm/gui/dialogs/relation/|org/openstreetmap/josm/gui/download/|org/openstreetmap/josm/gui/help/|org/openstreetmap/josm/gui/history/|org/openstreetmap/josm/gui/io/|org/openstreetmap/josm/gui/layer/|org/openstreetmap/josm/gui/layer/geoimage/|org/openstreetmap/josm/gui/layer/markerlayer/|org/openstreetmap/josm/gui/actionsupport/|org/openstreetmap/josm/gui/conflict/|org/openstreetmap/josm/gui/conflict/pair/|org/openstreetmap/josm/gui/conflict/pair/nodes/|org/openstreetmap/josm/gui/conflict/pair/properties/|org/openstreetmap/josm/gui/conflict/pair/relation/|org/openstreetmap/josm/gui/conflict/pair/tags/|org/openstreetmap/josm/gui/preferences/|org/openstreetmap/josm/gui/preferences/plugin/|org/openstreetmap/josm/gui/preferences/server/|org/openstreetmap/josm/command/|org/openstreetmap/josm/data/gpx/|org/openstreetmap/josm/gui/|org/openstreetmap/josm/gui/tagging/|org/openstreetmap/josm/gui/tagging/ac/|org/openstreetmap/josm/plugins/|org/openstreetmap/josm/corrector/|org/openstreetmap/josm/data/UndoRedoHandler.java|org/openstreetmap/josm/data/osm/Filter.java|org/openstreetmap/josm/data/osm/Filters.java|org/openstreetmap/josm/io/GpxExporter.java|org/openstreetmap/josm/io/GpxImporter.java|org/openstreetmap/josm/io/NMEAImporter.java|org/openstreetmap/josm/io/NmeaReader.java|org/openstreetmap/josm/io/auth/JosmPreferencesCredentialManager.java|org/openstreetmap/josm/tools/AudioUtil.java|org/openstreetmap/josm/tools/PlatformHookOsx.java|org/openstreetmap/josm/io/GpxReader.java|org/openstreetmap/josm/io/GpxWriter.java|org/openstreetmap/gui/jmapviewer/|org/openstreetmap/josm/DialogObject.java|org/openstreetmap/josm/PasteObject.java|org/openstreetmap/josm/ProjObject.java|org/openstreetmap/josm/StatusObject.java|org/openstreetmap/josm/tools/AudioPlayer.java|org/openstreetmap/josm/tools/Base64.java|org/openstreetmap/josm/tools/BugReportExceptionHandler.java|org/openstreetmap/josm/tools/DateParser.java|org/openstreetmap/josm/tools/DateUtils.java|org/openstreetmap/josm/tools/Destroyable.java|org/openstreetmap/josm/tools/ExceptionUtil.java|org/openstreetmap/josm/tools/ExifReader.java|org/openstreetmap/josm/tools/FallbackDateParser.java|org/openstreetmap/josm/tools/GBC.java|org/openstreetmap/josm/tools/JpegMetadataReader.java|org/openstreetmap/josm/tools/MultiMap.java|org/openstreetmap/josm/tools/OpenBrowser.java|org/openstreetmap/josm/tools/OsmUrlToBounds.java|org/openstreetmap/josm/tools/PlatformHook.java|org/openstreetmap/josm/tools/PlatformHookUnixoid.java|org/openstreetmap/josm/tools/PlatformHookWindows.java|org/openstreetmap/josm/tools/PresetTextComparator.java|org/openstreetmap/josm/tools/PrimaryDateParser.java|org/openstreetmap/josm/tools/UrlLabel.java|org/openstreetmap/josm/tools/WikiReader.java|org/openstreetmap/josm/tools/XMLGregorianCalendarImpl.java|org/openstreetmap/josm/io/AllFormatsImporter.java|org/openstreetmap/josm/io/BoundingBoxDownloader.java|org/openstreetmap/josm/io/CacheCustomContent.java|org/openstreetmap/josm/io/CacheFiles.java|org/openstreetmap/josm/io/Capabilities.java|org/openstreetmap/josm/io/ChangesetClosedException.java|org/openstreetmap/josm/io/ChangesetQuery.java|org/openstreetmap/josm/io/DefaultProxySelector.java|org/openstreetmap/josm/io/DiffResultProcessor.java|org/openstreetmap/josm/io/ExtensionFileFilter.java|org/openstreetmap/josm/io/FileExporter.java|org/openstreetmap/josm/io/FileImporter.java|org/openstreetmap/josm/io/IllegalDataException.java|org/openstreetmap/josm/io/ImageIO.java|org/openstreetmap/josm/io/JpgImporter.java|org/openstreetmap/josm/io/MirroredInputStream.java|org/openstreetmap/josm/io/MissingOAuthAccessTokenException.java|org/openstreetmap/josm/io/MultiFetchServerObjectReader.java|org/openstreetmap/josm/io/NullProgressMonitor.java|org/openstreetmap/josm/io/OsmApiException.java|org/openstreetmap/josm/io/OsmApiInitializationException.java|org/openstreetmap/josm/io/OsmApiPrimitiveGoneException.java|org/openstreetmap/josm/io/OsmBzip2Exporter.java|org/openstreetmap/josm/io/OsmBzip2Importer.java|org/openstreetmap/josm/io/OsmChangeBuilder.java|org/openstreetmap/josm/io/OsmChangesetContentParser.java|org/openstreetmap/josm/io/OsmChangesetParser.java|org/openstreetmap/josm/io/OsmDataParsingException.java|org/openstreetmap/josm/io/OsmExporter.java|org/openstreetmap/josm/io/OsmGzipExporter.java|org/openstreetmap/josm/io/OsmGzipImporter.java|org/openstreetmap/josm/io/OsmHistoryReader.java|org/openstreetmap/josm/io/OsmImporter.java|org/openstreetmap/josm/io/OsmReader.java|org/openstreetmap/josm/io/OsmServerBackreferenceReader.java|org/openstreetmap/josm/io/OsmServerChangesetReader.java|org/openstreetmap/josm/io/OsmServerHistoryReader.java|org/openstreetmap/josm/io/OsmServerLocationReader.java|org/openstreetmap/josm/io/OsmServerObjectReader.java|org/openstreetmap/josm/io/OsmServerReader.java|org/openstreetmap/josm/io/OsmServerUserInfoReader.java|org/openstreetmap/josm/io/OsmServerWriter.java|org/openstreetmap/josm/io/OsmTransferCancelledException.java|org/openstreetmap/josm/io/OsmTransferException.java|org/openstreetmap/josm/io/OsmWriter.java|org/openstreetmap/josm/io/ProgressInputStream.java|org/openstreetmap/josm/io/ProxyPolicy.java|org/openstreetmap/josm/io/UploadStrategySpecification.java|org/openstreetmap/josm/io/XmlWriter.java|org/openstreetmap/josm/io/auth/" kind="src" output="classes" path="src"/>
 	<classpathentry kind="con" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/classes"/>
-	<classpathentry kind="lib" path="/media/sdc1/homemdupont/experiments/gwt-2.0.3/gwt-user.jar"/>
-	<classpathentry kind="lib" path="/media/sdc1/homemdupont/experiments/gwt-2.0.3/gwt-dev.jar"/>
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/lib/gwt-graphics-0.9.6.jar"/>
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/lib/gwt-graphics.jar"/>
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/lib/gwt-incubator.jar"/>
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/lib/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/gwt-api-checker.jar"/>
+	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/gwt-soyc-vis.jar"/>
+	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/gwt-user.jar"/>
+	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/gwt-dev.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/jsp/repackaged-appengine-ant-1.6.5.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/jsp/repackaged-appengine-ant-launcher-1.6.5.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/jsp/repackaged-appengine-commons-el-1.0.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/jsp/repackaged-appengine-commons-logging-1.1.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/jsp/repackaged-appengine-jasper-compiler-5.0.28.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/jsp/repackaged-appengine-jasper-runtime-5.0.28.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/appengine-local-runtime-shared.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/geronimo-el_1.0_spec-1.0.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/geronimo-jsp_2.1_spec-1.0.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/shared/geronimo-servlet_2.5_spec-1.2.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/orm/datanucleus-appengine-1.0.6.final.jar" sourcepath="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/src/orm/datanucleus-appengine-1.0.6.final-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/orm/datanucleus-core-1.1.5.jar" sourcepath="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/src/orm/datanucleus-core-1.1.5-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/orm/datanucleus-jpa-1.1.5.jar" sourcepath="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/src/orm/datanucleus-jpa-1.1.5-src.zip">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/orm/geronimo-jpa_3.0_spec-1.1.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/orm/geronimo-jta_1.1_spec-1.1.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/orm/jdo2-api-2.3-eb.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/appengine-api-1.0-sdk-1.3.3.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/appengine-api-labs-1.3.3.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/appengine-jsr107cache-1.3.3.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/user/jsr107cache-1.1.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/lib/appengine-tools-api.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.appengine.eclipse.sdkbundle.1.3.3_1.3.3.v201004231111/appengine-java-sdk-1.3.3.1/docs/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.gwt.eclipse.sdkbundle.2.0.3_2.0.3.v201002191036/gwt-2.0.3/gwt-user.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.gwt.eclipse.sdkbundle.2.0.3_2.0.3.v201002191036/gwt-2.0.3/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.gwt.eclipse.sdkbundle.2.0.3_2.0.3.v201002191036/gwt-2.0.3/gwt-dev.jar">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/media/sda1/home/mdupont/eclipse3/eclipse/plugins/com.google.gwt.eclipse.sdkbundle.2.0.3_2.0.3.v201002191036/gwt-2.0.3/doc/javadoc/"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

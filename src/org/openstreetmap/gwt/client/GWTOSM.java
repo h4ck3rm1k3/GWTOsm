@@ -66,10 +66,16 @@ private DataSet data;
        int x = (400)/2 - 4*strlen;
        int y = (400)/2 + 4;
        canvas.drawString(on, x, y);
-       
-       Bounds bounds= new Bounds();
-	boolean virtual=false;
-	painter.visitAll(data, virtual, bounds);
+
+       try {       
+	   Bounds bounds= new Bounds();
+	   boolean virtual=false;
+	   painter.visitAll(data, virtual, bounds);
+       }
+       catch (Exception e)
+	   {
+	       
+	   }
   }
 
   public void onModuleLoad() {
@@ -78,10 +84,16 @@ private DataSet data;
     nameField.setText("GWT User");
     final Label errorLabel = new Label();
 
-    LatLon pos = new LatLon(1, 2);
-    OsmPrimitive primitive = new Node(pos );
-	data.addPrimitive(primitive);
-    
+    try
+	{
+	    LatLon pos = new LatLon(1, 2);
+	    OsmPrimitive primitive = new Node(pos );
+	    data.addPrimitive(primitive);
+	}
+    catch (Exception e)
+	{
+    	GWT.log(e.getMessage());
+	}
     // We can add style names to widgets
     sendButton.addStyleName("sendButton");
 

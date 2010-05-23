@@ -26,7 +26,7 @@ public class NumberFormat {
 	public static DecimalFormat getInstance(
 			org.openstreetmap.josm.data.coor.Locale uk) {
 		// TODO Auto-generated method stub
-		return null;
+		return new DecimalFormat("###0.00000");
 	}
 
 }

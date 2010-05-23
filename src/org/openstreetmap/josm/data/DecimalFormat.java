@@ -8,7 +8,7 @@ public class DecimalFormat {
 
 	public String format(double minLat) {
 		// TODO Auto-generated method stub
-		return null;
+		return "formated string " + minLat;
 	}
 
 	public void applyPattern(String string) {
