@@ -200,12 +200,12 @@ public final class Node extends OsmPrimitive {
 
 	public double lon() {
 		// TODO Auto-generated method stub
-		return 0;
+		return coor.lon();
 	}
 
 	public double lat() {
 		// TODO Auto-generated method stub
-		return 0;
+		return coor.lat();
 	}
 
 	public Object east() {
