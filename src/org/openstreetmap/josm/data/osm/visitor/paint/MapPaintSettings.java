@@ -38,7 +38,7 @@ public class MapPaintSettings  {
     private Color connectionColor;
     private Color taggedConnectionColor;
 
-    private MapPaintSettings() {
+    public MapPaintSettings() {
         load();
         //Main.pref.addPreferenceChangeListener(this);
     }

@@ -3,8 +3,6 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 
 /* To enable debugging or profiling remove the double / signs */
 
-import static org.openstreetmap.josm.data.osm.I18n.tr;
-
 ////import java.awt.Graphics2D;
 ////import java.awt.Point;
 ////import java.awt.Polygon;
@@ -23,8 +21,6 @@ import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.BBox;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.ElemStyle;
-
-import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.OsmUtils;
@@ -47,7 +43,7 @@ import org.openstreetmap.josm.data.osm.visitor.paint.relations.Multipolygon.Poly
 
 public class MapPaintVisitor  {
 
-    private GWTGraphics2D g;
+    private IGwtGraphics2D g;
     private INavigatableComponent nc;
 
     private boolean zoomLevelDisplay;
@@ -67,7 +63,12 @@ public class MapPaintVisitor  {
     //Point x;
     private boolean inactive;
 
-    protected boolean isZoomOk(ElemStyle e) {
+    public MapPaintVisitor(INavigatableComponent nc2) {
+		// TODO Auto-generated constructor stub
+    	nc=nc2;
+	}
+
+	protected boolean isZoomOk(ElemStyle e) {
         if (!zoomLevelDisplay) /* show everything if the user wishes so */
             return true;
 
@@ -484,7 +485,17 @@ public class MapPaintVisitor  {
                 pVia, vx, vx2, vy, vy2, iconAngle, data.isSelected(r));
     }
 
-    /* (non-Javadoc)
+    private String tr(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private String tr(String string, String role) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	/* (non-Javadoc)
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.GWT2d#drawMultipolygon(org.openstreetmap.josm.data.osm.Relation)
 	 */
     public boolean drawMultipolygon(Relation r) {
@@ -646,6 +657,12 @@ public class MapPaintVisitor  {
     }
 
     DataSet data;
+	private boolean mappaint_cache=true;
+	private int mappaint_fillareas=10000000;
+	private boolean mappaint_zoomLevelDisplay=false;
+	private boolean mappaint_multipolygon=true;
+	private boolean mappaint_restriction=true;
+	private boolean mappaint_lefthandtraffic=false;
 
     <T extends OsmPrimitive> Collection<T> selectedLast(final DataSet data, Collection <T> prims) {
         ArrayList<T> sorted = new ArrayList<T>(prims);
@@ -673,23 +690,23 @@ public class MapPaintVisitor  {
         this.data = data;
         ++paintid;
 
-        useStyleCache = Main.pref.getBoolean("mappaint.cache", true);
-        int fillAreas = Main.pref.getInteger("mappaint.fillareas", 10000000);
+        useStyleCache = mappaint_cache;//", true);
+        int fillAreas = mappaint_fillareas;//", 10000000);
         LatLon ll1 = nc.getLatLon(0, 0);
         LatLon ll2 = nc.getLatLon(100, 0);
         dist = ll1.greatCircleDistance(ll2);
 
-        zoomLevelDisplay = Main.pref.getBoolean("mappaint.zoomLevelDisplay", false);
+        zoomLevelDisplay = mappaint_zoomLevelDisplay;//", false);
         circum = nc.getDist100Pixel();
         styles = MapPaintStyles.getStyles().getStyleSet();
-        drawMultipolygon = Main.pref.getBoolean("mappaint.multipolygon", true);
-        drawRestriction = Main.pref.getBoolean("mappaint.restriction", true);
-        leftHandTraffic = Main.pref.getBoolean("mappaint.lefthandtraffic", false);
+        drawMultipolygon = mappaint_multipolygon;//", true);
+        drawRestriction = mappaint_restriction;//", true);
+        leftHandTraffic = mappaint_lefthandtraffic;//&&", false);
         minEN = nc.getEastNorth(0, nc.getHeight() - 1);
         maxEN = nc.getEastNorth(nc.getWidth() - 1, 0);
 
 //        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-//                Main.pref.getBoolean("mappaint.use-antialiasing", false) ?
+//                mappaint_use-antialiasing", false) ?
 //                        RenderingHints.VALUE_ANTIALIAS_ON : RenderingHints.VALUE_ANTIALIAS_OFF);
 
         this.paintSettings = MapPaintSettings.INSTANCE;
@@ -789,7 +806,7 @@ public class MapPaintVisitor  {
     /* (non-Javadoc)
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.GWT2d#setGraphics(GWTGraphics2D)
 	 */
-    public void setGraphics(GWTGraphics2D g) {
+    public void setGraphics(IGwtGraphics2D g) {
         this.g = g;
     }
 

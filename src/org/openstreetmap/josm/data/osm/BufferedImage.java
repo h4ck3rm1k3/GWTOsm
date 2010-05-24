@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.data.osm;
 
-import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
 
 public class BufferedImage {
 
@@ -10,12 +10,12 @@ public class BufferedImage {
 		// TODO Auto-generated constructor stub
 	}
 
-	public GWTGraphics2D createGraphics() {
+	public IGwtGraphics2D createGraphics() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public GWTGraphics2D getGraphics() {
+	public IGwtGraphics2D getGraphics() {
 		// TODO Auto-generated method stub
 		return null;
 	}

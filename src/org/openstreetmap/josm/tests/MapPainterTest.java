@@ -7,8 +7,19 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openstreetmap.josm.data.osm.DataSet;
+import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.GwtGraphics2DTest;
+import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
+import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintSettings;
+import org.openstreetmap.josm.data.osm.visitor.paint.MapPainter;
+import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
 
-public class MapPainterTest {
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.junit.client.GWTTestCase;
+
+public class MapPainterTest  {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -18,17 +29,22 @@ public class MapPainterTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	@Test
 	public void testMapPainter() {
-		fail("Not yet implemented");
+	//GWT.create();
+		IGwtGraphics2D g=new GwtGraphics2DTest();
+		
+		DataSet data=new DataSet();
+		INavigatableComponent nc=new NavigatableComponent (data);
+		MapPaintSettings paintSettings=new MapPaintSettings ();
+		boolean inactive=false;
+		double circum=100;
+		double dist=100;
+		boolean virtual = false;
+		MapPainter painter = new MapPainter(paintSettings, g, inactive, nc, virtual, dist, circum);
+
 	}
 
 	@Test
@@ -109,6 +125,11 @@ public class MapPainterTest {
 	@Test
 	public void testDrawAreaPolygonColorObject() {
 		fail("Not yet implemented");
+	}
+
+	public String getModuleName() {
+		// TODO Auto-generated method stub
+		return "TESTER";
 	}
 
 }

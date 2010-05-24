@@ -30,7 +30,9 @@ import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
+import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
+import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -67,7 +69,10 @@ private DataSet data;
        int y = (400)/2 + 4;
        canvas.drawString(on, x, y);
 
-       try {       
+       try {     
+    	   data = new DataSet();
+    	   INavigatableComponent nc = new NavigatableComponent(data );
+    	   painter=new MapPaintVisitor (null);
 	   Bounds bounds= new Bounds();
 	   boolean virtual=false;
 	   painter.visitAll(data, virtual, bounds);

@@ -4,7 +4,7 @@ public class MapPaintStyles {
 
 	public static ElemStyles getStyles() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ElemStyles();
 	}
 
 }

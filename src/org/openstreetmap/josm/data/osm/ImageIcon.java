@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.data.osm;
 
-import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
 import org.vaadin.gwtgraphics.client.Image;
 
 public class ImageIcon {
@@ -28,7 +28,7 @@ public class ImageIcon {
 		return 0;
 	}
 
-	public void paintIcon(Object object, GWTGraphics2D g, int x, int y) {
+	public void paintIcon(Object object, IGwtGraphics2D g, int x, int y) {
 		// TODO Auto-generated method stub
 		
 	}

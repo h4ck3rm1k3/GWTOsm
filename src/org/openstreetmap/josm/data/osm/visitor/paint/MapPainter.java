@@ -32,7 +32,7 @@ import org.openstreetmap.josm.data.osm.Way;
 
 
 public class MapPainter {
-    private final GWTGraphics2D g;
+    private final IGwtGraphics2D g;
     private final INavigatableComponent nc;
     private final boolean inactive;
 
@@ -56,8 +56,15 @@ public class MapPainter {
     private final double circum;
 
     private final Collection<String> regionalNameOrder;
+	private int mappaint_fontsize=8;
+	private int mappaint_node_virtual_size=8;
+	private int mappaint_node_virtual_space=70;
+	private int mappaint_segmentnumber_space=40;
+	private String mappaint_font="Helvetica";
+	private int mappaint_fillalpha=50;
+	//private Collection<String> mappaint_nameOrder= Arrays.asList(names);
 
-    public MapPainter(MapPaintSettings settings, GWTGraphics2D g2, boolean inactive, INavigatableComponent nc2, boolean virtual, double dist, double circum) {
+    public MapPainter(MapPaintSettings settings, IGwtGraphics2D g2, boolean inactive, INavigatableComponent nc2, boolean virtual, double dist, double circum) {
         this.g = g2;
         this.inactive = inactive;
         this.nc = nc2;
@@ -72,14 +79,16 @@ public class MapPainter {
         this.nodeColor = PaintColors.NODE.get();
         this.backgroundColor = PaintColors.BACKGROUND.get();
 
-        this.orderFont = new Font(Main.pref.get("mappaint.font", "Helvetica"), Font.PLAIN, Main.pref.getInteger("mappaint.fontsize", 8));
-        this.fillAlpha = Math.min(255, Math.max(0, Integer.valueOf(Main.pref.getInteger("mappaint.fillalpha", 50))));
-        this.virtualNodeSize = virtual ? Main.pref.getInteger("mappaint.node.virtual-size", 8) / 2 : 0;
-        this.virtualNodeSpace = Main.pref.getInteger("mappaint.node.virtual-space", 70);
-        this.segmentNumberSpace = Main.pref.getInteger("mappaint.segmentnumber.space", 40);
+        // ,8
+        this.orderFont = new Font(mappaint_font, Font.PLAIN, mappaint_fontsize);
+        
+		this.fillAlpha = Math.min(255, Math.max(0, mappaint_fillalpha)); //", 50
+        this.virtualNodeSize = virtual ? mappaint_node_virtual_size / 2 : 0; //", 8)
+        this.virtualNodeSpace = mappaint_node_virtual_space;//", 70);
+        this.segmentNumberSpace = mappaint_segmentnumber_space;//&&, 40);
 
         String[] names = {"name:" + LanguageInfo.getJOSMLocaleCode(), "name", "int_name", "ref", "operator", "brand", "addr:housenumber"};
-        this.regionalNameOrder = Main.pref.getCollection("mappaint.nameOrder", Arrays.asList(names));
+        this.regionalNameOrder = Arrays.asList(names);// TODO: localize
         this.circum = circum;
     }
 

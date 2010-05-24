@@ -22,4 +22,9 @@ public class Point {
 		return 0;
 	}
 
+	public double distanceSq(Point b) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

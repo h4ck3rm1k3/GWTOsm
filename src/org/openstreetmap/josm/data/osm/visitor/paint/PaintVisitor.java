@@ -8,7 +8,7 @@ import org.openstreetmap.josm.data.osm.DataSet;
 //import org.openstreetmap.josm.gui.NavigatableComponent;
 
 public interface PaintVisitor {
-    void setGraphics(GWTGraphics2D g);
+    void setGraphics(IGwtGraphics2D g);
     void setNavigatableComponent(NavigatableComponent nc);
     void setInactive(boolean inactive);
     void visitAll(DataSet data, boolean virtual, Bounds box);

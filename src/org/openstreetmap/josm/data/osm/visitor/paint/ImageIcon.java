@@ -16,7 +16,7 @@ public class ImageIcon {
 		// TODO Auto-generated constructor stub
 	}
 
-	public void paintIcon(Component comp, GWTGraphics2D g, long l, long m) {
+	public void paintIcon(Component comp, IGwtGraphics2D g, long l, long m) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -36,7 +36,7 @@ public class ImageIcon {
 		return null;
 	}
 
-	public void paintIcon(Component comp, GWTGraphics2D g, int l, int m) {
+	public void paintIcon(Component comp, IGwtGraphics2D g, int l, int m) {
 		// TODO Auto-generated method stub
 		
 	}

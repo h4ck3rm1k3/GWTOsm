@@ -36,7 +36,7 @@ public interface MapPaintVisitorInterface {
 
 	public abstract void putError(OsmPrimitive p, String text, boolean isError);
 
-	public abstract void setGraphics(GWTGraphics2D g);
+	public abstract void setGraphics(IGwtGraphics2D g);
 
 	public abstract void setInactive(boolean inactive);
 

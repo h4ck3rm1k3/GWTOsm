@@ -39,7 +39,7 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
     /**
      * The environment to paint to.
      */
-    protected GWTGraphics2D g;
+    protected IGwtGraphics2D g;
     /**
      * MapView to get screen coordinates.
      */
@@ -537,7 +537,7 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
     }
 
 	@Override
-	public void setGraphics(GWTGraphics2D g) {
+	public void setGraphics(IGwtGraphics2D g) {
 		// TODO Auto-generated method stub
 		
 	}

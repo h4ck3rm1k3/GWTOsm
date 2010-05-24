@@ -259,4 +259,9 @@ public class LatLon extends Coordinate {
             return false;
         return true;
     }
+
+	public boolean hasCache() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

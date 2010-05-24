@@ -10,6 +10,7 @@ import static org.openstreetmap.josm.data.osm.I18n.tr;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.coor.MyDouble;
 import org.openstreetmap.josm.data.osm.CheckParameterUtil;
+import org.openstreetmap.josm.data.osm.visitor.paint.Rectangle;
 import org.openstreetmap.josm.data.osm.visitor.paint.Rectangle2D;
 
 /**
@@ -39,8 +40,9 @@ public class Bounds {
         this(min.lat(), min.lon(), max.lat(), max.lon());
     }
 
-    public Bounds(LatLon b) {
-        this(b, b);
+    public Bounds(Rectangle ar) {
+     //   this(r, r);
+    	this(ar.x,ar.y,ar.x + ar.width,ar.y+ar.height);
     }
 
     public Bounds(double minlat, double minlon, double maxlat, double maxlon) {
@@ -122,6 +124,10 @@ public class Bounds {
     }
 
     public Bounds() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Bounds(LatLon eastNorth2latlon) {
 		// TODO Auto-generated constructor stub
 	}
 

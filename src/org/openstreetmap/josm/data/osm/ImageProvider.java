@@ -35,7 +35,7 @@ import java.util.Map;
 import org.openstreetmap.josm.data.File;
 import org.openstreetmap.josm.data.IOException;
 import org.openstreetmap.josm.data.Toolkit;
-import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
 import org.openstreetmap.josm.data.osm.visitor.paint.ImageIcon;
 //import org.openstreetmap.josm.io.MirroredInputStream;
 import org.vaadin.gwtgraphics.client.Image;
@@ -281,7 +281,7 @@ public class ImageProvider {
         int wo = overlay.getIconWidth();
         int ho = overlay.getIconHeight();
         BufferedImage img = conf.createCompatibleImage(w, h, Transparency.TRANSLUCENT);
-        GWTGraphics2D g = img.createGraphics();
+        IGwtGraphics2D g = img.createGraphics();
         ground.paintIcon(null, g, 0, 0);
         int x = 0, y = 0;
         switch (pos) {
@@ -360,8 +360,8 @@ public class ImageProvider {
             h = (int) (ih * Math.sin(radian) + iw * Math.sin(DEGREE_90 - radian));
         }
         BufferedImage image = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-        GWTGraphics2D g = image.getGraphics();
-        GWTGraphics2D g2d =  g.create();
+        IGwtGraphics2D g = image.getGraphics();
+        IGwtGraphics2D g2d =  g.create();
 
         // calculate the center of the icon.
         int cx = iw / 2;
