@@ -125,7 +125,9 @@ public class MapPaintVisitorTest {
 			 	
 				OsmPrimitive primitive = new Node(new LatLon(1,2));
 				data.addPrimitive(primitive );
-			 	Bounds bounds= new Bounds(0, 0, 1, 1);
+			 	Bounds bounds= new Bounds(-180,-90, 180,90);
+			 	//x: -180.0 -> 180.0, y: -90.0 -> 90.0
+			 	
 			 	boolean virtual=false;
 			 	painter.visitAll(data, virtual, bounds);
 		       }

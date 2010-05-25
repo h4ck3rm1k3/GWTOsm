@@ -130,11 +130,11 @@ public class MapPaintVisitor  {
 	 */
     public void drawNode(Node n) {
         /* check, if the node is visible at all */
-        if((n.getEastNorth().east()  > maxEN.east() ) ||
-                (n.getEastNorth().north() > maxEN.north()) ||
-                (n.getEastNorth().east()  < minEN.east() ) ||
-                (n.getEastNorth().north() < minEN.north()))
-            return;
+//        if((n.getEastNorth().east()  > maxEN.east() ) ||
+//                (n.getEastNorth().north() > maxEN.north()) ||
+//                (n.getEastNorth().east()  < minEN.east() ) ||
+//                (n.getEastNorth().north() < minEN.north()))
+//            return;
 
         ElemStyle nodeStyle = getPrimitiveStyle(n);
 

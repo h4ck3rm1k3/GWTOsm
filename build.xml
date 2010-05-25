@@ -90,7 +90,7 @@
       <!-- add jvmarg -Xss16M or similar if you see a StackOverflowError -->
       <jvmarg value="-Xmx256M"/>
       <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
-      <arg line="${gwt.args}"/>
+      <arg line="${gwt.args} -style PRETTY -logLevel DEBUG "/>
       <arg value="org.openstreetmap.gwt.GWTOSM"/>
     </java>
   </target>

@@ -120,9 +120,10 @@ public class GwtGraphics2DTest implements IGwtGraphics2D {
 	}
 
 	@Override
-	public void drawRect(long l, long m, int k, int l2) {
+	public void drawRect(long a, long b, int c, int d) {
 		// TODO Auto-generated method stub
-		debug();
+		System.out.println("Rect:" + a + " "+ b + " "+ c + " "+ d);
+		//debug();
 	}
 
 	@Override

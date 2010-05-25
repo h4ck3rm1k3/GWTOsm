@@ -18,7 +18,7 @@ import org.openstreetmap.josm.data.coor.QuadTiling;
  */
 public class QuadBuckets implements Collection
 {
-    private static boolean debug = false;
+    private static boolean debug = true;
     private static final boolean consistency_testing = false;
     /*
      * Functions prefixed with __ need locking before

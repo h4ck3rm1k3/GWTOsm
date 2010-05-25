@@ -11,7 +11,24 @@ import org.openstreetmap.josm.data.osm.Main;
 
 public class MapPaintSettings  {
 
-    public static final MapPaintSettings INSTANCE = new MapPaintSettings();
+    static boolean draw_segment_direction=true;
+    static boolean draw_segment_relevant_directions_only=true;
+    static boolean mappaint_useRealWidth=false;
+    static int mappaint_segment_default_width=2;
+    static boolean draw_segment_order_number=false;
+    static boolean draw_segment_head_only=false;
+    static int mappaint_shownames=10000000;
+    static int mappaint_showicons=10000000;
+    static int mappaint_strokes=10000000;
+    static int mappaint_node_selected_size=5;
+    static int mappaint_node_unselected_size=3;
+    static int mappaint_node_connection_size=5;
+    static int mappaint_node_tagged_size=3;
+    static boolean mappaint_node_fill_selected= true;
+    static boolean     mappaint_node_fill_unselected= false;
+    static boolean     mappaint_node_fill_tagged=true;
+    static boolean     mappaint_node_fill_connection=false;
+
 
     private boolean useRealWidth;
     private boolean showDirectionArrow;
@@ -37,29 +54,13 @@ public class MapPaintSettings  {
     private Color taggedColor;
     private Color connectionColor;
     private Color taggedConnectionColor;
-
+    public static final MapPaintSettings INSTANCE = new MapPaintSettings();
     public MapPaintSettings() {
         load();
         //Main.pref.addPreferenceChangeListener(this);
     }
 
-    static boolean draw_segment_direction=true;
-    static boolean draw_segment_relevant_directions_only=true;
-    static boolean mappaint_useRealWidth=false;
-    static int mappaint_segment_default_width=2;
-    static boolean draw_segment_order_number=false;
-    static boolean draw_segment_head_only=false;
-    static int mappaint_shownames=10000000;
-    static int mappaint_showicons=10000000;
-    static int mappaint_strokes=10000000;
-    static int mappaint_node_selected_size=5;
-    static int mappaint_node_unselected_size=3;
-    static int mappaint_node_connection_size=5;
-    static int mappaint_node_tagged_size=3;
-    static boolean mappaint_node_fill_selected= true;
-    static boolean     mappaint_node_fill_unselected= false;
-    static boolean     mappaint_node_fill_tagged=true;
-    static boolean     mappaint_node_fill_connection=false;
+
 
 
     private void load() {

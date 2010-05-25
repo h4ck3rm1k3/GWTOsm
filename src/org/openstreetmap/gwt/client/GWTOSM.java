@@ -28,6 +28,7 @@ import org.openstreetmap.gwt.client.GWT2dAdaptor;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
+import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
@@ -70,11 +71,23 @@ private DataSet data;
        canvas.drawString(on, x, y);
 
        try {     
+    	   
     	   data = new DataSet();
     	   INavigatableComponent nc = new NavigatableComponent(data );
-    	   painter=new MapPaintVisitor (null);
-	   Bounds bounds= new Bounds();
+    	   painter=new MapPaintVisitor (nc);
+
 	   boolean virtual=false;
+
+	   
+	   
+
+		OsmPrimitive primitive = new Node(new LatLon(1,2));
+		data.addPrimitive(primitive );
+	 	Bounds bounds= new Bounds(-180,-90, 180,90);
+	 	//x: -180.0 -> 180.0, y: -90.0 -> 90.0
+	 	
+	 	
+	 	
 	   painter.visitAll(data, virtual, bounds);
        }
        catch (Exception e)

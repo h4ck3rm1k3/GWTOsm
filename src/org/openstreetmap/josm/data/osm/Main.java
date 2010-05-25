@@ -10,6 +10,7 @@ import org.openstreetmap.josm.data.OsmDataLayer;
 import org.openstreetmap.josm.data.PreferenceSettingFactory;
 import org.openstreetmap.josm.data.ServerSidePreferences;
 import org.openstreetmap.josm.data.WorkerObject;
+import org.openstreetmap.josm.data.projection.Mercator;
 import org.openstreetmap.josm.data.projection.Projection;
 //import org.openstreetmap.josm.tools.PlatformHookUnixoid;
 
@@ -26,7 +27,7 @@ public class Main {
 //	public static PlatformHookUnixoid platform;
 	public static ServerSidePreferences pref;
 	public static WorkerObject worker;
-	public static Projection proj;
+	public static Projection proj=new Mercator();
 	public static PreferenceSettingFactory toolbar;
 	public static void debug(String string) {
 		// TODO Auto-generated method stub
