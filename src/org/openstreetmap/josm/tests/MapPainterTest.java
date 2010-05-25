@@ -7,7 +7,10 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openstreetmap.josm.data.coor.LatLon;
+import org.openstreetmap.josm.data.osm.Color;
 import org.openstreetmap.josm.data.osm.DataSet;
+import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
 import org.openstreetmap.josm.data.osm.visitor.paint.GwtGraphics2DTest;
 import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
@@ -44,7 +47,15 @@ public class MapPainterTest  {
 		double dist=100;
 		boolean virtual = false;
 		MapPainter painter = new MapPainter(paintSettings, g, inactive, nc, virtual, dist, circum);
-
+		System.out.println(painter.toString());
+		int size = 10;
+		boolean fill = false;
+		Node n = new Node();
+		LatLon coor = new LatLon(1,2);
+		n.setCoor(coor);
+		String name = "test";
+		Color color = new Color(255, 255, 255);
+		painter.drawNode(n, color, size, fill, name);
 	}
 
 	@Test

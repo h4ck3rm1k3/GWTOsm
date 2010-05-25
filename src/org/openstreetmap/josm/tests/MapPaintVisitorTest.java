@@ -8,7 +8,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openstreetmap.josm.data.Bounds;
+import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
+import org.openstreetmap.josm.data.osm.Node;
+import org.openstreetmap.josm.data.osm.OsmPrimitive;
+import org.openstreetmap.josm.data.osm.visitor.paint.GwtGraphics2DTest;
+import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
 import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
 import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
@@ -111,9 +116,15 @@ public class MapPaintVisitorTest {
 		//fail("Not yet implemented");
 		 try {
 				DataSet data=new DataSet();
-			 INavigatableComponent nc = new NavigatableComponent(data); 
+				INavigatableComponent nc = new NavigatableComponent(data); 
 			 	MapPaintVisitor painter=new MapPaintVisitor(nc);
 			 
+			 	IGwtGraphics2D g=new GwtGraphics2DTest();
+			 	//IGwtGraphics2D g=new GwtGraphics2D();
+				painter.setGraphics(g);
+			 	
+				OsmPrimitive primitive = new Node(new LatLon(1,2));
+				data.addPrimitive(primitive );
 			 	Bounds bounds= new Bounds(0, 0, 1, 1);
 			 	boolean virtual=false;
 			 	painter.visitAll(data, virtual, bounds);

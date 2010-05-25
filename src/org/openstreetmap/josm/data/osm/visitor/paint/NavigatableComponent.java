@@ -24,7 +24,8 @@ import org.openstreetmap.josm.data.osm.WaySegment;
 import org.openstreetmap.josm.data.projection.Mercator;
 import org.openstreetmap.josm.data.projection.Projection;
 
-import com.google.gwt.dev.util.collect.HashSet;
+//import com.google.gwt.dev.util.collect.HashSet;
+import java.util.HashSet;
 
 public class NavigatableComponent implements INavigatableComponent {
 
