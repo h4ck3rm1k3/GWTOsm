@@ -31,6 +31,8 @@ import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
+import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
 import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
 import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
@@ -42,7 +44,7 @@ public class GWTOSM implements EntryPoint {
 
     // the canvas!
     //    private GWTCanvas canvas;
-    private GWT2dAdaptor canvas;
+    private IGwtGraphics2D canvas;
     MapPaintVisitor painter;
   /**
    * The message displayed to the user when the server cannot be reached or
@@ -83,16 +85,29 @@ private DataSet data;
 
 		OsmPrimitive primitive = new Node(new LatLon(1,2));
 		data.addPrimitive(primitive );
+
+		OsmPrimitive primitive2 = new Node(new LatLon(42,22));
+		primitive2.setOsmId(2, 1);
+		data.addPrimitive(primitive2 );
+
+		OsmPrimitive primitive3 = new Node(new LatLon(5.1,5.2));
+		primitive3.setOsmId(3, 1);
+		data.addPrimitive(primitive3 );
+
+		OsmPrimitive primitive4 = new Node(new LatLon(10,23));
+		primitive4.setOsmId(4, 1);
+		data.addPrimitive(primitive4 );
+
 	 	Bounds bounds= new Bounds(-180,-90, 180,90);
 	 	//x: -180.0 -> 180.0, y: -90.0 -> 90.0
 	 	
 	 	
-	 	
+	 	painter.setGraphics(canvas);
 	   painter.visitAll(data, virtual, bounds);
        }
        catch (Exception e)
 	   {
-	       
+	       GWT.log("exception!"  + e.toString());
 	   }
   }
 
@@ -143,7 +158,7 @@ private DataSet data;
     dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
 
 
-    canvas = new GWT2dAdaptor(dialogVPanel);
+    canvas = new GWTGraphics2D(dialogVPanel);
     
     drawmap();
 

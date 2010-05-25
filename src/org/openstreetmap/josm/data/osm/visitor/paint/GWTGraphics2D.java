@@ -707,6 +707,8 @@ public class GWTGraphics2D //extends Graphics2D
 	public void drawRect(long l, long m, int k, int l2) {
 		// TODO Auto-generated method stub
 		
+	    Rectangle o = new Rectangle( l,m,k,l2);    
+	    canvas.add(o);
 	}
 
 
@@ -733,7 +735,8 @@ public class GWTGraphics2D //extends Graphics2D
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fillRect(long, long, int, int)
 	 */
 	public void fillRect(long l, long m, int size, int size2) {
-		// TODO Auto-generated method stub
+		Rectangle o = new Rectangle( l,m,size,size2);    
+	    canvas.add(o);
 		
 	}
 

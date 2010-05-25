@@ -710,6 +710,7 @@ public class MapPaintVisitor  {
 //                        RenderingHints.VALUE_ANTIALIAS_ON : RenderingHints.VALUE_ANTIALIAS_OFF);
 
         this.paintSettings = MapPaintSettings.INSTANCE;
+      //  paintSettings.load();
         this.painter = new MapPainter(paintSettings, g, inactive, nc, virtual, dist, circum);
 
         data.clearErrors();

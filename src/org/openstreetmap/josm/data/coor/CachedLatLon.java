@@ -11,10 +11,14 @@ public class CachedLatLon extends LatLon {
 
     public CachedLatLon(double lat, double lon) {
         super(lat, lon);
+        proj = Main.proj;
+        eastNorth = proj.latlon2eastNorth(this);
     }
 
     public CachedLatLon(LatLon coor) {
         super(coor.lat(), coor.lon());
+        proj = Main.proj;
+        eastNorth = proj.latlon2eastNorth(this);
         proj = null;
     }
 

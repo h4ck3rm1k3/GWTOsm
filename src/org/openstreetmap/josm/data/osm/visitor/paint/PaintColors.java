@@ -63,12 +63,12 @@ public enum PaintColors implements ColorKey {
 
 	public Color get() {
 		// TODO Auto-generated method stub
-		return null;
+		return defaultColor;
 	}
 
 	@Override
 	public Color getDefault() {
 		// TODO Auto-generated method stub
-		return null;
+		return defaultColor;
 	}
 }

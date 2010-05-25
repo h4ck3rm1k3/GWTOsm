@@ -63,7 +63,7 @@ public class MapPaintSettings  {
 
 
 
-    private void load() {
+    void load() {
         showDirectionArrow = draw_segment_direction;//", true);
         showRelevantDirectionsOnly = draw_segment_relevant_directions_only;//", true);
         useRealWidth = mappaint_useRealWidth;//", false);

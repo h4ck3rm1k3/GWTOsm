@@ -1,21 +1,20 @@
 function gwtosm(){
-  var $intern_0 = '', $intern_29 = '" for "gwt:onLoadErrorFn"', $intern_27 = '" for "gwt:onPropertyErrorFn"', $intern_12 = '"><\/script>', $intern_14 = '#', $intern_53 = '.cache.html', $intern_16 = '/', $intern_47 = '127A73FFFDFF5F4CBE340939605B54F2', $intern_48 = '3D1ACBD8F843395D9FA6A1169FD2773F', $intern_49 = '4CD664DBE9184BF7D7EE0E3972068112', $intern_50 = '520CD266A09FF06ADCECA422DE4F270F', $intern_51 = '7E8549040BF245FC624966A3880101AD', $intern_61 = '<script defer="defer">gwtosm.onInjectionDone(\'gwtosm\')<\/script>', $intern_11 = '<script id="', $intern_24 = '=', $intern_15 = '?', $intern_26 = 'Bad handler "', $intern_60 = 'DOMContentLoaded', $intern_52 = 'FDDD51D4E906D2044D3ACC8DC75A679C', $intern_13 = 'SCRIPT', $intern_10 = '__gwt_marker_gwtosm', $intern_17 = 'base', $intern_4 = 'begin', $intern_3 = 'bootstrap', $intern_19 = 'clear.cache.gif', $intern_23 = 'content', $intern_9 = 'end', $intern_41 = 'gecko', $intern_42 = 'gecko1_8', $intern_5 = 'gwt.codesvr=', $intern_6 = 'gwt.hosted=', $intern_7 = 'gwt.hybrid', $intern_54 = 'gwt/standard/standard.css', $intern_28 = 'gwt:onLoadErrorFn', $intern_25 = 'gwt:onPropertyErrorFn', $intern_22 = 'gwt:property', $intern_1 = 'gwtosm', $intern_59 = 'head', $intern_45 = 'hosted.html?gwtosm', $intern_58 = 'href', $intern_40 = 'ie6', $intern_39 = 'ie8', $intern_30 = 'iframe', $intern_18 = 'img', $intern_31 = "javascript:''", $intern_55 = 'link', $intern_44 = 'loadExternalRefs', $intern_20 = 'meta', $intern_33 = 'moduleRequested', $intern_8 = 'moduleStartup', $intern_38 = 'msie', $intern_21 = 'name', $intern_35 = 'opera', $intern_32 = 'position:absolute;width:0;height:0;border:none', $intern_56 = 'rel', $intern_37 = 'safari', $intern_46 = 'selectingPermutation', $intern_2 = 'startup', $intern_57 = 'stylesheet', $intern_43 = 'unknown', $intern_34 = 'user.agent', $intern_36 = 'webkit';
-  var $wnd = window, $doc = document, $stats = $wnd.__gwtStatsEvent?function(a){
-    return $wnd.__gwtStatsEvent(a);
+  var $wnd_0 = window, $doc_0 = document, $stats = $wnd_0.__gwtStatsEvent?function(a){
+    return $wnd_0.__gwtStatsEvent(a);
   }
-  :null, $sessionId = $wnd.__gwtStatsSessionId?$wnd.__gwtStatsSessionId:null, scriptsDone, loadDone, bodyDone, base = $intern_0, metaProps = {}, values = [], providers = [], answers = [], onLoadErrorFunc, propertyErrorFunc;
-  $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_3, millis:(new Date).getTime(), type:$intern_4});
-  if (!$wnd.__gwt_stylesLoaded) {
-    $wnd.__gwt_stylesLoaded = {};
+  :null, $sessionId_0 = $wnd_0.__gwtStatsSessionId?$wnd_0.__gwtStatsSessionId:null, scriptsDone, loadDone, bodyDone, base = '', metaProps = {}, values = [], providers = [], answers = [], onLoadErrorFunc, propertyErrorFunc;
+  $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'bootstrap', millis:(new Date).getTime(), type:'begin'});
+  if (!$wnd_0.__gwt_stylesLoaded) {
+    $wnd_0.__gwt_stylesLoaded = {};
   }
-  if (!$wnd.__gwt_scriptsLoaded) {
-    $wnd.__gwt_scriptsLoaded = {};
+  if (!$wnd_0.__gwt_scriptsLoaded) {
+    $wnd_0.__gwt_scriptsLoaded = {};
   }
   function isHostedMode(){
     var result = false;
     try {
-      var query = $wnd.location.search;
-      return (query.indexOf($intern_5) != -1 || (query.indexOf($intern_6) != -1 || $wnd.external && $wnd.external.gwtOnLoad)) && query.indexOf($intern_7) == -1;
+      var query = $wnd_0.location.search;
+      return (query.indexOf('gwt.codesvr=') != -1 || (query.indexOf('gwt.hosted=') != -1 || $wnd_0.external && $wnd_0.external.gwtOnLoad)) && query.indexOf('gwt.hybrid') == -1;
     }
      catch (e) {
     }
@@ -28,59 +27,59 @@ function gwtosm(){
 
   function maybeStartModule(){
     if (scriptsDone && loadDone) {
-      var iframe = $doc.getElementById($intern_1);
+      var iframe = $doc_0.getElementById('gwtosm');
       var frameWnd = iframe.contentWindow;
       if (isHostedMode()) {
-        frameWnd.__gwt_getProperty = function(name){
-          return computePropValue(name);
+        frameWnd.__gwt_getProperty = function(name_0){
+          return computePropValue(name_0);
         }
         ;
       }
       gwtosm = null;
-      frameWnd.gwtOnLoad(onLoadErrorFunc, $intern_1, base);
-      $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_8, millis:(new Date).getTime(), type:$intern_9});
+      frameWnd.gwtOnLoad(onLoadErrorFunc, 'gwtosm', base);
+      $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'moduleStartup', millis:(new Date).getTime(), type:'end'});
     }
   }
 
   function computeScriptBase(){
-    var thisScript, markerId = $intern_10, markerScript;
-    $doc.write($intern_11 + markerId + $intern_12);
-    markerScript = $doc.getElementById(markerId);
+    var thisScript, markerId = '__gwt_marker_gwtosm', markerScript;
+    $doc_0.write('<script id="' + markerId + '"><\/script>');
+    markerScript = $doc_0.getElementById(markerId);
     thisScript = markerScript && markerScript.previousSibling;
-    while (thisScript && thisScript.tagName != $intern_13) {
+    while (thisScript && thisScript.tagName != 'SCRIPT') {
       thisScript = thisScript.previousSibling;
     }
     function getDirectoryOfFile(path){
-      var hashIndex = path.lastIndexOf($intern_14);
+      var hashIndex = path.lastIndexOf('#');
       if (hashIndex == -1) {
         hashIndex = path.length;
       }
-      var queryIndex = path.indexOf($intern_15);
+      var queryIndex = path.indexOf('?');
       if (queryIndex == -1) {
         queryIndex = path.length;
       }
-      var slashIndex = path.lastIndexOf($intern_16, Math.min(queryIndex, hashIndex));
-      return slashIndex >= 0?path.substring(0, slashIndex + 1):$intern_0;
+      var slashIndex = path.lastIndexOf('/', Math.min(queryIndex, hashIndex));
+      return slashIndex >= 0?path.substring(0, slashIndex + 1):'';
     }
 
     ;
     if (thisScript && thisScript.src) {
       base = getDirectoryOfFile(thisScript.src);
     }
-    if (base == $intern_0) {
-      var baseElements = $doc.getElementsByTagName($intern_17);
+    if (base == '') {
+      var baseElements = $doc_0.getElementsByTagName('base');
       if (baseElements.length > 0) {
         base = baseElements[baseElements.length - 1].href;
       }
        else {
-        base = getDirectoryOfFile($doc.location.href);
+        base = getDirectoryOfFile($doc_0.location.href);
       }
     }
      else if (base.match(/^\w+:\/\//)) {
     }
      else {
-      var img = $doc.createElement($intern_18);
-      img.src = base + $intern_19;
+      var img = $doc_0.createElement('img');
+      img.src = base + 'clear.cache.gif';
       base = getDirectoryOfFile(img.src);
     }
     if (markerScript) {
@@ -89,44 +88,44 @@ function gwtosm(){
   }
 
   function processMetas(){
-    var metas = document.getElementsByTagName($intern_20);
+    var metas = document.getElementsByTagName('meta');
     for (var i = 0, n = metas.length; i < n; ++i) {
-      var meta = metas[i], name = meta.getAttribute($intern_21), content;
-      if (name) {
-        if (name == $intern_22) {
-          content = meta.getAttribute($intern_23);
+      var meta = metas[i], name_0 = meta.getAttribute('name'), content;
+      if (name_0) {
+        if (name_0 == 'gwt:property') {
+          content = meta.getAttribute('content');
           if (content) {
-            var value, eq = content.indexOf($intern_24);
+            var value, eq = content.indexOf('=');
             if (eq >= 0) {
-              name = content.substring(0, eq);
+              name_0 = content.substring(0, eq);
               value = content.substring(eq + 1);
             }
              else {
-              name = content;
-              value = $intern_0;
+              name_0 = content;
+              value = '';
             }
-            metaProps[name] = value;
+            metaProps[name_0] = value;
           }
         }
-         else if (name == $intern_25) {
-          content = meta.getAttribute($intern_23);
+         else if (name_0 == 'gwt:onPropertyErrorFn') {
+          content = meta.getAttribute('content');
           if (content) {
             try {
               propertyErrorFunc = eval(content);
             }
              catch (e) {
-              alert($intern_26 + content + $intern_27);
+              alert('Bad handler "' + content + '" for "gwt:onPropertyErrorFn"');
             }
           }
         }
-         else if (name == $intern_28) {
-          content = meta.getAttribute($intern_23);
+         else if (name_0 == 'gwt:onLoadErrorFn') {
+          content = meta.getAttribute('content');
           if (content) {
             try {
               onLoadErrorFunc = eval(content);
             }
              catch (e) {
-              alert($intern_26 + content + $intern_29);
+              alert('Bad handler "' + content + '" for "gwt:onLoadErrorFn"');
             }
           }
         }
@@ -161,55 +160,55 @@ function gwtosm(){
   function maybeInjectFrame(){
     if (!frameInjected) {
       frameInjected = true;
-      var iframe = $doc.createElement($intern_30);
-      iframe.src = $intern_31;
-      iframe.id = $intern_1;
-      iframe.style.cssText = $intern_32;
+      var iframe = $doc_0.createElement('iframe');
+      iframe.src = "javascript:''";
+      iframe.id = 'gwtosm';
+      iframe.style.cssText = 'position:absolute;width:0;height:0;border:none';
       iframe.tabIndex = -1;
-      $doc.body.appendChild(iframe);
-      $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_8, millis:(new Date).getTime(), type:$intern_33});
+      $doc_0.body.appendChild(iframe);
+      $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'moduleStartup', millis:(new Date).getTime(), type:'moduleRequested'});
       iframe.contentWindow.location.replace(base + initialHtml);
     }
   }
 
-  providers[$intern_34] = function(){
+  providers['user.agent'] = function(){
     var ua = navigator.userAgent.toLowerCase();
     var makeVersion = function(result){
       return parseInt(result[1]) * 1000 + parseInt(result[2]);
     }
     ;
-    if (ua.indexOf($intern_35) != -1) {
-      return $intern_35;
+    if (ua.indexOf('opera') != -1) {
+      return 'opera';
     }
-     else if (ua.indexOf($intern_36) != -1) {
-      return $intern_37;
+     else if (ua.indexOf('webkit') != -1) {
+      return 'safari';
     }
-     else if (ua.indexOf($intern_38) != -1) {
+     else if (ua.indexOf('msie') != -1) {
       if (document.documentMode >= 8) {
-        return $intern_39;
+        return 'ie8';
       }
        else {
-        var result = /msie ([0-9]+)\.([0-9]+)/.exec(ua);
-        if (result && result.length == 3) {
-          var v = makeVersion(result);
+        var result_0 = /msie ([0-9]+)\.([0-9]+)/.exec(ua);
+        if (result_0 && result_0.length == 3) {
+          var v = makeVersion(result_0);
           if (v >= 6000) {
-            return $intern_40;
+            return 'ie6';
           }
         }
       }
     }
-     else if (ua.indexOf($intern_41) != -1) {
-      var result = /rv:([0-9]+)\.([0-9]+)/.exec(ua);
-      if (result && result.length == 3) {
-        if (makeVersion(result) >= 1008)
-          return $intern_42;
+     else if (ua.indexOf('gecko') != -1) {
+      var result_0 = /rv:([0-9]+)\.([0-9]+)/.exec(ua);
+      if (result_0 && result_0.length == 3) {
+        if (makeVersion(result_0) >= 1008)
+          return 'gecko1_8';
       }
-      return $intern_41;
+      return 'gecko';
     }
-    return $intern_43;
+    return 'unknown';
   }
   ;
-  values[$intern_34] = {gecko:0, gecko1_8:1, ie6:2, ie8:3, opera:4, safari:5};
+  values['user.agent'] = {gecko:0, gecko1_8:1, ie6:2, ie8:3, opera:4, safari:5};
   gwtosm.onScriptLoad = function(){
     if (frameInjected) {
       loadDone = true;
@@ -219,7 +218,7 @@ function gwtosm(){
   ;
   gwtosm.onInjectionDone = function(){
     scriptsDone = true;
-    $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_44, millis:(new Date).getTime(), type:$intern_9});
+    $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'loadExternalRefs', millis:(new Date).getTime(), type:'end'});
     maybeStartModule();
   }
   ;
@@ -227,25 +226,25 @@ function gwtosm(){
   var strongName;
   var initialHtml;
   if (isHostedMode()) {
-    if ($wnd.external && ($wnd.external.initModule && $wnd.external.initModule($intern_1))) {
-      $wnd.location.reload();
+    if ($wnd_0.external && ($wnd_0.external.initModule && $wnd_0.external.initModule('gwtosm'))) {
+      $wnd_0.location.reload();
       return;
     }
-    initialHtml = $intern_45;
-    strongName = $intern_0;
+    initialHtml = 'hosted.html?gwtosm';
+    strongName = '';
   }
   processMetas();
-  $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_3, millis:(new Date).getTime(), type:$intern_46});
+  $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'bootstrap', millis:(new Date).getTime(), type:'selectingPermutation'});
   if (!isHostedMode()) {
     try {
-      unflattenKeylistIntoAnswers([$intern_39], $intern_47);
-      unflattenKeylistIntoAnswers([$intern_41], $intern_48);
-      unflattenKeylistIntoAnswers([$intern_40], $intern_49);
-      unflattenKeylistIntoAnswers([$intern_42], $intern_50);
-      unflattenKeylistIntoAnswers([$intern_35], $intern_51);
-      unflattenKeylistIntoAnswers([$intern_37], $intern_52);
-      strongName = answers[computePropValue($intern_34)];
-      initialHtml = strongName + $intern_53;
+      unflattenKeylistIntoAnswers(['gecko1_8'], '0D53A87241B42B422242A17236A24BAE');
+      unflattenKeylistIntoAnswers(['ie8'], '76F93A67B7EECD38D3A5F8D5C394BF7E');
+      unflattenKeylistIntoAnswers(['ie6'], 'A673199BB8EC26F901EEB803D1FE12C8');
+      unflattenKeylistIntoAnswers(['safari'], 'C5B91191393207FE158EFA50C33E8ACF');
+      unflattenKeylistIntoAnswers(['gecko'], 'FA60D74F4B5652466FD95E419CE5CC42');
+      unflattenKeylistIntoAnswers(['opera'], 'FB7D453B7D86B4B07E3752D14E03586F');
+      strongName = answers[computePropValue('user.agent')];
+      initialHtml = strongName + '.cache.html';
     }
      catch (e) {
       return;
@@ -255,16 +254,16 @@ function gwtosm(){
   function onBodyDone(){
     if (!bodyDone) {
       bodyDone = true;
-      if (!__gwt_stylesLoaded[$intern_54]) {
-        var l = $doc.createElement($intern_55);
-        __gwt_stylesLoaded[$intern_54] = l;
-        l.setAttribute($intern_56, $intern_57);
-        l.setAttribute($intern_58, base + $intern_54);
-        $doc.getElementsByTagName($intern_59)[0].appendChild(l);
+      if (!__gwt_stylesLoaded['gwt/standard/standard.css']) {
+        var l = $doc_0.createElement('link');
+        __gwt_stylesLoaded['gwt/standard/standard.css'] = l;
+        l.setAttribute('rel', 'stylesheet');
+        l.setAttribute('href', base + 'gwt/standard/standard.css');
+        $doc_0.getElementsByTagName('head')[0].appendChild(l);
       }
       maybeStartModule();
-      if ($doc.removeEventListener) {
-        $doc.removeEventListener($intern_60, onBodyDone, false);
+      if ($doc_0.removeEventListener) {
+        $doc_0.removeEventListener('DOMContentLoaded', onBodyDone, false);
       }
       if (onBodyDoneTimerId) {
         clearInterval(onBodyDoneTimerId);
@@ -272,23 +271,23 @@ function gwtosm(){
     }
   }
 
-  if ($doc.addEventListener) {
-    $doc.addEventListener($intern_60, function(){
+  if ($doc_0.addEventListener) {
+    $doc_0.addEventListener('DOMContentLoaded', function(){
       maybeInjectFrame();
       onBodyDone();
     }
     , false);
   }
   var onBodyDoneTimerId = setInterval(function(){
-    if (/loaded|complete/.test($doc.readyState)) {
+    if (/loaded|complete/.test($doc_0.readyState)) {
       maybeInjectFrame();
       onBodyDone();
     }
   }
   , 50);
-  $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_3, millis:(new Date).getTime(), type:$intern_9});
-  $stats && $stats({moduleName:$intern_1, sessionId:$sessionId, subSystem:$intern_2, evtGroup:$intern_44, millis:(new Date).getTime(), type:$intern_4});
-  $doc.write($intern_61);
+  $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'bootstrap', millis:(new Date).getTime(), type:'end'});
+  $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'loadExternalRefs', millis:(new Date).getTime(), type:'begin'});
+  $doc_0.write('<script defer="defer">gwtosm.onInjectionDone(\'gwtosm\')<\/script>');
 }
 
 gwtosm();
