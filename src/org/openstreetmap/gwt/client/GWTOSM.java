@@ -3,19 +3,32 @@ package org.openstreetmap.gwt.client;
 import org.openstreetmap.gwt.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.dev.shell.remoteui.MessageTransport.RequestException;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestBuilder;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.Response;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.ButtonBase;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.xml.client.DOMException;
+import com.google.gwt.xml.client.Document;
+import com.google.gwt.xml.client.Element;
+import com.google.gwt.xml.client.Node;
+import com.google.gwt.xml.client.NodeList;
+import com.google.gwt.xml.client.XMLParser;
 //import com.google.gwt.widgetideas.graphics.client.GWTCanvas;
 import org.vaadin.gwtgraphics.client.DrawingArea;
 import org.vaadin.gwtgraphics.client.animation.Animate;
@@ -29,7 +42,7 @@ import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.Main;
-import org.openstreetmap.josm.data.osm.Node;
+//import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
 import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
@@ -58,7 +71,7 @@ public class GWTOSM implements EntryPoint {
    * Create a remote service proxy to talk to the server-side Greeting service.
    */
   private final GreetingServiceAsync greetingService = GWT.create(GreetingService.class);
-private DataSet data;
+  private DataSet data= new DataSet();
 
   /**
    * This is the entry point method.
@@ -74,7 +87,7 @@ private DataSet data;
 
        try {     
     	   
-    	   data = new DataSet();
+    	  // data = new DataSet();
     	   INavigatableComponent nc = new NavigatableComponent(data );
     	   painter=new MapPaintVisitor (nc);
 
@@ -82,19 +95,19 @@ private DataSet data;
 
 	   
 	   
-
-		OsmPrimitive primitive = new Node(new LatLon(1,2));
+	   fetchData();
+		OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(1,2));
 		data.addPrimitive(primitive );
 
-		OsmPrimitive primitive2 = new Node(new LatLon(42,22));
+		OsmPrimitive primitive2 = new org.openstreetmap.josm.data.osm.Node(new LatLon(42,22));
 		primitive2.setOsmId(2, 1);
 		data.addPrimitive(primitive2 );
 
-		OsmPrimitive primitive3 = new Node(new LatLon(5.1,5.2));
+		OsmPrimitive primitive3 = new org.openstreetmap.josm.data.osm.Node(new LatLon(5.1,5.2));
 		primitive3.setOsmId(3, 1);
 		data.addPrimitive(primitive3 );
 
-		OsmPrimitive primitive4 = new Node(new LatLon(10,23));
+		OsmPrimitive primitive4 = new org.openstreetmap.josm.data.osm.Node(new LatLon(10,23));
 		primitive4.setOsmId(4, 1);
 		data.addPrimitive(primitive4 );
 
@@ -111,7 +124,75 @@ private DataSet data;
 	   }
   }
 
-  public void onModuleLoad() {
+  public void fetchData()
+  {
+	  RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
+      "http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");
+  try {
+    requestBuilder.sendRequest(null, new RequestCallback() {
+      public void onError(Request request, Throwable exception) {
+        requestFailed(exception);
+      }
+     private void requestFailed(Throwable exception) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void onResponseReceived(Request request, Response response) {
+        renderXML(response.getText());
+      }
+	private void renderXML(String text) {
+		// TODO Auto-generated method stub
+		//data
+		
+		 try {
+			    // parse the XML document into a DOM
+			    Document messageDom = XMLParser.parse(text);
+
+			    NodeList nodes = messageDom.getElementsByTagName("node");
+			    
+			    for (int i =0; i < nodes.getLength(); i++)
+			    {
+			    	Node node=nodes.item(i);
+			    	String lat = ((Element)node).getAttribute("lat");
+			    	String lon = ((Element)node).getAttribute("lon");
+			    	String id = ((Element)node).getAttribute("id");
+			    	String version = ((Element)node).getAttribute("version");
+			    	GWT.log(lat);
+			    	int ilon=Integer.parseInt(lon);
+					int ilat=Integer.parseInt(lat);
+					int iid=Integer.parseInt(id);
+					int iversion=Integer.parseInt(version);
+					OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(ilat,ilon));
+			    	primitive .setOsmId(iid, iversion);
+			    	
+					data.addPrimitive(primitive );
+			    }
+			    
+		 }	
+		 catch (DOMException e) {
+			    Window.alert("Could not parse XML document.");
+			  }
+
+	}
+	
+    });
+  } catch (com.google.gwt.http.client.RequestException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+	requestFailed(e);
+}
+  }
+  private void requestFailed(com.google.gwt.http.client.RequestException e) {
+	// TODO Auto-generated method stub
+	
+}
+
+private void requestFailed(RequestException ex) {
+	// TODO Auto-generated method stub
+	
+}
+
+public void onModuleLoad() {
     final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
     nameField.setText("GWT User");
@@ -120,8 +201,10 @@ private DataSet data;
     try
 	{
 	    LatLon pos = new LatLon(1, 2);
-	    OsmPrimitive primitive = new Node(pos );
+	    OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(pos );
 	    data.addPrimitive(primitive);
+	    
+	  
 	}
     catch (Exception e)
 	{

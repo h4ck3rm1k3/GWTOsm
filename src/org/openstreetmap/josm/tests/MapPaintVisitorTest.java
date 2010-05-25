@@ -140,6 +140,7 @@ public class MapPaintVisitorTest {
 		   }
 	  }
 	 
+	 
 	@Test
 	public void testVisitAll() {
 		//fail("Not yet implemented");
@@ -151,7 +152,8 @@ public class MapPaintVisitorTest {
 			 	IGwtGraphics2D g=new GwtGraphics2DTest();
 			 	//IGwtGraphics2D g=new GwtGraphics2D();
 				painter.setGraphics(g);
-			 	
+			 
+				//String xml="";
 				OsmPrimitive primitive = new Node(new LatLon(1,2));
 				data.addPrimitive(primitive );
 			 	Bounds bounds= new Bounds(-180,-90, 180,90);

@@ -5,7 +5,7 @@
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/lib/gwt-graphics-0.9.6.jar"/>
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/lib/gwt-graphics.jar"/>
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/lib/gwt-incubator.jar"/>
-	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/lib/gwt-servlet.jar"/>
+	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/GWTOSM/war/WEB-INF/lib/gwt-servlet.jar" sourcepath="/media/sdc1/homemdupont/experiments/gwt/trunk"/>
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/gwt-api-checker.jar"/>
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/gwt-soyc-vis.jar"/>
 	<classpathentry kind="lib" path="/home/mdupont/experiments/gwt-2.0.3/gwt-servlet.jar"/>

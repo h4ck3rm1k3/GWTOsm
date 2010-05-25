@@ -92,6 +92,7 @@ public class LatLon extends Coordinate {
     	 super(coor.lon(), coor.lat());
 	}
 
+	
 	public double lat() {
         return y;
     }
