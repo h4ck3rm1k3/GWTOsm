@@ -104,6 +104,7 @@ public class GWTOSM implements EntryPoint {
 	   
 	   fetchData();
 		OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(1,2));
+		primitive.setOsmId(20, 1);
 		data.addPrimitive(primitive );
 
 		OsmPrimitive primitive2 = new org.openstreetmap.josm.data.osm.Node(new LatLon(42,22));
@@ -145,12 +146,14 @@ public class GWTOSM implements EntryPoint {
 		
 	}
 	public void onResponseReceived(Request request, Response response) {
+		GWT.log(Integer.toString(response.getStatusCode()));
+		GWT.log(response.getStatusText());
         renderXML(response.getText());
       }
 	private void renderXML(String text) {
 		// TODO Auto-generated method stub
 		//data
-		
+		 GWT.log("got this text" + text);
 		 try {
 			    // parse the XML document into a DOM
 			    Document messageDom = XMLParser.parse(text);
@@ -177,17 +180,29 @@ public class GWTOSM implements EntryPoint {
 			    
 		 }	
 		 catch (DOMException e) {
-			    Window.alert("Could not parse XML document.");
+			    //Window.alert("Could not parse XML document.");
+			 GWT.log("Could not parse XML document.");
 			  }
+		
+			  catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					//requestFailed(e);
+				}
 
 	}
 	
     });
-  } catch (com.google.gwt.http.client.RequestException e) {
+  } catch (RequestException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
 	requestFailed(e);
 }
+  catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		//requestFailed(e);
+	}
   }
   private void requestFailed(com.google.gwt.http.client.RequestException e) {
 	// TODO Auto-generated method stub
