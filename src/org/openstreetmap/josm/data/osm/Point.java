@@ -7,10 +7,14 @@ public class Point {
 
 	public Point(int i, int j) {
 		// TODO Auto-generated constructor stub
+		x=i;
+		y=j;
 	}
 
-	public Point(Point topLeft) {
+	public Point(Point p) {
 		// TODO Auto-generated constructor stub
+		x=p.x;
+		y=p.y;
 	}
 
 	public Point() {

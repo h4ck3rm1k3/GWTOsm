@@ -30,6 +30,7 @@
                 <exclude name="org/openstreetmap/josm/actions/audio/"/>
                 <exclude name="org/openstreetmap/josm/actions/"/>
                 <exclude name="org/openstreetmap/josm/tests/"/>
+                <exclude name="org/openstreetmap/josm/tools/"/>
                 <exclude name="org/openstreetmap/josm/gui/conflict/tags/"/>
                 <exclude name="org/openstreetmap/gui/jmapviewer/"/>
                 <exclude name="org/openstreetmap/josm/gui/dialogs/"/>
@@ -70,8 +71,8 @@
                 <exclude name="org/openstreetmap/josm/io/NMEAImporter.java"/>
                 <exclude name="org/openstreetmap/josm/io/NmeaReader.java"/>
                 <exclude name="org/openstreetmap/josm/io/auth/JosmPreferencesCredentialManager.java"/>
-                <exclude name="org/openstreetmap/josm/tools/AudioUtil.java"/>
-                <exclude name="org/openstreetmap/josm/tools/PlatformHookOsx.java"/>
+
+
                 <exclude name="org/openstreetmap/josm/io/GpxReader.java"/>
                 <exclude name="org/openstreetmap/josm/io/GpxWriter.java"/>
 

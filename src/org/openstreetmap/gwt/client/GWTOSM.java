@@ -96,11 +96,9 @@ public class GWTOSM implements EntryPoint {
     	   
     	  // data = new DataSet();
     	   INavigatableComponent nc = new NavigatableComponent(data );
+    		Bounds bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
+    	   nc.zoomTo(bounds);
     	   painter=new MapPaintVisitor (nc);
-
-	  
-
-	   
 	   
 	   fetchData();
 		OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(1,2));
@@ -125,8 +123,11 @@ public class GWTOSM implements EntryPoint {
 	 	
 	 	painter.setGraphics(canvas);
 	 	 boolean virtual=false;
-		 	Bounds bounds= new Bounds(-180,-90, 180,90);
-	   painter.visitAll(data, virtual, bounds);
+	 	 nc.zoomTo(bounds);
+	 	 nc.zoomToFactor(20000);
+		 	//Bounds bounds= new Bounds(-180,-90, 180,90);
+	 //	Bounds bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
+	 	painter.visitAll(data, virtual, bounds);
        }
        catch (Exception e)
 	   {
@@ -136,8 +137,8 @@ public class GWTOSM implements EntryPoint {
 
   public void fetchData()
   {
-	  RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
-      "http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");
+	  //RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
+      //"http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");
 	  
 	  String fakerequest=OSMXMLData.INSTANCE.osmData().getText();
 	renderXML(fakerequest);

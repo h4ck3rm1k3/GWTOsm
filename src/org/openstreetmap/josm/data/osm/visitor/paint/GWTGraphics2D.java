@@ -138,6 +138,7 @@ public class GWTGraphics2D //extends Graphics2D
 	 */
 	public void drawString(String t, int x, int y) {
 	    Text o = new Text( x, y,t);    
+	    GWT.log(o .toString());
 	    canvas.add(o);
 	}
 
@@ -147,7 +148,8 @@ public class GWTGraphics2D //extends Graphics2D
 	 */
 	public void drawString(String t, float x, float y) {
 		// TODO Auto-generated method stub
-	    Text o = new Text((int)x, (int)y,t);    
+	    Text o = new Text((int)x, (int)y,t); 
+	    GWT.log(o .toString());
 	    canvas.add(o);
 		
 	}
@@ -708,6 +710,7 @@ public class GWTGraphics2D //extends Graphics2D
 		// TODO Auto-generated method stub
 		
 	    Rectangle o = new Rectangle( l,m,k,l2);    
+	    GWT.log(o .toString());
 	    canvas.add(o);
 	}
 
@@ -735,7 +738,8 @@ public class GWTGraphics2D //extends Graphics2D
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fillRect(long, long, int, int)
 	 */
 	public void fillRect(long l, long m, int size, int size2) {
-		Rectangle o = new Rectangle( l,m,size,size2);    
+		Rectangle o = new Rectangle( l,m,size,size2);
+		GWT.log(o .toString());
 	    canvas.add(o);
 		
 	}

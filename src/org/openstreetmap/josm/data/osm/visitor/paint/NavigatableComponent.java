@@ -21,6 +21,7 @@ import org.openstreetmap.josm.data.osm.Point;
 import org.openstreetmap.josm.data.osm.Predicate;
 import org.openstreetmap.josm.data.osm.Way;
 import org.openstreetmap.josm.data.osm.WaySegment;
+import org.openstreetmap.josm.data.projection.Epsg4326;
 import org.openstreetmap.josm.data.projection.Mercator;
 import org.openstreetmap.josm.data.projection.Projection;
 
@@ -47,7 +48,7 @@ public class NavigatableComponent implements INavigatableComponent {
 	private double snapDistanceSq;
 	public NavigatableComponent(DataSet adataset)
 	{
-		proj=new Mercator();
+		proj=new Epsg4326();
 		scale = getProjection().getDefaultZoomInPPD();
 		center = calculateDefaultCenter();
 		setLayout(null);
@@ -222,49 +223,109 @@ public class NavigatableComponent implements INavigatableComponent {
 		// TODO Auto-generated method stub
 		
 	}
+	  private void zoomTo(EastNorth newCenter, double newScale) {
+	        Bounds b = getProjection().getWorldBoundsLatLon();
+	        CachedLatLon cl = new CachedLatLon(newCenter);
+	        boolean changed = false;
+	        double lat = cl.lat();
+	        double lon = cl.lon();
+	        if(lat < b.getMin().lat()) {changed = true; lat = b.getMin().lat(); }
+	        else if(lat > b.getMax().lat()) {changed = true; lat = b.getMax().lat(); }
+	        if(lon < b.getMin().lon()) {changed = true; lon = b.getMin().lon(); }
+	        else if(lon > b.getMax().lon()) {changed = true; lon = b.getMax().lon(); }
+	        if(changed) {
+	            newCenter = new CachedLatLon(lat, lon).getEastNorth();
+	        }
+	        int width = getWidth()/2;
+	        int height = getHeight()/2;
+	        LatLon l1 = new LatLon(b.getMin().lat(), lon);
+	        LatLon l2 = new LatLon(b.getMax().lat(), lon);
+	        EastNorth e1 = getProjection().latlon2eastNorth(l1);
+	        EastNorth e2 = getProjection().latlon2eastNorth(l2);
+	        double d = e2.north() - e1.north();
+	        if(d < height*newScale)
+	        {
+	            double newScaleH = d/height;
+	            e1 = getProjection().latlon2eastNorth(new LatLon(lat, b.getMin().lon()));
+	            e2 = getProjection().latlon2eastNorth(new LatLon(lat, b.getMax().lon()));
+	            d = e2.east() - e1.east();
+	            if(d < width*newScale) {
+	                newScale = Math.max(newScaleH, d/width);
+	            }
+	        }
+	        else
+	        {
+	            d = d/(l1.greatCircleDistance(l2)*height*10);
+	            if(newScale < d) {
+	                newScale = d;
+	            }
+	        }
 
+//	        if (!newCenter.equals(center) || (scale != newScale)) {
+            //pushZoomUndo(center, scale);
+	        center = newCenter;
+	        scale = newScale;
+//	            zoomNoUndoTo(newCenter, newScale);
+//	        }
+	    }
 	@Override
 	public void zoomTo(EastNorth newCenter) {
 		// TODO Auto-generated method stub
-		
+		  zoomTo(newCenter, scale);
 	}
 
 	@Override
 	public void zoomTo(LatLon newCenter) {
 		// TODO Auto-generated method stub
-		
+		 if(newCenter instanceof CachedLatLon) {
+	            zoomTo(((CachedLatLon)newCenter).getEastNorth(), scale);
+	        } else {
+	            zoomTo(getProjection().latlon2eastNorth(newCenter), scale);
+	        }
 	}
 
-	@Override
+
+	
 	public void zoomTo(ProjectionBounds box) {
-		// TODO Auto-generated method stub
-		
-	}
+        // -20 to leave some border
+        int w = getWidth()-20;
+        if (w < 20) {
+            w = 20;
+        }
+        int h = getHeight()-20;
+        if (h < 20) {
+            h = 20;
+        }
 
-	@Override
-	public void zoomTo(Bounds box) {
-		// TODO Auto-generated method stub
-		
-	}
+        double scaleX = (box.max.east()-box.min.east())/w;
+        double scaleY = (box.max.north()-box.min.north())/h;
+        double newScale = Math.max(scaleX, scaleY);
 
-	@Override
-	public void zoomToFactor(double x, double y, double factor) {
-		// TODO Auto-generated method stub
-		
-	}
+        zoomTo(box.getCenter(), newScale);
+    }
 
-	@Override
-	public void zoomToFactor(EastNorth newCenter, double factor) {
-		// TODO Auto-generated method stub
-		
-	}
+    public void zoomTo(Bounds box) {
+        zoomTo(new ProjectionBounds(getProjection().latlon2eastNorth(box.getMin()),
+                getProjection().latlon2eastNorth(box.getMax())));
+    }
 
-	@Override
-	public void zoomToFactor(double factor) {
-		// TODO Auto-generated method stub
-		
-	}
+	 public void zoomToFactor(double x, double y, double factor) {
+	        double newScale = scale*factor;
+	        // New center position so that point under the mouse pointer stays the same place as it was before zooming
+	        // You will get the formula by simplifying this expression: newCenter = oldCenter + mouseCoordinatesInNewZoom - mouseCoordinatesInOldZoom
+	        zoomTo(new EastNorth(
+	                center.east() - (x - getWidth()/2.0) * (newScale - scale),
+	                center.north() + (y - getHeight()/2.0) * (newScale - scale)),
+	                newScale);
+	    }
 
+	    public void zoomToFactor(EastNorth newCenter, double factor) {
+	        zoomTo(newCenter, scale*factor);
+	    }
+
+	    public void zoomToFactor(double factor) {
+	        zoomTo(center, scale*factor);
+	    }
 	
 	public Component getComp() {
 		// TODO Auto-generated method stub

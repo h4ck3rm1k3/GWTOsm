@@ -12,6 +12,7 @@
 	<inherits name='org.vaadin.gwtgraphics.GWTGraphics'/>
 <inherits name="com.google.gwt.xml.XML" />
 <inherits name="com.google.gwt.http.HTTP" />
+<inherits name="com.google.gwt.resources.Resources" />
 
  <inherits name='org.openstreetmap.josm.JosmCore'/> -->
 <!-- <inherits name='org.openstreetmap.josm.data.JosmCoreData'/> -->
