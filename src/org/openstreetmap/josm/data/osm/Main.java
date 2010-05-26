@@ -28,7 +28,7 @@ public class Main {
 //	public static PlatformHookUnixoid platform;
 	public static ServerSidePreferences pref;
 	public static WorkerObject worker;
-	public static Projection proj=new Epsg4326();
+	public static Projection proj=new Mercator();
 	public static PreferenceSettingFactory toolbar;
 	public static void debug(String string) {
 		// TODO Auto-generated method stub

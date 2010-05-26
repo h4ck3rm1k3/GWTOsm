@@ -27,6 +27,9 @@ import org.openstreetmap.josm.data.projection.Projection;
 
 //import com.google.gwt.dev.util.collect.HashSet;
 import java.util.HashSet;
+import org.openstreetmap.josm.data.osm.Main;
+
+import com.google.gwt.core.client.GWT;
 
 public class NavigatableComponent implements INavigatableComponent {
 
@@ -48,7 +51,8 @@ public class NavigatableComponent implements INavigatableComponent {
 	private double snapDistanceSq;
 	public NavigatableComponent(DataSet adataset)
 	{
-		proj=new Epsg4326();
+		//proj=new Mercator();
+		proj=Main.proj;
 		scale = getProjection().getDefaultZoomInPPD();
 		center = calculateDefaultCenter();
 		setLayout(null);
@@ -147,6 +151,7 @@ public class NavigatableComponent implements INavigatableComponent {
             return new Point();
         double x = (p.east()-center.east())/scale + getWidth()/2;
         double y = (center.north()-p.north())/scale + getHeight()/2;
+        GWT.log("got x:" + x +" y:" + y);
         return new Point((int)x,(int)y);
 	}
 

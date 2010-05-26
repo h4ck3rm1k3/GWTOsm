@@ -4,6 +4,8 @@ package org.openstreetmap.josm.data.coor;
 import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.projection.Projection;
 
+import com.google.gwt.core.client.GWT;
+
 
 public class CachedLatLon extends LatLon {
     private EastNorth eastNorth;
@@ -45,6 +47,7 @@ public class CachedLatLon extends LatLon {
         {
             proj = Main.proj;
             eastNorth = proj.latlon2eastNorth(this);
+            GWT.log(this.toString() + "=>"+ eastNorth.toString());
         }
         return eastNorth;
     }
