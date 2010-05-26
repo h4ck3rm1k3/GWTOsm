@@ -98,7 +98,7 @@ public class GWTOSM implements EntryPoint {
     	   INavigatableComponent nc = new NavigatableComponent(data );
     	   painter=new MapPaintVisitor (nc);
 
-	   boolean virtual=false;
+	  
 
 	   
 	   
@@ -119,11 +119,13 @@ public class GWTOSM implements EntryPoint {
 		primitive4.setOsmId(4, 1);
 		data.addPrimitive(primitive4 );
 
-	 	Bounds bounds= new Bounds(-180,-90, 180,90);
+
 	 	//x: -180.0 -> 180.0, y: -90.0 -> 90.0
 	 	
 	 	
 	 	painter.setGraphics(canvas);
+	 	 boolean virtual=false;
+		 	Bounds bounds= new Bounds(-180,-90, 180,90);
 	   painter.visitAll(data, virtual, bounds);
        }
        catch (Exception e)
@@ -136,14 +138,17 @@ public class GWTOSM implements EntryPoint {
   {
 	  RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
       "http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");
-  try {
-    requestBuilder.sendRequest(null, new RequestCallback() {
-      public void onError(Request request, Throwable exception) {
-        requestFailed(exception);
-      }
-     private void requestFailed(Throwable exception) {
-		// TODO Auto-generated method stub
-		
+	  
+	  String fakerequest=OSMXMLData.INSTANCE.osmData().getText();
+	renderXML(fakerequest);
+//  try {
+//  //  requestBuilder.sendRequest(null, new RequestCallback() {
+//      public void onError(Request request, Throwable exception) {
+//        requestFailed(exception);
+//      }
+//     private void requestFailed(Throwable exception) {
+//		// TODO Auto-generated method stub
+//		
 	}
 	public void onResponseReceived(Request request, Response response) {
 		GWT.log(Integer.toString(response.getStatusCode()));
@@ -153,7 +158,7 @@ public class GWTOSM implements EntryPoint {
 	private void renderXML(String text) {
 		// TODO Auto-generated method stub
 		//data
-		 GWT.log("got this text" + text);
+		// GWT.log("got this text" + text);
 		 try {
 			    // parse the XML document into a DOM
 			    Document messageDom = XMLParser.parse(text);
@@ -167,9 +172,9 @@ public class GWTOSM implements EntryPoint {
 			    	String lon = ((Element)node).getAttribute("lon");
 			    	String id = ((Element)node).getAttribute("id");
 			    	String version = ((Element)node).getAttribute("version");
-			    	GWT.log(lat);
-			    	int ilon=Integer.parseInt(lon);
-					int ilat=Integer.parseInt(lat);
+			    	//GWT.log(lat);
+			    	double ilon=Double.parseDouble(lon);
+			    	double ilat=Double.parseDouble(lat);
 					int iid=Integer.parseInt(id);
 					int iversion=Integer.parseInt(version);
 					OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(ilat,ilon));
@@ -192,18 +197,19 @@ public class GWTOSM implements EntryPoint {
 
 	}
 	
-    });
-  } catch (RequestException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-	requestFailed(e);
-}
-  catch (Exception e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-		//requestFailed(e);
-	}
-  }
+    //});
+ // }
+//  catch (RequestException e) {
+//	// TODO Auto-generated catch block
+//	e.printStackTrace();
+//	requestFailed(e);
+//}
+//  catch (Exception e) {
+//		// TODO Auto-generated catch block
+//		e.printStackTrace();
+//		//requestFailed(e);
+//	}
+ // }
   private void requestFailed(com.google.gwt.http.client.RequestException e) {
 	// TODO Auto-generated method stub
 	
