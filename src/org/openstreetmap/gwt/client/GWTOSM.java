@@ -3,7 +3,7 @@ package org.openstreetmap.gwt.client;
 import org.openstreetmap.gwt.shared.FieldVerifier;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.dev.shell.remoteui.MessageTransport.RequestException;
+
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -49,6 +49,13 @@ import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
 import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
 import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
+
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestBuilder;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.RequestException;
+import com.google.gwt.http.client.Response;
+import com.google.gwt.http.client.URL;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -187,10 +194,7 @@ public class GWTOSM implements EntryPoint {
 	
 }
 
-private void requestFailed(RequestException ex) {
-	// TODO Auto-generated method stub
-	
-}
+
 
 public void onModuleLoad() {
     final Button sendButton = new Button("Send");
