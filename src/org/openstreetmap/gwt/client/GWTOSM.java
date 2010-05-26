@@ -125,6 +125,7 @@ public class GWTOSM implements EntryPoint {
 	 	 boolean virtual=false;
 	 	 nc.zoomTo(bounds);
 	 	 nc.zoomToFactor(20000);
+	 	nc.setScale(2000);
 		 	//Bounds bounds= new Bounds(-180,-90, 180,90);
 	 //	Bounds bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
 	 	painter.visitAll(data, virtual, bounds);

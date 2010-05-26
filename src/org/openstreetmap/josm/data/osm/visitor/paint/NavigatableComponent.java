@@ -54,6 +54,11 @@ public class NavigatableComponent implements INavigatableComponent {
 		setLayout(null);
 		this.dataset=adataset;
 	}
+	public void setScale(int i)
+	{
+		scale = i;
+		
+	}
 
 	private EastNorth calculateDefaultCenter() {
 		 Bounds b = proj.getWorldBoundsLatLon();

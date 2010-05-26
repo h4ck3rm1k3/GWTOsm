@@ -231,4 +231,6 @@ public interface INavigatableComponent {
 	Collection<OsmPrimitive> getAllNearest(Point p,
 			Predicate<OsmPrimitive> predicate);
 
+	public abstract void setScale(int i);
+
 }
