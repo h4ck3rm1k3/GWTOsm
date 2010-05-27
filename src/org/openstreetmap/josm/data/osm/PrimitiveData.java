@@ -208,4 +208,5 @@ public abstract class PrimitiveData implements Tagged, PrimitiveId {
     }
 
     public abstract OsmPrimitiveType getType();
+
 }
