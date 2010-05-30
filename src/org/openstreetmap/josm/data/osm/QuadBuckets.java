@@ -10,6 +10,8 @@ import java.util.List;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.coor.QuadTiling;
 
+import com.google.gwt.core.client.GWT;
+
 
 /**
  * Note: bbox of primitives added to QuadBuckets has to stay the same. In case of coordinate change, primitive must
@@ -32,7 +34,7 @@ public class QuadBuckets implements Collection
     }
     public static void out(String s)
     {
-        System.out.println(s);
+        GWT.log(s);
     }
     // periodic output
     long last_out = -1;
@@ -42,7 +44,7 @@ public class QuadBuckets implements Collection
         if (now - last_out < 300)
             return;
         last_out = now;
-        System.out.print(s + "\r");
+        GWT.log(s + "\r");
     }
     void pout(String s, int i, int total)
     {
@@ -52,7 +54,7 @@ public class QuadBuckets implements Collection
             return;
         last_out = now;
         // cast to float to keep the output size down
-        System.out.print(s + " " + (float)((i+1)*100.0/total) + "% done    \r");
+        GWT.log(s + " " + (float)((i+1)*100.0/total) + "% done    \r");
     }
 
     public static int MAX_OBJECTS_PER_LEVEL = 16;
@@ -385,7 +387,7 @@ public class QuadBuckets implements Collection
         private void search(BBox search_bbox, List result)
         {
             if (debug) {
-                System.out.print("[" + level + "] qb bbox: " + this.bbox() + " ");
+                GWT.log("[" + level + "] qb bbox: " + this.bbox() + " ");
             }
             if (!this.bbox().intersects(search_bbox)) {
                 if (debug) {
@@ -416,7 +418,7 @@ public class QuadBuckets implements Collection
                     continue;
                 }
                 if (debug) {
-                    System.out.print(i+": ");
+                    GWT.log(i+": ");
                 }
                 q.search(search_bbox, result);
                 if (q.bbox().bounds(search_bbox)) {
@@ -811,10 +813,10 @@ public class QuadBuckets implements Collection
     }
 
     private void printIndented(int indent, Object msg) {
-        for (int i=0; i<indent; i++) {
-            System.out.print(' ');
-        }
-        System.out.println(msg);
+//        for (int i=0; i<indent; i++) {
+//            GWT.log(' ');
+//        }
+    	GWT.log(msg.toString());
     }
 	@Override
 	public boolean add(Object e) {

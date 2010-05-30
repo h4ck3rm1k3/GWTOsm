@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+  <!-- Inherit our applications main module.                      -->
+  <inherits name='org.openstreetmap.gwt.GWTOSM'/>
+
+  <!-- Specify the path to any remote services.                   -->
+  <servlet path="/gwtosm/greet" class="org.openstreetmap.gwt.server.GreetingServiceImpl" />
+
+</module>
