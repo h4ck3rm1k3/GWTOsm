@@ -217,7 +217,7 @@ public class DataSet implements Cloneable {
                     tr("Unable to add primitive {0} to the dataset because it is already included", primitive.toString()));
 
         primitive.updatePosition(); // Set cached bbox for way and relation (required for reindexWay and reinexRelation to work properly)
-        if (primitive instanceof Node) {
+        if (primitive instanceof Node) {// UGLY
             nodes.add((Node) primitive);
         } else if (primitive instanceof Way) {
             ways.add((Way) primitive);

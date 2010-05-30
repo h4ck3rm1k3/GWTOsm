@@ -707,6 +707,11 @@ public class OsmReader {
 				parseways();
 				parserelations();
 			}
+
+			private void parserelations() {
+				// TODO Auto-generated method stub
+				
+			}
 	    }
 
 	    /**
@@ -752,16 +757,7 @@ public class OsmReader {
 	        }
 	    }
 
-	    public void parserelations() {
-			// TODO Auto-generated method stub
-			
-		}
-
-		public void parseways() {
-			// TODO Auto-generated method stub
-			
-		}
-
+	    		
 		private Exception tr(String string, Long externalWayId, long id) {
 			// TODO Auto-generated method stub
 			return null;

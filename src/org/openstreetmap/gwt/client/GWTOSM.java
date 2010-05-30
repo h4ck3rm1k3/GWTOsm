@@ -143,7 +143,7 @@ public class GWTOSM implements EntryPoint {
 	  //RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
       //"http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");
 	  
-	  String fakerequest=OSMXMLData.INSTANCE.osmDataSmall().getText();
+	  String fakerequest=OSMXMLData.INSTANCE.osmDataSmall().getText();//TODO : this is where we read the static file in, normally we would request this off the web.
 	renderXML(fakerequest);
 //  try {
 //  //  requestBuilder.sendRequest(null, new RequestCallback() {

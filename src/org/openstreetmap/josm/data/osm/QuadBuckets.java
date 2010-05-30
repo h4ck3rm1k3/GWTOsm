@@ -251,7 +251,7 @@ public class QuadBuckets implements Collection
                 }
             }
             if (debug) {
-                out("done searching quad " + Long.toHexString(this.quad));
+                out("done " + result.size() +"searching quad " + Long.toHexString(this.quad));
             }
         }
         /*
@@ -744,6 +744,8 @@ public class QuadBuckets implements Collection
         if (debug) {
             out("qb root search at " + search_bbox);
             out("root bbox: " + root.bbox());
+            out("root size: " + this.size);
+            out("root height: " + root.height());
         }
         List ret = new ArrayList();
         // Doing this cuts down search cost on a real-life data
@@ -818,14 +820,17 @@ public class QuadBuckets implements Collection
 //        }
     	GWT.log(msg.toString());
     }
-	@Override
-	public boolean add(Object e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 	@Override
 	public Object[] toArray(Object[] a) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public boolean add(Object o) {
+			//root.add((OsmPrimitive)o);
+		return add((OsmPrimitive)o);
+			
+		
 	}
 }

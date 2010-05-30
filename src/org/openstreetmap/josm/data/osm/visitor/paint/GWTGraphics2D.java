@@ -56,6 +56,7 @@ import org.openstreetmap.josm.data.osm.Color;
 import org.vaadin.gwtgraphics.client.DrawingArea;
 import org.vaadin.gwtgraphics.client.Image;
 import org.vaadin.gwtgraphics.client.Shape;
+import org.vaadin.gwtgraphics.client.VectorObject;
 import org.vaadin.gwtgraphics.client.animation.Animate;
 import org.vaadin.gwtgraphics.client.shape.Circle;
 import org.vaadin.gwtgraphics.client.shape.Path;
@@ -315,7 +316,6 @@ public class GWTGraphics2D //extends Graphics2D
 //	public void setStroke(Stroke arg0) {
 //		// TODO Auto-generated method stub
 //		
-//	}
 
 	
 //	public void setTransform(AffineTransform arg0) {
@@ -729,9 +729,14 @@ public class GWTGraphics2D //extends Graphics2D
 	 */
 	public void draw(
 			org.openstreetmap.josm.data.osm.visitor.paint.GeneralPath path) {
-		// TODO Auto-generated method stub
 		
-	}
+		
+		//VectorObject path2= new Path(0, 0);
+		
+		//path.
+		// TODO Auto-generated method stub
+		canvas.add(path);
+	};
 
 
 	/* (non-Javadoc)

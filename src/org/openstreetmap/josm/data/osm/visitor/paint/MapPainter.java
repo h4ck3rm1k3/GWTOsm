@@ -120,7 +120,10 @@ public class MapPainter {
     }
 
     private void displaySegments(GeneralPath path, Color color, int width, float dashed[], Color dashedColor) {
-        g.setColor(inactive ? inactiveColor : color);
+
+    	g.setColor(inactive ? inactiveColor : color);
+        path.setStrokeWidth(1);
+        path.setStrokeColor("red");
         if (useStrokes) {
             if (dashed.length > 0) {
                 g.setStroke(new BasicStroke(width,BasicStroke.CAP_BUTT,BasicStroke.JOIN_ROUND,0, dashed,0));
@@ -328,7 +331,7 @@ public class MapPainter {
     public void drawVirtualNodes(Collection<Way> ways) {
 
         if (virtualNodeSize != 0) {
-            GeneralPath path = new GeneralPath();
+            GeneralPath path = new GeneralPath(0,0);
             for (Way osm: ways){
                 if (osm.isUsable() && !osm.isFiltered() && !osm.isDisabled()) {
                     visitVirtual(path, osm);

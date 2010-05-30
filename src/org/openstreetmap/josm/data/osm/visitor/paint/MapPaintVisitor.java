@@ -197,8 +197,16 @@ public class MapPaintVisitor  {
         }
         else
         {
+        	if (wayStyle != null)
+        	{
         	GWT.log("unknow style, just drawing!");
         	wayStyle.paintPrimitive(w, paintSettings, painter, data.isSelected(w));
+        	}
+        	else
+        	{
+        		
+        		
+        	}
         }
 //else if (wayStyle instanceof AreaElemStyle) {
 //            AreaElemStyle areaStyle = (AreaElemStyle) wayStyle;
