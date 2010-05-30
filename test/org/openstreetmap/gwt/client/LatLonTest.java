@@ -43,7 +43,7 @@ public class LatLonTest extends GWTTestCase{
 		LatLon pos = new LatLon(1, 2);
 		String s = pos.toString();
 		GWT.log(s);
-		System.out.println(s);
+		//System.out.println(s);
 		assertTrue(pos.getX()==2.0);
 	
 	}
@@ -54,7 +54,7 @@ public class LatLonTest extends GWTTestCase{
 		LatLon pos = new LatLon(1, 2);
 		String s = pos.toString();
 		GWT.log(s);
-		System.out.println(s);
+		//System.out.println(s);
 		assertTrue(pos.getX()==2.0);
 		
 		LatLon pos2 = new LatLon(pos);
@@ -62,7 +62,7 @@ public class LatLonTest extends GWTTestCase{
 		
 		s = pos.toString();
 		GWT.log(s);
-		System.out.println(s);
+		//System.out.println(s);
 	}
 
 	@Test
@@ -89,7 +89,8 @@ public class LatLonTest extends GWTTestCase{
 		assertTrue(pos.lat() ==1.0);		
 		CoordinateFormat d=CoordinateFormat.DECIMAL_DEGREES;
 		String s = pos.latToString(d);
-		System.out.println(s);
+		//System.out.println(s);
+		GWT.log(s);
 		assertTrue(s.equalsIgnoreCase("formatted string 1.0"));
 	}
 
@@ -105,7 +106,8 @@ public class LatLonTest extends GWTTestCase{
 		assertTrue(pos.lat() ==1.0);		
 		CoordinateFormat d=CoordinateFormat.DECIMAL_DEGREES;
 		String s = pos.lonToString(d);
-		System.out.println(s);
+		//System.out.println(s);
+		GWT.log(s);
 		assertTrue(s.equalsIgnoreCase("formatted string 2.0"));
 	}
 

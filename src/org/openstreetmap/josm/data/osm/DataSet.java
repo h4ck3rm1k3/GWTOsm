@@ -943,4 +943,9 @@ public class DataSet implements Cloneable {
         relations.addAll(ds.relations) ;
         allPrimitives.addAll(ds.allPrimitives) ;
 	}
+
+	public void print() {
+		// TODO Auto-generated method stub
+		ways.printTree();
+	}
 }
