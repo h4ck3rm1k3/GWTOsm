@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.0.2">
+ <bounds minlat="42.0629942" minlon="19.508028" maxlat="42.0668174" maxlon="19.5137787"/>
+
+<node id="410105245" lat="42.0647071" lon="19.5089808" user="h4ck3rm1k3" uid="131059" visible="true" version="2" changeset="4008758" timestamp="2010-03-01T13:50:21Z"/>
+<node id="658275174" lat="42.0647198" lon="19.5089429" user="h4ck3rm1k3" uid="131059" visible="true" version="2" changeset="4563719" timestamp="2010-04-30T07:29:36Z"/>
+<node id="658275217" lat="42.0646799" lon="19.5090176" user="h4ck3rm1k3" uid="131059" visible="true" version="1" changeset="4008758" timestamp="2010-03-01T13:50:19Z"/>
+<node id="410105267" lat="42.0643948" lon="19.5093517" user="robertogroppi" uid="88174" visible="true" version="1" changeset="1293119" timestamp="2009-05-23T10:09:30Z"/>
+<node id="410113765" lat="42.063559" lon="19.5100687" user="h4ck3rm1k3" uid="131059" visible="true" version="2" changeset="4563719" timestamp="2010-04-30T07:29:40Z"/>
+<node id="410105222" lat="42.06341" lon="19.5102329" user="h4ck3rm1k3" uid="131059" visible="true" version="2" changeset="4563719" timestamp="2010-04-30T07:29:34Z"/>
+
+ <way id="57358946" user="h4ck3rm1k3" uid="131059" visible="true" version="2" changeset="4581275" timestamp="2010-05-02T05:55:07Z">
+  <nd ref="658275174"/>
+  <nd ref="410105245"/>
+  <nd ref="658275217"/>
+  <nd ref="410105267"/>
+  <nd ref="410113765"/>
+  <nd ref="410105222"/>
+  <tag k="highway" v="tertiary"/>
+  <tag k="name" v="Rruga Daut Boriçi"/>
+ </way>
+</osm>
