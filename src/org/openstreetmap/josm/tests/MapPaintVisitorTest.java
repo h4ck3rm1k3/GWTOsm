@@ -17,9 +17,8 @@ import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
 import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
 import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
-
-public class MapPaintVisitorTest {
-
+import com.google.gwt.junit.client.GWTTestCase;
+public class MapPaintVisitorTest extends GWTTestCase{
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -28,13 +27,7 @@ public class MapPaintVisitorTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
 
 	@Test
 	public void testIsZoomOk() {
@@ -187,6 +180,12 @@ public class MapPaintVisitorTest {
 	@Test
 	public void testSetNavigatableComponent() {
 		fail("Not yet implemented");
+	}
+
+	@Override
+	public String getModuleName() {
+		// TODO Auto-generated method stub
+		return "org.openstreetmap.gwt.GWTOSM";
 	}
 
 }

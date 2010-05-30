@@ -8,7 +8,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class DataSetTest {
+import com.google.gwt.junit.client.GWTTestCase;
+
+public class DataSetTest extends GWTTestCase{
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -18,13 +20,7 @@ public class DataSetTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
+	
 
 	@Test
 	public void testGetHighlightUpdateCount() {
@@ -354,6 +350,13 @@ public class DataSetTest {
 	@Test
 	public void testClearErrors() {
 		fail("Not yet implemented");
+	}
+
+	@Override
+	public String getModuleName() {
+		// TODO Auto-generated method stub
+		//return "org.openstreetmap.josm.tests.DataSetTest";
+		return "org.openstreetmap.gwt.GWTOSM";
 	}
 
 }

@@ -29,7 +29,7 @@
       <classpath refid="project.class.path"/>
                 <exclude name="org/openstreetmap/josm/actions/audio/"/>
                 <exclude name="org/openstreetmap/josm/actions/"/>
-                <exclude name="org/openstreetmap/josm/tests/"/>
+<!--                <exclude name="org/openstreetmap/josm/tests/"/> -->
                 <exclude name="org/openstreetmap/josm/tools/"/>
                 <exclude name="org/openstreetmap/josm/gui/conflict/tags/"/>
                 <exclude name="org/openstreetmap/gui/jmapviewer/"/>
@@ -113,14 +113,13 @@
     </java>
   </target>
 
-<!--
-Test targets suppressed because -junit argument was not specified when running webAppCreator.
 
   <target name="javac.tests" depends="javac" description="Compiles test code">
     <javac srcdir="test" includes="**" encoding="utf-8"
       source="1.5" target="1.5" nowarn="true"
       debug="true" debuglevel="lines,vars,source">
-      <classpath location="path_to_the_junit_jar"/>
+<!--      <classpath location=""/>-->
+<!--        <pathelement location="path_to_the_junit_jar" /> -->
       <classpath refid="project.class.path"/>
     </javac>
   </target>
@@ -135,7 +134,7 @@ Test targets suppressed because -junit argument was not specified when running w
         <pathelement location="src" />
         <pathelement location="test" />
         <path refid="project.class.path" />
-        <pathelement location="path_to_the_junit_jar" />
+<!--        <pathelement location="path_to_the_junit_jar" /> -->
       </classpath>
       <batchtest todir="reports/htmlunit.dev" >
         <fileset dir="test" >
@@ -157,7 +156,8 @@ Test targets suppressed because -junit argument was not specified when running w
         <pathelement location="src" />
         <pathelement location="test" />
         <path refid="project.class.path" />
-        <pathelement location="path_to_the_junit_jar" />
+
+<!--        <pathelement location="path_to_the_junit_jar" /> -->
       </classpath>
       <batchtest todir="reports/htmlunit.prod" >
         <fileset dir="test" >
@@ -173,7 +173,7 @@ Test targets suppressed because -junit argument was not specified when running w
     <antcall target="test.dev" />
     <antcall target="test.prod" />
   </target>
--->
+
 
   <target name="hosted" depends="devmode" description="Run development mode (NOTE: the 'hosted' target is deprecated)" />
 

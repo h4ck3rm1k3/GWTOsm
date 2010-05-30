@@ -42,6 +42,7 @@ import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.Main;
+import org.openstreetmap.josm.data.osm.ProgressMonitor;
 //import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
@@ -86,11 +87,11 @@ public class GWTOSM implements EntryPoint {
     
   public void drawmap() {
 
-      String on = "Integer.toString(orderNumber)";
-      int strlen = on.length();
-       int x = (400)/2 - 4*strlen;
-       int y = (400)/2 + 4;
-       canvas.drawString(on, x, y);
+//      String on = "Integer.toString(orderNumber)";
+//      int strlen = on.length();
+//       int x = (400)/2 - 4*strlen;
+//       int y = (400)/2 + 4;
+//       canvas.drawString(on, x, y);
 
        try {     
     	   
@@ -101,21 +102,21 @@ public class GWTOSM implements EntryPoint {
     	   painter=new MapPaintVisitor (nc);
 	   
 	   fetchData();
-		OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(1,2));
-		primitive.setOsmId(20, 1);
-		data.addPrimitive(primitive );
-
-		OsmPrimitive primitive2 = new org.openstreetmap.josm.data.osm.Node(new LatLon(42,22));
-		primitive2.setOsmId(2, 1);
-		data.addPrimitive(primitive2 );
-
-		OsmPrimitive primitive3 = new org.openstreetmap.josm.data.osm.Node(new LatLon(5.1,5.2));
-		primitive3.setOsmId(3, 1);
-		data.addPrimitive(primitive3 );
-
-		OsmPrimitive primitive4 = new org.openstreetmap.josm.data.osm.Node(new LatLon(10,23));
-		primitive4.setOsmId(4, 1);
-		data.addPrimitive(primitive4 );
+//		OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(1,2));
+//		primitive.setOsmId(20, 1);
+//		data.addPrimitive(primitive );
+//
+//		OsmPrimitive primitive2 = new org.openstreetmap.josm.data.osm.Node(new LatLon(42,22));
+//		primitive2.setOsmId(2, 1);
+//		data.addPrimitive(primitive2 );
+//
+//		OsmPrimitive primitive3 = new org.openstreetmap.josm.data.osm.Node(new LatLon(5.1,5.2));
+//		primitive3.setOsmId(3, 1);
+//		data.addPrimitive(primitive3 );
+//
+//		OsmPrimitive primitive4 = new org.openstreetmap.josm.data.osm.Node(new LatLon(10,23));
+//		primitive4.setOsmId(4, 1);
+//		data.addPrimitive(primitive4 );
 
 
 	 	//x: -180.0 -> 180.0, y: -90.0 -> 90.0
@@ -162,42 +163,52 @@ public class GWTOSM implements EntryPoint {
 		// TODO Auto-generated method stub
 		//data
 		// GWT.log("got this text" + text);
-		 try {
-			    // parse the XML document into a DOM
-			    Document messageDom = XMLParser.parse(text);
 
-			    NodeList nodes = messageDom.getElementsByTagName("node");
-			    
-			    for (int i =0; i < nodes.getLength(); i++)
-			    {
-			    	Node node=nodes.item(i);
-			    	String lat = ((Element)node).getAttribute("lat");
-			    	String lon = ((Element)node).getAttribute("lon");
-			    	String id = ((Element)node).getAttribute("id");
-			    	String version = ((Element)node).getAttribute("version");
-			    	//GWT.log(lat);
-			    	double ilon=Double.parseDouble(lon);
-			    	double ilat=Double.parseDouble(lat);
-					int iid=Integer.parseInt(id);
-					int iversion=Integer.parseInt(version);
-					OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(ilat,ilon));
-			    	primitive .setOsmId(iid, iversion);
-			    	
-					data.addPrimitive(primitive );
-			    }
-			    
-		 }	
-		 catch (DOMException e) {
-			    //Window.alert("Could not parse XML document.");
-			 GWT.log("Could not parse XML document.");
-			  }
+		try {
+			ProgressMonitor pm=new ProgressMonitor();
+			DataSet ds=	OsmReader.parseDataSet(text, pm);
+		data.merge(ds);
+		} catch (IllegalDataException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
-			  catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-					//requestFailed(e);
-				}
-
+//		 try {
+//			    // parse the XML document into a DOM
+//			    Document messageDom = XMLParser.parse(text);
+//
+//			    NodeList nodes = messageDom.getElementsByTagName("node");
+//			    
+//			    for (int i =0; i < nodes.getLength(); i++)
+//			    {
+//			    	Node node=nodes.item(i);
+//			    	String lat = ((Element)node).getAttribute("lat");
+//			    	String lon = ((Element)node).getAttribute("lon");
+//			    	String id = ((Element)node).getAttribute("id");
+//			    	String version = ((Element)node).getAttribute("version");
+//			    	//GWT.log(lat);
+//			    	double ilon=Double.parseDouble(lon);
+//			    	double ilat=Double.parseDouble(lat);
+//					int iid=Integer.parseInt(id);
+//					int iversion=Integer.parseInt(version);
+//					OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(ilat,ilon));
+//			    	primitive .setOsmId(iid, iversion);
+//			    	
+//					data.addPrimitive(primitive );
+//			    }
+//			    
+//		 }	
+//		 catch (DOMException e) {
+//			    //Window.alert("Could not parse XML document.");
+//			 GWT.log("Could not parse XML document.");
+//			  }
+//		
+//			  catch (Exception e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//					//requestFailed(e);
+//				}
+//
 	}
 	
     //});
@@ -225,6 +236,9 @@ public void onModuleLoad() {
     final TextBox nameField = new TextBox();
     nameField.setText("GWT User");
     final Label errorLabel = new Label();
+    
+    final TextBox zoomField = new TextBox();
+    zoomField.setText("zoom");
 
     try
 	{
@@ -244,6 +258,7 @@ public void onModuleLoad() {
     // Add the nameField and sendButton to the RootPanel
     // Use RootPanel.get() to get the entire body element
     RootPanel.get("nameFieldContainer").add(nameField);
+    RootPanel.get("nameFieldContainer").add(zoomField);
     RootPanel.get("sendButtonContainer").add(sendButton);
     RootPanel.get("errorLabelContainer").add(errorLabel);
 

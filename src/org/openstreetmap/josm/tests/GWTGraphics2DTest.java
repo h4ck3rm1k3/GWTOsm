@@ -8,7 +8,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class GWTGraphics2DTest {
+import com.google.gwt.junit.client.GWTTestCase;
+
+public class GWTGraphics2DTest extends GWTTestCase{
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -18,13 +20,7 @@ public class GWTGraphics2DTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
+	
 
 	@Test
 	public void testGWTGraphics2D() {
@@ -294,6 +290,13 @@ public class GWTGraphics2DTest {
 	@Test
 	public void testDrawOvalLongLongIntInt() {
 		fail("Not yet implemented");
+	}
+
+	@Override
+	public String getModuleName() {
+		// TODO Auto-generated method stub
+		
+		return "org.openstreetmap.josm.tests.GWTGraphics2DTest";
 	}
 
 }

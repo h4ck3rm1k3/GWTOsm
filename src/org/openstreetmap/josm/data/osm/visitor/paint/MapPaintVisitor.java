@@ -41,6 +41,8 @@ import org.openstreetmap.josm.data.osm.visitor.paint.relations.Multipolygon.Poly
 //import org.openstreetmap.josm.gui.mappaint.MapPaintStyles;
 //import org.openstreetmap.josm.gui.mappaint.SimpleNodeElemStyle;
 
+import com.google.gwt.core.client.GWT;
+
 public class MapPaintVisitor  {
 
     private IGwtGraphics2D g;
@@ -192,8 +194,13 @@ public class MapPaintVisitor  {
 
         if(wayStyle instanceof LineElemStyle) {
             wayStyle.paintPrimitive(w, paintSettings, painter, data.isSelected(w));
-        } 
-//        else if (wayStyle instanceof AreaElemStyle) {
+        }
+        else
+        {
+        	GWT.log("unknow style, just drawing!");
+        	wayStyle.paintPrimitive(w, paintSettings, painter, data.isSelected(w));
+        }
+//else if (wayStyle instanceof AreaElemStyle) {
 //            AreaElemStyle areaStyle = (AreaElemStyle) wayStyle;
 //            /* way with area style */
 //            if (fillAreas > dist)
@@ -730,7 +737,7 @@ public class MapPaintVisitor  {
             for (final Way osm : selectedLast(data, data.searchWays(bbox))) {
                 if (osm.isDrawable() && osm.mappaintDrawnCode != paintid) {
                     if (isPrimitiveArea(osm) && osm.mappaintDrawnAreaCode != paintid) {
-                        drawWay(osm, fillAreas);
+                        	;
                     } else {
                         noAreaWays.add(osm);
                     }

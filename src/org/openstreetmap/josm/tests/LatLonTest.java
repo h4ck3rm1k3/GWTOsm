@@ -1,6 +1,7 @@
 package org.openstreetmap.josm.tests;
 
 import static org.junit.Assert.*;
+import com.google.gwt.junit.client.GWTTestCase;
 
 import org.junit.Test;
 import org.openstreetmap.josm.data.coor.CoordinateFormat;
@@ -9,8 +10,7 @@ import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 
 import com.google.gwt.core.client.GWT;
-
-public class LatLonTest {
+public class LatLonTest extends GWTTestCase{
 
 	@Test
 	public void testHashCode() {
@@ -177,6 +177,12 @@ public class LatLonTest {
 	@Test
 	public void testSetLocation() {
 		fail("Not yet implemented");
+	}
+
+	@Override
+	public String getModuleName() {
+		// TODO Auto-generated method stub
+		return "org.openstreetmap.josm.tests.LatLonTest";
 	}
 
 }

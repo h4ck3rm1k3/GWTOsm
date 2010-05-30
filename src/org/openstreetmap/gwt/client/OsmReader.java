@@ -14,6 +14,7 @@ import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.DataSource;
 import org.openstreetmap.josm.data.osm.Logger;
 import org.openstreetmap.josm.data.osm.NodeData;
+import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.OsmPrimitiveType;
 import org.openstreetmap.josm.data.osm.PrimitiveData;
@@ -34,7 +35,7 @@ import com.google.gwt.xml.client.DOMException;
 import com.google.gwt.xml.client.Document;
 import com.google.gwt.xml.client.Element;
 import com.google.gwt.xml.client.NamedNodeMap;
-import com.google.gwt.xml.client.Node;
+//import com.google.gwt.xml.client.Node;
 import com.google.gwt.xml.client.NodeList;
 import com.google.gwt.xml.client.XMLParser;
 
@@ -44,7 +45,7 @@ public class OsmReader {
 	    /**
 	     * The dataset to add parsed objects to.
 	     */
-	    private DataSet ds ;
+	    private DataSet ds = new DataSet() ;
 
 	    /**
 	     * Replies the parsed data set
@@ -67,8 +68,9 @@ public class OsmReader {
 	     * @see #parseDataSet(InputStream, DataSet, ProgressMonitor)
 	     * @see #parseDataSetOsm(InputStream, DataSet, ProgressMonitor)
 	     */
-	    private OsmReader() {
+	    OsmReader() {
 	        externalIdMap = new HashMap<PrimitiveId, OsmPrimitive>();
+	        ds.setVersion("0.6");
 	    }
 
 	    /**
@@ -109,6 +111,7 @@ public class OsmReader {
 	        private long currentExternalId;
 	        private String generator;
 	        private Storage<String> internedStrings = new Storage<String>();
+			private Document messageDom;
 
 	        // Memory optimization - see #2312
 	        private String intern(String s) {
@@ -131,7 +134,7 @@ public class OsmReader {
 	    			    
 	    			    for (int i =0; i < nodes.getLength(); i++)
 	    			    {
-	    			    	Node node=nodes.item(i);
+	    			    	com.google.gwt.xml.client.Node node=nodes.item(i);
 	    			    	String lat = ((Element)node).getAttribute("lat");
 	    			    	String lon = ((Element)node).getAttribute("lon");
 	    			    	String id = ((Element)node).getAttribute("id");
@@ -141,7 +144,7 @@ public class OsmReader {
 	    			    	double ilat=Double.parseDouble(lat);
 	    					int iid=Integer.parseInt(id);
 	    					int iversion=Integer.parseInt(version);
-	    					OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(ilat,ilon));
+	    					OsmPrimitive primitive = new Node(new LatLon(ilat,ilon));
 	    			    	primitive .setOsmId(iid, iversion);
 	    			    	
 	    					ds.addPrimitive(primitive );
@@ -160,9 +163,9 @@ public class OsmReader {
 	    				}
 
 	    	}
-	        public void startElement(String namespaceURI, String localName, String qName, Node node) throws Exception  {
+	        public void startElement(String namespaceURI, String localName, String qName, com.google.gwt.xml.client.Node node) throws Exception  {
 
-	            Attributes atts = new Attributes(node.getAttributes());
+	        	Attributes atts = new Attributes(node);
 				if (qName.equals("osm")) {
 	                if (atts == null) {
 	                    throwException(tr("Missing mandatory attribute ''{0}'' of XML element {1}.", "version", "osm"));
@@ -171,8 +174,15 @@ public class OsmReader {
 	                if (v == null) {
 	                    throwException(tr("Missing mandatory attribute ''{0}''.", "version"));
 	                }
+	                try
+	                {
 	                if (!(v.equals("0.5") || v.equals("0.6"))) {
 	                    throwException(tr("Unsupported version: {0}", v));
+	                }
+	                } catch (Exception e)
+	                {
+	                	GWT.log(e.toString());
+	                	
 	                }
 	                // save generator attribute for later use when creating DataSource objects
 	                generator = atts.getValue("generator");
@@ -207,7 +217,7 @@ public class OsmReader {
 	                NodeData nd = new NodeData();
 	                nd.setCoor(new LatLon(getDouble(atts, "lat"), getDouble(atts, "lon")));
 	                readCommon(atts, nd);
-	                org.openstreetmap.josm.data.osm.Node n = new org.openstreetmap.josm.data.osm.Node(nd.getId(), nd.getVersion());
+	                Node n = new Node(nd.getId(), nd.getVersion());
 	                n.load(nd);
 	                externalIdMap.put(nd.getPrimitiveId(), n);
 	                currentPrimitive = n;
@@ -307,7 +317,183 @@ public class OsmReader {
 	            }
 	        }
 
-	        private String tr(String string, String string2, String string3,
+	        
+
+        //} else if (qName.equals("tag")) 
+	        void parseTags(Attributes atts)
+	        {
+            String key = atts.getValue("k");
+            String value = atts.getValue("v");
+            if (key != null)
+            {
+            	currentPrimitive.put(intern(key), intern(value));
+            }
+
+        } 
+        	
+	        void parsend(Attributes atts) throws Exception
+	        {
+	        //	else if (qName.equals("nd")) {
+	                Collection<Long> list = ways.get(currentExternalId);
+	                if (list == null) {
+	                    throwException(
+	                            tr("Found XML element <nd> not as direct child of element <way>.")
+	                    );
+	                }
+	                if (atts.getValue("ref") == null) {
+	                    throwException(
+	                            tr("Missing mandatory attribute ''{0}'' on <nd> of way {1}.", "ref", currentPrimitive.getUniqueId())
+	                    );
+	                }
+	                long id = getLong(atts, "ref");
+	                if (id == 0) {
+	                    throwException(
+	                            tr("Illegal value of attribute ''ref'' of element <nd>. Got {0}.", id)
+	                    );
+	                }
+	                if (currentPrimitive.isDeleted()) {
+	                    logger.info(tr("Deleted way {0} contains nodes", currentPrimitive.getUniqueId()));
+	                } else {
+	                    list.add(id);
+	                }
+	        }
+	        void parseway(Attributes atts) throws Exception
+	        {
+	        //} else if (qName.equals("way")) {
+                WayData wd = new WayData();
+                readCommon(atts, wd);
+                Way w = new Way(wd.getId(), wd.getVersion());
+                w.load(wd);
+                externalIdMap.put(wd.getPrimitiveId(), w);
+                ways.put(wd.getUniqueId(), new ArrayList<Long>());
+                currentPrimitive = w;
+                currentExternalId = wd.getUniqueId();
+                
+                NodeList nodes = atts.node.getChildNodes();
+                //.getElementsByTagName("nd");
+                //&&
+                for (int i =0; i < nodes.getLength(); i++)
+                {	
+                	com.google.gwt.xml.client.Node node=nodes.item(i);
+                	Attributes a=new Attributes(node);
+        		
+	        		try {
+	        			//GWT.log(a.node.getNodeType());
+	        			GWT.log(a.node.getNodeName());
+	        			String name =a.node.getNodeName();
+	        			if (name.equals("nd"))
+	        			{
+	        				parsend(a);
+	        			}
+	        			else if (name .equals("tag"))
+	        			{
+	        				parseTags(a);	
+	        			}
+	        			else if (name .equals("#text"))
+	        			{
+	        				
+	        			}
+	        			else
+	        			{
+	        				GWT.log("unkinw type" + a.node.getNodeName());
+	        				GWT.log("unkinw type" + a.node.getParentNode().getNodeName());
+	        			}
+	        			
+	        			
+	        			
+	        			
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						GWT.log(e.toString());
+					}					
+					
+				
+                //
+                } 
+                
+                
+                //NodeList nodes = atts.node.getElementsByTagName("tag");
+                //&&getChildNodes();
+//                for (int i =0; i < nodes.getLength(); i++)
+//                {	
+//                	com.google.gwt.xml.client.Node node=nodes.item(i);
+//                	Attributes a=new Attributes(node);
+//                
+//                try {
+//        			//GWT.log(a.node.getNodeType());
+//        			GWT.log(a.node.getParentNode().getNodeName());
+//        			GWT.log(a.node.getNodeName());
+//        			GWT.log(a.node.getNamespaceURI());
+//        			
+//        			parseTags(a);
+//        			
+//				} catch (Exception e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//					GWT.log(e.toString());
+//				}
+//	        }
+	        	
+	        }
+	        void parsenodes() 
+	        {
+	        	NodeList nodes = messageDom.getElementsByTagName("node");
+		    
+	        	for (int i =0; i < nodes.getLength(); i++)
+	        	{
+	        		com.google.gwt.xml.client.Node node=nodes.item(i);
+	        		Attributes a=new Attributes(node);
+	        		
+	        		try {
+						processnode(a);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						GWT.log(e.toString());
+					}
+	        	}
+	        }
+		    
+	        void parseways() 
+	        {
+	        	NodeList nodes = messageDom.getElementsByTagName("way");
+		    
+	        	for (int i =0; i < nodes.getLength(); i++)
+	        	{
+	        		com.google.gwt.xml.client.Node node=nodes.item(i);
+	        		Attributes a=new Attributes(node);
+	        		
+	        		try {
+	        			parseway(a);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						GWT.log(e.toString());
+					}
+	        	}
+	        }
+	        void processnode(Attributes node) throws Exception
+	        {
+	            
+	        	//else if (qName.equals("node")) {
+	                NodeData nd = new NodeData();
+	                nd.setCoor(new LatLon(getDouble(node, "lat"), getDouble(node, "lon")));
+	                readCommon(node, nd);
+	                Node n = new Node(nd.getId(), nd.getVersion());
+	                n.load(nd);
+	                externalIdMap.put(nd.getPrimitiveId(), n);
+	                currentPrimitive = n;
+	                currentExternalId = nd.getUniqueId();
+	            
+	        	
+	        }
+	        private double getDouble(Node node, String value) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			private String tr(String string, String string2, String string3,
 					String value) {
 				// TODO Auto-generated method stub
 				return null;
@@ -361,30 +547,36 @@ public class OsmReader {
 	         * Read out the common attributes from atts and put them into this.current.
 	         * @throws Exception 
 	         */
-	        void readCommon(Attributes atts, PrimitiveData current) throws Exception  {
-	            current.setId(getLong(atts, "id"));
+	        void readCommon(Attributes node, PrimitiveData current) throws Exception  {
+	            current.setId(getLong(node, "id"));
 	            if (current.getUniqueId() == 0) {
 	                throwException(tr("Illegal object with ID=0."));
 	            }
 
-	            String time = atts.getValue("timestamp");
+	            String time = node.getValue("timestamp");
 	            if (time != null && time.length() != 0) {
-	                current.setTimestamp(DateUtils.fromString(time));
+	            		try {
+	            			current.setTimestamp(DateUtils.fromString(time));
+	            		}catch(Exception e)
+	            		{
+	            			GWT.log(e.toString());
+	            			
+	            		}
 	            }
 
 	            // user attribute added in 0.4 API
-	            String user = atts.getValue("user");
+	            String user = node.getValue("user");
 	            // uid attribute added in 0.6 API
-	            String uid = atts.getValue("uid");
+	            String uid = node.getValue("uid");
 	            current.setUser(createUser(uid, user));
 
 	            // visible attribute added in 0.4 API
-	            String visible = atts.getValue("visible");
+	            String visible = node.getValue("visible");
 	            if (visible != null) {
 	                current.setVisible(Boolean.parseBoolean(visible));
 	            }
 
-	            String versionString = atts.getValue("version");
+	            String versionString = node.getValue("version");
 	            int version = 0;
 	            if (versionString != null) {
 	                try {
@@ -427,8 +619,8 @@ public class OsmReader {
 	                }
 	            }
 	            current.setVersion(version);
-
-	            String action = atts.getValue("action");
+	            try{
+	            String action = node.getValue("action");
 	            if (action == null) {
 	                // do nothing
 	            } else if (action.equals("delete")) {
@@ -437,8 +629,14 @@ public class OsmReader {
 	            } else if (action.equals("modify")) {
 	                current.setModified(true);
 	            }
+	            }
+	            catch(Exception e)
+	            {
+	        		GWT.log(e.toString());	            	
+	            }
 
-	            String v = atts.getValue("changeset");
+	            try {
+	            String v = node.getValue("changeset");
 	            if (v == null) {
 	                current.setChangesetId(0);
 	            } else {
@@ -464,6 +662,11 @@ public class OsmReader {
 	                        throwException(tr("Illegal value for attribute ''changeset''. Got {0}.", v));
 	                    }
 	                }
+	            }
+	            }
+	            catch(Exception e)
+	            {
+	        		GWT.log(e.toString());	            	
 	            }
 	        }
 
@@ -495,6 +698,13 @@ public class OsmReader {
 	            }
 	            return 0; // should not happen
 	        }
+
+			public void parse(String string) throws Exception {
+				messageDom = XMLParser.parse(string);
+				parsenodes();
+				parseways();
+				parserelations();
+			}
 	    }
 
 	    /**
@@ -506,9 +716,9 @@ public class OsmReader {
 	    protected void processWaysAfterParsing() throws IllegalDataException{
 	        for (Long externalWayId: ways.keySet()) {
 	            Way w = (Way)externalIdMap.get(new SimplePrimitiveId(externalWayId, OsmPrimitiveType.WAY));
-	            List<org.openstreetmap.josm.data.osm.Node> wayNodes = new ArrayList<org.openstreetmap.josm.data.osm.Node>();
+	            List<Node> wayNodes = new ArrayList<Node>();
 	            for (long id : ways.get(externalWayId)) {
-	            	org.openstreetmap.josm.data.osm.Node n = (org.openstreetmap.josm.data.osm.Node)externalIdMap.get(new SimplePrimitiveId(id, OsmPrimitiveType.NODE));
+	            	Node n = (Node)externalIdMap.get(new SimplePrimitiveId(id, OsmPrimitiveType.NODE));
 	                if (n == null) {
 	                    if (id <= 0)
 	                        throw new IllegalDataException (
@@ -517,9 +727,9 @@ public class OsmReader {
 	                                        id));
 	                    // create an incomplete node if necessary
 	                    //
-	                    n = (org.openstreetmap.josm.data.osm.Node)ds.getPrimitiveById(id,OsmPrimitiveType.NODE);
+	                    n = (Node)ds.getPrimitiveById(id,OsmPrimitiveType.NODE);
 	                    if (n == null) {
-	                        n = new org.openstreetmap.josm.data.osm.Node(id);
+	                        n = new Node(id);
 	                        ds.addPrimitive(n);
 	                    }
 	                }
@@ -540,7 +750,17 @@ public class OsmReader {
 	        }
 	    }
 
-	    private Exception tr(String string, Long externalWayId, long id) {
+	    public void parserelations() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void parseways() {
+			// TODO Auto-generated method stub
+			
+		}
+
+		private Exception tr(String string, Long externalWayId, long id) {
 			// TODO Auto-generated method stub
 			return null;
 		}
@@ -557,7 +777,7 @@ public class OsmReader {
 	     */
 	    protected void processNodesAfterParsing() {
 	        for (OsmPrimitive primitive: externalIdMap.values()) {
-	            if (primitive instanceof org.openstreetmap.josm.data.osm.Node) {
+	            if (primitive instanceof Node) {
 	                this.ds.addPrimitive(primitive);
 	            }
 	        }
@@ -609,7 +829,7 @@ public class OsmReader {
 	                    if (primitive == null) {
 	                        switch (rm.type) {
 	                        case NODE:
-	                            primitive = new org.openstreetmap.josm.data.osm.Node(rm.id); break;
+	                            primitive = new Node(rm.id); break;
 	                        case WAY:
 	                            primitive = new Way(rm.id); break;
 	                        case RELATION:
@@ -641,7 +861,7 @@ public class OsmReader {
 	     * @throws IllegalDataException thrown if the an error was found while parsing the data from the source
 	     * @throws IllegalArgumentException thrown if source is null
 	     */
-	    public static DataSet parseDataSet(InputStream source, ProgressMonitor progressMonitor) throws IllegalDataException {
+	    public static DataSet parseDataSet(String String, ProgressMonitor progressMonitor) throws IllegalDataException {
 	        if (progressMonitor == null) {
 	            progressMonitor = NullProgressMonitor.INSTANCE;
 	        }
@@ -651,7 +871,10 @@ public class OsmReader {
 	            progressMonitor.beginTask(tr("Prepare OSM data...", 2));
 	            progressMonitor.indeterminateSubTask(tr("Parsing OSM data..."));
 	       //     InputSource inputSource = new InputSource(new InputStreamReader(source, "UTF-8"));
-	            //SAXParserFactory.newInstance().newSAXParser().parse(inputSource, reader.new Parser());
+	            //SAXParserFactory.newInstance().newSAXParser().parse(inputSource, );
+	            Parser p = reader.new Parser();
+	            p.parse(String);
+	            
 	            progressMonitor.worked(1);
 
 	            progressMonitor.indeterminateSubTask(tr("Preparing data set..."));
@@ -689,4 +912,6 @@ public class OsmReader {
 			// TODO Auto-generated method stub
 			return null;
 		}
+
+		
 }

@@ -10,7 +10,10 @@ import org.junit.Test;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.LatLon;
 
-public class BoundsTest {
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.junit.client.GWTTestCase;
+
+public class BoundsTest extends GWTTestCase{
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -20,17 +23,13 @@ public class BoundsTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
+	
 
 	@Test
 	public void testHashCode() {
-		fail("Not yet implemented");
+		Bounds b = new Bounds();
+		GWT.log(Integer.toString(b.hashCode()));
+		assert(b.hashCode() != 0);
 	}
 
 	@Test
@@ -150,6 +149,13 @@ public class BoundsTest {
 	@Test
 	public void testEqualsObject() {
 		fail("Not yet implemented");
+	}
+
+	@Override
+	public String getModuleName() {
+		// TODO Auto-generated method stub
+		//return "org.openstreetmap.josm.tests.BoundsTest";
+		return "org.openstreetmap.gwt.GWTOSM";
 	}
 
 }

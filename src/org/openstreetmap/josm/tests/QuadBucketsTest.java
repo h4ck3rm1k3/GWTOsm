@@ -18,7 +18,9 @@ import org.openstreetmap.josm.data.osm.QuadBuckets;
  * @author mdupont
  *
  */
-public class QuadBucketsTest {
+import com.google.gwt.junit.client.GWTTestCase;
+
+public class QuadBucketsTest extends GWTTestCase {
 
 	/**
 	 * @throws java.lang.Exception
@@ -34,21 +36,8 @@ public class QuadBucketsTest {
 	public static void tearDownAfterClass() throws Exception {
 	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception {
-	}
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	/**
+		/**
 	 * Test method for {@link org.openstreetmap.josm.data.osm.QuadBuckets#abort(java.lang.String)}.
 	 */
 	@Test
@@ -227,6 +216,13 @@ public class QuadBucketsTest {
 	@Test
 	public void testToArrayObjectArray() {
 		fail("Not yet implemented"); // TODO
+	}
+
+	@Override
+	public String getModuleName() {
+		// TODO Auto-generated method stub
+		//return "org.openstreetmap.josm.tests.QuadBucketsTest";
+		return "org.openstreetmap.gwt.GWTOSM";
 	}
 
 }

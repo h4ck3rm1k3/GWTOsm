@@ -93,6 +93,8 @@ public class DataSet implements Cloneable {
      * @return the API version this dataset was created from. May be null.
      */
     public String getVersion() {
+    	if (version == null)
+    			version = "0.6";
         return version;
     }
 
@@ -929,4 +931,16 @@ public class DataSet implements Cloneable {
     {
         errors.clear();
     }
+
+    /**
+    	TODO: FIXME /TESTME 
+    	this is a simple implementation of copying data from one to the next. 
+    */
+	public void merge(DataSet ds) {
+		// TODO Auto-generated method stub
+		nodes.addAll(ds.nodes) ;
+		ways.addAll(ds.ways) ;
+        relations.addAll(ds.relations) ;
+        allPrimitives.addAll(ds.allPrimitives) ;
+	}
 }

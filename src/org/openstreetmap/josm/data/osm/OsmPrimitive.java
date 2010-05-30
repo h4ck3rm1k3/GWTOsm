@@ -5,6 +5,7 @@ import static org.openstreetmap.josm.data.osm.I18n.tr;
 
 //import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
@@ -599,9 +600,10 @@ abstract public class OsmPrimitive implements Comparable<OsmPrimitive>, Tagged, 
      */
     public static Collection<String> getUninterestingKeys() {
         if (uninteresting == null) {
-	    //            uninteresting = Main.pref.getCollection("tags.uninteresting",
-            //        Arrays.asList(new String[]{"source", "source_ref", "source:", "note", "comment",
-	    //                            "converted_by", "created_by", "watch", "watch:"}));
+        		uninteresting = new ArrayList< String >();
+        		//new String[]{"source", "source_ref", "source:", "note", "comment","converted_by", "created_by", "watch", "watch:"}); 
+        			//Main.pref.getCollection("tags.uninteresting",
+            //       ));
         }
         return uninteresting;
     }

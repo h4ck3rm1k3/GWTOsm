@@ -22,7 +22,7 @@ import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.junit.client.GWTTestCase;
 
-public class MapPainterTest  {
+public class MapPainterTest  extends GWTTestCase{
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -140,7 +140,7 @@ public class MapPainterTest  {
 
 	public String getModuleName() {
 		// TODO Auto-generated method stub
-		return "TESTER";
+		return "org.openstreetmap.gwt.GWTOSM";
 	}
 
 }
