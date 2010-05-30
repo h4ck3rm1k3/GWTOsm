@@ -525,7 +525,8 @@ public class OsmReader {
 			}
 
 			private double getDouble(Attributes atts, String value) {
-	            return Double.parseDouble(atts.getValue(value));
+				String v = atts.getValue(value);
+				return Double.parseDouble(v);
 	        }
 
 	        private User createUser(String uid, String name) throws Exception {

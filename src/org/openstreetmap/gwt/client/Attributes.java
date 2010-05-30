@@ -20,12 +20,21 @@ public class Attributes {
 	
 	public String getValue(String string) {
 		// TODO Auto-generated method stub
-		com.google.gwt.xml.client.Node i = data.getNamedItem(string);
-		if (i != null)
-		{
-			return i.toString();
-		}
-		return null;
+		return data.getNamedItem(string).getNodeValue();
+		
+//		if (i != null)
+//		{
+//			com.google.gwt.xml.client.Node v = i.getAttributes().getNamedItem("value");
+//			if (v != null)
+//			{
+//				return v.toString();
+//			}
+//			else
+//			{
+//				return i.toString();
+//			}
+//		}
+	//	return null;
 			
 	}
 }
