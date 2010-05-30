@@ -20,7 +20,7 @@ public class GeneralPath extends Path {
 
 	public void lineTo(long x, long y) {
 		// TODO Auto-generated method stub
-		super.moveTo((int)x,(int) y);
+		super.lineTo((int)x,(int) y);
 	}
 
 }
