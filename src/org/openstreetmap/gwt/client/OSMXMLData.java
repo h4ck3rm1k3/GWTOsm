@@ -10,4 +10,7 @@ public interface OSMXMLData extends ClientBundle {
 	@Source("Testdata.osm")
 	  public TextResource osmData();
 
+	@Source("TestdataSmall.osm")
+	  public TextResource osmDataSmall();
+
 }
