@@ -312,7 +312,7 @@ public class OsmReader {
 	                currentPrimitive.put(intern(key), intern(value));
 
 	            } else {
-	                System.out.println(tr("Undefined element ''{0}'' found in input stream. Skipping.", qName));
+	                GWT.log(tr("Undefined element ''{0}'' found in input stream. Skipping.", qName));
 	            }
 	        }
 
@@ -378,14 +378,16 @@ public class OsmReader {
         		
 	        		try {
 	        			//GWT.log(a.node.getNodeType());
-	        			GWT.log(a.node.getNodeName());
+	        			
 	        			String name =a.node.getNodeName();
 	        			if (name.equals("nd"))
 	        			{
+	        				GWT.log("Found Segment:" + a.node.getNodeName());
 	        				parsend(a);
 	        			}
 	        			else if (name .equals("tag"))
 	        			{
+	        				GWT.log("Found Tag:" + a.node.getNodeName());
 	        				parseTags(a);	
 	        			}
 	        			else if (name .equals("#text"))
@@ -588,15 +590,15 @@ public class OsmReader {
 	                    if (version <= 0 && current.getUniqueId() > 0) {
 	                        throwException(tr("Illegal value for attribute ''version'' on OSM primitive with ID {0}. Got {1}.", Long.toString(current.getUniqueId()), versionString));
 	                    } else if (version < 0 && current.getUniqueId() <= 0) {
-	                        System.out.println(tr("WARNING: Normalizing value of attribute ''version'' of element {0} to {2}, API version is ''{3}''. Got {1}.", current.getUniqueId(), version, 0, "0.6"));
+	                        GWT.log(tr("WARNING: Normalizing value of attribute ''version'' of element {0} to {2}, API version is ''{3}''. Got {1}.", current.getUniqueId(), version, 0, "0.6"));
 	                        version = 0;
 	                    }
 	                } else if (ds.getVersion().equals("0.5")) {
 	                    if (version <= 0 && current.getUniqueId() > 0) {
-	                        System.out.println(tr("WARNING: Normalizing value of attribute ''version'' of element {0} to {2}, API version is ''{3}''. Got {1}.", current.getUniqueId(), version, 1, "0.5"));
+	                        GWT.log(tr("WARNING: Normalizing value of attribute ''version'' of element {0} to {2}, API version is ''{3}''. Got {1}.", current.getUniqueId(), version, 1, "0.5"));
 	                        version = 1;
 	                    } else if (version < 0 && current.getUniqueId() <= 0) {
-	                        System.out.println(tr("WARNING: Normalizing value of attribute ''version'' of element {0} to {2}, API version is ''{3}''. Got {1}.", current.getUniqueId(), version, 0, "0.5"));
+	                        GWT.log(tr("WARNING: Normalizing value of attribute ''version'' of element {0} to {2}, API version is ''{3}''. Got {1}.", current.getUniqueId(), version, 0, "0.5"));
 	                        version = 0;
 	                    }
 	                } else {
@@ -610,7 +612,7 @@ public class OsmReader {
 	                    throwException(tr("Missing attribute ''version'' on OSM primitive with ID {0}.", Long.toString(current.getUniqueId())));
 	                } else if (current.getUniqueId() > 0 && ds.getVersion() != null && ds.getVersion().equals("0.5")) {
 	                    // default version in 0.5 files for existing primitives
-	                    System.out.println(tr("WARNING: Normalizing value of attribute ''version'' of element {0} to {2}, API version is ''{3}''. Got {1}.", current.getUniqueId(), version, 1, "0.5"));
+	                    GWT.log(tr("WARNING: Normalizing value of attribute ''version'' of element {0} to {2}, API version is ''{3}''. Got {1}.", current.getUniqueId(), version, 1, "0.5"));
 	                    version= 1;
 	                } else if (current.getUniqueId() <= 0 && ds.getVersion() != null && ds.getVersion().equals("0.5")) {
 	                    // default version in 0.5 files for new primitives, no warning necessary. This is
@@ -645,7 +647,7 @@ public class OsmReader {
 	                } catch(NumberFormatException e) {
 	                    if (current.getUniqueId() <= 0) {
 	                        // for a new primitive we just log a warning
-	                        System.out.println(tr("Illegal value for attribute ''changeset'' on new object {1}. Got {0}. Resetting to 0.", v, current.getUniqueId()));
+	                        GWT.log(tr("Illegal value for attribute ''changeset'' on new object {1}. Got {0}. Resetting to 0.", v, current.getUniqueId()));
 	                        current.setChangesetId(0);
 	                    } else {
 	                        // for an existing primitive this is a problem
@@ -655,7 +657,7 @@ public class OsmReader {
 	                if (current.getChangesetId() <=0) {
 	                    if (current.getUniqueId() <= 0) {
 	                        // for a new primitive we just log a warning
-	                        System.out.println(tr("Illegal value for attribute ''changeset'' on new object {1}. Got {0}. Resetting to 0.", v, current.getUniqueId()));
+	                        GWT.log(tr("Illegal value for attribute ''changeset'' on new object {1}. Got {0}. Resetting to 0.", v, current.getUniqueId()));
 	                        current.setChangesetId(0);
 	                    } else {
 	                        // for an existing primitive this is a problem
@@ -675,7 +677,7 @@ public class OsmReader {
 				return null;
 			}
 
-			private char[] tr(String string, long uniqueId, int version, int i,
+			private String tr(String string, long uniqueId, int version, int i,
 					String string2) {
 				// TODO Auto-generated method stub
 				return null;
