@@ -2,6 +2,7 @@ package org.openstreetmap.gwt.client;
 
 import org.openstreetmap.gwt.shared.FieldVerifier;
 import org.openstreetmap.josm.data.Bounds;
+import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.ProgressMonitor;
 import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
@@ -12,6 +13,8 @@ import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
@@ -136,8 +139,9 @@ public class GWTOSM implements EntryPoint {
 }
 
   private TextBox zoomField ;
- private double dZoom=1;
+ private double dZoom;
 public void onModuleLoad() {
+	dZoom=1;
     final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
     nameField.setText("GWT User");
@@ -183,10 +187,50 @@ public void onModuleLoad() {
     final HTML serverResponseLabel = new HTML();
     VerticalPanel dialogVPanel = new VerticalPanel();
     dialogVPanel.addStyleName("dialogVPanel");
-    dialogVPanel.add(new HTML("<b>Sending name to the server:</b>"));
-    dialogVPanel.add(textToServerLabel);
-    dialogVPanel.add(new HTML("<br><b>Server replies:</b>"));
-    dialogVPanel.add(serverResponseLabel);
+    
+    final TextBox zoomField2 = new TextBox();
+    
+    final TextBox mx = new TextBox();
+    final TextBox my = new TextBox();
+    final TextBox nx = new TextBox();
+    final TextBox ny = new TextBox();
+    mx.setText("" + bounds.getMax().getX());
+    my.setText("" +bounds.getMax().getY());
+    nx.setText("" +bounds.getMin().getX());
+    ny.setText("" +bounds.getMin().getY());
+    
+    ChangeHandler bboxch = new ChangeHandler()
+	{
+		public void onChange(ChangeEvent event)
+		{
+			LatLon min,  max;
+			min= new LatLon (Double.parseDouble(ny.getText()),Double.parseDouble(nx.getText()));
+			max= new LatLon (Double.parseDouble(my.getText()),Double.parseDouble(mx.getText()));
+			bounds = new Bounds (min,max);
+			nc.zoomTo(bounds);
+			dZoom=1;
+			drawmap(dZoom);
+		}
+	};
+	mx.addChangeHandler(bboxch);
+	my.addChangeHandler(bboxch);
+	nx.addChangeHandler(bboxch);
+	ny.addChangeHandler(bboxch);
+	dialogVPanel.add(mx);
+	dialogVPanel.add(my);
+	dialogVPanel.add(nx);
+	dialogVPanel.add(ny);
+	zoomField2.addChangeHandler(new ChangeHandler()
+	{
+		public void onChange(ChangeEvent event)
+		{
+			 dZoom = Double.parseDouble(zoomField2.getText());
+			 drawmap(dZoom);
+		}
+		}
+	);
+    zoomField2.setText("1");
+    dialogVPanel.add(zoomField2);
     dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
 
 
