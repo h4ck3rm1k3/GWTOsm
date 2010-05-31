@@ -20,6 +20,10 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.http.client.Request;
+import com.google.gwt.http.client.RequestBuilder;
+import com.google.gwt.http.client.RequestCallback;
+import com.google.gwt.http.client.Response;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
@@ -95,33 +99,51 @@ public class GWTOSM implements EntryPoint {
 	   }
   }
 
+  public void fetchDataLive()
+  {
+	  RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
+         "http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");  
+
+  
+	  
+	try {
+		RequestCallback rh = new LiveRequestCallback(this);
+		Request r= requestBuilder.sendRequest(null, rh);
+		GWT.log("created:" + r.toString());
+//		@Override
+//		public void onResponseReceived(Request request, Response response) 
+//		{
+//			// TODO Auto-generated method stub
+//		//	GWT.log(Integer.toString(response.getStatusCode()));
+//         //   GWT.log(response.getStatusText());
+//		//	renderXML(response.getText());
+//			
+//		}	      
+	
+	
+    }
+	catch(Exception e)
+	{
+		GWT.log("caught",e);
+		
+	}
+	  
+  }
+  
   public void fetchData()
   {
-	  //RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
-      //"http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");
+	
 	  
 	  //String fakerequest=OSMXMLData.INSTANCE.osmDataSmall().getText();//TODO : this is where we read the static file in, normally we would request this off the web.
 	  
 	  String fakerequest=OSMXMLData.INSTANCE.osmData().getText();
-	renderXML(fakerequest);
+	 renderXML(fakerequest);
 
 	}
 
   
-//  void requestXML()
-//  {
-//try {
-//requestBuilder.sendRequest(null, new RequestCallback() {
-//public void onError(Request request, Throwable exception) {
-//requestFailed(exception);
-//}
-//
-//  public void onResponseReceived(Request request, Response response) {
-//		GWT.log(Integer.toString(response.getStatusCode()));
-//		GWT.log(response.getStatusText());
-//        renderXML(response.getText());
-//      }
-	private void renderXML(String text) {
+//  
+	public void renderXML(String text) {
 		try {
 			ProgressMonitor pm=new ProgressMonitor();
 			DataSet ds=	OsmReader.parseDataSet(text, pm);
@@ -188,6 +210,8 @@ public void onModuleLoad() {
     VerticalPanel dialogVPanel = new VerticalPanel();
     dialogVPanel.addStyleName("dialogVPanel");
     
+    final Button getButton = new Button("get osm data");
+    
     final TextBox zoomField2 = new TextBox();
     
     final TextBox mx = new TextBox();
@@ -240,6 +264,7 @@ public void onModuleLoad() {
     /*drawmap();*/
 
     dialogVPanel.add(closeButton);
+    dialogVPanel.add(getButton);
     dialogBox.setWidget(dialogVPanel);
 
     // Add a handler to close the DialogBox
@@ -251,6 +276,14 @@ public void onModuleLoad() {
       }
     });
 
+    
+    getButton.addClickHandler(new ClickHandler() {
+        public void onClick(ClickEvent event) {
+       //   dialogBox.hide();
+        	fetchDataLive();
+        }
+      });
+    
     // Create a handler for the sendButton and nameField
     class MyHandler implements ClickHandler, KeyUpHandler {
       /**
@@ -316,4 +349,10 @@ public void onModuleLoad() {
     sendButton.addClickHandler(handler);
     nameField.addKeyUpHandler(handler);
   }
+
+
+public void drawmap() {
+	// TODO Auto-generated method stub
+	drawmap(dZoom);
+}
 }
