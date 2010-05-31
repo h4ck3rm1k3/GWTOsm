@@ -1,65 +1,30 @@
 package org.openstreetmap.gwt.client;
 
 import org.openstreetmap.gwt.shared.FieldVerifier;
+import org.openstreetmap.josm.data.Bounds;
+import org.openstreetmap.josm.data.osm.DataSet;
+import org.openstreetmap.josm.data.osm.ProgressMonitor;
+import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2DSimple;
+import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
+import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
+import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
-
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.http.client.Request;
-import com.google.gwt.http.client.RequestBuilder;
-import com.google.gwt.http.client.RequestCallback;
-import com.google.gwt.http.client.Response;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.ButtonBase;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.xml.client.DOMException;
-import com.google.gwt.xml.client.Document;
-import com.google.gwt.xml.client.Element;
-import com.google.gwt.xml.client.Node;
-import com.google.gwt.xml.client.NodeList;
-import com.google.gwt.xml.client.XMLParser;
-//import com.google.gwt.widgetideas.graphics.client.GWTCanvas;
-import org.vaadin.gwtgraphics.client.DrawingArea;
-import org.vaadin.gwtgraphics.client.animation.Animate;
-import org.vaadin.gwtgraphics.client.shape.Circle;
-import org.vaadin.gwtgraphics.client.shape.Path;
-import org.vaadin.gwtgraphics.client.shape.Text;
-import org.vaadin.gwtgraphics.client.shape.Rectangle;
-import org.vaadin.gwtgraphics.client.shape.path.LineTo;
-
-
-
-import org.openstreetmap.josm.data.Bounds;
-import org.openstreetmap.josm.data.coor.LatLon;
-import org.openstreetmap.josm.data.osm.DataSet;
-import org.openstreetmap.josm.data.osm.Main;
-import org.openstreetmap.josm.data.osm.ProgressMonitor;
-//import org.openstreetmap.josm.data.osm.Node;
-import org.openstreetmap.josm.data.osm.OsmPrimitive;
-import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
-import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
-import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2DSimple;
-import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
-import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
-import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
-
-import com.google.gwt.http.client.Request;
-import com.google.gwt.http.client.RequestBuilder;
-import com.google.gwt.http.client.RequestCallback;
-import com.google.gwt.http.client.RequestException;
-import com.google.gwt.http.client.Response;
-import com.google.gwt.http.client.URL;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -88,6 +53,18 @@ public class GWTOSM implements EntryPoint {
    * This is the entry point method.
  * @param zoom 
    */
+  	private INavigatableComponent nc ;
+    private Bounds bounds;
+    void preparenc()
+    {
+    	nc = new NavigatableComponent(data );
+		bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
+	   nc.zoomTo(bounds);
+	   GWT.log("going to fetch data");
+	   fetchData();
+	   GWT.log("after fetch data");
+    }
+    
     
   public void drawmap(double zoom) {
 
@@ -100,42 +77,14 @@ public class GWTOSM implements EntryPoint {
        try {     
     	   
     	  // data = new DataSet();
-    	   INavigatableComponent nc = new NavigatableComponent(data );
-    		Bounds bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
-    	   nc.zoomTo(bounds);
+    	   GWT.log("going to render at zoom" + zoom );
     	   nc.zoomToFactor(zoom);
     	   painter=new MapPaintVisitor (nc);
-	   
-	   fetchData();
-//		OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(1,2));
-//		primitive.setOsmId(20, 1);
-//		data.addPrimitive(primitive );
-//
-//		OsmPrimitive primitive2 = new org.openstreetmap.josm.data.osm.Node(new LatLon(42,22));
-//		primitive2.setOsmId(2, 1);
-//		data.addPrimitive(primitive2 );
-//
-//		OsmPrimitive primitive3 = new org.openstreetmap.josm.data.osm.Node(new LatLon(5.1,5.2));
-//		primitive3.setOsmId(3, 1);
-//		data.addPrimitive(primitive3 );
-//
-//		OsmPrimitive primitive4 = new org.openstreetmap.josm.data.osm.Node(new LatLon(10,23));
-//		primitive4.setOsmId(4, 1);
-//		data.addPrimitive(primitive4 );
-
-
-	 	//x: -180.0 -> 180.0, y: -90.0 -> 90.0
-	 	
-	 	
-	 	painter.setGraphics(canvas);
-	 	 boolean virtual=false;
-	 	// nc.zoomTo(bounds);
-	 	// nc.zoomToFactor(1/10);
-	 	//nc.zoomTo(new LatLon(42.0577162,19.5020608));
-	 //	nc.setScale(2000);
-		 	//Bounds bounds= new Bounds(-180,-90, 180,90);
-	 //	Bounds bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
-	 	painter.visitAll(data, virtual, bounds);
+    	   canvas.clear();
+    	   painter.setGraphics(canvas);
+    	   boolean virtual=false;
+    	 //  Bounds bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
+    	   painter.visitAll(data, virtual, bounds);
        }
        catch (Exception e)
 	   {
@@ -152,25 +101,24 @@ public class GWTOSM implements EntryPoint {
 	  
 	  String fakerequest=OSMXMLData.INSTANCE.osmData().getText();
 	renderXML(fakerequest);
-//  try {
-//  //  requestBuilder.sendRequest(null, new RequestCallback() {
-//      public void onError(Request request, Throwable exception) {
-//        requestFailed(exception);
-//      }
-//     private void requestFailed(Throwable exception) {
-//		// TODO Auto-generated method stub
-//		
-	}
-	public void onResponseReceived(Request request, Response response) {
-		GWT.log(Integer.toString(response.getStatusCode()));
-		GWT.log(response.getStatusText());
-        renderXML(response.getText());
-      }
-	private void renderXML(String text) {
-		// TODO Auto-generated method stub
-		//data
-		// GWT.log("got this text" + text);
 
+	}
+
+  
+//  void requestXML()
+//  {
+//try {
+//requestBuilder.sendRequest(null, new RequestCallback() {
+//public void onError(Request request, Throwable exception) {
+//requestFailed(exception);
+//}
+//
+//  public void onResponseReceived(Request request, Response response) {
+//		GWT.log(Integer.toString(response.getStatusCode()));
+//		GWT.log(response.getStatusText());
+//        renderXML(response.getText());
+//      }
+	private void renderXML(String text) {
 		try {
 			ProgressMonitor pm=new ProgressMonitor();
 			DataSet ds=	OsmReader.parseDataSet(text, pm);
@@ -179,65 +127,16 @@ public class GWTOSM implements EntryPoint {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-//		 try {
-//			    // parse the XML document into a DOM
-//			    Document messageDom = XMLParser.parse(text);
-//
-//			    NodeList nodes = messageDom.getElementsByTagName("node");
-//			    
-//			    for (int i =0; i < nodes.getLength(); i++)
-//			    {
-//			    	Node node=nodes.item(i);
-//			    	String lat = ((Element)node).getAttribute("lat");
-//			    	String lon = ((Element)node).getAttribute("lon");
-//			    	String id = ((Element)node).getAttribute("id");
-//			    	String version = ((Element)node).getAttribute("version");
-//			    	//GWT.log(lat);
-//			    	double ilon=Double.parseDouble(lon);
-//			    	double ilat=Double.parseDouble(lat);
-//					int iid=Integer.parseInt(id);
-//					int iversion=Integer.parseInt(version);
-//					OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(new LatLon(ilat,ilon));
-//			    	primitive .setOsmId(iid, iversion);
-//			    	
-//					data.addPrimitive(primitive );
-//			    }
-//			    
-//		 }	
-//		 catch (DOMException e) {
-//			    //Window.alert("Could not parse XML document.");
-//			 GWT.log("Could not parse XML document.");
-//			  }
-//		
-//			  catch (Exception e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//					//requestFailed(e);
-//				}
-//
 	}
 	
-    //});
- // }
-//  catch (RequestException e) {
-//	// TODO Auto-generated catch block
-//	e.printStackTrace();
-//	requestFailed(e);
-//}
-//  catch (Exception e) {
-//		// TODO Auto-generated catch block
-//		e.printStackTrace();
-//		//requestFailed(e);
-//	}
- // }
-  private void requestFailed(com.google.gwt.http.client.RequestException e) {
-	// TODO Auto-generated method stub
+  
+  private void requestFailed(Throwable exception) {
+
 	
 }
 
   private TextBox zoomField ;
-
+ private double dZoom=1;
 public void onModuleLoad() {
     final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
@@ -245,14 +144,14 @@ public void onModuleLoad() {
     final Label errorLabel = new Label();
     
     zoomField = new TextBox();
-    zoomField.setText("zoom");
+    zoomField.setText("1");
 
     try
 	{
-	    LatLon pos = new LatLon(1, 2);
-	    OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(pos );
-	    data.addPrimitive(primitive);
-	    
+//	    LatLon pos = new LatLon(1, 2);
+//	    OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(pos );
+//	    data.addPrimitive(primitive);
+	    preparenc();
 	  
 	}
     catch (Exception e)
@@ -338,6 +237,8 @@ public void onModuleLoad() {
           return;
         }
         
+        dZoom = Double.parseDouble(zoomField.getText());
+        
         // Then, we send the input to the server.
         sendButton.setEnabled(false);
         textToServerLabel.setText(textToServer);
@@ -354,11 +255,11 @@ public void onModuleLoad() {
 
           public void onSuccess(String result) {
             dialogBox.setText("Remote Procedure Call");
-            nameField.getText();
-            double zoom = Double.parseDouble(zoomField.getText());
+        ;
             serverResponseLabel.removeStyleName("serverResponseLabelError");
             serverResponseLabel.setHTML(result);
-            drawmap(zoom);
+            
+            drawmap(dZoom);
             dialogBox.center();
             closeButton.setFocus(true);
           }

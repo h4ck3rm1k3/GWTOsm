@@ -77,7 +77,11 @@ public class GWTGraphics2D //extends Graphics2D
 	// 
     }
 
-    
+    public void clear()
+    {
+    	canvas.clear();
+    	
+    }
 
 	public void drawString(String t, int x, int y) {
 	    Text o = new Text( x, y,t);    
@@ -134,7 +138,7 @@ public class GWTGraphics2D //extends Graphics2D
 	 */
 	public void setStroke(BasicStroke basicStroke) {
 		// TODO Auto-generated method stub
-		 GWT.log( "TODO: set stroke " + basicStroke .toString());
+		// GWT.log( "TODO: set stroke " + basicStroke .toString());
 	}
 
 

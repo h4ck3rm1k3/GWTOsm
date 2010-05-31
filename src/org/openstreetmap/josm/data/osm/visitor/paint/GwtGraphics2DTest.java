@@ -143,5 +143,10 @@ public class GwtGraphics2DTest implements IGwtGraphics2DSimple {
 		debug();
 		return null;
 	}
+	@Override
+	public void clear() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
