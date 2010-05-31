@@ -37,6 +37,9 @@ import org.vaadin.gwtgraphics.client.shape.Path;
 import org.vaadin.gwtgraphics.client.shape.Text;
 import org.vaadin.gwtgraphics.client.shape.Rectangle;
 import org.vaadin.gwtgraphics.client.shape.path.LineTo;
+
+
+
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
@@ -83,9 +86,10 @@ public class GWTOSM implements EntryPoint {
 
   /**
    * This is the entry point method.
+ * @param zoom 
    */
     
-  public void drawmap() {
+  public void drawmap(double zoom) {
 
 //      String on = "Integer.toString(orderNumber)";
 //      int strlen = on.length();
@@ -99,6 +103,7 @@ public class GWTOSM implements EntryPoint {
     	   INavigatableComponent nc = new NavigatableComponent(data );
     		Bounds bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
     	   nc.zoomTo(bounds);
+    	   nc.zoomToFactor(zoom);
     	   painter=new MapPaintVisitor (nc);
 	   
 	   fetchData();
@@ -124,7 +129,7 @@ public class GWTOSM implements EntryPoint {
 	 	
 	 	painter.setGraphics(canvas);
 	 	 boolean virtual=false;
-	 	 nc.zoomTo(bounds);
+	 	// nc.zoomTo(bounds);
 	 	// nc.zoomToFactor(1/10);
 	 	//nc.zoomTo(new LatLon(42.0577162,19.5020608));
 	 //	nc.setScale(2000);
@@ -231,7 +236,7 @@ public class GWTOSM implements EntryPoint {
 	
 }
 
-
+  private TextBox zoomField ;
 
 public void onModuleLoad() {
     final Button sendButton = new Button("Send");
@@ -239,7 +244,7 @@ public void onModuleLoad() {
     nameField.setText("GWT User");
     final Label errorLabel = new Label();
     
-    final TextBox zoomField = new TextBox();
+    zoomField = new TextBox();
     zoomField.setText("zoom");
 
     try
@@ -289,7 +294,7 @@ public void onModuleLoad() {
     canvas = new GWTGraphics2D();
     
     dialogVPanel.add(canvas.getDrawingArea());
-    drawmap();
+    /*drawmap();*/
 
     dialogVPanel.add(closeButton);
     dialogBox.setWidget(dialogVPanel);
@@ -349,8 +354,11 @@ public void onModuleLoad() {
 
           public void onSuccess(String result) {
             dialogBox.setText("Remote Procedure Call");
+            nameField.getText();
+            double zoom = Double.parseDouble(zoomField.getText());
             serverResponseLabel.removeStyleName("serverResponseLabelError");
             serverResponseLabel.setHTML(result);
+            drawmap(zoom);
             dialogBox.center();
             closeButton.setFocus(true);
           }
