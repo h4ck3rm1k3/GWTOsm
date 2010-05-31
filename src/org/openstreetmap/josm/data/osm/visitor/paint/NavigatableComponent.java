@@ -151,7 +151,7 @@ public class NavigatableComponent implements INavigatableComponent {
             return new Point();
         double x = (p.east()-center.east())/scale + getWidth()/2;
         double y = (center.north()-p.north())/scale + getHeight()/2;
-        GWT.log("got x:" + x +" y:" + y);
+       // GWT.log("got x:" + x +" y:" + y);
         return new Point((int)x,(int)y);
 	}
 

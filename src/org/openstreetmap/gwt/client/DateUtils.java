@@ -6,7 +6,9 @@ public class DateUtils {
 
 	public static Date fromString(String time) {
 		// TODO Auto-generated method stub
-		return new Date(time);
+		Date d = new Date();
+		//TODO parse time
+		return d;
 	}
 
 }

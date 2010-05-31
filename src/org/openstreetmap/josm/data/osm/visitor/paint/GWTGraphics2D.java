@@ -81,7 +81,7 @@ public class GWTGraphics2D //extends Graphics2D
 
 	public void drawString(String t, int x, int y) {
 	    Text o = new Text( x, y,t);    
-	    GWT.log(o .toString());
+	    GWT.log("drawRect2" +o .toString());
 	    canvas.add(o);
 	}
 
@@ -89,7 +89,7 @@ public class GWTGraphics2D //extends Graphics2D
 	public void drawString(String t, float x, float y) {
 		// TODO Auto-generated method stub
 	    Text o = new Text((int)x, (int)y,t); 
-	    GWT.log(o .toString());
+	    GWT.log("drawString" +o .toString());
 	    canvas.add(o);
 		
 	}
@@ -124,7 +124,7 @@ public class GWTGraphics2D //extends Graphics2D
 		// TODO Auto-generated method stub
 		
 	    Rectangle o = new Rectangle( l,m,k,l2);    
-	    GWT.log(o .toString());
+	   // GWT.log("drawRect" + o .toString()); // called many times
 	    canvas.add(o);
 	}
 
@@ -153,7 +153,7 @@ public class GWTGraphics2D //extends Graphics2D
 	 */
 	public void fillRect(long l, long m, int size, int size2) {
 		Rectangle o = new Rectangle( l,m,size,size2);
-		GWT.log(o .toString());
+		GWT.log("fillRect" + o .toString());
 	    canvas.add(o);
 		
 	}
@@ -164,7 +164,7 @@ public class GWTGraphics2D //extends Graphics2D
 	public void drawString(String t, long x, long y) {
 		GWT.log( "draw string" + t+ x + ":"+ y );
 		Text o = new Text((int)x, (int)y,t); 
-		GWT.log(o .toString());
+		GWT.log("draw String:" +o .toString());
 		canvas.add(o);
 	}
 

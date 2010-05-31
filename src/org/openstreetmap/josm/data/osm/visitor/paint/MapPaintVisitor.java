@@ -199,7 +199,7 @@ public class MapPaintVisitor  {
         {
         	if (wayStyle != null)
         	{
-        	GWT.log("unknow style, just drawing!");
+        	GWT.log("unknow style, just drawing!" + w.toString());
         	wayStyle.paintPrimitive(w, paintSettings, painter, data.isSelected(w));
         	}
         	else

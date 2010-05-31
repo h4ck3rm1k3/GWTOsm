@@ -180,7 +180,7 @@ public class OsmReader {
 	                }
 	                } catch (Exception e)
 	                {
-	                	GWT.log(e.toString());
+	                	GWT.log("Version Exception",e);
 	                	
 	                }
 	                // save generator attribute for later use when creating DataSource objects
@@ -382,12 +382,12 @@ public class OsmReader {
 	        			String name =a.node.getNodeName();
 	        			if (name.equals("nd"))
 	        			{
-	        				GWT.log("Found Segment:" + a.node.getNodeName());
+	        				//GWT.log("Found Segment:" + a.node.getNodeName());
 	        				parsend(a);
 	        			}
 	        			else if (name .equals("tag"))
 	        			{
-	        				GWT.log("Found Tag:" + a.node.getNodeName());
+	        				//GWT.log("Found Tag:" + a.node.getNodeName());
 	        				parseTags(a);	
 	        			}
 	        			else if (name .equals("#text"))
@@ -398,15 +398,12 @@ public class OsmReader {
 	        			{
 	        				GWT.log("unkinw type" + a.node.getNodeName());
 	        				GWT.log("unkinw type" + a.node.getParentNode().getNodeName());
-	        			}
-	        			
-	        			
-	        			
+	        			}      			
 	        			
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-						GWT.log(e.toString());
+						GWT.log("Caught Exception",e);
 					}					
 					
 				
@@ -561,7 +558,8 @@ public class OsmReader {
 	            			current.setTimestamp(DateUtils.fromString(time));
 	            		}catch(Exception e)
 	            		{
-	            			GWT.log(e.toString());
+	            			//TODO: handle the timestamps
+	            			//GWT.log(e.toString());
 	            			
 	            		}
 	            }

@@ -47,7 +47,7 @@ public class CachedLatLon extends LatLon {
         {
             proj = Main.proj;
             eastNorth = proj.latlon2eastNorth(this);
-            GWT.log(this.toString() + "=>"+ eastNorth.toString());
+           // GWT.log(this.toString() + "=>"+ eastNorth.toString());
         }
         return eastNorth;
     }

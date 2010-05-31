@@ -7,13 +7,16 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.openstreetmap.josm.data.osm.DataSet;
 
 import com.google.gwt.junit.client.GWTTestCase;
 
 public class DataSetTest extends GWTTestCase{
 
+	DataSet data;
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		//data=new DataSet();
 	}
 
 	@AfterClass

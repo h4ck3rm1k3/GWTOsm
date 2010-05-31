@@ -20,7 +20,7 @@ import com.google.gwt.core.client.GWT;
  */
 public class QuadBuckets implements Collection
 {
-    private static boolean debug = true;
+    private static boolean debug = false;
     private static final boolean consistency_testing = false;
     /*
      * Functions prefixed with __ need locking before
@@ -34,7 +34,7 @@ public class QuadBuckets implements Collection
     }
     public static void out(String s)
     {
-        GWT.log(s);
+       // GWT.log(s);
     }
     // periodic output
     long last_out = -1;
@@ -818,7 +818,7 @@ public class QuadBuckets implements Collection
 //        for (int i=0; i<indent; i++) {
 //            GWT.log(' ');
 //        }
-    	GWT.log(msg.toString());
+    	//GWT.log(msg.toString());
     }
 	
 	@Override
