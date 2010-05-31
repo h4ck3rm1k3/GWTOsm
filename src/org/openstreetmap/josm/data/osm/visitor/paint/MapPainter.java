@@ -32,7 +32,7 @@ import org.openstreetmap.josm.data.osm.Way;
 
 
 public class MapPainter {
-    private final IGwtGraphics2D g;
+    private final IGwtGraphics2DSimple g;
     private final INavigatableComponent nc;
     private final boolean inactive;
 
@@ -64,7 +64,7 @@ public class MapPainter {
 	private int mappaint_fillalpha=50;
 	//private Collection<String> mappaint_nameOrder= Arrays.asList(names);
 
-    public MapPainter(MapPaintSettings settings, IGwtGraphics2D g2, boolean inactive, INavigatableComponent nc2, boolean virtual, double dist, double circum) {
+    public MapPainter(MapPaintSettings settings, IGwtGraphics2DSimple g2, boolean inactive, INavigatableComponent nc2, boolean virtual, double dist, double circum) {
         this.g = g2;
         this.inactive = inactive;
         this.nc = nc2;

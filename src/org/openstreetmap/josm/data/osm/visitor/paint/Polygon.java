@@ -1,6 +1,8 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-public class Polygon {
+import org.vaadin.gwtgraphics.client.VectorObject;
+
+public class Polygon extends VectorObject{
 
 	//public List<int> ypoints;
 	//public List<int> xpoints;
@@ -34,6 +36,12 @@ public class Polygon {
 	public boolean contains(int i, int j) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	protected Class<? extends VectorObject> getType() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

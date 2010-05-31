@@ -46,4 +46,9 @@ public class ImageIcon {
 		return null;
 	}
 
+	public void paintIcon(Component comp, IGwtGraphics2DSimple g, long l, long m) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

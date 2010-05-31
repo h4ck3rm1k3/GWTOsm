@@ -37,7 +37,6 @@ import org.vaadin.gwtgraphics.client.shape.Path;
 import org.vaadin.gwtgraphics.client.shape.Text;
 import org.vaadin.gwtgraphics.client.shape.Rectangle;
 import org.vaadin.gwtgraphics.client.shape.path.LineTo;
-import org.openstreetmap.gwt.client.GWT2dAdaptor;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
@@ -47,6 +46,7 @@ import org.openstreetmap.josm.data.osm.ProgressMonitor;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
 import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2DSimple;
 import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
 import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
@@ -65,7 +65,7 @@ public class GWTOSM implements EntryPoint {
 
     // the canvas!
     //    private GWTCanvas canvas;
-    private IGwtGraphics2D canvas;
+    private IGwtGraphics2DSimple canvas;
     MapPaintVisitor painter;
   /**
    * The message displayed to the user when the server cannot be reached or
@@ -286,8 +286,9 @@ public void onModuleLoad() {
     dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
 
 
-    canvas = new GWTGraphics2D(dialogVPanel);
+    canvas = new GWTGraphics2D();
     
+    dialogVPanel.add(canvas.getDrawingArea());
     drawmap();
 
     dialogVPanel.add(closeButton);

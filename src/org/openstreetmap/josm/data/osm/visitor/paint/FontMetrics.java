@@ -9,4 +9,9 @@ public class FontMetrics {
 		return null;
 	}
 
+	public Rectangle2D getStringBounds(String name, IGwtGraphics2DSimple g) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

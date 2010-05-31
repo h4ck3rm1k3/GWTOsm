@@ -50,7 +50,9 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
 
+import org.openstreetmap.gwt.client.GWTGraphics2DTest;
 import org.openstreetmap.josm.data.osm.Color;
 //import com.google.gwt.widgetideas.graphics.client.GWTCanvas;
 import org.vaadin.gwtgraphics.client.DrawingArea;
@@ -65,78 +67,18 @@ import org.vaadin.gwtgraphics.client.shape.Text;
 import org.vaadin.gwtgraphics.client.shape.path.LineTo;
 
 public class GWTGraphics2D //extends Graphics2D
- implements IGwtGraphics2D
+ implements IGwtGraphics2DSimple
 {
 
     private DrawingArea canvas;
     
-    public GWTGraphics2D(VerticalPanel parent) {
+    public GWTGraphics2D() {
 	canvas = new DrawingArea(400,400);
-	parent.add(canvas);   
+	// 
     }
 
-
-  /* (non-Javadoc)
- * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#addRenderingHints(java.util.Map)
- */
     
-	
-	public void addRenderingHints(Map<String, String> arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#clip(org.vaadin.gwtgraphics.client.Shape)
-	 */
-	public void clip(Shape arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-//	public void draw(Shape arg0) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-	
-//	public void drawGlyphVector(GlyphVector arg0, float arg1, float arg2) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-	
-//	public boolean drawImage(Image arg0, AffineTransform arg1,
-//			ImageObserver arg2) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-
-	
-//	public void drawImage(BufferedImage arg0, BufferedImageOp arg1, int arg2,
-//			int arg3) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-	
-//	public void drawRenderableImage(RenderableImage arg0, AffineTransform arg1) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-//
-//	
-//	public void drawRenderedImage(RenderedImage arg0, AffineTransform arg1) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawString(java.lang.String, int, int)
-	 */
 	public void drawString(String t, int x, int y) {
 	    Text o = new Text( x, y,t);    
 	    GWT.log(o .toString());
@@ -144,9 +86,6 @@ public class GWTGraphics2D //extends Graphics2D
 	}
 
 	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawString(java.lang.String, float, float)
-	 */
 	public void drawString(String t, float x, float y) {
 		// TODO Auto-generated method stub
 	    Text o = new Text((int)x, (int)y,t); 
@@ -156,552 +95,27 @@ public class GWTGraphics2D //extends Graphics2D
 	}
 
 	
-//	public void drawString(AttributedCharacterIterator t, int x, int y) {
-//		// TODO Auto-generated method stub
-//	    Text o = new Text(x, y,t.toString());    
-//	    canvas.add(o);
-//	}
-//
-//	
-//	public void drawString(AttributedCharacterIterator t, float x,float y) {
-//		// TODO Auto-generated method stub
-//	    Text o = new Text((int)x, (int)y,t.toString());    
-//	    canvas.add(o);		
-//	}
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fill(org.vaadin.gwtgraphics.client.Shape)
-	 */
 	public void fill(Shape arg0) {
 		// TODO Auto-generated method stub
-		
+		canvas.add(arg0);
 	}
 
 	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#getBackground()
-	 */
-	public Color getBackground() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#getComposite()
-	 */
-	public Composite getComposite() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-//	public GraphicsConfiguration getDeviceConfiguration() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	
-//	public FontRenderContext getFontRenderContext() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	
-//	public Paint getPaint() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	
-//	public Object getRenderingHint(Key arg0) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	
-//	public RenderingHints getRenderingHints() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	
-//	public Stroke getStroke() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	
-//	public AffineTransform getTransform() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#hit(org.openstreetmap.josm.data.osm.visitor.paint.Rectangle, org.vaadin.gwtgraphics.client.Shape, boolean)
-	 */
-	public boolean hit(Rectangle arg0, Shape arg1, boolean arg2) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#rotate(double)
-	 */
-	public void rotate(double arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#rotate(double, double, double)
-	 */
-	public void rotate(double arg0, double arg1, double arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#scale(double, double)
-	 */
-	public void scale(double arg0, double arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#setBackground(org.openstreetmap.josm.data.osm.Color)
-	 */
-	public void setBackground(Color arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#setComposite(com.google.gwt.user.client.ui.Composite)
-	 */
-	public void setComposite(Composite arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-//	public void setPaint(Paint arg0) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-	
-//	public void setRenderingHint(Key arg0, Object arg1) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#setRenderingHints(java.util.Map)
-	 */
-	public void setRenderingHints(Map<?, ?> arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-//	
-//	public void setStroke(Stroke arg0) {
-//		// TODO Auto-generated method stub
-//		
-
-	
-//	public void setTransform(AffineTransform arg0) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#shear(double, double)
-	 */
-	public void shear(double arg0, double arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-//	public void transform(AffineTransform arg0) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#translate(int, int)
-	 */
-	public void translate(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#translate(double, double)
-	 */
-	public void translate(double arg0, double arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#clearRect(int, int, int, int)
-	 */
-	public void clearRect(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#clipRect(int, int, int, int)
-	 */
-	public void clipRect(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#copyArea(int, int, int, int, int, int)
-	 */
-	public void copyArea(int arg0, int arg1, int arg2, int arg3, int arg4,
-			int arg5) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-//	public Graphics create() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#dispose()
-	 */
-	public void dispose() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawArc(int, int, int, int, int, int)
-	 */
-	public void drawArc(int arg0, int arg1, int arg2, int arg3, int arg4,
-			int arg5) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-//	public boolean drawImage(Image arg0, int arg1, int arg2, ImageObserver arg3) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-
-//	
-//	public boolean drawImage(Image arg0, int arg1, int arg2, Color arg3,
-//			ImageObserver arg4) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-
-	
-//	public boolean drawImage(Image arg0, int arg1, int arg2, int arg3,
-//			int arg4, ImageObserver arg5) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-
-	
-//	public boolean drawImage(Image arg0, int arg1, int arg2, int arg3,
-//			int arg4, Color arg5, ImageObserver arg6) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-//
-//	
-//	public boolean drawImage(Image arg0, int arg1, int arg2, int arg3,
-//			int arg4, int arg5, int arg6, int arg7, int arg8, ImageObserver arg9) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-
-	
-//	public boolean drawImage(Image arg0, int arg1, int arg2, int arg3,
-//			int arg4, int arg5, int arg6, int arg7, int arg8, Color arg9,
-//			ImageObserver arg10) {
-//		// TODO Auto-generated method stub
-//		return false;
-//	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawLine(int, int, int, int)
-	 */
-	public void drawLine(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawOval(int, int, int, int)
-	 */
-	public void drawOval(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawPolygon(int[], int[], int)
-	 */
-	public void drawPolygon(int[] arg0, int[] arg1, int arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawPolyline(int[], int[], int)
-	 */
-	public void drawPolyline(int[] arg0, int[] arg1, int arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawRoundRect(int, int, int, int, int, int)
-	 */
-	public void drawRoundRect(int arg0, int arg1, int arg2, int arg3, int arg4,
-			int arg5) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fillArc(int, int, int, int, int, int)
-	 */
-	public void fillArc(int arg0, int arg1, int arg2, int arg3, int arg4,
-			int arg5) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fillOval(int, int, int, int)
-	 */
-	public void fillOval(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fillPolygon(int[], int[], int)
-	 */
-	public void fillPolygon(int[] arg0, int[] arg1, int arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fillRect(int, int, int, int)
-	 */
-	public void fillRect(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fillRoundRect(int, int, int, int, int, int)
-	 */
-	public void fillRoundRect(int arg0, int arg1, int arg2, int arg3, int arg4,
-			int arg5) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#getClip()
-	 */
-	public Shape getClip() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#getClipBounds()
-	 */
-	public Rectangle getClipBounds() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#getColor()
-	 */
-	public Color getColor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	
-//	public Font getFont() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-//
-//	
-//	public FontMetrics getFontMetrics(Font arg0) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#setClip(org.vaadin.gwtgraphics.client.Shape)
-	 */
-	public void setClip(Shape arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#setClip(int, int, int, int)
-	 */
-	public void setClip(int arg0, int arg1, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#setColor(org.openstreetmap.josm.data.osm.Color)
-	 */
-	public void setColor(Color arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-//	public void setFont(Font arg0) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#setPaintMode()
-	 */
-	public void setPaintMode() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#setXORMode(org.openstreetmap.josm.data.osm.Color)
-	 */
-	public void setXORMode(Color arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-//	public Graphics g() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawRect(int, int, int, int)
-	 */
-	public void drawRect(int i, int j, int k, int l) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-//	public void setRenderingHint(Key keyAntialiasing, Object object) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#create()
-	 */
-	public IGwtGraphics2D create() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	
-//
-//	public void setRenderingHint(Key keyAntialiasing, Object object) {
-//		// TODO Auto-generated method stub
-//		
-//	}
-
-
 	/* (non-Javadoc)
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#draw(org.vaadin.gwtgraphics.client.Shape)
 	 */
 	public void draw(Shape createStrokedShape) {
 		// TODO Auto-generated method stub
-		
+		canvas.add(createStrokedShape);
 	}
-
-
-
-
-
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#getFont()
-	 */
-	public Font getFont() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 	/* (non-Javadoc)
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#setFont(org.openstreetmap.josm.data.osm.visitor.paint.Font)
 	 */
 	public void setFont(Font orderFont) {
 		// TODO Auto-generated method stub
-		
+		 GWT.log( "TODO: set font " + orderFont .toString());
 	}
-
 
 	/* (non-Javadoc)
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawRect(long, long, int, int)
@@ -720,7 +134,7 @@ public class GWTGraphics2D //extends Graphics2D
 	 */
 	public void setStroke(BasicStroke basicStroke) {
 		// TODO Auto-generated method stub
-		
+		 GWT.log( "TODO: set stroke " + basicStroke .toString());
 	}
 
 
@@ -729,12 +143,7 @@ public class GWTGraphics2D //extends Graphics2D
 	 */
 	public void draw(
 			org.openstreetmap.josm.data.osm.visitor.paint.GeneralPath path) {
-		
-		
-		//VectorObject path2= new Path(0, 0);
-		
-		//path.
-		// TODO Auto-generated method stub
+	
 		canvas.add(path);
 	};
 
@@ -751,47 +160,75 @@ public class GWTGraphics2D //extends Graphics2D
 
 
 
+	@Override
+	public void drawString(String t, long x, long y) {
+		GWT.log( "draw string" + t+ x + ":"+ y );
+		Text o = new Text((int)x, (int)y,t); 
+		GWT.log(o .toString());
+		canvas.add(o);
+	}
+
+	@Override
+	public void fillPolygon(Polygon polygon) {
+			canvas.add(polygon);
+	}
 
 
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#getFontMetrics(org.openstreetmap.josm.data.osm.visitor.paint.Font)
-	 */
+
+	@Override
+	public IGwtGraphics2DSimple g() {
+		// TODO Auto-generated method stub
+		GWT.log( "get g" );
+		return null;
+	}
+
+
+
+	@Override
+	public Rectangle getClipBounds() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public Font getFont() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
 	public FontMetrics getFontMetrics(Font orderFont) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fillPolygon(org.openstreetmap.josm.data.osm.visitor.paint.Polygon)
-	 */
-	public void fillPolygon(Polygon polygon) {
+
+	@Override
+	public void setColor(Color color) {
 		// TODO Auto-generated method stub
 		
 	}
 
 
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#g()
-	 */
-	public IGwtGraphics2D g() {
+
+	@Override
+	public Widget getDrawingArea() {
 		// TODO Auto-generated method stub
-		return null;
+		return canvas;
 	}
 
-
-	/* (non-Javadoc)
-	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawOval(long, long, int, int)
-	 */
-	public void drawOval(long l, long m, int arg2, int arg3) {
-		// TODO Auto-generated method stub
-		
-	}
-
-//
-//	public void fillPolygon(Polygon polygon) {
-//		// TODO Auto-generated method stub
-//		
-//	}
 
 }

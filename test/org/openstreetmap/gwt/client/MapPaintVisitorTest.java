@@ -14,6 +14,7 @@ import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
 import org.openstreetmap.josm.data.osm.visitor.paint.GwtGraphics2DTest;
 import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
+import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2DSimple;
 import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
 import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
@@ -108,7 +109,7 @@ public class MapPaintVisitorTest extends GWTTestCase{
 	 public void drawmap() {
 	      
 	       try {     
-	    	   IGwtGraphics2D g=new GwtGraphics2DTest();
+	    	   IGwtGraphics2DSimple g=new GwtGraphics2DTest();
 	    	   DataSet data = new DataSet();
 	    	   INavigatableComponent nc = new NavigatableComponent(data );
 	    	   MapPaintVisitor painter = new MapPaintVisitor (nc);
@@ -142,7 +143,7 @@ public class MapPaintVisitorTest extends GWTTestCase{
 				INavigatableComponent nc = new NavigatableComponent(data); 
 			 	MapPaintVisitor painter=new MapPaintVisitor(nc);
 			 
-			 	IGwtGraphics2D g=new GwtGraphics2DTest();
+			 	IGwtGraphics2DSimple g=new GwtGraphics2DTest();
 			 	//IGwtGraphics2D g=new GwtGraphics2D();
 				painter.setGraphics(g);
 			 

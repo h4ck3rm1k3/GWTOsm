@@ -45,7 +45,7 @@ import com.google.gwt.core.client.GWT;
 
 public class MapPaintVisitor  {
 
-    private IGwtGraphics2D g;
+    private IGwtGraphics2DSimple g;
     private INavigatableComponent nc;
 
     private boolean zoomLevelDisplay;
@@ -822,8 +822,8 @@ public class MapPaintVisitor  {
     /* (non-Javadoc)
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.GWT2d#setGraphics(GWTGraphics2D)
 	 */
-    public void setGraphics(IGwtGraphics2D g) {
-        this.g = g;
+    public void setGraphics(IGwtGraphics2DSimple canvas) {
+        this.g = canvas;
     }
 
     /* (non-Javadoc)
