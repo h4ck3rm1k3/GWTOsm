@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.HashMap;
 //import java.util.logging.Logger;
 
+import org.openstreetmap.gwt.shared.OsmTransferException;
 import org.openstreetmap.josm.data.osm.Changeset;
 import org.openstreetmap.josm.data.osm.CheckParameterUtil;
 import org.openstreetmap.josm.data.osm.Logger;

@@ -102,31 +102,27 @@ public class GWTOSM implements EntryPoint {
   public void fetchDataLive()
   {
 	  RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
-         "http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");  
+			  "http://xhema.flossk.org/~mdupont/osmgit/osmgit-test/Tiles/10/566/378.osm");
+        // "http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");  
 
   
 	  
-	try {
-		RequestCallback rh = new LiveRequestCallback(this);
-		Request r= requestBuilder.sendRequest(null, rh);
-		GWT.log("created:" + r.toString());
-//		@Override
-//		public void onResponseReceived(Request request, Response response) 
-//		{
-//			// TODO Auto-generated method stub
-//		//	GWT.log(Integer.toString(response.getStatusCode()));
-//         //   GWT.log(response.getStatusText());
-//		//	renderXML(response.getText());
-//			
-//		}	      
-	
-	
-    }
-	catch(Exception e)
-	{
-		GWT.log("caught",e);
-		
-	}
+//	try {
+//		RequestCallback rh = new LiveRequestCallback(this);
+//        //connection.setRequestProperty("User-Agent", Version.getInstance().getAgentString());
+//        //connection.setRequestProperty("Host", connection.getURL().getHost());       
+////		requestBuilder.setTimeoutMillis(2000);
+////		requestBuilder.setHeader("User-Agent", "gwt");
+////		requestBuilder.setHeader("Host", "api.openstreetmap.org");
+//		Request r= requestBuilder.sendRequest(null, rh);
+//		GWT.log("created:" + r.toString());
+//	
+//    }
+//	catch(Exception e)
+//	{
+//		GWT.log("caught",e);
+//		
+//	}
 	  
   }
   
@@ -136,8 +132,8 @@ public class GWTOSM implements EntryPoint {
 	  
 	  //String fakerequest=OSMXMLData.INSTANCE.osmDataSmall().getText();//TODO : this is where we read the static file in, normally we would request this off the web.
 	  
-	  String fakerequest=OSMXMLData.INSTANCE.osmData().getText();
-	 renderXML(fakerequest);
+	//  String fakerequest=OSMXMLData.INSTANCE.osmData().getText();
+	 //renderXML(fakerequest);
 
 	}
 
@@ -166,7 +162,7 @@ public void onModuleLoad() {
 	dZoom=1;
     final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
-    nameField.setText("GWT User");
+    nameField.setText("http://xhema.flossk.org/~mdupont/osmgit/osmgit-test/Tiles/10/566/378.osm");
     final Label errorLabel = new Label();
     
     zoomField = new TextBox();
@@ -331,11 +327,11 @@ public void onModuleLoad() {
           }
 
           public void onSuccess(String result) {
-            dialogBox.setText("Remote Procedure Call");
-        ;
+            //dialogBox.setText("Remote Procedure Call");
+        //;
             serverResponseLabel.removeStyleName("serverResponseLabelError");
-            serverResponseLabel.setHTML(result);
-            
+            //serverResponseLabel.setHTML(result);
+            renderXML(result);
             drawmap(dZoom);
             dialogBox.center();
             closeButton.setFocus(true);
