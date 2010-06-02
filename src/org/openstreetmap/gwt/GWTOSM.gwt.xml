@@ -8,6 +8,10 @@
   <inherits name='com.google.gwt.debug.Debug' />
 <!-- gwt/debug/Debug.gwt.xml -->
 
+<define-property name="user.agent" values="gecko1_8">
+<!-- "ie6,gecko,gecko1_8,safari,opera"-->
+
+
 <!-- get the graphics -->
 	<inherits name='org.vaadin.gwtgraphics.GWTGraphics'/>
 <inherits name="com.google.gwt.xml.XML" />

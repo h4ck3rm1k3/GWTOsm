@@ -29,11 +29,15 @@ public class Mercator implements Projection {
 
     public LatLon eastNorth2latlon(EastNorth p) {
         return new LatLon(
-                Math.atan(Math.sinh(p.north()))*180/Math.PI,
+                Math.atan(sinh(p.north()))*180/Math.PI,
                 p.east()*180/Math.PI);
     }
 
-    @Override public String toString() {
+    private double sinh(double x) {
+   	  return (Math.exp(x) - Math.exp(-x)) / 2.0;
+	}
+
+	@Override public String toString() {
         return tr("Mercator");
     }
 

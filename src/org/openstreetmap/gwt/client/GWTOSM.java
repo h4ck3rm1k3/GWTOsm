@@ -65,7 +65,8 @@ public class GWTOSM implements EntryPoint {
     void preparenc()
     {
     	nc = new NavigatableComponent(data );
-		bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
+    	//http://api.openstreetmap.org/api/0.6/map?bbox=19.4941,42.0478,19.51797,42.06383
+		bounds= new Bounds(42.0478,19.4941,42.06383,19.51797);
 	   nc.zoomTo(bounds);
 	   GWT.log("going to fetch data");
 	   fetchData();
@@ -162,7 +163,7 @@ public void onModuleLoad() {
 	dZoom=1;
     final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
-    nameField.setText("http://xhema.flossk.org/~mdupont/osmgit/osmgit-test/Tiles/10/566/378.osm");
+    nameField.setText("http://api.openstreetmap.org/api/0.6/map?bbox=19.4941,42.0478,19.51797,42.06383");
     final Label errorLabel = new Label();
     
     zoomField = new TextBox();
