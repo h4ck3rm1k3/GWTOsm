@@ -8,7 +8,7 @@
   <inherits name='com.google.gwt.debug.Debug' />
 <!-- gwt/debug/Debug.gwt.xml -->
 
-<define-property name="user.agent" values="gecko1_8">
+<!--<define-property name="user.agent" values="gecko1_8">-->
 <!-- "ie6,gecko,gecko1_8,safari,opera"-->
 
 

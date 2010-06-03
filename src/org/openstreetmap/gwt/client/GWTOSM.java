@@ -62,11 +62,14 @@ public class GWTOSM implements EntryPoint {
    */
   	private INavigatableComponent nc ;
     private Bounds bounds;
+	private String dataUrl;
     void preparenc()
     {
     	nc = new NavigatableComponent(data );
     	//http://api.openstreetmap.org/api/0.6/map?bbox=19.4941,42.0478,19.51797,42.06383
-		bounds= new Bounds(42.0478,19.4941,42.06383,19.51797);
+    	//
+		bounds= new Bounds(42.06783,19.50381,42.06783,19.50973);
+		dataUrl="http://api.openstreetmap.org/api/0.6/map?bbox=19.50381,42.06783,19.50973,42.07183";
 	   nc.zoomTo(bounds);
 	   GWT.log("going to fetch data");
 	   fetchData();
@@ -100,32 +103,34 @@ public class GWTOSM implements EntryPoint {
 	   }
   }
 
-  public void fetchDataLive()
-  {
-	  RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
-			  "http://xhema.flossk.org/~mdupont/osmgit/osmgit-test/Tiles/10/566/378.osm");
-        // "http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");  
-
-  
-	  
-//	try {
-//		RequestCallback rh = new LiveRequestCallback(this);
-//        //connection.setRequestProperty("User-Agent", Version.getInstance().getAgentString());
-//        //connection.setRequestProperty("Host", connection.getURL().getHost());       
-////		requestBuilder.setTimeoutMillis(2000);
-////		requestBuilder.setHeader("User-Agent", "gwt");
-////		requestBuilder.setHeader("Host", "api.openstreetmap.org");
-//		Request r= requestBuilder.sendRequest(null, rh);
-//		GWT.log("created:" + r.toString());
-//	
-//    }
-//	catch(Exception e)
-//	{
-//		GWT.log("caught",e);
-//		
-//	}
-	  
-  }
+//  public void fetchDataLive()
+//  {
+//	  RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
+//			  "dataUrl"
+//			  //"http://xhema.flossk.org/~mdupont/osmgit/osmgit-test/Tiles/10/566/378.osm");
+//        // "http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");
+//			  );
+//
+//  
+//	  
+////	try {
+////		RequestCallback rh = new LiveRequestCallback(this);
+////        //connection.setRequestProperty("User-Agent", Version.getInstance().getAgentString());
+////        //connection.setRequestProperty("Host", connection.getURL().getHost());       
+//////		requestBuilder.setTimeoutMillis(2000);
+//////		requestBuilder.setHeader("User-Agent", "gwt");
+//////		requestBuilder.setHeader("Host", "api.openstreetmap.org");
+////		Request r= requestBuilder.sendRequest(null, rh);
+////		GWT.log("created:" + r.toString());
+////	
+////    }
+////	catch(Exception e)
+////	{
+////		GWT.log("caught",e);
+////		
+////	}
+//	  
+//  }
   
   public void fetchData()
   {
@@ -163,7 +168,7 @@ public void onModuleLoad() {
 	dZoom=1;
     final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
-    nameField.setText("http://api.openstreetmap.org/api/0.6/map?bbox=19.4941,42.0478,19.51797,42.06383");
+    
     final Label errorLabel = new Label();
     
     zoomField = new TextBox();
@@ -175,7 +180,7 @@ public void onModuleLoad() {
 //	    OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(pos );
 //	    data.addPrimitive(primitive);
 	    preparenc();
-	  
+	    nameField.setText(dataUrl);  
 	}
     catch (Exception e)
 	{
@@ -207,7 +212,7 @@ public void onModuleLoad() {
     VerticalPanel dialogVPanel = new VerticalPanel();
     dialogVPanel.addStyleName("dialogVPanel");
     
-    final Button getButton = new Button("get osm data");
+//    final Button getButton = new Button("get osm data");
     
     final TextBox zoomField2 = new TextBox();
     
@@ -261,7 +266,7 @@ public void onModuleLoad() {
     /*drawmap();*/
 
     dialogVPanel.add(closeButton);
-    dialogVPanel.add(getButton);
+//    dialogVPanel.add(getButton);
     dialogBox.setWidget(dialogVPanel);
 
     // Add a handler to close the DialogBox
@@ -274,12 +279,12 @@ public void onModuleLoad() {
     });
 
     
-    getButton.addClickHandler(new ClickHandler() {
-        public void onClick(ClickEvent event) {
-       //   dialogBox.hide();
-        	fetchDataLive();
-        }
-      });
+//    getButton.addClickHandler(new ClickHandler() {
+//        public void onClick(ClickEvent event) {
+//       //   dialogBox.hide();
+//        	//fetchDataLive();
+//        }
+//      });
     
     // Create a handler for the sendButton and nameField
     class MyHandler implements ClickHandler, KeyUpHandler {

@@ -332,7 +332,7 @@ private InputStream getInputStreamRaw(String urlStr) throws OsmTransferException
         if (cancel)
             throw new OsmTransferCancelledException();
         //if (Main.pref.getBoolean("osm-server.use-compression", true)) {
-            activeConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
+            //activeConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
         //}
 
         activeConnection.setConnectTimeout(15000);
@@ -340,8 +340,17 @@ private InputStream getInputStreamRaw(String urlStr) throws OsmTransferException
         try {
             System.out.println("GET " + url);
             activeConnection.connect();
-        } catch (Exception e) {
+        } 
+    catch (java.security.AccessControlException e)
+    {
+        e.printStackTrace();
+        System.out.println("ACCESS DENIED could not get:" + url);
+        throw new OsmTransferException(tr("Could not connect to the OSM server. Please check your internet connection."), e);
+    	
+    }
+        catch (Exception e) {
             e.printStackTrace();
+            System.out.println("could not get:" + url);
             throw new OsmTransferException(tr("Could not connect to the OSM server. Please check your internet connection."), e);
         }
         try {
