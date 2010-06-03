@@ -52,7 +52,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-import org.openstreetmap.gwt.client.GWTGraphics2DTest;
+//import org.openstreetmap.gwt.client.GWTGraphics2DTest;
 import org.openstreetmap.josm.data.osm.Color;
 //import com.google.gwt.widgetideas.graphics.client.GWTCanvas;
 import org.vaadin.gwtgraphics.client.DrawingArea;
