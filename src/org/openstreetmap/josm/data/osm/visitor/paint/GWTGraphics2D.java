@@ -1,70 +1,12 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-// import org.openstreetmap.josm.tools.Color;
-// //import java.awt.Composite;
-// //import java.awt.Font;
-// //import java.awt.FontMetrics;
-// //import java.awt.Graphics;
-// //import java.awt.Graphics2D;
-// //import java.awt.GraphicsConfiguration;
-// //import java.awt.Image;
-// //import java.awt.Paint;
-// //import java.awt.Polygon;
-// ////import java.awt.Rectangle;
-// //import java.awt.RenderingHints;
-// //import java.awt.Shape;
-// //import java.awt.Stroke;
-// //import java.awt.RenderingHints.Key;
-// //import java.awt.font.FontRenderContext;
-// //import java.awt.font.GlyphVector;
-// //import java.awt.geom.AffineTransform;
-// //import java.awt.image.BufferedImage;
-// //import java.awt.image.BufferedImageOp;
-// //import java.awt.image.ImageObserver;
-// //import java.awt.image.RenderedImage;
-// //import java.awt.image.renderable.RenderableImage;
-////import java.awt.Graphics2D;
-////import java.awt.RenderingHints.Key;
-////import java.awt.geom.GeneralPath;
-////import java.awt.Graphics;
-////import java.awt.Polygon;
-////import java.awt.RenderingHints.Key;
-////import java.awt.geom.GeneralPath;
-//import java.awt.Graphics;
-//import java.text.AttributedCharacterIterator;
-import java.util.Map;
-
-import com.google.gwt.core.client.EntryPoint;
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.event.dom.client.KeyUpEvent;
-import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.DialogBox;
-import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Label;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
-import com.google.gwt.user.client.ui.Widget;
-
-//import org.openstreetmap.gwt.client.GWTGraphics2DTest;
 import org.openstreetmap.josm.data.osm.Color;
-//import com.google.gwt.widgetideas.graphics.client.GWTCanvas;
 import org.vaadin.gwtgraphics.client.DrawingArea;
-import org.vaadin.gwtgraphics.client.Image;
 import org.vaadin.gwtgraphics.client.Shape;
-import org.vaadin.gwtgraphics.client.VectorObject;
-import org.vaadin.gwtgraphics.client.animation.Animate;
-import org.vaadin.gwtgraphics.client.shape.Circle;
-import org.vaadin.gwtgraphics.client.shape.Path;
 import org.vaadin.gwtgraphics.client.shape.Text;
-//import org.vaadin.gwtgraphics.client.shape.Rectangle;
-import org.vaadin.gwtgraphics.client.shape.path.LineTo;
+
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.ui.Widget;
 
 public class GWTGraphics2D //extends Graphics2D
  implements IGwtGraphics2DSimple
@@ -72,9 +14,10 @@ public class GWTGraphics2D //extends Graphics2D
 
     private DrawingArea canvas;
     
-    public GWTGraphics2D() {
-	canvas = new DrawingArea(400,400);
-	// 
+    public GWTGraphics2D(int height, int width) {
+    	
+    	canvas = new DrawingArea(height,width);
+ 
     }
 
     public void clear()

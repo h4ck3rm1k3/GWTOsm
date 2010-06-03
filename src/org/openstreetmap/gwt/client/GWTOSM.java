@@ -260,7 +260,7 @@ public void onModuleLoad() {
     dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
 
 
-    canvas = new GWTGraphics2D();
+    canvas = new GWTGraphics2D(600,300);
     
     dialogVPanel.add(canvas.getDrawingArea());
     /*drawmap();*/
