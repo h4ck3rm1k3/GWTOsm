@@ -1,26 +1,9 @@
 // License: GPL. For details, see LICENSE file.
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-////import java.awt.BasicStroke;
-//import org.openstreetmap.josm.tools.Color;
-////import java.awt.Font;
-////import java.awt.FontMetrics;
-////import java.awt.Graphics2D;
-////import java.awt.Image;
-////import java.awt.Point;
-////import java.awt.Polygon;
-////import java.awt.Rectangle;
-////import java.awt.geom.GeneralPath;
-////import java.awt.geom.Rectangle2D;
-////import java.awt.geom.GeneralPath;
-////import java.awt.Polygon;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-
-
-
-
 import org.openstreetmap.josm.data.osm.Color;
 import org.openstreetmap.josm.data.osm.ImageProvider;
 import org.openstreetmap.josm.data.osm.LanguageInfo;
@@ -28,8 +11,11 @@ import org.openstreetmap.josm.data.osm.Main;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.Point;
 import org.openstreetmap.josm.data.osm.Way;
-//import org.openstreetmap.josm.gui.NavigatableComponent;
+import org.vaadin.gwtgraphics.client.impl.util.SVGUtil;
 
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.MouseOutHandler;
+import com.google.gwt.event.dom.client.MouseOverHandler;
 
 public class MapPainter {
     private final IGwtGraphics2DSimple g;
@@ -62,7 +48,9 @@ public class MapPainter {
 	private int mappaint_segmentnumber_space=40;
 	private String mappaint_font="Helvetica";
 	private int mappaint_fillalpha=50;
-	//private Collection<String> mappaint_nameOrder= Arrays.asList(names);
+	private MouseOverHandler wayOverHandler = new WayMouseOverHandler();
+	private MouseOutHandler wayOutHandler = new WayMouseOutHandler();
+	private ClickHandler wayClickHandler = new WayClickHandler();
 
     public MapPainter(MapPaintSettings settings, IGwtGraphics2DSimple g2, boolean inactive, INavigatableComponent nc2, boolean virtual, double dist, double circum) {
         this.g = g2;
@@ -92,20 +80,21 @@ public class MapPainter {
         this.circum = circum;
     }
 
-//    public MapPainter(
-//			MapPaintSettings paintSettings,
-//			Graphics2D g2,
-//			boolean inactive2,
-//			INavComp nc2,
-//			boolean virtual, double dist, double circum2) {
-//		// TODO Auto-generated constructor stub
-//	}
-
 	public void drawWay(Way way, Color color, int width, float dashed[], Color dashedColor, boolean showDirection,
             boolean reversedDirection, boolean showHeadArrowOnly) {
 
         GeneralPath path = new GeneralPath();
-
+        path.setTitle(way.getName());
+        path.setStyleName("osm_way");
+        
+        //path.setImageHref();
+        SVGUtil.setAttributeNS(SVGUtil.XLINK_NS, path.getElement(), "href", "http://www.openstreetmap.org/browse/way/" + way.getId());
+        //path.getElement().addClassName(className);
+        
+        path.addMouseOverHandler(wayOverHandler);
+        path.addMouseOutHandler(wayOutHandler);
+        path.addClickHandler(wayClickHandler);
+        
         Point lastPoint = null;
         Iterator<Node> it = way.getNodes().iterator();
         while (it.hasNext()) {
@@ -131,7 +120,7 @@ public class MapPainter {
                 g.setStroke(new BasicStroke(width,BasicStroke.CAP_ROUND,BasicStroke.JOIN_ROUND));
             }
         }
-        g.draw(path);
+        GeneralPath p = g.draw(path);
 
         if(!inactive && useStrokes && dashedColor != null) {
             g.setColor(dashedColor);
@@ -226,7 +215,7 @@ public class MapPainter {
         if (selected)
         {
             g.setColor (  selectedColor );
-            g.drawRect (p.x-w/2-2, p.y-h/2-2, w+4, h+4);
+            Rectangle r= g.drawRect (p.x-w/2-2, p.y-h/2-2, w+4, h+4);
         }
     }
 
@@ -243,17 +232,24 @@ public class MapPainter {
             if ((p.x < 0) || (p.y < 0) || (p.x > nc.getWidth())
                     || (p.y > nc.getHeight()))
                 return;
-
+            Rectangle r=null;
+            
+            String style= "osm_node";
+            
             if (inactive || n.isDisabled()) {
                 g.setColor(inactiveColor);
+                style += "_inactive";
             } else {
                 g.setColor(color);
             }
             if (fill) {
                 g.fillRect(p.x - radius, p.y - radius, size, size);
-                g.drawRect(p.x - radius, p.y - radius, size, size);
+                r= g.drawRect(p.x - radius, p.y - radius, size, size);
+                style += "_filled";
             } else {
-                g.drawRect(p.x - radius, p.y - radius, size, size);
+            	r= g.drawRect(p.x - radius, p.y - radius, size, size);
+            	style += "_normal";
+            	
             }
 
             if(name != null)            {
@@ -266,7 +262,15 @@ public class MapPainter {
                 g.setFont (orderFont);
                 g.drawString (name, p.x+radius+2, p.y+radius+2);
                 g.setFont(defaultFont);
+                style += "_title";
+                r.setTitle(name);
+                
             }
+            
+            r.setStyleName(style);
+         
+            SVGUtil.setAttributeNS(SVGUtil.XLINK_NS, r.getElement(), "href", "http://www.openstreetmap.org/browse/node/" + n.getId());
+            
         }
     }
 
@@ -324,7 +328,7 @@ public class MapPainter {
 
         if (selected) {
             g.setColor(selectedColor);
-            g.drawRect((int)(pVia.x+vx+vx2)-w/2-2,(int)(pVia.y+vy+vy2)-h/2-2, w+4, h+4);
+            Rectangle r= g.drawRect((int)(pVia.x+vx+vx2)-w/2-2,(int)(pVia.y+vy+vy2)-h/2-2, w+4, h+4);
         }
     }
 
@@ -453,7 +457,7 @@ public class MapPainter {
 
 	public void drawArea(Polygon p, Color color, Object name) {
 		// TODO Auto-generated method stub
-		
+		g.fillPolygon(p);
 	}
 
 //	public void drawNodeIcon(Node n, ImageIcon imageIcon, boolean annotate,

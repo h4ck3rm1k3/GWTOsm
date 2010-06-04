@@ -28,6 +28,11 @@ h1 {
   color: red;
 }
 
+.my-mouse-over
+{
+	color: blue;
+}
+
 /** Set ids using widget.getElement().setId("idOfElement") */
 #closeButton {
   margin: 15px 6px 6px;

@@ -26,34 +26,38 @@ public class GWTGraphics2D //extends Graphics2D
     	
     }
 
-	public void drawString(String t, int x, int y) {
+	public Text drawString(String t, int x, int y) {
 	    Text o = new Text( x, y,t);    
 	    GWT.log("drawRect2" +o .toString());
 	    canvas.add(o);
+	    return o;
 	}
 
 	
-	public void drawString(String t, float x, float y) {
+	public Text drawString(String t, float x, float y) {
 		// TODO Auto-generated method stub
 	    Text o = new Text((int)x, (int)y,t); 
 	    GWT.log("drawString" +o .toString());
 	    canvas.add(o);
+	    return o;
 		
 	}
 
 	
-	public void fill(Shape arg0) {
+	public Shape fill(Shape o) {
 		// TODO Auto-generated method stub
-		canvas.add(arg0);
+		canvas.add(o);
+		return o;
 	}
 
 	
 	/* (non-Javadoc)
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#draw(org.vaadin.gwtgraphics.client.Shape)
 	 */
-	public void draw(Shape createStrokedShape) {
+	public Shape draw(Shape o) {
 		// TODO Auto-generated method stub
-		canvas.add(createStrokedShape);
+		canvas.add(o);
+		return o;
 	}
 
 	/* (non-Javadoc)
@@ -64,15 +68,16 @@ public class GWTGraphics2D //extends Graphics2D
 		 GWT.log( "TODO: set font " + orderFont .toString());
 	}
 
-	/* (non-Javadoc)
+	/* called to draw a point
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#drawRect(long, long, int, int)
 	 */
-	public void drawRect(long l, long m, int k, int l2) {
+	public Rectangle drawRect(long l, long m, int k, int l2) {
 		// TODO Auto-generated method stub
 		
 	    Rectangle o = new Rectangle( l,m,k,l2);    
 	   // GWT.log("drawRect" + o .toString()); // called many times
 	    canvas.add(o);
+	    return o;
 	}
 
 
@@ -88,36 +93,39 @@ public class GWTGraphics2D //extends Graphics2D
 	/* (non-Javadoc)
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#draw(org.openstreetmap.josm.data.osm.visitor.paint.GeneralPath)
 	 */
-	public void draw(
+	public GeneralPath draw(
 			org.openstreetmap.josm.data.osm.visitor.paint.GeneralPath path) {
 	
 		canvas.add(path);
+		return path;
 	};
 
 
 	/* (non-Javadoc)
 	 * @see org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D#fillRect(long, long, int, int)
 	 */
-	public void fillRect(long l, long m, int size, int size2) {
+	public Rectangle fillRect(long l, long m, int size, int size2) {
 		Rectangle o = new Rectangle( l,m,size,size2);
 		GWT.log("fillRect" + o .toString());
 	    canvas.add(o);
-		
+	    return o;
 	}
 
 
 
 	@Override
-	public void drawString(String t, long x, long y) {
+	public Text drawString(String t, long x, long y) {
 		GWT.log( "draw string" + t+ x + ":"+ y );
 		Text o = new Text((int)x, (int)y,t); 
 		GWT.log("draw String:" +o .toString());
 		canvas.add(o);
+		return o;
 	}
 
 	@Override
-	public void fillPolygon(Polygon polygon) {
+	public Polygon fillPolygon(Polygon polygon) {
 			canvas.add(polygon);
+			return polygon;
 	}
 
 

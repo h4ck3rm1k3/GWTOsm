@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.openstreetmap.josm.data.osm.Color;
 import org.vaadin.gwtgraphics.client.Shape;
+import org.vaadin.gwtgraphics.client.shape.Text;
 
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.Widget;
@@ -30,34 +31,38 @@ public class GwtGraphics2DTest implements IGwtGraphics2DSimple {
 	
 
 	@Override
-	public void draw(GeneralPath path) {
+	public GeneralPath draw(GeneralPath path) {
 		// TODO Auto-generated method stub
 		debug();
+		return path;
 	}
 
 
 
 	@Override
-	public void drawRect(long a, long b, int c, int d) {
+	public Rectangle drawRect(long a, long b, int c, int d) {
 		// TODO Auto-generated method stub
 		System.out.println("Rect:" + a + " "+ b + " "+ c + " "+ d);
 		//debug();
+		return null;
 	}
 
 
 
 	@Override
-	public void fillPolygon(Polygon polygon) {
+	public Polygon fillPolygon(Polygon polygon) {
 		// TODO Auto-generated method stub
 		debug();
+		return polygon;
 	}
 
 	
 
 	@Override
-	public void fillRect(long l, long m, int size, int size2) {
+	public Rectangle fillRect(long l, long m, int size, int size2) {
 		// TODO Auto-generated method stub
 		debug();
+		return null;
 	}
 
 	
@@ -127,9 +132,10 @@ public class GwtGraphics2DTest implements IGwtGraphics2DSimple {
 
 
 	@Override
-	public void drawString(String name, long l, long m) {
+	public Text drawString(String name, long l, long m) {
 		// TODO Auto-generated method stub
 		debug();
+		return null;
 	}
 	@Override
 	public IGwtGraphics2DSimple g() {

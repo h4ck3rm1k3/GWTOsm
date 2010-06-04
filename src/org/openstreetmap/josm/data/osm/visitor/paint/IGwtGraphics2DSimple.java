@@ -1,6 +1,7 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
 import org.openstreetmap.josm.data.osm.Color;
+import org.vaadin.gwtgraphics.client.shape.Text;
 
 import com.google.gwt.user.client.ui.Widget;
 
@@ -10,7 +11,7 @@ public interface IGwtGraphics2DSimple {
 
 	void setStroke(BasicStroke basicStroke);
 
-	void draw(GeneralPath path);
+	GeneralPath draw(GeneralPath path);
 
 	Rectangle getClipBounds();
 
@@ -18,13 +19,13 @@ public interface IGwtGraphics2DSimple {
 
 	void setFont(Font orderFont);
 
-	void drawString(String name, long l, long m);
+	Text drawString(String name, long l, long m);
 
-	void drawRect(long l, long m, int i, int j);
+	Rectangle drawRect(long l, long m, int i, int j);
 
-	void fillRect(long l, long m, int size, int size2);
+	Rectangle fillRect(long l, long m, int size, int size2);
 
-	void fillPolygon(Polygon polygon);
+	Polygon fillPolygon(Polygon polygon);
 
 	FontMetrics getFontMetrics(Font orderFont);
 
