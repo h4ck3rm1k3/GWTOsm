@@ -34,6 +34,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.xml.client.DOMException;
 import com.google.gwt.xml.client.Document;
 import com.google.gwt.xml.client.Element;
+import com.google.gwt.xml.client.NamedNodeMap;
 //import com.google.gwt.xml.client.Node;
 import com.google.gwt.xml.client.NodeList;
 import com.google.gwt.xml.client.XMLParser;
@@ -701,9 +702,43 @@ public class OsmReader {
 
 			public void parse(String string) throws Exception {
 				messageDom = XMLParser.parse(string);
+				parsebounds();
 				parsenodes();
 				parseways();
 				parserelations();
+			}
+
+			private void parsebounds() throws Exception {
+				
+				NodeList nodes = messageDom.getElementsByTagName("bounds"); // just one
+			    
+	        	for (int i =0; i < nodes.getLength(); i++)
+	        	{
+	        		com.google.gwt.xml.client.Node n = nodes.item(i);
+	        		Attributes atts=new Attributes(n);
+	        		
+	                // new style bounds.
+	                String minlon = atts.getValue("minlon");
+	                String minlat = atts.getValue("minlat");
+	                String maxlon = atts.getValue("maxlon");
+	                String maxlat = atts.getValue("maxlat");
+	                String origin = atts.getValue("origin");
+	                if (minlon != null && maxlon != null && minlat != null && maxlat != null) {
+	                    if (origin == null) {
+	                        origin = generator;
+	                    }
+	                    Bounds bounds = new Bounds(
+	                            new LatLon(Double.parseDouble(minlat), Double.parseDouble(minlon)),
+	                            new LatLon(Double.parseDouble(maxlat), Double.parseDouble(maxlon)));
+	                    DataSource src = new DataSource(bounds, origin);
+	                    ds.dataSources.add(src);
+	                } else {
+	                    throwException(tr(
+	                            "Missing manadatory attributes on element ''bounds''. Got minlon=''{0}'',minlat=''{1}'',maxlon=''{3}'',maxlat=''{4}'', origin=''{5}''.",
+	                            minlon, minlat, maxlon, maxlat, origin
+	                    ));
+	                }
+	        	}
 			}
 
 			private void parserelations() {

@@ -4,6 +4,13 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+
+import org.openstreetmap.gwt.client.GWTOSM;
+import org.openstreetmap.gwt.client.IGwtGraphics2DSimple;
+import org.openstreetmap.gwt.client.INavigatableComponent;
+import org.openstreetmap.gwt.client.WayClickHandler;
+import org.openstreetmap.gwt.client.WayMouseOutHandler;
+import org.openstreetmap.gwt.client.WayMouseOverHandler;
 import org.openstreetmap.josm.data.osm.Color;
 import org.openstreetmap.josm.data.osm.ImageProvider;
 import org.openstreetmap.josm.data.osm.LanguageInfo;
@@ -48,9 +55,9 @@ public class MapPainter {
 	private int mappaint_segmentnumber_space=40;
 	private String mappaint_font="Helvetica";
 	private int mappaint_fillalpha=50;
-	private MouseOverHandler wayOverHandler = new WayMouseOverHandler();
-	private MouseOutHandler wayOutHandler = new WayMouseOutHandler();
-	private ClickHandler wayClickHandler = new WayClickHandler();
+	private WayMouseOverHandler wayOverHandler = new WayMouseOverHandler();
+	private WayMouseOutHandler wayOutHandler = new WayMouseOutHandler();
+	private WayClickHandler wayClickHandler = new WayClickHandler();
 
     public MapPainter(MapPaintSettings settings, IGwtGraphics2DSimple g2, boolean inactive, INavigatableComponent nc2, boolean virtual, double dist, double circum) {
         this.g = g2;
@@ -79,18 +86,22 @@ public class MapPainter {
         this.regionalNameOrder = Arrays.asList(names);// TODO: localize
         this.circum = circum;
     }
-
+// IMPORTANT function
 	public void drawWay(Way way, Color color, int width, float dashed[], Color dashedColor, boolean showDirection,
             boolean reversedDirection, boolean showHeadArrowOnly) {
 
-        GeneralPath path = new GeneralPath();
+        GeneralPath path = new GeneralPathWay(way);
         path.setTitle(way.getName());
         path.setStyleName("osm_way");
         
+      path.getElement().setId("" + way.getId());
         //path.setImageHref();
         SVGUtil.setAttributeNS(SVGUtil.XLINK_NS, path.getElement(), "href", "http://www.openstreetmap.org/browse/way/" + way.getId());
-        //path.getElement().addClassName(className);
         
+        SVGUtil.setAttributeNS("osm", path.getElement(), "name", way.getName());
+        
+        //path.getElement().addClassName(className);
+//        path.getElement().setAttribute("osm_name",way.getName());
         path.addMouseOverHandler(wayOverHandler);
         path.addMouseOutHandler(wayOutHandler);
         path.addClickHandler(wayClickHandler);
@@ -458,6 +469,15 @@ public class MapPainter {
 	public void drawArea(Polygon p, Color color, Object name) {
 		// TODO Auto-generated method stub
 		g.fillPolygon(p);
+	}
+	GWTOSM window;
+	public void setwindow(GWTOSM win) {
+		// TODO Auto-generated method stub
+		window=win;
+		wayOverHandler.setwindow(win);
+		wayOutHandler.setwindow(win);
+		wayClickHandler.setwindow(win);
+		
 	}
 
 //	public void drawNodeIcon(Node n, ImageIcon imageIcon, boolean annotate,

@@ -1,5 +1,8 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
+import org.openstreetmap.gwt.client.IGwtGraphics2D;
+import org.openstreetmap.gwt.client.IGwtGraphics2DSimple;
+
 //import java.awt.Graphics;
 
 public class FontMetrics {

@@ -11,14 +11,8 @@ import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.Color;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.Node;
-import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
-import org.openstreetmap.josm.data.osm.visitor.paint.GwtGraphics2DTest;
-import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
-import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2DSimple;
-import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintSettings;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPainter;
-import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.junit.client.GWTTestCase;

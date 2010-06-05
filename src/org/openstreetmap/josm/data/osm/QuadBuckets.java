@@ -21,7 +21,7 @@ import com.google.gwt.core.client.GWT;
 public class QuadBuckets implements Collection
 {
     private static boolean debug = false;
-    private static final boolean consistency_testing = false;
+    private static final boolean consistency_testing = true;
     /*
      * Functions prefixed with __ need locking before
      * being called.
@@ -236,7 +236,15 @@ public class QuadBuckets implements Collection
         private void search_contents(BBox search_bbox, List result)
         {
             if (debug) {
-                out("searching contents (size: " + content == null?"<null>":content.size() + ") for " + search_bbox);
+            	
+            	String d="<null>";
+            	
+            	if (content != null)
+            	{
+            		d  = ""+ content.size();
+            	}
+            			
+                out("searching contents (size: " + d + ") for " + search_bbox);
             }
             /*
              * It is possible that this was created in a split

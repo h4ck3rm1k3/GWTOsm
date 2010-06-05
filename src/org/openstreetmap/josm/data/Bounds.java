@@ -201,7 +201,7 @@ public class Bounds {
      * @return the bounding box to Rectangle2D.Double
      */
     public Rectangle2DDouble asRect() {
-        return new Rectangle2DDouble(minLon, minLat, maxLon-minLon, maxLat-minLat);
+        return new Rectangle2DDouble(minLon, minLat, maxLon, maxLat);// note, the constructor has been changed from the original
     }
 
     public double getArea() {

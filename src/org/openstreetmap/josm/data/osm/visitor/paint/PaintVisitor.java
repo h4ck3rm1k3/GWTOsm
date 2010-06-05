@@ -3,6 +3,8 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 
 ////import java.awt.Graphics2D;
 
+import org.openstreetmap.gwt.client.IGwtGraphics2D;
+import org.openstreetmap.gwt.client.NavigatableComponent;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.osm.DataSet;
 //import org.openstreetmap.josm.gui.NavigatableComponent;

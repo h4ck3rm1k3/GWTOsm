@@ -1,15 +1,12 @@
 package org.openstreetmap.gwt.client;
 
 import org.openstreetmap.gwt.shared.FieldVerifier;
+import org.openstreetmap.josm.data.Area;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.ProgressMonitor;
-import org.openstreetmap.josm.data.osm.visitor.paint.GWTGraphics2D;
-import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2DSimple;
-import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
-import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
@@ -32,6 +29,7 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -63,6 +61,14 @@ public class GWTOSM implements EntryPoint {
   	private INavigatableComponent nc ;
     private Bounds bounds;
 	private String dataUrl;
+	   final TextBox mx = new TextBox();
+	   final Label mxLabel = new Label();
+	    final TextBox my = new TextBox();
+	    final Label myLabel = new Label();
+	    final TextBox nx = new TextBox();
+	    final Label nxLabel = new Label();
+	    final TextBox ny = new TextBox();
+	    final Label nyLabel = new Label();
     void preparenc()
     {
     	nc = new NavigatableComponent(data );
@@ -71,30 +77,23 @@ public class GWTOSM implements EntryPoint {
 		bounds= new Bounds(42.06783,19.50381,42.06783,19.50973);
 		dataUrl="http://api.openstreetmap.org/api/0.6/map?bbox=19.50381,42.06783,19.50973,42.07183";
 	   nc.zoomTo(bounds);
-	   GWT.log("going to fetch data");
-	   fetchData();
-	   GWT.log("after fetch data");
+	   
     }
     
     
   public void drawmap(double zoom) {
 
-//      String on = "Integer.toString(orderNumber)";
-//      int strlen = on.length();
-//       int x = (400)/2 - 4*strlen;
-//       int y = (400)/2 + 4;
-//       canvas.drawString(on, x, y);
-
        try {     
     	   
     	  // data = new DataSet();
-    	   GWT.log("going to render at zoom" + zoom );
+    	   GWT.log("going to render at zoom" + zoom + "and bounds " + bounds.toString());
     	   nc.zoomToFactor(zoom);
     	   painter=new MapPaintVisitor (nc);
     	   canvas.clear();
     	   painter.setGraphics(canvas);
     	   boolean virtual=false;
     	 //  Bounds bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
+    	   painter.setwindow(this);
     	   painter.visitAll(data, virtual, bounds);
        }
        catch (Exception e)
@@ -103,53 +102,31 @@ public class GWTOSM implements EntryPoint {
 	   }
   }
 
-//  public void fetchDataLive()
-//  {
-//	  RequestBuilder requestBuilder = new RequestBuilder(RequestBuilder.GET,
-//			  "dataUrl"
-//			  //"http://xhema.flossk.org/~mdupont/osmgit/osmgit-test/Tiles/10/566/378.osm");
-//        // "http://api.openstreetmap.org/api/0.6/map?bbox=19.508028,42.0629942,19.5137787,42.0668174");
-//			  );
-//
-//  
-//	  
-////	try {
-////		RequestCallback rh = new LiveRequestCallback(this);
-////        //connection.setRequestProperty("User-Agent", Version.getInstance().getAgentString());
-////        //connection.setRequestProperty("Host", connection.getURL().getHost());       
-//////		requestBuilder.setTimeoutMillis(2000);
-//////		requestBuilder.setHeader("User-Agent", "gwt");
-//////		requestBuilder.setHeader("Host", "api.openstreetmap.org");
-////		Request r= requestBuilder.sendRequest(null, rh);
-////		GWT.log("created:" + r.toString());
-////	
-////    }
-////	catch(Exception e)
-////	{
-////		GWT.log("caught",e);
-////		
-////	}
-//	  
-//  }
-  
-  public void fetchData()
-  {
-	
-	  
-	  //String fakerequest=OSMXMLData.INSTANCE.osmDataSmall().getText();//TODO : this is where we read the static file in, normally we would request this off the web.
-	  
-	//  String fakerequest=OSMXMLData.INSTANCE.osmData().getText();
-	 //renderXML(fakerequest);
-
-	}
-
-  
-//  
 	public void renderXML(String text) {
 		try {
 			ProgressMonitor pm=new ProgressMonitor();
 			DataSet ds=	OsmReader.parseDataSet(text, pm);
+			
 		data.merge(ds);
+		
+		try{
+		Area a = data.getDataSourceArea();
+		
+//		bounds = a.bounds();
+//		
+//		nc.zoomTo(bounds);
+		
+		  
+	    mx.setText("" + bounds.getMax().getX());
+	    my.setText("" +bounds.getMax().getY());
+	    nx.setText("" +bounds.getMin().getX());
+	    ny.setText("" +bounds.getMin().getY());
+		}
+		catch (Exception r)
+		{
+			GWT.log("cannot set area", r);			
+		}
+		
 		} catch (IllegalDataException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -163,17 +140,29 @@ public class GWTOSM implements EntryPoint {
 }
 
   private TextBox zoomField ;
- private double dZoom;
-public void onModuleLoad() {
-	dZoom=1;
-    final Button sendButton = new Button("Send");
+  public TextBox objnameField ;// the name of the current items
+  
+  private double dZoom;
+  private Label nameLabel= new Label("Name:");
+  private Label zoomLabel= new Label("Zoom Factor (inverse)");
+  public void onModuleLoad() {
+	  	dZoom=1;
+	  	final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
-    
+    objnameField = new TextBox();
     final Label errorLabel = new Label();
     
     zoomField = new TextBox();
     zoomField.setText("1");
-
+    
+    myLabel.setText("Maximum Y Latitude:");
+    nyLabel.setText("Minimum Y Latitude:");
+    
+    mxLabel.setText("Maximum X Longitude:");
+    nxLabel.setText("Minimum X Longitude:");
+    
+    
+    
     try
 	{
 //	    LatLon pos = new LatLon(1, 2);
@@ -216,10 +205,7 @@ public void onModuleLoad() {
     
     final TextBox zoomField2 = new TextBox();
     
-    final TextBox mx = new TextBox();
-    final TextBox my = new TextBox();
-    final TextBox nx = new TextBox();
-    final TextBox ny = new TextBox();
+ 
     mx.setText("" + bounds.getMax().getX());
     my.setText("" +bounds.getMax().getY());
     nx.setText("" +bounds.getMin().getX());
@@ -242,10 +228,27 @@ public void onModuleLoad() {
 	my.addChangeHandler(bboxch);
 	nx.addChangeHandler(bboxch);
 	ny.addChangeHandler(bboxch);
+	
+	dialogVPanel.add(mxLabel);
 	dialogVPanel.add(mx);
+	
+	dialogVPanel.add(myLabel);
 	dialogVPanel.add(my);
+	
+	dialogVPanel.add(nxLabel);
 	dialogVPanel.add(nx);
+	
+	dialogVPanel.add(nyLabel);
 	dialogVPanel.add(ny);
+	
+	
+	
+	
+	
+	
+	dialogVPanel.add(nameLabel);
+	dialogVPanel.add(objnameField);
+	
 	zoomField2.addChangeHandler(new ChangeHandler()
 	{
 		public void onChange(ChangeEvent event)
@@ -256,6 +259,7 @@ public void onModuleLoad() {
 		}
 	);
     zoomField2.setText("1");
+    dialogVPanel.add(zoomLabel);
     dialogVPanel.add(zoomField2);
     dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
 

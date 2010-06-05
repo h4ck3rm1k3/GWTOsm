@@ -1,6 +1,6 @@
 package org.openstreetmap.josm.data.osm;
 
-import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
+import org.openstreetmap.gwt.client.IGwtGraphics2D;
 
 public class Icon {
 

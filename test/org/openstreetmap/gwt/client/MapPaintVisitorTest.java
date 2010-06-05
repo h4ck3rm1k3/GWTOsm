@@ -12,12 +12,7 @@ import org.openstreetmap.josm.data.coor.LatLon;
 import org.openstreetmap.josm.data.osm.DataSet;
 import org.openstreetmap.josm.data.osm.Node;
 import org.openstreetmap.josm.data.osm.OsmPrimitive;
-import org.openstreetmap.josm.data.osm.visitor.paint.GwtGraphics2DTest;
-import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
-import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2DSimple;
-import org.openstreetmap.josm.data.osm.visitor.paint.INavigatableComponent;
 import org.openstreetmap.josm.data.osm.visitor.paint.MapPaintVisitor;
-import org.openstreetmap.josm.data.osm.visitor.paint.NavigatableComponent;
 import com.google.gwt.junit.client.GWTTestCase;
 public class MapPaintVisitorTest extends GWTTestCase{
 	@BeforeClass

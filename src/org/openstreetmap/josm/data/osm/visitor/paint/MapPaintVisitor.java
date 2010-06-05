@@ -15,6 +15,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 
+import org.openstreetmap.gwt.client.GWTOSM;
+import org.openstreetmap.gwt.client.IGwtGraphics2DSimple;
+import org.openstreetmap.gwt.client.INavigatableComponent;
+import org.openstreetmap.gwt.client.NavigatableComponent;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.coor.EastNorth;
 import org.openstreetmap.josm.data.coor.LatLon;
@@ -727,7 +731,8 @@ public class MapPaintVisitor  {
         this.paintSettings = MapPaintSettings.INSTANCE;
       //  paintSettings.load();
         this.painter = new MapPainter(paintSettings, g, inactive, nc, virtual, dist, circum);
-
+        painter.setwindow(window);
+        
         data.clearErrors();
 
 
@@ -836,6 +841,16 @@ public class MapPaintVisitor  {
     public void setNavigatableComponent(NavigatableComponent nc) {
         this.nc = nc;
     }
+
+    GWTOSM window;
+	public void setwindow(GWTOSM gwtosm) {
+		// TODO Auto-generated method stub
+		window= gwtosm;
+		if (painter != null)
+			{
+			painter.setwindow(window);
+			}
+	}
 
 
 }

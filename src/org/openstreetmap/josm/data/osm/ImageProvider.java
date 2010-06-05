@@ -32,10 +32,10 @@ import java.util.Map;
 ////import javax.swing.Icon;
 ////import javax.swing.ImageIcon;
 
+import org.openstreetmap.gwt.client.IGwtGraphics2D;
 import org.openstreetmap.josm.data.File;
 import org.openstreetmap.josm.data.IOException;
 import org.openstreetmap.josm.data.Toolkit;
-import org.openstreetmap.josm.data.osm.visitor.paint.IGwtGraphics2D;
 import org.openstreetmap.josm.data.osm.visitor.paint.ImageIcon;
 //import org.openstreetmap.josm.io.MirroredInputStream;
 import org.vaadin.gwtgraphics.client.Image;

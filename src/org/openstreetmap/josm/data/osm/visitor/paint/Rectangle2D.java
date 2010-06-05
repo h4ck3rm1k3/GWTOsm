@@ -1,45 +1,45 @@
 package org.openstreetmap.josm.data.osm.visitor.paint;
 
-public class Rectangle2D {
+public class Rectangle2D  {
 
+	private int ny;
+	private int my;
+	private int nx;
+	private int mx;
 	
-
-	
-	
-
-	public long getWidth() {
+	public int getWidth() {
 		// TODO Auto-generated method stub
-		return 0;
+		return mx-nx;
 	}
 
 	public int getHeight() {
 		// TODO Auto-generated method stub
-		return 0;
+		return my-ny;
 	}
 
 	public int getMinX() {
 		// TODO Auto-generated method stub
-		return 0;
+		return nx;
 	}
 
 	public int getY() {
 		// TODO Auto-generated method stub
-		return 0;
+		return ny;
 	}
 
-	public double getMaxY() {
+	public int getMaxY() {
 		// TODO Auto-generated method stub
-		return 0;
+		return my;
 	}
 
-	public double getMaxX() {
+	public int getMaxX() {
 		// TODO Auto-generated method stub
-		return 0;
+		return mx;
 	}
 
-	public double getMinY() {
+	public int getMinY() {
 		// TODO Auto-generated method stub
-		return 0;
+		return ny;
 	}
 
 }

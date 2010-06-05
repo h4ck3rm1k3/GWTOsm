@@ -14,6 +14,8 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 import java.util.Collection;
 import java.util.Iterator;
 
+import org.openstreetmap.gwt.client.IGwtGraphics2D;
+import org.openstreetmap.gwt.client.NavigatableComponent;
 import org.openstreetmap.josm.data.Bounds;
 import org.openstreetmap.josm.data.osm.BBox;
 import org.openstreetmap.josm.data.osm.Color;

@@ -897,6 +897,7 @@ public class DataSet implements Cloneable {
         ways.clear();
         relations.clear();
         allPrimitives.clear();
+        dataSources.clear(); // this was missing and i was collecting duplicate data sources. I think this might be a bug in the original code.
     }
 
     // TODO Should be completely part of validator
@@ -942,6 +943,7 @@ public class DataSet implements Cloneable {
 		ways.addAll(ds.ways) ;
         relations.addAll(ds.relations) ;
         allPrimitives.addAll(ds.allPrimitives) ;
+        dataSources.addAll(ds.dataSources);
 	}
 
 	public void print() {

@@ -2,6 +2,8 @@ package org.openstreetmap.josm.data.osm.visitor.paint;
 
 ////import java.awt.Graphics;
 
+import org.openstreetmap.gwt.client.IGwtGraphics2D;
+import org.openstreetmap.gwt.client.IGwtGraphics2DSimple;
 import org.openstreetmap.josm.data.osm.BufferedImage;
 import org.openstreetmap.josm.data.osm.Component;
 import org.vaadin.gwtgraphics.client.Image;
