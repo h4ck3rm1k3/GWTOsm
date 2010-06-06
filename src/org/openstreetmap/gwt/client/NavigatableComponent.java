@@ -233,6 +233,13 @@ public class NavigatableComponent implements INavigatableComponent {
 	}
 	  private void zoomTo(EastNorth newCenter, double newScale) {
 	        Bounds b = getProjection().getWorldBoundsLatLon();
+	        
+	        GWT.log("setting new center" + newCenter.toString());
+	        
+	        LatLon p = getProjection().eastNorth2latlon(newCenter);
+	        
+	        GWT.log("setting new center LL " + p.toString());
+	        
 	        CachedLatLon cl = new CachedLatLon(newCenter);
 	        boolean changed = false;
 	        double lat = cl.lat();

@@ -29,7 +29,7 @@ public class Area {
 
 	public Bounds bounds() {
 		// TODO Auto-generated method stub
-		return new Bounds(max.getMinX(),max.getMinY(),max.getMaxX(),max.getMaxY());
+		return new Bounds(max.getMinY(),max.getMinX(),max.getMaxY(),max.getMaxX());
 	}
 
 }

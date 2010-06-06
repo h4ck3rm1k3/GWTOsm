@@ -112,8 +112,13 @@ public class GWTOSM implements EntryPoint {
 		
 		try{
 		Area a = data.getDataSourceArea();
-//		bounds = a.bounds();
-//		nc.zoomTo(bounds);
+		bounds = a.bounds();
+		
+		GWT.log("check bounds" + bounds.toString());
+		
+		nc.zoomTo(bounds);
+		GWT.log("Projection bounds"  + nc.getProjectionBounds().toString());
+		GWT.log("Real bounds"  + nc.getRealBounds().toString());
 		
 		  
 	    mx.setText("" + bounds.getMax().getX());
@@ -148,6 +153,9 @@ public class GWTOSM implements EntryPoint {
 	  	dZoom=1;
 	  	final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
+    
+    nameField .setVisibleLength(300);
+    
     objnameField = new TextBox();
     final Label errorLabel = new Label();
     
@@ -175,7 +183,12 @@ public class GWTOSM implements EntryPoint {
 
     // Add the nameField and sendButton to the RootPanel
     // Use RootPanel.get() to get the entire body element
+    final Label uriLabel = new Label();
+    
+    RootPanel.get("nameFieldContainer").add(uriLabel); 
     RootPanel.get("nameFieldContainer").add(nameField);
+    
+    RootPanel.get("nameFieldContainer").add(zoomLabel);
     RootPanel.get("nameFieldContainer").add(zoomField);
     RootPanel.get("sendButtonContainer").add(sendButton);
     RootPanel.get("errorLabelContainer").add(errorLabel);
