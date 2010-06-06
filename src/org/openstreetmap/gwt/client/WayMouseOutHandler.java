@@ -7,7 +7,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 public class WayMouseOutHandler implements MouseOutHandler {
 
-	@Override
+	
 	public void onMouseOut(MouseOutEvent event) {
 		
 		try {

@@ -74,9 +74,10 @@ public class GWTOSM implements EntryPoint {
     	nc = new NavigatableComponent(data );
     	//http://api.openstreetmap.org/api/0.6/map?bbox=19.4941,42.0478,19.51797,42.06383
     	//
+		
 		bounds= new Bounds(42.06783,19.50381,42.07183,19.50973);
 		dataUrl="http://api.openstreetmap.org/api/0.6/map?bbox=19.50381,42.06783,19.50973,42.07183";
-	   nc.zoomTo(bounds);
+	//   nc.zoomTo(bounds);
 	   
     }
     
@@ -92,7 +93,7 @@ public class GWTOSM implements EntryPoint {
     	   canvas.clear();
     	   painter.setGraphics(canvas);
     	   boolean virtual=false;
-    	 //  Bounds bounds= new Bounds(42.0769,19.50711, 42.05737,19.53063);
+    	
     	   painter.setwindow(this);
     	   painter.visitAll(data, virtual, bounds);
        }
@@ -111,9 +112,7 @@ public class GWTOSM implements EntryPoint {
 		
 		try{
 		Area a = data.getDataSourceArea();
-		
 //		bounds = a.bounds();
-//		
 //		nc.zoomTo(bounds);
 		
 		  

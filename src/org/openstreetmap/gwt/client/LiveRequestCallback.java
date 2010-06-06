@@ -15,14 +15,12 @@ public LiveRequestCallback(GWTOSM gwtosm) {
 		mygwtosm=gwtosm;
 	}
 
-	
-	@Override
+
 	public void onError(Request request, Throwable exception) {
 		// TODO Auto-generated method stub
 		GWT.log("error"+request.toString() , exception);
 	}
 
-	@Override
 	public void onResponseReceived(Request request, Response response) {
 		// TODO Auto-generated method stub
 		 if (200 == response.getStatusCode()) {

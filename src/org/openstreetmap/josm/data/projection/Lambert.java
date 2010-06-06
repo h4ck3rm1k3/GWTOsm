@@ -133,7 +133,7 @@ public class Lambert implements Projection, ProjectionSubPrefs {
         return NTF_to_WGS84(geo);
     }
 
-    @Override public String toString() {
+     public String toString() {
         return tr("Lambert 4 Zones (France)");
     }
 
@@ -141,7 +141,7 @@ public class Lambert implements Projection, ProjectionSubPrefs {
         return "EPSG:"+(27561+layoutZone);
     }
 
-    @Override
+    
     public int hashCode() {
         return getClass().getName().hashCode()+layoutZone; // our only real variable
     }

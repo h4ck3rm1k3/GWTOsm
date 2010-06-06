@@ -401,12 +401,12 @@ public class UTM_France_DOM implements Projection, ProjectionSubPrefs {
         return utmEPSGs[currentGeodesic];
     }
 
-    @Override
+    
     public int hashCode() {
         return getClass().getName().hashCode()+currentGeodesic; // our only real variable
     }
 
-    @Override public String toString() {
+public String toString() {
         return (tr("UTM 20N (France)"));
     }
 
@@ -441,7 +441,7 @@ public class UTM_France_DOM implements Projection, ProjectionSubPrefs {
         return null;
     }
 
-	@Override
+	
 	public void setPreferences(Collection<String> args) {
 		// TODO Auto-generated method stub
 		

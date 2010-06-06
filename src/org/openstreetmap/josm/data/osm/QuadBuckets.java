@@ -67,7 +67,7 @@ public class QuadBuckets implements Collection
 
         public List content;
         public QBLevel children[];
-        @Override
+        
         public String toString()
         {
             return super.toString()+ "["+level+"]: " + bbox();
@@ -829,12 +829,12 @@ public class QuadBuckets implements Collection
     	//GWT.log(msg.toString());
     }
 	
-	@Override
+	
 	public Object[] toArray(Object[] a) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	@Override
+	
 	public boolean add(Object o) {
 			//root.add((OsmPrimitive)o);
 		return add((OsmPrimitive)o);

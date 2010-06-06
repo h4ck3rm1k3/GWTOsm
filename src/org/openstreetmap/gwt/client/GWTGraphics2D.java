@@ -119,7 +119,7 @@ public class GWTGraphics2D //extends Graphics2D
 
 
 
-	@Override
+	
 	public Text drawString(String t, long x, long y) {
 		GWT.log( "draw string" + t+ x + ":"+ y );
 		Text o = new Text((int)x, (int)y,t); 
@@ -128,68 +128,46 @@ public class GWTGraphics2D //extends Graphics2D
 		return o;
 	}
 
-	@Override
+	
 	public Polygon fillPolygon(Polygon polygon) {
 			canvas.add(polygon);
 			return polygon;
 	}
 
-
-
-	@Override
 	public IGwtGraphics2DSimple g() {
 		// TODO Auto-generated method stub
 		GWT.log( "get g" );
 		return null;
 	}
 
-
-
-	@Override
 	public Rectangle getClipBounds() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-
-	@Override
 	public Color getColor() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-
-	@Override
 	public Font getFont() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-
-	@Override
 	public FontMetrics getFontMetrics(Font orderFont) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-
-	@Override
 	public void setColor(Color color) {
 		// TODO Auto-generated method stub
 		
 	}
 
-
-
-	@Override
 	public Widget getDrawingArea() {
 		// TODO Auto-generated method stub
 		return canvas;
 	}
-
 
 }

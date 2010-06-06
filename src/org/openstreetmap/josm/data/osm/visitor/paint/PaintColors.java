@@ -66,7 +66,7 @@ public enum PaintColors implements ColorKey {
 		return defaultColor;
 	}
 
-	@Override
+	
 	public Color getDefault() {
 		// TODO Auto-generated method stub
 		return defaultColor;

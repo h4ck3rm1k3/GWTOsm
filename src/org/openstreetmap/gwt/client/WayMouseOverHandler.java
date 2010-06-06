@@ -13,7 +13,7 @@ import com.google.gwt.user.client.ui.Widget;
 public class WayMouseOverHandler implements MouseOverHandler {
 
 	GWTOSM window;
-	@Override
+	
 	public void onMouseOver(MouseOverEvent event) {
 		// TODO Auto-generated method stub
 		GeneralPathWay widget = (GeneralPathWay) event.getSource();

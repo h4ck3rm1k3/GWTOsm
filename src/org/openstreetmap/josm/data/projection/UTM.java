@@ -345,7 +345,7 @@ public class UTM implements Projection, ProjectionSubPrefs {
         return mapXYToLatLon((p.east()-3500000.0)/UTMScaleFactor, p.north()/UTMScaleFactor, UTMCentralMeridian(getzone()));
     }
 
-    @Override public String toString() {
+    public String toString() {
         return tr("UTM");
     }
 
@@ -434,7 +434,7 @@ public class UTM implements Projection, ProjectionSubPrefs {
         return null;
     }
 
-	@Override
+	
 	public void setPreferences(Collection<String> args) {
 		// TODO Auto-generated method stub
 		

@@ -76,14 +76,14 @@ public class NavigatableComponent implements INavigatableComponent {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
+	
 	public EastNorth getCenter() {
 		// TODO Auto-generated method stub
 		return center;
 		
 	}
 
-	@Override
+	
 	public double getDist100Pixel() {
 		// TODO Auto-generated method stub
 		 int w = getWidth()/2;
@@ -94,7 +94,7 @@ public class NavigatableComponent implements INavigatableComponent {
 	  
 	}
 
-	@Override
+	
 	public String getDist100PixelText() {
 		double dist = getDist100Pixel();
         return dist >= 2000 ? Math.round(dist/100)/10 +" km" : (dist >= 1
@@ -102,19 +102,19 @@ public class NavigatableComponent implements INavigatableComponent {
 	}
 	 private static int sqr(int a) { return a*a;}
 	   
-	@Override
+	
 	public EastNorth getEastNorth(int x, int y) {
 		  return new EastNorth(
 	                center.east() + (x - getWidth()/2.0)*scale,
 	                center.north() - (y - getHeight()/2.0)*scale);
 	}
 
-	@Override
+	
 	public LatLon getLatLon(int x, int y) {
 		return getProjection().eastNorth2latlon(getEastNorth(x, y));
 	}
 
-	@Override
+	
 	public Bounds getLatLonBounds(Rectangle r) {
 		 // TODO Maybe this should be (optional) method of Projection implementation
         EastNorth p1 = getEastNorth(r.x, r.y);
@@ -139,14 +139,14 @@ public class NavigatableComponent implements INavigatableComponent {
         return result;
 	}
 
-	@Override
+
 	public ProjectionBounds getMaxProjectionBounds() {
         Bounds b = getProjection().getWorldBoundsLatLon();
         return new ProjectionBounds(getProjection().latlon2eastNorth(b.getMin()),
                 getProjection().latlon2eastNorth(b.getMax()));
 	}
 
-	@Override
+
 	public Point getPoint(EastNorth p) {
 		if (null == p)
             return new Point();
@@ -156,7 +156,7 @@ public class NavigatableComponent implements INavigatableComponent {
         return new Point((int)x,(int)y);
 	}
 
-	@Override
+
 	public Point getPoint(LatLon latlon) {
 		 if (latlon == null)
 	            return new Point();
@@ -166,18 +166,15 @@ public class NavigatableComponent implements INavigatableComponent {
 	            return getPoint(getProjection().latlon2eastNorth(latlon));
 	}
 
-	@Override
 	public Point getPoint(Node n) {
 		   return getPoint(n.getEastNorth());
 	}
 
-	@Override
 	public Projection getProjection() {
 		// TODO Auto-generated method stub
 		return proj;
 	}
 
-	@Override
 	public ProjectionBounds getProjectionBounds() {
 	    return new ProjectionBounds(
                 new EastNorth(
@@ -188,7 +185,7 @@ public class NavigatableComponent implements INavigatableComponent {
                                 center.north() + getHeight()/2.0*scale));
 	}
 
-	@Override
+
 	public Bounds getRealBounds() {
 		 return new Bounds(
 	                getProjection().eastNorth2latlon(new EastNorth(
@@ -199,37 +196,37 @@ public class NavigatableComponent implements INavigatableComponent {
 	                                center.north() + getHeight()/2.0*scale)));
 	}
 
-	@Override
+
 	public int getViewID() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	@Override
+
 	public boolean hasZoomRedoEntries() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+
 	public boolean hasZoomUndoEntries() {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	@Override
+
 	public String helpTopic() {
 		// TODO Auto-generated method stub
 		return "No help";
 	}
 
-	@Override
+
 	public void zoomNext() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+
 	public void zoomPrevious() {
 		// TODO Auto-generated method stub
 		
@@ -279,7 +276,6 @@ public class NavigatableComponent implements INavigatableComponent {
 //	            zoomNoUndoTo(newCenter, newScale);
 //	        }
 	    }
-	@Override
 	public void zoomTo(EastNorth newCenter) {
 		// TODO Auto-generated method stub
 		  zoomTo(newCenter, scale);
@@ -343,7 +339,6 @@ public class NavigatableComponent implements INavigatableComponent {
 		return null;
 	}
 
-	@Override
 	public Collection<OsmPrimitive> getAllNearest(Point p,
 			Predicate<OsmPrimitive> predicate) {
 		
@@ -395,8 +390,6 @@ public class NavigatableComponent implements INavigatableComponent {
 		return dataset;
 	}
 
-
-	@Override
 	public OsmPrimitive getNearest(Point p, Predicate<OsmPrimitive> predicate) {
 
 		 OsmPrimitive osm = getNearestNode(p, predicate);
@@ -407,7 +400,6 @@ public class NavigatableComponent implements INavigatableComponent {
 	        return osm;
 	}
 
-	@Override
 	public Collection<OsmPrimitive> getNearestCollection(Point p,
 			Predicate<OsmPrimitive> predicate) {
 		 OsmPrimitive osm = getNearest(p, predicate);
@@ -416,7 +408,6 @@ public class NavigatableComponent implements INavigatableComponent {
 	        return Collections.singleton(osm);
 	}
 
-	@Override
 	public Node getNearestNode(Point p, Predicate<OsmPrimitive> predicate) {
 		// TODO Auto-generated method stub
 		 DataSet ds = getCurrentDataSet();
@@ -444,7 +435,6 @@ public class NavigatableComponent implements INavigatableComponent {
 	        return minPrimitive;
 	}
 
-	@Override
 	public Collection<Node> getNearestNodes(Point p,
 			Predicate<OsmPrimitive> predicate) {
 		// TODO Auto-generated method stub
@@ -464,49 +454,40 @@ public class NavigatableComponent implements INavigatableComponent {
 	        return nearest.isEmpty() ? null : nearest;
 	}
 
-	@Override
 	public Collection<Node> getNearestNodes(Point p, Collection<Node> ignore,
 			Predicate<OsmPrimitive> predicate) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public Way getNearestWay(Point p, Predicate<OsmPrimitive> predicate) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public WaySegment getNearestWaySegment(Point p,
 			Collection<WaySegment> ignore, Predicate<OsmPrimitive> predicate) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public WaySegment getNearestWaySegment(Point p,
 			Predicate<OsmPrimitive> predicate) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
 	public List<WaySegment> getNearestWaySegments(Point p,
 			Predicate<OsmPrimitive> predicate) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-	@Override
 	public Node getNearestNode(Point p) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
-	@Override
 	public Way getNearestWay(Point p) {
 		// TODO Auto-generated method stub
 		return null;
