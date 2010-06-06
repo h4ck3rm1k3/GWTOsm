@@ -2,7 +2,7 @@ function gwtosm(){
   var $wnd_0 = window, $doc_0 = document, $stats = $wnd_0.__gwtStatsEvent?function(a){
     return $wnd_0.__gwtStatsEvent(a);
   }
-  :null, $sessionId_0 = $wnd_0.__gwtStatsSessionId?$wnd_0.__gwtStatsSessionId:null, scriptsDone, loadDone, bodyDone, base = '', metaProps = {}, values = [], providers = [], answers = [], onLoadErrorFunc, propertyErrorFunc;
+  :null, $sessionId_0 = $wnd_0.__gwtStatsSessionId?$wnd_0.__gwtStatsSessionId:null, scriptsDone, loadDone, bodyDone, base = '', metaProps = {}, values = [], providers = [], answers = [], softPermutationId = 0, onLoadErrorFunc, propertyErrorFunc;
   $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'bootstrap', millis:(new Date).getTime(), type:'begin'});
   if (!$wnd_0.__gwt_stylesLoaded) {
     $wnd_0.__gwt_stylesLoaded = {};
@@ -36,13 +36,17 @@ function gwtosm(){
         ;
       }
       gwtosm = null;
-      frameWnd.gwtOnLoad(onLoadErrorFunc, 'gwtosm', base);
+      frameWnd.gwtOnLoad(onLoadErrorFunc, 'gwtosm', base, softPermutationId);
       $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'moduleStartup', millis:(new Date).getTime(), type:'end'});
     }
   }
 
   function computeScriptBase(){
     var thisScript, markerId = '__gwt_marker_gwtosm', markerScript;
+    if (metaProps['baseUrl']) {
+      base = metaProps['baseUrl'];
+      return;
+    }
     $doc_0.write('<script id="' + markerId + '"><\/script>');
     markerScript = $doc_0.getElementById(markerId);
     thisScript = markerScript && markerScript.previousSibling;
@@ -90,42 +94,46 @@ function gwtosm(){
   function processMetas(){
     var metas = document.getElementsByTagName('meta');
     for (var i = 0, n = metas.length; i < n; ++i) {
-      var meta = metas[i], name_0 = meta.getAttribute('name'), content;
+      var meta = metas[i], name_0 = meta.getAttribute('name'), content_0;
       if (name_0) {
+        name_0 = name_0.replace('gwtosm::', '');
+        if (name_0.indexOf('::') >= 0) {
+          continue;
+        }
         if (name_0 == 'gwt:property') {
-          content = meta.getAttribute('content');
-          if (content) {
-            var value, eq = content.indexOf('=');
+          content_0 = meta.getAttribute('content');
+          if (content_0) {
+            var value, eq = content_0.indexOf('=');
             if (eq >= 0) {
-              name_0 = content.substring(0, eq);
-              value = content.substring(eq + 1);
+              name_0 = content_0.substring(0, eq);
+              value = content_0.substring(eq + 1);
             }
              else {
-              name_0 = content;
+              name_0 = content_0;
               value = '';
             }
             metaProps[name_0] = value;
           }
         }
          else if (name_0 == 'gwt:onPropertyErrorFn') {
-          content = meta.getAttribute('content');
-          if (content) {
+          content_0 = meta.getAttribute('content');
+          if (content_0) {
             try {
-              propertyErrorFunc = eval(content);
+              propertyErrorFunc = eval(content_0);
             }
              catch (e) {
-              alert('Bad handler "' + content + '" for "gwt:onPropertyErrorFn"');
+              alert('Bad handler "' + content_0 + '" for "gwt:onPropertyErrorFn"');
             }
           }
         }
          else if (name_0 == 'gwt:onLoadErrorFn') {
-          content = meta.getAttribute('content');
-          if (content) {
+          content_0 = meta.getAttribute('content');
+          if (content_0) {
             try {
-              onLoadErrorFunc = eval(content);
+              onLoadErrorFunc = eval(content_0);
             }
              catch (e) {
-              alert('Bad handler "' + content + '" for "gwt:onLoadErrorFn"');
+              alert('Bad handler "' + content_0 + '" for "gwt:onLoadErrorFn"');
             }
           }
         }
@@ -222,6 +230,7 @@ function gwtosm(){
     maybeStartModule();
   }
   ;
+  processMetas();
   computeScriptBase();
   var strongName;
   var initialHtml;
@@ -233,17 +242,21 @@ function gwtosm(){
     initialHtml = 'hosted.html?gwtosm';
     strongName = '';
   }
-  processMetas();
   $stats && $stats({moduleName:'gwtosm', sessionId:$sessionId_0, subSystem:'startup', evtGroup:'bootstrap', millis:(new Date).getTime(), type:'selectingPermutation'});
   if (!isHostedMode()) {
     try {
-      unflattenKeylistIntoAnswers(['gecko1_8'], '002BC5D8D10A2FA546D380FBC4C205C5');
-      unflattenKeylistIntoAnswers(['opera'], '2DA38D798682C761F1EE49D8E68A61EC');
-      unflattenKeylistIntoAnswers(['ie8'], '558586B306F064BC2929FFA7F9446CD5');
-      unflattenKeylistIntoAnswers(['gecko'], '5C58EC3F9B7EA9B7C148FC2B647A440D');
-      unflattenKeylistIntoAnswers(['safari'], '650AF1D7F1F84DC8DCD4D0AF5CB3A3A4');
-      unflattenKeylistIntoAnswers(['ie6'], 'F440A0982CC2A238010CA991E7A31155');
+      unflattenKeylistIntoAnswers(['opera'], '044A794866E9BA002EB26E84C431137B');
+      unflattenKeylistIntoAnswers(['gecko'], '0ED87582FD8464B60BEE94AEA3772D63');
+      unflattenKeylistIntoAnswers(['gecko1_8'], '4E26ADAA09333938A3D2A4D5FC09312B');
+      unflattenKeylistIntoAnswers(['ie8'], '6873397EE09C9B71E8E3952148F0798B');
+      unflattenKeylistIntoAnswers(['ie6'], 'BC0F0BA1D9F515A28F0E65FC59D9C03C');
+      unflattenKeylistIntoAnswers(['safari'], 'E6126ED97F03F8D8F9320BBFC47002C2');
       strongName = answers[computePropValue('user.agent')];
+      var idx = strongName.indexOf(':');
+      if (idx != -1) {
+        softPermutationId = Number(strongName.substring(idx + 1));
+        strongName = strongName.substring(0, idx);
+      }
       initialHtml = strongName + '.cache.html';
     }
      catch (e) {

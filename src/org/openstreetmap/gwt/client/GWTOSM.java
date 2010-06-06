@@ -74,7 +74,7 @@ public class GWTOSM implements EntryPoint {
     	nc = new NavigatableComponent(data );
     	//http://api.openstreetmap.org/api/0.6/map?bbox=19.4941,42.0478,19.51797,42.06383
     	//
-		bounds= new Bounds(42.06783,19.50381,42.06783,19.50973);
+		bounds= new Bounds(42.06783,19.50381,42.07183,19.50973);
 		dataUrl="http://api.openstreetmap.org/api/0.6/map?bbox=19.50381,42.06783,19.50973,42.07183";
 	   nc.zoomTo(bounds);
 	   
@@ -162,12 +162,8 @@ public class GWTOSM implements EntryPoint {
     nxLabel.setText("Minimum X Longitude:");
     
     
-    
     try
 	{
-//	    LatLon pos = new LatLon(1, 2);
-//	    OsmPrimitive primitive = new org.openstreetmap.josm.data.osm.Node(pos );
-//	    data.addPrimitive(primitive);
 	    preparenc();
 	    nameField.setText(dataUrl);  
 	}

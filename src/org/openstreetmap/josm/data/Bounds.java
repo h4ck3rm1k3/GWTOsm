@@ -23,7 +23,10 @@ public class Bounds {
     /**
      * The minimum and maximum coordinates.
      */
-    private double minLat, minLon, maxLat, maxLon;
+    private double minLat, /// Min Y. Southern Border.
+    			   minLon, /// Min X. Western Border.
+    			   maxLat, /// Max Y. Northern Border
+    			   maxLon; /// Max X. Eastern Border
 
     public LatLon getMin() {
         return new LatLon(minLat, minLon);
@@ -50,6 +53,8 @@ public class Bounds {
         this.minLon = roundToOsmPrecision(minlon);
         this.maxLat = roundToOsmPrecision(maxlat);
         this.maxLon = roundToOsmPrecision(maxlon);
+        
+        check();
     }
 
     public Bounds(double [] coords) {
@@ -60,6 +65,7 @@ public class Bounds {
         this.minLon = roundToOsmPrecision(coords[1]);
         this.maxLat = roundToOsmPrecision(coords[2]);
         this.maxLon = roundToOsmPrecision(coords[3]);
+        check();
     }
 
     public Bounds(String asString, String separator) throws IllegalArgumentException {
@@ -88,14 +94,18 @@ public class Bounds {
         this.minLon = roundToOsmPrecision(values[1]);
         this.maxLat = roundToOsmPrecision(values[2]);
         this.maxLon = roundToOsmPrecision(values[3]);
+        
+        check();
     }
 
     public Bounds(Bounds other) {
         this(other.getMin(), other.getMax());
+        check();
     }
 
     public Bounds(Rectangle2D rect) {
         this(rect.getMinY(), rect.getMinX(), rect.getMaxY(), rect.getMaxX());
+        check();
     }
 
     /**
@@ -121,14 +131,20 @@ public class Bounds {
         this.minLon = roundToOsmPrecision(center.lon() - lonExtent / 2);
         this.maxLat = roundToOsmPrecision(center.lat() + latExtent / 2);
         this.maxLon = roundToOsmPrecision(center.lon() + lonExtent / 2);
+        check();
     }
 
     public Bounds() {
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	public Bounds(LatLon eastNorth2latlon) {
-		// TODO Auto-generated constructor stub
+		
+		maxLat= eastNorth2latlon.getY(); // max NE!
+		minLat= eastNorth2latlon.getY();		
+		minLon= eastNorth2latlon.getX() - 0.0001;
+		minLon= eastNorth2latlon.getX() - 0.0001;
 	}
 
 	@Override public String toString() {
@@ -167,11 +183,18 @@ public class Bounds {
         if (ll.lon() > maxLon) {
             maxLon = roundToOsmPrecision(ll.lon());
         }
+        check();
     }
 
-    public void extend(Bounds b) {
+    private void check() {
+		// TODO Auto-generated method stub
+    	assert(getArea()>0);
+	}
+
+	public void extend(Bounds b) {
         extend(b.getMin());
         extend(b.getMax());
+        check();
     }
     /**
      * Is the given point within this bounds?
