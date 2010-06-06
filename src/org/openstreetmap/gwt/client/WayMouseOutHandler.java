@@ -14,7 +14,8 @@ public class WayMouseOutHandler implements MouseOutHandler {
 		  Widget widget = (Widget) event.getSource();
 		 //   widget.removeStyleName("my-mouse-over");
 	//	 widget.setWidth("1");
-		  window.objnameField.setText("NOTHING SELECTED");
+		  String s = window.objnameField.getText();
+		  window.objnameField.setText("NOTHING SELECTED, was :	" + s);
 		}
 		catch (Exception e)
 		{

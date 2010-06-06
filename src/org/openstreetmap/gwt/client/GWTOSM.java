@@ -72,12 +72,11 @@ public class GWTOSM implements EntryPoint {
     void preparenc()
     {
     	nc = new NavigatableComponent(data );
-    	//http://api.openstreetmap.org/api/0.6/map?bbox=19.4941,42.0478,19.51797,42.06383
-    	//
-		
-		bounds= new Bounds(42.06783,19.50381,42.07183,19.50973);
+
+    	// this is taked from the url now, dont need to set them
+		bounds= new Bounds(41,19,42,20);
 		dataUrl="http://api.openstreetmap.org/api/0.6/map?bbox=19.50381,42.06783,19.50973,42.07183";
-	//   nc.zoomTo(bounds);
+
 	   
     }
     
@@ -154,7 +153,7 @@ public class GWTOSM implements EntryPoint {
 	  	final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
     
-    nameField .setVisibleLength(300);
+    nameField .setVisibleLength(150);
     
     objnameField = new TextBox();
     final Label errorLabel = new Label();
@@ -237,6 +236,12 @@ public class GWTOSM implements EntryPoint {
 	nx.addChangeHandler(bboxch);
 	ny.addChangeHandler(bboxch);
 	
+	// put the name in first
+	dialogVPanel.add(nameLabel);
+	dialogVPanel.add(objnameField);
+	objnameField.setVisibleLength(150);
+	//objnameField.setMaxLength(150);
+	
 	dialogVPanel.add(mxLabel);
 	dialogVPanel.add(mx);
 	
@@ -254,8 +259,7 @@ public class GWTOSM implements EntryPoint {
 	
 	
 	
-	dialogVPanel.add(nameLabel);
-	dialogVPanel.add(objnameField);
+	
 	
 	zoomField2.addChangeHandler(new ChangeHandler()
 	{
