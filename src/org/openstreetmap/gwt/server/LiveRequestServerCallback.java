@@ -7,13 +7,13 @@ import com.google.gwt.http.client.Response;
 
 public class LiveRequestServerCallback implements RequestCallback {
 
-	@Override
+	
 	public void onError(Request request, Throwable exception) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
+	
 	public void onResponseReceived(Request request, Response response) {
 		// TODO Auto-generated method stub
 		

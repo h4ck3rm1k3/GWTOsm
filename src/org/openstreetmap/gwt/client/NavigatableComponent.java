@@ -281,7 +281,7 @@ public class NavigatableComponent implements INavigatableComponent {
 		  zoomTo(newCenter, scale);
 	}
 
-	@Override
+	
 	public void zoomTo(LatLon newCenter) {
 		// TODO Auto-generated method stub
 		 if(newCenter instanceof CachedLatLon) {

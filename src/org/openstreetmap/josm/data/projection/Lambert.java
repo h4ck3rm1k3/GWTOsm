@@ -300,7 +300,7 @@ public class Lambert implements Projection, ProjectionSubPrefs {
         return null;
     }
 
-	@Override
+	
 	public void setPreferences(Collection<String> args) {
 		// TODO Auto-generated method stub
 		

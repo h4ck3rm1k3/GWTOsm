@@ -538,7 +538,7 @@ public class SimplePaintVisitor extends AbstractVisitor implements PaintVisitor 
         this.inactive = inactive;
     }
 
-	@Override
+	
 	public void setGraphics(IGwtGraphics2D g) {
 		// TODO Auto-generated method stub
 		
