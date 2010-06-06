@@ -153,7 +153,7 @@ public class GWTOSM implements EntryPoint {
 	  	final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
     
-    nameField .setVisibleLength(150);
+    nameField .setVisibleLength(50);
     
     objnameField = new TextBox();
     final Label errorLabel = new Label();
