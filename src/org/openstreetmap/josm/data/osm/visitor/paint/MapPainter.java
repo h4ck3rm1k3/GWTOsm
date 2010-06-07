@@ -92,8 +92,11 @@ public class MapPainter {
 
         GeneralPath path = new GeneralPathWay(way);
         path.setTitle(way.getName());
-        path.setStyleName("osm_way");
-        
+  
+        // now take the highway tag value and make a class
+        String highway_class= "highway-" + way.get("highway");
+//        path.getElement().addClassName(highway_class);
+        path.setStyleName("osm_way-" + highway_class);
       path.getElement().setId("" + way.getId());
         //path.setImageHref();
         SVGUtil.setAttributeNS(SVGUtil.XLINK_NS, path.getElement(), "href", "http://www.openstreetmap.org/browse/way/" + way.getId());

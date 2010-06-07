@@ -294,13 +294,7 @@ public class GWTOSM implements EntryPoint {
       }
     });
 
-    
-//    getButton.addClickHandler(new ClickHandler() {
-//        public void onClick(ClickEvent event) {
-//       //   dialogBox.hide();
-//        	//fetchDataLive();
-//        }
-//      });
+   
     
     // Create a handler for the sendButton and nameField
     class MyHandler implements ClickHandler, KeyUpHandler {
@@ -368,9 +362,9 @@ public class GWTOSM implements EntryPoint {
     nameField.addKeyUpHandler(handler);
   }
 
-
+/// Draw the map at the current zoom level.
 public void drawmap() {
-	// TODO Auto-generated method stub
+	
 	drawmap(dZoom);
 }
 }
