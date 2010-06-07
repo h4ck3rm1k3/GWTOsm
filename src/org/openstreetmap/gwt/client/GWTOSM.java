@@ -153,7 +153,7 @@ public class GWTOSM implements EntryPoint {
 	  	final Button sendButton = new Button("Send");
     final TextBox nameField = new TextBox();
     
-    nameField .setVisibleLength(50);
+    nameField .setVisibleLength(30);
     
     objnameField = new TextBox();
     final Label errorLabel = new Label();
@@ -239,7 +239,7 @@ public class GWTOSM implements EntryPoint {
 	// put the name in first
 	dialogVPanel.add(nameLabel);
 	dialogVPanel.add(objnameField);
-	objnameField.setVisibleLength(150);
+	objnameField.setVisibleLength(30);
 	//objnameField.setMaxLength(150);
 	
 	dialogVPanel.add(mxLabel);
