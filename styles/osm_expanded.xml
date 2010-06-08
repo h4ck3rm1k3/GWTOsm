@@ -70,7 +70,7 @@ Settings for symbols, the spatial reference of your postgis tables, coastline sh
      libxml2 as the XML parser. Furthermore, there are other features
      and behaviour that necessitate an upgrade to mapnik 0.7.1 -->
 <Map bgcolor="#b5d0d0" srs="&srs900913;" minimum_version="0.7.1">
-  &fontset-settings;
+ &fontset-settings;
 <Style name="turning_circle">
     <Rule>
       &maxscale_zoom15;
