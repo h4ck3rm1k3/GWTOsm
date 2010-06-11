@@ -1,5 +1,4 @@
 package org.openstreetmap.model;
-import org.openstreetmap.josm.data.osm.Amenity;
 import org.openstreetmap.model.StyleEvaluator;
 public class GeneratedStyleEvaluator extends StyleEvaluator  { 
 boolean ProcessStyle0 (HighwayType obj)

@@ -1,6 +1,5 @@
 package org.openstreetmap.model;
 
-import org.openstreetmap.josm.data.osm.Amenity;
 
 public class HighwayType {
 
