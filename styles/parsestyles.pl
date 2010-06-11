@@ -109,6 +109,8 @@ use Moose;
 extends 'BaseRule';
 use Data::Dumper;
 
+my $style = undef;
+
 sub start
 {
     my $class=shift;
@@ -117,6 +119,7 @@ sub start
 #    warn Dumper($data);    
     my $value = $data->{Attributes}->{'{}name'}->{'Value'};
     print "//Style $value\n";
+
     return $data;
 }
 
