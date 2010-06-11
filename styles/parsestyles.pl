@@ -494,7 +494,7 @@ sub EmitClasses
 
 	print "}\n";
     }
-    %code=();
+#    %code=();
 }
 
 sub RuleEnd
@@ -692,7 +692,7 @@ sub end
 
 sub EmitClasses
 {
-#    Field::EmitClasses;
+    Field::EmitClasses;
 }
 
 sub EmitCalls
