@@ -1,5 +1,7 @@
 package org.openstreetmap.josm.data.osm;
 
+import org.openstreetmap.model.Yes;
+
 public class Point {
 
 	public long y;
@@ -29,6 +31,11 @@ public class Point {
 	public double distanceSq(Point b) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public boolean equals_(Yes constYes) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

@@ -28,6 +28,22 @@ package Rule;
 use Moose;
 extends 'BaseRule';
 
+sub start
+{
+    my $class=shift;
+    my $data=shift;   
+    Field::RuleStart();
+    return $data;
+}
+
+sub end
+{
+    my $class=shift;
+    my $data=shift;  
+    Field::RuleEnd();
+    return $data;
+}
+
 1;
 
 package MaxScaleDenominator;
@@ -45,6 +61,26 @@ package PointSymbolizer;
 use Moose;
 extends 'BaseRule';
 
+
+sub start
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::inLine("PointSymbolizer");
+#    warn Dumper($data);    
+    return $data;
+}
+
+sub end
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::notinLine();
+#    warn Dumper($data);    
+    return $data;
+}
 
 1;
 
@@ -66,21 +102,89 @@ extends 'BaseRule';
 
 1;
 
+## Style::
+
 package Style;
 use Moose;
 extends 'BaseRule';
+use Data::Dumper;
+
+sub start
+{
+    my $class=shift;
+    my $data=shift;
+    
+#    warn Dumper($data);    
+    my $value = $data->{Attributes}->{'{}name'}->{'Value'};
+    print "//Style $value\n";
+    return $data;
+}
+
+sub end
+{
+    my $class=shift;
+    my $data=shift;
+    
+    print "end of style";
+    Field::EmitClasses();
+
+    return $data;
+}
 
 1;
 
 package LineSymbolizer;
 use Moose;
 extends 'BaseRule';
+use Data::Dumper;
+
+
+sub start
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::inLine("LineSymbolizer");
+#    warn Dumper($data);    
+    return $data;
+}
+
+sub end
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::notinLine();
+#    warn Dumper($data);    
+    return $data;
+}
 
 1;
 
 package PolygonSymbolizer;
 use Moose;
 extends 'BaseRule';
+
+
+sub start
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::inLine("PolygonSymbolizer");
+#    warn Dumper($data);    
+    return $data;
+}
+
+sub end
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::notinLine();
+#    warn Dumper($data);    
+    return $data;
+}
 
 1;
 
@@ -89,11 +193,62 @@ use Moose;
 extends 'BaseRule';
 
 
+sub start
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::inLine("PolygonPatternSymbolizer");
+#    warn Dumper($data);    
+    return $data;
+}
+
+sub end
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::notinLine();
+#    warn Dumper($data);    
+    return $data;
+}
+
 1;
 
 package TextSymbolizer;
 use Moose;
 extends 'BaseRule';
+
+
+sub start
+{
+    my $class=shift;
+    my $data=shift;
+    
+    my $value = $data->{Attributes}->{'{}name'}->{'Value'};
+    my $vfont = $data->{Attributes}->{'{}fontset_name'}->{'Value'};
+    my $vsize = $data->{Attributes}->{'{}size'}->{'Value'};
+    my $vfill = $data->{Attributes}->{'{}fill'}->{'Value'};
+    my $vhrad = $data->{Attributes}->{'{}halo_radius'}->{'Value'} || 0;
+    my $vwwid = $data->{Attributes}->{'{}wrap_width'}->{'Value'} || 0;
+
+    
+    print "//TextSymbolizer $value,$vfont, $vsize,$vfill,$vhrad,$vwwid);\n";
+
+    Field::inLine("TextSymbolizer");
+#    warn Dumper($data);    
+    return $data;
+}
+
+sub end
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::notinLine();
+#    warn Dumper($data);    
+    return $data;
+}
 
 
 1;
@@ -107,16 +262,74 @@ extends 'BaseRule';
 package LinePatternSymbolizer;
 use Moose;
 extends 'BaseRule';
+
+sub start
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::inLine("LinePatternSymbolizer");
+#    warn Dumper($data);    
+    return $data;
+}
+
+sub end
+{
+    my $class=shift;
+    my $data=shift;
+    
+    Field::notinLine();
+#    warn Dumper($data);    
+    return $data;
+}
+
 1;
 
 package Layer;
 use Moose;
 extends 'BaseRule';
+use Data::Dumper;
+sub start
+{
+    my $class=shift;
+    my $data=shift;
+    
+#    warn Dumper($data);    
+    my $value = $data->{Attributes}->{'{}name'}->{'Value'};
+    print "//Layer: $value\n";
+
+    return $data;
+}
+
+sub end
+{
+    my $class=shift;
+    my $data=shift;
+    #    warn Dumper($data);    
+    return $data;
+}
+
 1;
 
 package StyleName;
 use Moose;
 extends 'BaseRule';
+
+sub start
+{
+    my $class=shift;
+    my $data=shift;  
+    return $data;
+}
+
+sub characters 
+{
+    my $class=shift;
+    my $self=shift;
+    my $data =shift;
+    my $string  =$data->{'Data'};
+    print "Stylename($string)\n";
+}
 
 1;
 
@@ -129,6 +342,26 @@ extends 'BaseRule';
 package Parameter;
 use Moose;
 extends 'BaseRule';
+
+
+sub start
+{
+    my $class=shift;
+    my $data=shift;  
+    my $value = $data->{Attributes}->{'{}name'}->{'Value'};
+    print "//Parameter: $value\n";
+
+    return $data;
+}
+
+sub characters 
+{
+    my $class=shift;
+    my $self=shift;
+    my $data =shift;
+    my $string  =$data->{'Data'};
+    print "Parameter($string)\n";
+}
 
 1;
 
@@ -143,93 +376,30 @@ extends 'BaseRule';
 package CssParameter;
 use Moose;
 extends 'BaseRule';
-
-
-1;
-
-package Filter;
-use Parse::RecDescent;
 use Data::Dumper;
-
-
-my $grammar = q {
-<autotree>
-
-FilterExpr : Expression 
-Expression  :  ExprAnd 'or' Expression | ExprAnd
-ExprAnd : ExprNot 'and' ExprAnd | ExprNot
-ExprNot : 'not' Parens | '<>' Parens | Parens
-Parens : '(' Expression ')' | ExprField
-ExprField : Field Operator Value   | Field 
-Identifier: /[A-Za-z_][A-Za-z0-9_]*/
-Literal: /[A-Za-z0-9_]+/
-Field : '[' Identifier ']'
-Digits : /[0-9]+/
-Value : "\'" Literal "\'" | Digits | "\'\'"
-Operator :  '*' |  '/' | '+' | '-' | '%' | '=' | '<>'
-         };
-my $ruleparser = new Parse::RecDescent ($grammar) or die "Bad grammar!\n";
-
 sub start
 {
     my $class=shift;
-    my $data=shift;
-    
-    #print Dumper($data);    
-    return $data;
-}
-my $count =0;
-sub end
-{
-    my $class=shift;
     my $self=shift;
-#    warn Dumper($self);
-    my $text =$self->{chars};
-    my $x= $ruleparser->FilterExpr($text) ;
-    if ($x)
-    {
-	#print "good text $text \n";
-	my $java  = $x->emitJava();
-
-print "boolean ProcessStyle$count (OsmPrimitiveWrapper obj)
-	{\n";
-	print "return $java;\n";
-print "}; \n";
-	$count++;
-
-    }
-    else
-    {
-	print "Bad text! $text\n";
-    }
-
+    my $value = $self->{Attributes}->{'{}name'}->{'Value'};
+    print "//CSS: $value\n";
 }
 
-sub EmitCalls
-{
-print "void ProcessStyle (OsmPrimitiveWrapper obj){";
-foreach (0..$count -1)
-{
-    print "if( ProcessStyle$_ (obj)) {return; }\n";
-}
-print "}";
-}
 sub characters 
 {
     my $class=shift;
     my $self=shift;
     my $data =shift;
     my $string  =$data->{'Data'};
-    
-    if ($self->{chars})
-    {
-	$self->{chars} .= $string;
-#	warn "Append $string"; 
-    }
-    else
-    {
-	$self->{chars} = $string;
-    }
+#    warn Dumper($data);
+    print "CSS($string)\n";
+#    warn "Append $data"; 
+
+}
+
+sub end
+{
+#    warn Dumper(@_);
 }
 
 
@@ -278,6 +448,297 @@ sub emitJava
 
 1;
 
+# the Field class 
+# use Field:: for searching
+package Field;
+use Moose;
+use Data::Dumper;
+extends 'Expression';
+
+# the methods seen so far
+my %methods;
+
+my %object_types;
+my %object_types_2;
+
+my %code;
+
+my $line=0;
+sub inLine
+{
+    my $line2=shift;
+    print "//INSIDE $line2\n";
+    $line=$line2;
+}
+sub notinLine
+{
+    print "//LEAVING $line\n";
+    $line=0;
+}
+
+sub RuleStart
+{
+    print "//RuleStart\n";
+}
+
+sub EmitClasses
+{
+    foreach my $type (sort keys %code)
+    {
+	print "public class $type extends typebase{\n";
+	
+	print join ("\n", @{$code{$type}}) . "\n";
+
+	print "}\n";
+    }
+    %code=();
+}
+
+sub RuleEnd
+{
+
+    print "//RuleEnd\n";
+    # 
+#    EmitClasses;
+
+#reset
+#    %code=();
+}
+
+sub addCode
+{
+    my $type =shift;
+    my $code =shift;
+#    warn "adding $type $code";
+    if ($line)
+    {
+	push @{$code{$type}},"LINE:". $code;
+    }
+    else
+    {
+	push @{$code{$type}}, $code;
+    }
+}
+
+
+
+sub makeobjtype 
+{
+    my $h=shift;
+    my @keys = sort keys %{$object_types{$h}};
+    
+    if (!@keys)
+    {
+	warn "nothing found for $h " unless @keys;
+#	my @keys2 = sort keys %{$object_types_2{$h}};
+#	warn "found for $h " . join ("|",@keys2);
+    }
+       
+    return join ("_",@keys);
+}
+sub findtype 
+{
+    my $h=shift;
+    return join ("_",(sort keys %methods));
+}
+
+sub addtypedLiteral
+{
+    my $value =shift;
+    my $type = findtype();
+
+    foreach my $t (keys %methods)
+    {
+	$object_types{$value}{$t}++;
+    }
+    
+    # now we know the typr
+    my $old = makeobjtype($value);
+    if ($old)
+    {
+	if ($old ne "$type")
+	{
+	    #duplicate type
+#	    warn "$value has $type and does not match  $old\n";
+	}
+    }
+
+    $object_types_2{$value}=$old;
+
+#    warn "$value now of type $old\n";
+
+#    warn makeobjtype($field);
+#    }
+
+}
+
+sub gettype
+{
+    my $field=shift;
+    my $ret= $object_types_2{$field};
+
+    die "$field has no value" unless $ret;
+
+    return $ret;
+}
+
+
+sub emitJava
+{
+#    my $class=shift;
+    my $self=shift;
+    my $id = $self->{Identifier}->emitJava();
+
+#    warn "found $id";
+
+    $methods{$id}++;
+
+    return "obj.get${id}()";
+}
+
+
+
+sub findtypes
+{
+    my $h=shift;
+    return (sort keys %methods);
+}
+
+sub Process 
+{
+    my $java =shift;
+    my $type = findtype ;
+    
+  #  print "boolean ProcessStyle$count ($type obj)
+#	{\n";
+    
+#    foreach my $k (keys %methods)
+#    {
+#	print "\t// used ${k}\n";
+ #   }
+
+    %methods = (); # clear the methods
+#    print "return $java;\n";
+#    print "}; \n";
+
+    addCode ($type,$java);
+
+    print "$java\n";
+    
+}
+
+
+1;
+
+package Filter;
+use Parse::RecDescent;
+use Data::Dumper;
+#use Field;
+
+my $grammar = q {
+<autotree>
+
+FilterExpr : Expression 
+Expression  :  ExprAnd 'or' Expression | ExprAnd
+ExprAnd : ExprNot 'and' ExprAnd | ExprNot
+ExprNot : 'not' Parens | '<>' Parens | Parens
+Parens : '(' Expression ')' | ExprField
+ExprField : Field Operator Value   | Field 
+Identifier: /[A-Za-z_][A-Za-z0-9_]*/
+Literal: /[A-Za-z0-9_]+/
+Field : '[' Identifier ']'
+Digits : /[0-9]+/
+Value : "\'" Literal "\'" | Digits | "\'\'"
+Operator :  '*' |  '/' | '+' | '-' | '%' | '=' | '<>'
+         };
+my $ruleparser = new Parse::RecDescent ($grammar) or die "Bad grammar!\n";
+
+sub start
+{
+    my $class=shift;
+    my $data=shift;
+
+    print "//FilterStart\n";    
+    #print Dumper($data);    
+    return $data;
+}
+my $count =0;
+
+
+sub end
+{
+    my $class=shift;
+    my $self=shift;
+    print "//FilterEnd\n";    
+#    warn Dumper($self);
+    my $text =$self->{chars};
+    my $x= $ruleparser->FilterExpr($text) ;
+    if ($x)
+    {
+	#print "good text $text \n";
+	my $java  = $x->emitJava();
+	Field::Process($java);
+	$count++;
+    }
+    else
+    {
+	print "Bad text! $text\n";
+    }
+
+}
+
+sub EmitClasses
+{
+#    Field::EmitClasses;
+}
+
+sub EmitCalls
+{
+print "void ProcessStyle (OsmPrimitiveWrapper obj){";
+# foreach (0..$count -1)
+# {
+#     print "if( ProcessStyle$_ (obj)) {return; }\n";
+# }
+print "}";
+}
+
+my %types_rules; # what rules
+
+sub EmitCallsType
+{
+    my $type=shift;
+
+    print "void ProcessStyle ($type obj){";
+    foreach (@{$types_rules{$type}})
+    {
+	print "if( ProcessStyle$_ (obj)) {return; }\n";
+    }
+    print "}";
+
+}
+
+sub characters 
+{
+    my $class=shift;
+    my $self=shift;
+    my $data =shift;
+    my $string  =$data->{'Data'};
+    
+    if ($self->{chars})
+    {
+	$self->{chars} .= $string;
+#	warn "Append $string"; 
+    }
+    else
+    {
+	$self->{chars} = $string;
+    }
+}
+
+
+1;
+
+
 package ExprNot;
 use Moose;
 extends 'Expression';
@@ -318,14 +779,25 @@ package Literal;
 use Moose;
 extends 'Expression';
 
+my %fields;
+
 sub emitJava
 {
 #    my $class=shift;
     my $self=shift;
     my $id = $self->{__VALUE__};
-    return "\"$id\"";
+
+    $fields{"${id}"}++;
+    
+    Field::addtypedLiteral($id);
+    return "CONST_${id}";
 }
 
+END 
+{
+
+
+}
 1;
 
 =pod
@@ -368,20 +840,6 @@ sub emitJava
 1;
 
 
-package Field;
-use Moose;
-use Data::Dumper;
-extends 'Expression';
-
-sub emitJava
-{
-#    my $class=shift;
-    my $self=shift;
-    my $id = $self->{Identifier}->emitJava();
-    return "obj.get(\"$id\")";
-}
-
-1;
 
 
 package Operator;
@@ -394,11 +852,11 @@ sub emitJava
 
     if ($id eq "=")
     {
-	return "equals"
+	return "equals_"
     }
     elsif ($id eq "<>")
     {
-	return "notequals"
+	return "notequals_"
     }
 
     return " OPERATOR $id ";
@@ -620,8 +1078,11 @@ use warnings;
 
 use Data::Dumper;
 use XML::SAX;
-my $parser = XML::SAX::ParserFactory->parser(    Handler => MySAXHandler->new    );
 
+use XML::SAX::PurePerl;
+#my $handler = XML::Handler::Foo->new();
+my $parser = XML::SAX::PurePerl->new(Handler => MySAXHandler->new );
+#my $parser = XML::SAX::ParserFactory->parser(    Handler => MySAXHandler->new    );
 print "package org.openstreetmap.gwt.client;\n";
 print "import  org.openstreetmap.gwt.client.StyleEvaluator;\n";
 print "import org.openstreetmap.josm.data.osm.OsmPrimitiveWrapper;\n";
@@ -629,6 +1090,11 @@ print "public class GeneratedStyleEvaluator extends StyleEvaluator  { \n";
 
 $parser->parse_uri("osm_expanded.xml");
 
+Filter::EmitClasses();
 Filter::EmitCalls();
 
 print "}; \n";
+
+print join "\n", map {
+    my $type = Field::gettype($_);
+    "public static final $type $_=null;" }(sort keys %fields);
