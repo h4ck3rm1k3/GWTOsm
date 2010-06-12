@@ -18,16 +18,47 @@ sub Push
 sub PopAll
 {
     my $name=shift;
+
+
     
-    if ($stacks{$name})
-    {
-	my @stack = @{$stacks{$name}};
-	if (@stack)
+    if ($name)
+    {	
+	foreach my $f (sort keys %stacks)
 	{
-	    warn join "\n",@stack;
-	    print join "\n",@stack;
+	    my @stack = @{$stacks{$f}};
+	    if (@stack)
+	    {
+		print "//Before Popall $name  / $f: " . join "\n",@stack;
+	    }
 	}
-	@{$stacks{$name}}=();
+
+	if ($stacks{$name})
+	{
+	    my @stack = @{$stacks{$name}};
+	    if (@stack)
+	    {
+		print "//WARN DEBUG:".join "\n",@stack;
+		print join "\n",@stack;
+		
+	    }
+	    @{$stacks{$name}}=();
+	}
+    }
+    else
+    {
+	foreach my $f (sort keys %stacks)
+	{
+	    my @stack = @{$stacks{$f}};
+	    if (@stack)
+	    {
+		print "//Before Popall NONAME  / $f: " . join "\n",@stack;
+	    }
+	}
+	foreach my $f (sort keys %stacks)
+	{
+#	    warn ""
+	    PopAll($f);
+	}
     }
 }
 
@@ -58,7 +89,7 @@ sub Name
     my $narg = join(",","\"$old\"",@args);
     print "protected $type m${name}${count} = new $type ($narg){\n";
     
-    warn "adding $name";
+    print "// DEBUG adding $name\n";
     Stack::Push ($name,"};//$name end\n");
 }
 
@@ -74,7 +105,7 @@ sub NameLayer
     my $narg = join(",","\"$old\"",@args);
     print "protected $type m${name}${count} = new $type ($narg){\n";
     
-    warn "adding $name";
+    print "// DEBUG :adding $name\n";
     Stack::Push ($type,"};//$name end\n");
 }
 
@@ -217,6 +248,7 @@ extends 'BaseRule';
 
 sub end
 {
+
     Stack::PopAll("Layer"); # remove leftover rules
 }
 
@@ -451,7 +483,8 @@ sub start
 {
     my $class=shift;
     my $data=shift;
-    
+
+    Stack::PopAll("Rules"); # remove leftover rules    
     Stack::PopAll("Style");# get rid of any data left
     Stack::PopAll("Layer");# get rid of any data left
     #Style::end; # just to be sure, check if the style is ended
@@ -470,6 +503,7 @@ sub end
     my $class=shift;
     my $data=shift;
     #    warn Dumper($data);    
+
     Stack::PopAll("Layer");# get rid of any data left
     return $data;
 }
@@ -493,7 +527,9 @@ sub characters
     my $self=shift;
     my $data =shift;
     my $string  =$data->{'Data'};
-    print "Stylename stylename = new Stylename(\"$string\");\n";
+    $string =~ s/\-/_/g; # replace the - with _ in the name
+    print "\nStyle_base stylename = new Style_${string}();\n";
+##
 }
 
 1;
@@ -574,7 +610,9 @@ sub end
 #    warn Dumper(@_);
 
     #todo, we need to track this better, maybe a stack?
-    print "}; // end of CSS\n";
+    #print "}; // end of CSS\n";
+    Stack::PopAll("CSSConst");
+    Stack::PopAll("CSS");
 }
 
 
@@ -696,8 +734,10 @@ sub EmitClasses
 {
     foreach my $type (sort keys %code)
     {
-	print "public class $type extends typebase{\n";
-	
+	print "class Check_${type} extends typebase{\n";
+
+	print "public $type obj;\n";
+
 	#print join ("\n", 
 	map {
 	    Naming::NameSimple ("Filter","code",$_)
@@ -832,8 +872,11 @@ sub Process
 #    print "$java\n";
     $filtercount++;    
 #    $symbolcount++;
-    print "protected Filter mFilter${filtercount} = new $java;\n";
-
+    print "protected Filter mFilter${filtercount} = new Filter(){\n";
+    print "protected $type obj = new $type();\n";
+    print "protected Filter mFilterBody = new $java;\n";
+    print "}; // end of Filter\n";
+    
 }
 
 
@@ -903,12 +946,12 @@ sub EmitClasses
 
 sub EmitCalls
 {
-#print "void ProcessStyle (OsmPrimitiveWrapper obj){";
+print "void ProcessStyle (BaseObject obj){";
 # foreach (0..$count -1)
 # {
 #     print "if( ProcessStyle$_ (obj)) {return; }\n";
 # }
-#print "}";
+print "}\n";
 
 }
 
@@ -1301,10 +1344,17 @@ print "public class GeneratedStyleEvaluator extends StyleEvaluator  { \n";
 $parser->parse_uri(shift @ARGV);
 
 Filter::EmitClasses();
-Filter::EmitCalls();
 
-print "}; \n";
+Stack::PopAll("Rules");# get rid of any data left
+Stack::PopAll("Style");# get rid of any data left
+
+Stack::PopAll;
+
+Filter::EmitCalls();
 
 print join "\n", map {
     my $type = Field::gettype($_);
     "public static final $type $_=null;" }(sort keys %fields);
+
+print "};//end StyleEvaluator \n";
+
