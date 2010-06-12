@@ -115,10 +115,14 @@ sub start
 {
     my $class=shift;
     my $data=shift;
-    
-#    warn Dumper($data);    
     my $value = $data->{Attributes}->{'{}name'}->{'Value'};
-    print "//Style $value\n";
+    print "package org.openstreetmap.style;\n";
+    print "public class Style_$value extends Style_base\n{\n";
+    if ($style )
+    {
+	end ($class,$data); # close this 
+    }
+    $style = $value;
 
     return $data;
 }
@@ -128,8 +132,11 @@ sub end
     my $class=shift;
     my $data=shift;
     
-    print "end of style";
     Field::EmitClasses();
+    
+    print "} // end of class \n";
+    print "} // end of package \n";
+    $style = undef;
 
     return $data;
 }
