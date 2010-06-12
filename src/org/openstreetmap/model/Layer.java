@@ -1,5 +1,7 @@
 package org.openstreetmap.model;
 
+import com.google.gwt.core.client.GWT;
+
 public class Layer {
 
 	public Layer(String string) {
@@ -17,7 +19,7 @@ public class Layer {
 	
 	void Load(Parameter mtable32) {
 		// TODO Auto-generated method stub
-		
+		GWT.log("loading string:" + mtable32.toString());
 	}
 	private void Load(Style mhighwayAreaCasing) {
 		mhighwayAreaCasing.Load();
@@ -34,6 +36,11 @@ public class Layer {
 	}
 
 	public void LoadParameters() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void LoadStyle() {
 		// TODO Auto-generated method stub
 		
 	}

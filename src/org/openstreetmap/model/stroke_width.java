@@ -10,4 +10,14 @@ public class stroke_width {
 		// TODO Auto-generated constructor stub
 	}
 
+	public void load() {
+		// TODO Auto-generated method stub
+		LoadCSSConst();
+	}
+
+	protected void Load(stroke_width mCSS1) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void LoadCSSConst(){}
 }

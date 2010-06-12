@@ -22,21 +22,21 @@ sub PopAll
    
     if ($name)
     {	
-	foreach my $f (sort keys %stacks)
-	{
-	    my @stack = @{$stacks{$f}};
-	    if (@stack)
-	    {
-		print "//Before Popall $name  / $f: " . join ("\t",@stack). "\n";
-	    }
-	}
+# 	foreach my $f (sort keys %stacks)
+# 	{
+# 	    my @stack = @{$stacks{$f}};
+# 	    if (@stack)
+# 	    {
+# #		print "//Before Popall $name  / $f: " . join ("\t",@stack). "\n";
+# 	    }
+# 	}
 
 	if ($stacks{$name})
 	{
 	    my @stack = @{$stacks{$name}};
 	    if (@stack)
 	    {
-		print "//WARN DEBUG:".join ("\t",@stack). "\n";
+#		print "//WARN DEBUG:".join ("\t",@stack). "\n";
 		print join ("\n",@stack)."\n" ;
 		
 	    }
@@ -45,14 +45,14 @@ sub PopAll
     }
     else
     {
-	foreach my $f (sort keys %stacks)
-	{
-	    my @stack = @{$stacks{$f}};
-	    if (@stack)
-	    {
-		print "//Before Popall NONAME  / $f: " . join ("\t",@stack) . "\n";
-	    }
-	}
+# 	foreach my $f (sort keys %stacks)
+# 	{
+# 	    my @stack = @{$stacks{$f}};
+# 	    if (@stack)
+# 	    {
+# #		print "//Before Popall NONAME  / $f: " . join ("\t",@stack) . "\n";
+# 	    }
+# 	}
 #	foreach my $f (sort keys %stacks)
 #	{
 #	    PopAll($f);
@@ -182,6 +182,8 @@ sub NameNoCount
     my $count = $names{$name}++;
     my $narg = join(",","\"$old\"",@args);
     print "protected $type m${name} = new $type ($narg);\n";
+    print "public void Load${name}() { m${name}.load(); };\n";
+
     return "m${name}";
 }
 
@@ -227,6 +229,11 @@ sub end
     my $data=shift;  
 #    Counting::End("rules");
     Field::PrintSymbols();
+
+    CssParameter::PrintCss();
+
+    Filter::PrintFilters();
+
     Field::RuleEnd();
     return $data;
 }
@@ -695,7 +702,7 @@ sub start
 
     #start
     $curname=$value;
-    Naming::Name("CSS","$value");
+    Stack::Push("CSSItems", Naming::Name("CSS","$value"));
 }
 
 sub characters 
@@ -707,8 +714,24 @@ sub characters
 #    warn Dumper($data);
 #    print "CSS(\"$string\")\n";
     Naming::NameNoCount("CSSConst",$curname,"\"$string\"");
+#    Naming::Name("CSS","$value");
 #    warn "Append $data"; 
 
+}
+
+#CssParameter::PrintCss
+sub PrintCss
+{
+    print "public void LoadCSS(){\n";
+
+    foreach my $p (Stack::PopAllArr("CSSItems"))
+    {
+      if ($p)
+	{
+	  print "Load(${p});\n";
+	}
+    }
+    print "}\n";
 }
 
 sub end
@@ -719,6 +742,7 @@ sub end
     #print "}; // end of CSS\n";
     Stack::PopAll("CSSConst");
     Stack::PopAll("CSS");
+
 }
 
 
@@ -995,7 +1019,7 @@ sub Process
 #    print "protected $type obj = new $type();\n";
  #   print "protected Filter mFilterBody = new Field() { $java;\n";
     print "public void exec () {$java;\n};// end of exec\n";
-
+    Stack::Push("Filters","mFilter${filtercount}");
     print "}; // end of Filter\n";
     
 }
@@ -1059,6 +1083,22 @@ sub end
     }
 
 }
+
+sub PrintFilters()
+{
+    print "public void LoadFilters(){\n";
+
+    foreach my $p (Stack::PopAllArr("Filters"))
+    {
+      if ($p)
+	{
+	  print "Load(${p});\n";
+	}
+    }
+    print "}\n";
+}
+
+   
 
 sub EmitClasses
 {
@@ -1421,7 +1461,7 @@ sub start_element
     my ($self, $el) = @_;
     my $name = $el->{LocalName};
     $obj = ${name}->start($el);
-    print "//DEBUG start $name\n";
+#    print "//DEBUG start $name\n";
     $current = $name;
     push @stack,$name;
 }
@@ -1432,7 +1472,7 @@ sub end_element
     my $name = $el->{LocalName};
     $current = pop @stack;
 
-    print "//DEBUG end $name / $current\n";
+#    print "//DEBUG end $name / $current\n";
     $obj=undef;
     $current->end($el);
 
@@ -1444,7 +1484,7 @@ sub end_element
 sub characters
 {
     my ($self, $el) = @_;
-    print "//DEBUG characters in $current\n";
+#    print "//DEBUG characters in $current\n";
     ${current}->characters($obj,$el);
 }
 

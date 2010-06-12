@@ -1,6 +1,6 @@
 package org.openstreetmap.model;
 
-public class stroke {
+public class stroke extends style_base {
 
 	public stroke(String string) {
 		// TODO Auto-generated constructor stub
@@ -15,4 +15,14 @@ public class stroke {
 		
 	}
 
+	public void load() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void Load(stroke mCSS0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

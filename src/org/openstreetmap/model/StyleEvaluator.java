@@ -6,10 +6,11 @@ public abstract class StyleEvaluator
 	public void Load(Layer mLayer02) {
 		// TODO Auto-generated method stub
 		mLayer02.LoadParameters();
+		mLayer02.LoadStyle();
 	}
-	public void Load(Style mturningCircle0) {
+	public void Load(Style style) {
 		// TODO Auto-generated method stub
-		
+		style.Load();
 	}
 	
 	public static final Religion CONST_jewish=null;
