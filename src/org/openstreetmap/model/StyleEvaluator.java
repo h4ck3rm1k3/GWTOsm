@@ -3,7 +3,15 @@ package org.openstreetmap.model;
 
 public abstract class StyleEvaluator 
 {
-
+	public void Load(Layer mLayer02) {
+		// TODO Auto-generated method stub
+		mLayer02.LoadParameters();
+	}
+	public void Load(Style mturningCircle0) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	public static final Religion CONST_jewish=null;
 	public static final Religion CONST_muslim=null;
 	public static final Religion CONST_christian=null;

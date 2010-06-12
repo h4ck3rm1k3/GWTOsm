@@ -15,12 +15,11 @@ sub Push
     push @{$stacks{$name}},shift;
 }
 
+
 sub PopAll
 {
     my $name=shift;
-
-
-    
+   
     if ($name)
     {	
 	foreach my $f (sort keys %stacks)
@@ -28,7 +27,7 @@ sub PopAll
 	    my @stack = @{$stacks{$f}};
 	    if (@stack)
 	    {
-		print "//Before Popall $name  / $f: " . join "\n",@stack;
+		print "//Before Popall $name  / $f: " . join ("\t",@stack). "\n";
 	    }
 	}
 
@@ -37,8 +36,8 @@ sub PopAll
 	    my @stack = @{$stacks{$name}};
 	    if (@stack)
 	    {
-		print "//WARN DEBUG:".join "\n",@stack;
-		print join "\n",@stack;
+		print "//WARN DEBUG:".join ("\t",@stack). "\n";
+		print join ("\n",@stack)."\n" ;
 		
 	    }
 	    @{$stacks{$name}}=();
@@ -51,13 +50,30 @@ sub PopAll
 	    my @stack = @{$stacks{$f}};
 	    if (@stack)
 	    {
-		print "//Before Popall NONAME  / $f: " . join "\n",@stack;
+		print "//Before Popall NONAME  / $f: " . join ("\t",@stack) . "\n";
 	    }
 	}
-	foreach my $f (sort keys %stacks)
+#	foreach my $f (sort keys %stacks)
+#	{
+#	    PopAll($f);
+#	}
+    }
+}
+
+sub PopAllArr
+{
+    my $name=shift;
+    
+    if ($name)
+    {	
+	if ($stacks{$name})
 	{
-#	    warn ""
-	    PopAll($f);
+	    my @stack = @{$stacks{$name}};
+	    if (@stack)
+	    {
+		@{$stacks{$name}}=();
+		return @stack;		
+	    }
 	}
     }
 }
@@ -90,9 +106,26 @@ sub Name
     print "protected $type m${name}${count} = new $type ($narg){\n";
     
     print "// DEBUG adding $name\n";
-    Stack::Push ($name,"};//$name end\n");
+    Stack::Push ($name,"};//$name end (m${name}${count})");
+    return "m${name}${count}";
 }
 
+
+sub NameLayerSimple
+{
+    my $name=shift;
+    my $type=shift;
+    my @args=@_;
+    my $old=$type;
+    $type =~ s/-/_/g; # clean the type;
+#    my $count = $names{$name}++;
+    my $narg = join(",","\"$old\"",@args);
+    print "protected $type m${name} = new $type ($narg){\n";
+    
+    print "// DEBUG :adding $name\n";
+    Stack::Push ($type,"};//$name end");
+    return "m${name}";
+}
 
 sub NameLayer
 {
@@ -106,7 +139,8 @@ sub NameLayer
     print "protected $type m${name}${count} = new $type ($narg){\n";
     
     print "// DEBUG :adding $name\n";
-    Stack::Push ($type,"};//$name end\n");
+    Stack::Push ($type,"};//$name end");
+    return "m${name}${count}";
 }
 
 
@@ -121,6 +155,21 @@ sub NameSimple
     my $narg = join(",",@args);
     $narg =~ s/\n/\\n/g; # newlines
     print "protected $type m${name}${count} = new $type($narg);\n";
+    return "m${name}${count}";
+}
+
+sub NameSimpleExec
+{
+    my $type=shift;
+    my $name=shift;
+    my @args=@_;
+    my $old=$type;
+    $type =~ s/-/_/g; # clean the type;
+    my $count = $names{$name}++;
+    my $narg = join(",",@args);
+    $narg =~ s/\n/\\n/g; # newlines
+    print "protected $type m${name}${count} = new $type() { public void exec () {$narg;\n}\n};\n";
+    return "m${name}${count}";
 }
 
 sub NameNoCount
@@ -133,13 +182,17 @@ sub NameNoCount
     my $count = $names{$name}++;
     my $narg = join(",","\"$old\"",@args);
     print "protected $type m${name} = new $type ($narg);\n";
+    return "m${name}";
 }
 
 =pod
+
 base class for all sax callback rules
+
 =cut
 
 package BaseRule;
+
 use Moose;
 sub start
 {
@@ -154,12 +207,10 @@ sub characters
 
 1;
 
-
 package Rule;
 use Moose;
 extends 'BaseRule';
 
-#my $rulecount=0;
 sub start
 {
     my $class=shift;
@@ -175,6 +226,7 @@ sub end
     my $class=shift;
     my $data=shift;  
 #    Counting::End("rules");
+    Field::PrintSymbols();
     Field::RuleEnd();
     return $data;
 }
@@ -249,7 +301,7 @@ extends 'BaseRule';
 sub end
 {
 
-    Stack::PopAll("Layer"); # remove leftover rules
+#    Stack::PopAll("Layer"); # remove leftover rules
 }
 
 
@@ -281,7 +333,7 @@ sub start
     my $class=shift;
     my $data=shift;
 
-    Stack::PopAll("Rules"); # remove leftover rules
+#    Stack::PopAll("Rules"); # remove leftover rules
 
     if ($style )
     {
@@ -293,12 +345,33 @@ sub start
     my $value = $data->{Attributes}->{'{}name'}->{'Value'};
     $value =~ s/\-/_/g; # replace the - with _ in the name
 #    print "package org.openstreetmap.style;\n";
-    print "public class Style_$value extends Style_base\n{\n";
+#    print "public class Style_$value extends Style_base\n{\n";
+
+    my $style2 =Naming::NameLayerSimple("$value","Style");
+    Stack::Push("Styles","$style2");# push these
+
+#    print "public class Style_$value extends Style_base\n{\n";
     $style = $value;
 
-    Stack::Push("Style","}; // end of class $style\n");
+#    Stack::Push("Style","}; // end of class $style\n");
 
     return $data;
+}
+
+#Style::PrintStyles
+
+sub PrintStyles
+{
+    print "public void LoadStyles(){\n";
+
+    foreach my $p (Stack::PopAllArr("Styles"))
+    {
+      if ($p)
+	{
+	  print "Load(${p});\n";
+	}
+    }
+    print "}\n";
 }
 
 # Style::end
@@ -307,15 +380,12 @@ sub end
     my $class=shift;
     my $data=shift;
 
-    
-#    Field::RuleEnd(); # do we need to call this afterward, the xml parser does not seem to do it.?
-#    Stack::PopAll("Style");# get rid of any data left, up to Style
+    Field::PrintRules();
 
     Field::EmitClasses();
     
     Stack::PopAll("Style");# get rid of any data left
 
-#//    print "} // end of package $style\n";
     $style = undef;
 
     return $data;
@@ -484,27 +554,46 @@ sub start
     my $class=shift;
     my $data=shift;
 
-    Stack::PopAll("Rules"); # remove leftover rules    
-    Stack::PopAll("Style");# get rid of any data left
-    Stack::PopAll("Layer");# get rid of any data left
-    #Style::end; # just to be sure, check if the style is ended
-
-#    warn Dumper($data);    
+#    Stack::PopAll("Rules"); # remove leftover rules    
+#    Stack::PopAll("Style");# get rid of any data left
+#    Parameter::PrintParameters();
+#    Layer::PrintLayers();
+#    Stack::PopAll("Layer");# get rid of any data left
     my $value = $data->{Attributes}->{'{}name'}->{'Value'};
     print "//Layer: $value\n";
-
-    Naming::NameLayer("Layer","Layer");
-
+    my $layer =Naming::NameLayer("Layer","Layer");
+    Stack::Push("Layers","$layer");# push these
     return $data;
 }
 
+sub PrintLayers
+{
+    print "public void LoadLayers(){\n";
+
+    foreach my $p (Stack::PopAllArr("Layers"))
+    {
+      if ($p)
+	{
+	  print "Load(${p});\n";
+	}
+    }
+    print "}\n";
+}
+
+#Layer::end
 sub end
 {
     my $class=shift;
     my $data=shift;
     #    warn Dumper($data);    
-
+    
+    print "//End of Layer\n";
+    Parameter::PrintParameters();
+#    Layer::PrintLayers();
     Stack::PopAll("Layer");# get rid of any data left
+
+
+
     return $data;
 }
 
@@ -528,7 +617,7 @@ sub characters
     my $data =shift;
     my $string  =$data->{'Data'};
     $string =~ s/\-/_/g; # replace the - with _ in the name
-    print "\nStyle_base stylename = new Style_${string}();\n";
+    print "public void LoadStyle() { Load( m${string});\n };\n";
 ##
 }
 
@@ -562,7 +651,24 @@ sub characters
     my $data =shift;
     my $string  =$data->{'Data'};
 #    print "Parameter $name Parameter(\"$string\")\n";
-    Naming::NameSimple("Parameter","$name","\"$string\"");
+    my $parameter = Naming::NameSimple("Parameter","$name","\"$string\"");
+    
+    # now add this to the list of fields
+    Stack::Push("Parameters","$parameter");# push these
+}
+
+sub PrintParameters
+{
+    print "public void LoadParameters(){\n";
+
+    foreach my $p (Stack::PopAllArr("Parameters"))
+    {
+      if ($p)
+	{
+	  print "Load(${p});\n";
+	}
+    }
+    print "}\n";
 }
 
 1;
@@ -692,8 +798,27 @@ sub inLine
     }
     $symbolcount++;
     print "protected $line2 mSymbol${symbolcount} = new $line2( $s);\n";
+
+    my $name = "mSymbol${symbolcount}";
+    Stack::Push("Symbols","$name");# push these
     $line=$line2;
 }
+
+
+sub PrintSymbols
+{
+    print "public void LoadSymbols(){\n";
+
+    foreach my $p (Stack::PopAllArr("Symbols"))
+    {
+      if ($p)
+	{
+	  print "Load(${p});\n";
+	}
+    }
+    print "}\n";
+}
+
 
 sub notinLine
 {
@@ -710,22 +835,29 @@ sub RuleStart
 	RuleEnd();
     }
 
-    Naming::Name("Rules","Rule");
+    my $rule = Naming::Name("Rules","Rule");
+    Stack::Push("RuleVars","$rule");# push these
 #    $rulecount++;
 #    print "protected RuleBase  mRule${rulecount} = new Rule${rulecount}() {\n";
-
-
     $rule=1;
 
 }
 
+sub PrintRules
+{
+    print "public void LoadRules(){\n";
+    foreach my $p (Stack::PopAllArr("RuleVars"))
+    {
+      if ($p)
+	{
+	  print "Load(${p});\n";
+	}
+    }
+    print "}\n";
+}
+
 sub RuleEnd
 {
-    if (    $rule)
-    {
-
-    }
-
     Stack::PopAll("Rules");
     $rule=0;
 }
@@ -740,7 +872,7 @@ sub EmitClasses
 
 	#print join ("\n", 
 	map {
-	    Naming::NameSimple ("Filter","code",$_)
+	    Naming::NameSimpleExec ("Filter","code",$_)
 	}@{$code{$type}};
 
 	print "}; // end of class $type \n";
@@ -837,7 +969,7 @@ sub emitJava
 
     $methods{$id}++;
 
-    return "obj.get${id}()";
+    return "getObj().get${id}()";
 }
 
 
@@ -850,31 +982,20 @@ sub findtypes
 
 my $filtercount=0;
 
+#Field::Process($java)
+
 sub Process 
 {
     my $java =shift;
     my $type = findtype ;
-    
-  #  print "boolean ProcessStyle$count ($type obj)
-#	{\n";
-    
-#    foreach my $k (keys %methods)
-#    {
-#	print "\t// used ${k}\n";
- #   }
-
     %methods = (); # clear the methods
-#    print "return $java;\n";
-#    print "}; \n";
-
     addCode ($type,$java);
-
-#    print "$java\n";
     $filtercount++;    
-#    $symbolcount++;
     print "protected Filter mFilter${filtercount} = new Filter(){\n";
-    print "protected $type obj = new $type();\n";
-    print "protected Filter mFilterBody = new $java;\n";
+#    print "protected $type obj = new $type();\n";
+ #   print "protected Filter mFilterBody = new Field() { $java;\n";
+    print "public void exec () {$java;\n};// end of exec\n";
+
     print "}; // end of Filter\n";
     
 }
@@ -947,10 +1068,6 @@ sub EmitClasses
 sub EmitCalls
 {
 print "void ProcessStyle (BaseObject obj){";
-# foreach (0..$count -1)
-# {
-#     print "if( ProcessStyle$_ (obj)) {return; }\n";
-# }
 print "}\n";
 
 }
@@ -1296,7 +1413,7 @@ use base qw(XML::SAX::Base);
 use Data::Dumper;
 my %seen;
 
-
+my @stack;
 my $current="Nothing";
 my $obj = undef;
 sub start_element 
@@ -1304,22 +1421,30 @@ sub start_element
     my ($self, $el) = @_;
     my $name = $el->{LocalName};
     $obj = ${name}->start($el);
+    print "//DEBUG start $name\n";
     $current = $name;
+    push @stack,$name;
 }
 
 sub end_element 
 {
     my ($self, $el) = @_;
     my $name = $el->{LocalName};
+    $current = pop @stack;
 
-    $current->end($el);
+    print "//DEBUG end $name / $current\n";
     $obj=undef;
-    $current = "Nothing";
+    $current->end($el);
+
+    $current = $stack[-1];
+
+
 }
 
 sub characters
 {
     my ($self, $el) = @_;
+    print "//DEBUG characters in $current\n";
     ${current}->characters($obj,$el);
 }
 
@@ -1345,12 +1470,18 @@ $parser->parse_uri(shift @ARGV);
 
 Filter::EmitClasses();
 
-Stack::PopAll("Rules");# get rid of any data left
-Stack::PopAll("Style");# get rid of any data left
 
-Stack::PopAll;
+#Stack::PopAll("Rules");# get rid of any data left
+#Stack::PopAll("Style");# get rid of any data left
+
+Parameter::PrintParameters();
+
+#Stack::PopAll("Layer");# get rid of any data left
+#Stack::PopAll;
 
 Filter::EmitCalls();
+Style::PrintStyles();
+Layer::PrintLayers();
 
 print join "\n", map {
     my $type = Field::gettype($_);
