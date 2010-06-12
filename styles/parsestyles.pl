@@ -4,6 +4,106 @@
 use strict;
 use warnings;
 
+package Stack;
+
+my %stacks;
+my %data;
+
+sub Push
+{
+    my $name=shift;
+    push @{$stacks{$name}},shift;
+}
+
+sub PopAll
+{
+    my $name=shift;
+    
+    if ($stacks{$name})
+    {
+	my @stack = @{$stacks{$name}};
+	if (@stack)
+	{
+	    warn join "\n",@stack;
+	    print join "\n",@stack;
+	}
+	@{$stacks{$name}}=();
+    }
+}
+
+package Counting;
+my %names_count;
+#Counting::Count("Name");
+sub Count
+{
+    my $name=shift;
+    my $count = $names_count{$name}++;
+    return $count;
+}
+1;
+
+package Naming;
+
+my %names;
+
+# Naming::Name("class","variable name","arg1, arg2");
+sub Name
+{
+    my $name=shift;
+    my $type=shift;
+    my @args=@_;
+    my $old=$type;
+    $type =~ s/-/_/g; # clean the type;
+    my $count = $names{$name}++;
+    my $narg = join(",","\"$old\"",@args);
+    print "protected $type m${name}${count} = new $type ($narg){\n";
+    
+    warn "adding $name";
+    Stack::Push ($name,"};//$name end\n");
+}
+
+
+sub NameLayer
+{
+    my $name=shift;
+    my $type=shift;
+    my @args=@_;
+    my $old=$type;
+    $type =~ s/-/_/g; # clean the type;
+    my $count = $names{$name}++;
+    my $narg = join(",","\"$old\"",@args);
+    print "protected $type m${name}${count} = new $type ($narg){\n";
+    
+    warn "adding $name";
+    Stack::Push ($type,"};//$name end\n");
+}
+
+
+sub NameSimple
+{
+    my $type=shift;
+    my $name=shift;
+    my @args=@_;
+    my $old=$type;
+    $type =~ s/-/_/g; # clean the type;
+    my $count = $names{$name}++;
+    my $narg = join(",",@args);
+    $narg =~ s/\n/\\n/g; # newlines
+    print "protected $type m${name}${count} = new $type($narg);\n";
+}
+
+sub NameNoCount
+{
+    my $name=shift;
+    my $type=shift;
+    my @args=@_;
+    my $old=$type;
+    $type =~ s/-/_/g; # clean the type;
+    my $count = $names{$name}++;
+    my $narg = join(",","\"$old\"",@args);
+    print "protected $type m${name} = new $type ($narg);\n";
+}
+
 =pod
 base class for all sax callback rules
 =cut
@@ -28,18 +128,22 @@ package Rule;
 use Moose;
 extends 'BaseRule';
 
+#my $rulecount=0;
 sub start
 {
     my $class=shift;
     my $data=shift;   
     Field::RuleStart();
+#    Counting::Count("rules");
     return $data;
 }
 
+# Rule::end
 sub end
 {
     my $class=shift;
     my $data=shift;  
+#    Counting::End("rules");
     Field::RuleEnd();
     return $data;
 }
@@ -62,12 +166,35 @@ use Moose;
 extends 'BaseRule';
 
 
+sub ProcessFields 
+{
+    my $data =shift;
+    my @fields =@_;
+
+    my @vals;
+    foreach my $n (@fields )
+    {
+	my $value = $data->{Attributes}->{'{}'.$n}->{'Value'};
+	if ($value)
+	{
+	    push @vals,"\"$value\"";
+	}
+	
+    }
+    return @vals;
+}
+
 sub start
 {
     my $class=shift;
     my $data=shift;
     
-    Field::inLine("PointSymbolizer");
+    my @vals = ProcessFields($data, qw[file type  width height]);
+
+    Field::inLine("PointSymbolizer",@vals);
+    
+
+
 #    warn Dumper($data);    
     return $data;
 }
@@ -87,6 +214,12 @@ sub end
 package Map;
 use Moose;
 extends 'BaseRule';
+
+sub end
+{
+    Stack::PopAll("Layer"); # remove leftover rules
+}
+
 
 1;
 
@@ -115,27 +248,42 @@ sub start
 {
     my $class=shift;
     my $data=shift;
-    my $value = $data->{Attributes}->{'{}name'}->{'Value'};
-    print "package org.openstreetmap.style;\n";
-    print "public class Style_$value extends Style_base\n{\n";
+
+    Stack::PopAll("Rules"); # remove leftover rules
+
     if ($style )
     {
 	end ($class,$data); # close this 
+
+	print "\n//SPLIT FILE HERE----\n"
     }
+
+    my $value = $data->{Attributes}->{'{}name'}->{'Value'};
+    $value =~ s/\-/_/g; # replace the - with _ in the name
+#    print "package org.openstreetmap.style;\n";
+    print "public class Style_$value extends Style_base\n{\n";
     $style = $value;
+
+    Stack::Push("Style","}; // end of class $style\n");
 
     return $data;
 }
 
+# Style::end
 sub end
 {
     my $class=shift;
     my $data=shift;
+
     
+#    Field::RuleEnd(); # do we need to call this afterward, the xml parser does not seem to do it.?
+#    Stack::PopAll("Style");# get rid of any data left, up to Style
+
     Field::EmitClasses();
     
-    print "} // end of class \n";
-    print "} // end of package \n";
+    Stack::PopAll("Style");# get rid of any data left
+
+#//    print "} // end of package $style\n";
     $style = undef;
 
     return $data;
@@ -304,9 +452,15 @@ sub start
     my $class=shift;
     my $data=shift;
     
+    Stack::PopAll("Style");# get rid of any data left
+    Stack::PopAll("Layer");# get rid of any data left
+    #Style::end; # just to be sure, check if the style is ended
+
 #    warn Dumper($data);    
     my $value = $data->{Attributes}->{'{}name'}->{'Value'};
     print "//Layer: $value\n";
+
+    Naming::NameLayer("Layer","Layer");
 
     return $data;
 }
@@ -316,6 +470,7 @@ sub end
     my $class=shift;
     my $data=shift;
     #    warn Dumper($data);    
+    Stack::PopAll("Layer");# get rid of any data left
     return $data;
 }
 
@@ -338,7 +493,7 @@ sub characters
     my $self=shift;
     my $data =shift;
     my $string  =$data->{'Data'};
-    print "Stylename($string)\n";
+    print "Stylename stylename = new Stylename(\"$string\");\n";
 }
 
 1;
@@ -353,13 +508,13 @@ package Parameter;
 use Moose;
 extends 'BaseRule';
 
-
+my $name = "noname";
 sub start
 {
     my $class=shift;
     my $data=shift;  
-    my $value = $data->{Attributes}->{'{}name'}->{'Value'};
-    print "//Parameter: $value\n";
+    $name = $data->{Attributes}->{'{}name'}->{'Value'};
+    print "//Parameter: $name\n";
 
     return $data;
 }
@@ -370,7 +525,8 @@ sub characters
     my $self=shift;
     my $data =shift;
     my $string  =$data->{'Data'};
-    print "Parameter($string)\n";
+#    print "Parameter $name Parameter(\"$string\")\n";
+    Naming::NameSimple("Parameter","$name","\"$string\"");
 }
 
 1;
@@ -387,12 +543,17 @@ package CssParameter;
 use Moose;
 extends 'BaseRule';
 use Data::Dumper;
+my $curname="noname";
 sub start
 {
     my $class=shift;
     my $self=shift;
     my $value = $self->{Attributes}->{'{}name'}->{'Value'};
     print "//CSS: $value\n";
+
+    #start
+    $curname=$value;
+    Naming::Name("CSS","$value");
 }
 
 sub characters 
@@ -402,7 +563,8 @@ sub characters
     my $data =shift;
     my $string  =$data->{'Data'};
 #    warn Dumper($data);
-    print "CSS($string)\n";
+#    print "CSS(\"$string\")\n";
+    Naming::NameNoCount("CSSConst",$curname,"\"$string\"");
 #    warn "Append $data"; 
 
 }
@@ -410,6 +572,9 @@ sub characters
 sub end
 {
 #    warn Dumper(@_);
+
+    #todo, we need to track this better, maybe a stack?
+    print "}; // end of CSS\n";
 }
 
 
@@ -474,21 +639,57 @@ my %object_types_2;
 my %code;
 
 my $line=0;
+my $symbolcount=0;
+
+# ::inLine
+
 sub inLine
 {
     my $line2=shift;
-    print "//INSIDE $line2\n";
+    my @parts =@_;
+    my $s="";
+    if (@parts)
+    {
+	$s = join (",",@parts);
+    }
+    $symbolcount++;
+    print "protected $line2 mSymbol${symbolcount} = new $line2( $s);\n";
     $line=$line2;
 }
+
 sub notinLine
 {
     print "//LEAVING $line\n";
     $line=0;
 }
 
+my $rule="";
+#my $rulecount=0;
 sub RuleStart
 {
-    print "//RuleStart\n";
+    if ($rule)
+    {
+	RuleEnd();
+    }
+
+    Naming::Name("Rules","Rule");
+#    $rulecount++;
+#    print "protected RuleBase  mRule${rulecount} = new Rule${rulecount}() {\n";
+
+
+    $rule=1;
+
+}
+
+sub RuleEnd
+{
+    if (    $rule)
+    {
+
+    }
+
+    Stack::PopAll("Rules");
+    $rule=0;
 }
 
 sub EmitClasses
@@ -497,23 +698,16 @@ sub EmitClasses
     {
 	print "public class $type extends typebase{\n";
 	
-	print join ("\n", @{$code{$type}}) . "\n";
+	#print join ("\n", 
+	map {
+	    Naming::NameSimple ("Filter","code",$_)
+	}@{$code{$type}};
 
-	print "}\n";
+	print "}; // end of class $type \n";
     }
 #    %code=();
 }
 
-sub RuleEnd
-{
-
-    print "//RuleEnd\n";
-    # 
-#    EmitClasses;
-
-#reset
-#    %code=();
-}
 
 sub addCode
 {
@@ -522,7 +716,7 @@ sub addCode
 #    warn "adding $type $code";
     if ($line)
     {
-	push @{$code{$type}},"LINE:". $code;
+	push @{$code{$type}}, $code;
     }
     else
     {
@@ -614,6 +808,8 @@ sub findtypes
     return (sort keys %methods);
 }
 
+my $filtercount=0;
+
 sub Process 
 {
     my $java =shift;
@@ -633,8 +829,11 @@ sub Process
 
     addCode ($type,$java);
 
-    print "$java\n";
-    
+#    print "$java\n";
+    $filtercount++;    
+#    $symbolcount++;
+    print "protected Filter mFilter${filtercount} = new $java;\n";
+
 }
 
 
@@ -704,12 +903,13 @@ sub EmitClasses
 
 sub EmitCalls
 {
-print "void ProcessStyle (OsmPrimitiveWrapper obj){";
+#print "void ProcessStyle (OsmPrimitiveWrapper obj){";
 # foreach (0..$count -1)
 # {
 #     print "if( ProcessStyle$_ (obj)) {return; }\n";
 # }
-print "}";
+#print "}";
+
 }
 
 my %types_rules; # what rules
@@ -1093,12 +1293,12 @@ use XML::SAX::PurePerl;
 #my $handler = XML::Handler::Foo->new();
 my $parser = XML::SAX::PurePerl->new(Handler => MySAXHandler->new );
 #my $parser = XML::SAX::ParserFactory->parser(    Handler => MySAXHandler->new    );
-print "package org.openstreetmap.gwt.client;\n";
-print "import  org.openstreetmap.gwt.client.StyleEvaluator;\n";
-print "import org.openstreetmap.josm.data.osm.OsmPrimitiveWrapper;\n";
+print "package org.openstreetmap.model;\n";
+print "import  org.openstreetmap.model.StyleEvaluator;\n";
+#//print "import org.openstreetmap.josm.data.osm.OsmPrimitiveWrapper;\n";
 print "public class GeneratedStyleEvaluator extends StyleEvaluator  { \n";
 
-$parser->parse_uri("osm_expanded.xml");
+$parser->parse_uri(shift @ARGV);
 
 Filter::EmitClasses();
 Filter::EmitCalls();
