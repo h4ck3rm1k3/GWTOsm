@@ -15,16 +15,34 @@ sub Add
 sub VisitArg
 {
     my $self=shift;
+    if (!$self)
+    {
+	warn "DEBUG:UNDEF!!";	
+	return;
+    }
     my $value=$self->{'value'};
     my $type =$self->{'type'};
 
-    if ($value)
+    if (!$type )
+    {
+
+    }
+    elsif ($type eq 'null')
+    {
+	warn "DEBUG:UNDEF of T:$type";	
+    }
+    elsif ($value)
     {
 	warn "DEBUG:$value of T:$type";	
     }
-    else
+    elsif ($self->{'op'})
     {
 	VisitOp($self);
+    }
+    else
+    {
+	die Dumper($self);
+
     }
 }
 
