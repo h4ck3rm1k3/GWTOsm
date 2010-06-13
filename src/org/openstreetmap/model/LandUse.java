@@ -1,6 +1,6 @@
 package org.openstreetmap.model;
 
-public class LandUse {
+public class LandUse extends style_classifier {
 
 	public boolean equals_(LandUse constOrchard) {
 		// TODO Auto-generated method stub

@@ -52,6 +52,13 @@ public class Amenity {
 
 
 
+	public boolean equals_(Amenity constCollege) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
 
 
 }

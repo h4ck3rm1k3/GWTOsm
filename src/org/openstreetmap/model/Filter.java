@@ -9,7 +9,7 @@ public class Filter {
 	public Filter() {
 		// TODO Auto-generated constructor stub
 	}
-	public HighwayType getObj() {
+	public  typebase getObj() {
 		// TODO Auto-generated method stub
 		return null;
 	};// end of exec

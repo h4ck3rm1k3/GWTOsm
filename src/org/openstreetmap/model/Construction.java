@@ -1,6 +1,6 @@
 package org.openstreetmap.model;
 
-public class Construction {
+public class Construction extends style_classifier  {
 
 	public boolean equals_(HighwayType constMotorwayLink) {
 		// TODO Auto-generated method stub

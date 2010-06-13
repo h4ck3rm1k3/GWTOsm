@@ -3,6 +3,19 @@
 # license : aGPL 3.0
 use strict;
 use warnings;
+use SQL;
+package Java::Package;
+
+#create the subdirectories based on package name
+#create a file
+#calculate the imports
+
+sub create
+{
+    
+}
+
+1;
 
 package Stack;
 
@@ -144,6 +157,7 @@ sub NameLayer
 }
 
 
+# also quotes the string
 sub NameSimple
 {
     my $type=shift;
@@ -154,7 +168,10 @@ sub NameSimple
     my $count = $names{$name}++;
     my $narg = join(",",@args);
     $narg =~ s/\n/\\n/g; # newlines
-    print "protected $type m${name}${count} = new $type($narg);\n";
+    $narg =~ s/\"/\\"/g;
+    $narg =~ s/\'/\\'/g;
+
+    print "protected $type m${name}${count} = new $type(\"$narg\");\n";
     return "m${name}${count}";
 }
 
@@ -308,7 +325,6 @@ extends 'BaseRule';
 sub end
 {
 
-#    Stack::PopAll("Layer"); # remove leftover rules
 }
 
 
@@ -335,33 +351,23 @@ use Data::Dumper;
 
 my $style = undef;
 
+## Style::
 sub start
 {
     my $class=shift;
     my $data=shift;
 
-#    Stack::PopAll("Rules"); # remove leftover rules
-
     if ($style )
     {
 	end ($class,$data); # close this 
-
 	print "\n//SPLIT FILE HERE----\n"
     }
-
     my $value = $data->{Attributes}->{'{}name'}->{'Value'};
     $value =~ s/\-/_/g; # replace the - with _ in the name
-#    print "package org.openstreetmap.style;\n";
-#    print "public class Style_$value extends Style_base\n{\n";
 
     my $style2 =Naming::NameLayerSimple("$value","Style");
     Stack::Push("Styles","$style2");# push these
-
-#    print "public class Style_$value extends Style_base\n{\n";
     $style = $value;
-
-#    Stack::Push("Style","}; // end of class $style\n");
-
     return $data;
 }
 
@@ -389,7 +395,7 @@ sub end
 
     Field::PrintRules();
 
-    Field::EmitClasses();
+#    Field::EmitClasses();
     
     Stack::PopAll("Style");# get rid of any data left
 
@@ -556,16 +562,12 @@ package Layer;
 use Moose;
 extends 'BaseRule';
 use Data::Dumper;
+
+#Layer::start
 sub start
 {
     my $class=shift;
     my $data=shift;
-
-#    Stack::PopAll("Rules"); # remove leftover rules    
-#    Stack::PopAll("Style");# get rid of any data left
-#    Parameter::PrintParameters();
-#    Layer::PrintLayers();
-#    Stack::PopAll("Layer");# get rid of any data left
     my $value = $data->{Attributes}->{'{}name'}->{'Value'};
     print "//Layer: $value\n";
     my $layer =Naming::NameLayer("Layer","Layer");
@@ -573,10 +575,10 @@ sub start
     return $data;
 }
 
+#Layer::PrintLayers
 sub PrintLayers
 {
     print "public void LoadLayers(){\n";
-
     foreach my $p (Stack::PopAllArr("Layers"))
     {
       if ($p)
@@ -592,15 +594,10 @@ sub end
 {
     my $class=shift;
     my $data=shift;
-    #    warn Dumper($data);    
-    
-    print "//End of Layer\n";
     Parameter::PrintParameters();
-#    Layer::PrintLayers();
+    StyleName::LoadStylesUsed();
+
     Stack::PopAll("Layer");# get rid of any data left
-
-
-
     return $data;
 }
 
@@ -610,6 +607,7 @@ package StyleName;
 use Moose;
 extends 'BaseRule';
 
+#StyleName::
 sub start
 {
     my $class=shift;
@@ -617,6 +615,7 @@ sub start
     return $data;
 }
 
+#StyleName::
 sub characters 
 {
     my $class=shift;
@@ -624,8 +623,27 @@ sub characters
     my $data =shift;
     my $string  =$data->{'Data'};
     $string =~ s/\-/_/g; # replace the - with _ in the name
-    print "public void LoadStyle() { Load( m${string});\n };\n";
+ #   print "public void LoadStyle() { Load( m${string});\n };\n";
+    Stack::Push("StylesUsed", "m${string}");
+
 ##
+}
+
+# StyleName::LoadStylesUsed
+sub LoadStylesUsed
+{
+    print "public void LoadStyle() { \n";
+    
+    foreach my $p (Stack::PopAllArr("StylesUsed"))
+    {
+      if ($p)
+	{
+	  print "Load(${p});\n";
+	}
+    }
+
+    print "};\n";
+    
 }
 
 1;
@@ -639,18 +657,20 @@ extends 'BaseRule';
 package Parameter;
 use Moose;
 extends 'BaseRule';
-
+use SQL;
 my $name = "noname";
+
+#Parameter::start
 sub start
 {
     my $class=shift;
     my $data=shift;  
     $name = $data->{Attributes}->{'{}name'}->{'Value'};
     print "//Parameter: $name\n";
-
     return $data;
 }
 
+#Parameter::characters
 sub characters 
 {
     my $class=shift;
@@ -658,12 +678,17 @@ sub characters
     my $data =shift;
     my $string  =$data->{'Data'};
 #    print "Parameter $name Parameter(\"$string\")\n";
-    my $parameter = Naming::NameSimple("Parameter","$name","\"$string\"");
-    
+    my $parameter = Naming::NameSimple("Parameter","$name","$string");
+
+    if ($name eq "table")
+    {
+	SQL::Add($string);
+    }
     # now add this to the list of fields
     Stack::Push("Parameters","$parameter");# push these
 }
 
+#Parameter::PrintParameters
 sub PrintParameters
 {
     print "public void LoadParameters(){\n";
@@ -672,51 +697,47 @@ sub PrintParameters
     {
       if ($p)
 	{
+	    
 	  print "Load(${p});\n";
 	}
     }
     print "}\n";
+
+    SQL::Eval();
 }
-
 1;
-
 
 package ShieldSymbolizer;
 use Moose;
 extends 'BaseRule';
-
-
 1;
+
 
 package CssParameter;
 use Moose;
 extends 'BaseRule';
 use Data::Dumper;
 my $curname="noname";
+
+# CssParameter::
 sub start
 {
     my $class=shift;
     my $self=shift;
     my $value = $self->{Attributes}->{'{}name'}->{'Value'};
     print "//CSS: $value\n";
-
-    #start
     $curname=$value;
     Stack::Push("CSSItems", Naming::Name("CSS","$value"));
 }
 
+# CssParameter::
 sub characters 
 {
     my $class=shift;
     my $self=shift;
     my $data =shift;
     my $string  =$data->{'Data'};
-#    warn Dumper($data);
-#    print "CSS(\"$string\")\n";
     Naming::NameNoCount("CSSConst",$curname,"\"$string\"");
-#    Naming::Name("CSS","$value");
-#    warn "Append $data"; 
-
 }
 
 #CssParameter::PrintCss
@@ -734,15 +755,11 @@ sub PrintCss
     print "}\n";
 }
 
+#CssParameter::end
 sub end
 {
-#    warn Dumper(@_);
-
-    #todo, we need to track this better, maybe a stack?
-    #print "}; // end of CSS\n";
     Stack::PopAll("CSSConst");
     Stack::PopAll("CSS");
-
 }
 
 
@@ -890,7 +907,7 @@ sub EmitClasses
 {
     foreach my $type (sort keys %code)
     {
-	print "class Check_${type} extends typebase{\n";
+	print "class ${type} extends typebase{\n";
 
 	print "public $type obj;\n";
 
@@ -1525,7 +1542,7 @@ Layer::PrintLayers();
 
 print join "\n", map {
     my $type = Field::gettype($_);
-    "public static final $type $_=null;" }(sort keys %fields);
+    "public static final $type VALUE_${_}=null;" }(sort keys %fields);
 
 print "};//end StyleEvaluator \n";
 

@@ -1,7 +1,7 @@
 package org.openstreetmap.model;
 
 
-public class Leisure {
+public class Leisure extends style_classifier {
 
 	public boolean equals_(Leisure constNatureReserve) {
 		// TODO Auto-generated method stub

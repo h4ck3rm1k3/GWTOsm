@@ -1,6 +1,6 @@
 package org.openstreetmap.model;
 
-public class Barrier {
+public class Barrier  extends style_classifier {
 
 	public boolean equals_(Barrier constHedge) {
 		// TODO Auto-generated method stub

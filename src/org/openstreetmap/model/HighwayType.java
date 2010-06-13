@@ -1,7 +1,7 @@
 package org.openstreetmap.model;
 
 
-public class HighwayType {
+public class HighwayType extends style_classifier  {
 
 	public boolean notNULL() {
 		// TODO Auto-generated method stub
@@ -54,6 +54,11 @@ public class HighwayType {
 	}
 
 	public Access getaccess() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HighwayType getaeroway() {
 		// TODO Auto-generated method stub
 		return null;
 	}
