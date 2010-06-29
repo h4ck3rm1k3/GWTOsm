@@ -23,9 +23,26 @@ sub VisitArg
     my $value=$self->{'value'};
     my $type =$self->{'type'};
 
+    foreach my $k (keys %{$self})
+    {
+	warn "Check value $k\t" . $self->{$k} . "\n";
+    }
+
     if (!$type )
     {
-
+	if ($value)
+	{
+	    warn "DEBUG:$value of T:NOTYPE";	
+	}
+	else
+	{
+	    warn "DEBUG:NULL value and T:NOTYPE";	
+	}
+    }
+    elsif ($type eq 'column')
+    {
+	# count the field 
+	Layer::usedField($value);
     }
     elsif ($type eq 'null')
     {
@@ -35,15 +52,17 @@ sub VisitArg
     {
 	warn "DEBUG:$value of T:$type";	
     }
-    elsif ($self->{'op'})
-    {
-	VisitOp($self);
-    }
     else
     {
 	die Dumper($self);
 
     }
+
+    if ($self->{'op'})
+    {
+	VisitOp($self);
+    }
+    
 }
 
 sub VisitOp
@@ -69,6 +88,18 @@ sub VisitOp
     {
 	warn "DEBUG:OR";
     }
+    elsif ($op eq "AND")
+    {
+	warn "DEBUG:AND";
+    }
+    elsif ($op eq "IS")
+    {
+	warn "DEBUG:IS";
+    }
+    elsif ($op eq "IN")
+    {
+	warn "DEBUG:IN";
+    }
     else 
     {
 	warn "DEBUG:unknown op: $op";
@@ -85,7 +116,7 @@ sub VisitJava
 
 sub Eval
 {
-    warn "SQL:\"$current\"";
+#    warn "SQL:\"$current\"";
     my $parser = SQL::Parser->new();
 #    $parser->{RaiseError}=1;   # turn on die-on-error behaviour
     $parser->{PrintError}=1;  # turn on warnings-on-error behaviour
@@ -107,6 +138,10 @@ sub Eval
 	    #warn Dumper($stmt->{'where_clause'});
 	    VisitJava($stmt->{'where_clause'});
 	}
+    else
+    {
+	warn "SKIPPING $current";
+    }
 	
     }
 

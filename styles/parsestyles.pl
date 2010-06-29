@@ -4,7 +4,16 @@
 use strict;
 use warnings;
 use SQL;
+
+package Expression::Analysis;
+use strict;
+use warnings;
+
+
+1;
 package Java::Package;
+use strict;
+use warnings;
 
 #create the subdirectories based on package name
 #create a file
@@ -18,9 +27,11 @@ sub create
 1;
 
 package Stack;
+use strict;
+use warnings;
 
-my %stacks;
-my %data;
+our %stacks;
+our %data;
 
 sub Push
 {
@@ -92,7 +103,10 @@ sub PopAllArr
 }
 
 package Counting;
-my %names_count;
+use strict;
+use warnings;
+
+our %names_count;
 #Counting::Count("Name");
 sub Count
 {
@@ -103,8 +117,10 @@ sub Count
 1;
 
 package Naming;
+use strict;
+use warnings;
 
-my %names;
+our %names;
 
 # Naming::Name("class","variable name","arg1, arg2");
 sub Name
@@ -211,6 +227,8 @@ base class for all sax callback rules
 =cut
 
 package BaseRule;
+use strict;
+use warnings;
 
 use Moose;
 sub start
@@ -227,6 +245,8 @@ sub characters
 1;
 
 package Rule;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
@@ -239,7 +259,7 @@ sub start
     return $data;
 }
 
-# Rule::end
+# Rule::end is part of a Style
 sub end
 {
     my $class=shift;
@@ -249,6 +269,7 @@ sub end
 
     CssParameter::PrintCss();
 
+    # each filter is part of a rule
     Filter::PrintFilters();
 
     Field::RuleEnd();
@@ -258,17 +279,23 @@ sub end
 1;
 
 package MaxScaleDenominator;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
 1;
 
 package MinScaleDenominator;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 1;
 
 package PointSymbolizer;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
@@ -319,6 +346,8 @@ sub end
 1;
 
 package Map;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
@@ -331,12 +360,16 @@ sub end
 1;
 
 package FontSet;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
 1;
 
 package Font;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
@@ -345,11 +378,14 @@ extends 'BaseRule';
 ## Style::
 
 package Style;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 use Data::Dumper;
 
-my $style = undef;
+# the current name of the style
+our $style = undef;
 
 ## Style::
 sub start
@@ -387,7 +423,33 @@ sub PrintStyles
     print "}\n";
 }
 
-# Style::end
+# this style needs this field
+our %usage; # the used fields
+#Style::usedField
+sub usedField
+{
+    my $field=shift;
+    $usage{$style}{$field}++;
+}
+#Style::reportFields
+sub reportFields
+{
+  open OUT, ">FieldReport.csv";
+  print OUT "Field Usage Report\n";
+  print OUT "STYLE\tFIELD\tCOUNT\n";
+    foreach my $k (keys %usage)
+    {
+	foreach my $v (keys %{$usage{$k}})
+	{
+	    my $count=$usage{$k}{$v};
+	    print OUT "$k\t$v\t$count\n";
+	}
+    }
+  close OUT;
+
+}
+
+# Style::end, this is the top level object. 
 sub end
 {
     my $class=shift;
@@ -407,6 +469,8 @@ sub end
 1;
 
 package LineSymbolizer;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 use Data::Dumper;
@@ -435,6 +499,8 @@ sub end
 1;
 
 package PolygonSymbolizer;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
@@ -462,6 +528,8 @@ sub end
 1;
 
 package PolygonPatternSymbolizer;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
@@ -489,6 +557,8 @@ sub end
 1;
 
 package TextSymbolizer;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
@@ -527,12 +597,16 @@ sub end
 1;
 
 package ElseFilter;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
 1;
 
 package LinePatternSymbolizer;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
@@ -559,10 +633,13 @@ sub end
 1;
 
 package Layer;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 use Data::Dumper;
 
+our $layer =undef;
 #Layer::start
 sub start
 {
@@ -570,10 +647,53 @@ sub start
     my $data=shift;
     my $value = $data->{Attributes}->{'{}name'}->{'Value'};
     print "//Layer: $value\n";
-    my $layer =Naming::NameLayer("Layer","Layer");
+    $layer =Naming::NameLayer("Layer","Layer");
     Stack::Push("Layers","$layer");# push these
     return $data;
 }
+
+# Layer::usedField
+our $style=undef;
+our %usage; # the used fields
+sub usedField
+{
+    my $field=shift;
+    if ($style)
+    {
+	$usage{$style}{$field}++;
+    }
+    else
+    {
+	$usage{$layer}{$field}++;
+    }
+    warn "Adding $layer ($style) and $field\n";
+};
+
+
+# Layer::forStyle
+sub forStyle
+{
+    my $s=shift; # save the stype
+    $style=$s; # save the stype
+    warn "Style set to $style";
+}
+#Layer::reportFields
+sub reportFields
+{
+    open OUT,">LayerReport.csv";
+    print OUT "LayerReport\n";
+    print OUT "Style\tField\tCount\n";
+    foreach my $k (keys %usage)
+    {
+	foreach my $v (keys %{$usage{$k}})
+	{
+	    my $count=$usage{$k}{$v};
+	    print OUT "$k\t$v\t$count\n";
+	}
+    }
+    close OUT;
+}
+
 
 #Layer::PrintLayers
 sub PrintLayers
@@ -604,6 +724,8 @@ sub end
 1;
 
 package StyleName;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 
@@ -623,9 +745,15 @@ sub characters
     my $data =shift;
     my $string  =$data->{'Data'};
     $string =~ s/\-/_/g; # replace the - with _ in the name
- #   print "public void LoadStyle() { Load( m${string});\n };\n";
+
+if ($string)
+{
+    warn "Stylename $string";
+
     Stack::Push("StylesUsed", "m${string}");
 
+    Layer::forStyle($string); # save the style inform
+}
 ##
 }
 
@@ -649,16 +777,22 @@ sub LoadStylesUsed
 1;
 
 package Datasource;
+
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
+
 
 1;
 
 package Parameter;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 use SQL;
-my $name = "noname";
+our $name = "noname";
 
 #Parameter::start
 sub start
@@ -708,16 +842,21 @@ sub PrintParameters
 1;
 
 package ShieldSymbolizer;
+
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 1;
 
 
 package CssParameter;
+use strict;
+use warnings;
 use Moose;
 extends 'BaseRule';
 use Data::Dumper;
-my $curname="noname";
+our $curname="noname";
 
 # CssParameter::
 sub start
@@ -770,8 +909,13 @@ base class for all parser objects
 =cut
 
 package Expression;
+
+use strict;
+use warnings;
 use Moose;
 use Data::Dumper;
+
+# Expression::emitJava
 sub emitJava
 {
     my $self=shift;
@@ -811,20 +955,23 @@ sub emitJava
 # the Field class 
 # use Field:: for searching
 package Field;
+
+use strict;
+use warnings;
 use Moose;
 use Data::Dumper;
 extends 'Expression';
 
 # the methods seen so far
-my %methods;
+our %methods;
 
-my %object_types;
-my %object_types_2;
+our %object_types;
+our %object_types_2;
 
-my %code;
+our %code;
 
-my $line=0;
-my $symbolcount=0;
+our $line=0;
+our $symbolcount=0;
 
 # ::inLine
 
@@ -867,7 +1014,7 @@ sub notinLine
     $line=0;
 }
 
-my $rule="";
+our $rule="";
 #my $rulecount=0;
 sub RuleStart
 {
@@ -1000,6 +1147,7 @@ sub gettype
 }
 
 
+# Field::emitJava
 sub emitJava
 {
 #    my $class=shift;
@@ -1009,6 +1157,8 @@ sub emitJava
 #    warn "found $id";
 
     $methods{$id}++;
+
+    Style::usedField($id);
 
     return "getObj().get${id}()";
 }
@@ -1021,7 +1171,7 @@ sub findtypes
     return (sort keys %methods);
 }
 
-my $filtercount=0;
+our $filtercount=0;
 
 #Field::Process($java)
 
@@ -1045,11 +1195,13 @@ sub Process
 1;
 
 package Filter;
+use strict;
+use warnings;
 use Parse::RecDescent;
 use Data::Dumper;
 #use Field;
 
-my $grammar = q {
+our $grammar = q {
 <autotree>
 
 FilterExpr : Expression 
@@ -1065,7 +1217,7 @@ Digits : /[0-9]+/
 Value : "\'" Literal "\'" | Digits | "\'\'"
 Operator :  '*' |  '/' | '+' | '-' | '%' | '=' | '<>'
          };
-my $ruleparser = new Parse::RecDescent ($grammar) or die "Bad grammar!\n";
+our $ruleparser = new Parse::RecDescent ($grammar) or die "Bad grammar!\n";
 
 sub start
 {
@@ -1076,9 +1228,9 @@ sub start
     #print Dumper($data);    
     return $data;
 }
-my $count =0;
+our $count =0;
 
-
+# Filter::End -  part of a rule
 sub end
 {
     my $class=shift;
@@ -1091,6 +1243,8 @@ sub end
     {
 	#print "good text $text \n";
 	my $java  = $x->emitJava();
+
+	# emits the Exec function
 	Field::Process($java);
 	$count++;
     }
@@ -1129,7 +1283,7 @@ print "}\n";
 
 }
 
-my %types_rules; # what rules
+our %types_rules; # what rules
 
 sub EmitCallsType
 {
@@ -1167,6 +1321,9 @@ sub characters
 
 
 package ExprNot;
+
+use strict;
+use warnings;
 use Moose;
 extends 'Expression';
 
@@ -1203,10 +1360,13 @@ sub emitJava
 1;
 
 package Literal;
+
+use strict;
+use warnings;
 use Moose;
 extends 'Expression';
 
-my %fields;
+our %fields;
 
 sub emitJava
 {
@@ -1232,6 +1392,8 @@ the basic field expression,
 field op value 
 =cut
 package ExprField;
+use strict;
+use warnings;
 use Moose;
 extends 'Expression';
 
@@ -1255,6 +1417,8 @@ sub emitJava
 1;
 
 package Identifier;
+use strict;
+use warnings;
 use Moose;
 extends 'Expression';
 
@@ -1270,6 +1434,8 @@ sub emitJava
 
 
 package Operator;
+use strict;
+use warnings;
 use Moose;
 extends 'Expression';
 sub emitJava
@@ -1292,6 +1458,8 @@ sub emitJava
 1;
 
 package Digits;
+use strict;
+use warnings;
 use Moose;
 extends 'Expression';
 sub emitJava
@@ -1308,6 +1476,8 @@ sub emitJava
 1;
 
 package Value;
+use strict;
+use warnings;
 use Moose;
 extends 'Expression';
 use Data::Dumper;
@@ -1354,6 +1524,8 @@ sub emitJava
 1;
 
 package Parens;
+use strict;
+use warnings;
 use Moose;
 extends 'Expression';
 
@@ -1390,6 +1562,8 @@ sub emitJava
 1;
 
 package ExprAnd;
+use strict;
+use warnings;
 use Moose;
 extends 'Expression';
 
@@ -1421,6 +1595,8 @@ sub emitJava
 1;
 
 package FilterExpr;
+use strict;
+use warnings;
 
 use Data::Dumper;
 
@@ -1448,6 +1624,8 @@ sub emitJava
 1;
 
 package Nothing;
+use strict;
+use warnings;
 use Data::Dumper;
 sub start
 {
@@ -1466,13 +1644,15 @@ sub characters
 1;
 
 package MySAXHandler;
+use strict;
+use warnings;
 use base qw(XML::SAX::Base);
 use Data::Dumper;
-my %seen;
+our %seen;
 
-my @stack;
-my $current="Nothing";
-my $obj = undef;
+our @stack;
+our $current="Nothing";
+our $obj = undef;
 sub start_element 
 {
     my ($self, $el) = @_;
@@ -1516,7 +1696,7 @@ use XML::SAX;
 
 use XML::SAX::PurePerl;
 #my $handler = XML::Handler::Foo->new();
-my $parser = XML::SAX::PurePerl->new(Handler => MySAXHandler->new );
+our $parser = XML::SAX::PurePerl->new(Handler => MySAXHandler->new );
 #my $parser = XML::SAX::ParserFactory->parser(    Handler => MySAXHandler->new    );
 print "package org.openstreetmap.model;\n";
 print "import  org.openstreetmap.model.StyleEvaluator;\n";
@@ -1543,6 +1723,10 @@ Layer::PrintLayers();
 print join "\n", map {
     my $type = Field::gettype($_);
     "public static final $type VALUE_${_}=null;" }(sort keys %fields);
+
+# report on fields
+Style::reportFields();
+Layer::reportFields();
 
 print "};//end StyleEvaluator \n";
 
